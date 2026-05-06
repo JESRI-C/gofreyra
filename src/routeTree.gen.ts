@@ -9,38 +9,323 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UseCasesRouteImport } from './routes/use-cases'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as OmRouteImport } from './routes/om'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as IndsigterRouteImport } from './routes/indsigter'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
+import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
+import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
+import { Route as PlatformDecisionsiqRouteImport } from './routes/platform.decisionsiq'
+import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninger.naturprojekter'
+import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
+import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
+import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
 
+const UseCasesRoute = UseCasesRouteImport.update({
+  id: '/use-cases',
+  path: '/use-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OmRoute = OmRouteImport.update({
+  id: '/om',
+  path: '/om',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndsigterRoute = IndsigterRouteImport.update({
+  id: '/indsigter',
+  path: '/indsigter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlatformSmartconnectRoute = PlatformSmartconnectRouteImport.update({
+  id: '/smartconnect',
+  path: '/smartconnect',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformImpactExchangeRoute = PlatformImpactExchangeRouteImport.update({
+  id: '/impact-exchange',
+  path: '/impact-exchange',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformEsgLedgerRoute = PlatformEsgLedgerRouteImport.update({
+  id: '/esg-ledger',
+  path: '/esg-ledger',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformDecisionsiqRoute = PlatformDecisionsiqRouteImport.update({
+  id: '/decisionsiq',
+  path: '/decisionsiq',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const LoesningerNaturprojekterRoute =
+  LoesningerNaturprojekterRouteImport.update({
+    id: '/loesninger/naturprojekter',
+    path: '/loesninger/naturprojekter',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
+  id: '/loesninger/kommuner',
+  path: '/loesninger/kommuner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoesningerIndustriRoute = LoesningerIndustriRouteImport.update({
+  id: '/loesninger/industri',
+  path: '/loesninger/industri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
+  id: '/loesninger/esg-compliance',
+  path: '/loesninger/esg-compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/book-demo': typeof BookDemoRoute
+  '/dashboard': typeof DashboardRoute
+  '/indsigter': typeof IndsigterRoute
+  '/kontakt': typeof KontaktRoute
+  '/om': typeof OmRoute
+  '/platform': typeof PlatformRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/use-cases': typeof UseCasesRoute
+  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
+  '/loesninger/industri': typeof LoesningerIndustriRoute
+  '/loesninger/kommuner': typeof LoesningerKommunerRoute
+  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
+  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
+  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
+  '/platform/smartconnect': typeof PlatformSmartconnectRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/book-demo': typeof BookDemoRoute
+  '/dashboard': typeof DashboardRoute
+  '/indsigter': typeof IndsigterRoute
+  '/kontakt': typeof KontaktRoute
+  '/om': typeof OmRoute
+  '/platform': typeof PlatformRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/use-cases': typeof UseCasesRoute
+  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
+  '/loesninger/industri': typeof LoesningerIndustriRoute
+  '/loesninger/kommuner': typeof LoesningerKommunerRoute
+  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
+  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
+  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
+  '/platform/smartconnect': typeof PlatformSmartconnectRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/book-demo': typeof BookDemoRoute
+  '/dashboard': typeof DashboardRoute
+  '/indsigter': typeof IndsigterRoute
+  '/kontakt': typeof KontaktRoute
+  '/om': typeof OmRoute
+  '/platform': typeof PlatformRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/use-cases': typeof UseCasesRoute
+  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
+  '/loesninger/industri': typeof LoesningerIndustriRoute
+  '/loesninger/kommuner': typeof LoesningerKommunerRoute
+  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
+  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
+  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
+  '/platform/smartconnect': typeof PlatformSmartconnectRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/book-demo'
+    | '/dashboard'
+    | '/indsigter'
+    | '/kontakt'
+    | '/om'
+    | '/platform'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/use-cases'
+    | '/loesninger/esg-compliance'
+    | '/loesninger/industri'
+    | '/loesninger/kommuner'
+    | '/loesninger/naturprojekter'
+    | '/platform/decisionsiq'
+    | '/platform/esg-ledger'
+    | '/platform/impact-exchange'
+    | '/platform/smartconnect'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/book-demo'
+    | '/dashboard'
+    | '/indsigter'
+    | '/kontakt'
+    | '/om'
+    | '/platform'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/use-cases'
+    | '/loesninger/esg-compliance'
+    | '/loesninger/industri'
+    | '/loesninger/kommuner'
+    | '/loesninger/naturprojekter'
+    | '/platform/decisionsiq'
+    | '/platform/esg-ledger'
+    | '/platform/impact-exchange'
+    | '/platform/smartconnect'
+  id:
+    | '__root__'
+    | '/'
+    | '/book-demo'
+    | '/dashboard'
+    | '/indsigter'
+    | '/kontakt'
+    | '/om'
+    | '/platform'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/use-cases'
+    | '/loesninger/esg-compliance'
+    | '/loesninger/industri'
+    | '/loesninger/kommuner'
+    | '/loesninger/naturprojekter'
+    | '/platform/decisionsiq'
+    | '/platform/esg-ledger'
+    | '/platform/impact-exchange'
+    | '/platform/smartconnect'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookDemoRoute: typeof BookDemoRoute
+  DashboardRoute: typeof DashboardRoute
+  IndsigterRoute: typeof IndsigterRoute
+  KontaktRoute: typeof KontaktRoute
+  OmRoute: typeof OmRoute
+  PlatformRoute: typeof PlatformRouteWithChildren
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UseCasesRoute: typeof UseCasesRoute
+  LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
+  LoesningerIndustriRoute: typeof LoesningerIndustriRoute
+  LoesningerKommunerRoute: typeof LoesningerKommunerRoute
+  LoesningerNaturprojekterRoute: typeof LoesningerNaturprojekterRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/use-cases': {
+      id: '/use-cases'
+      path: '/use-cases'
+      fullPath: '/use-cases'
+      preLoaderRoute: typeof UseCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/om': {
+      id: '/om'
+      path: '/om'
+      fullPath: '/om'
+      preLoaderRoute: typeof OmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indsigter': {
+      id: '/indsigter'
+      path: '/indsigter'
+      fullPath: '/indsigter'
+      preLoaderRoute: typeof IndsigterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +333,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/platform/smartconnect': {
+      id: '/platform/smartconnect'
+      path: '/smartconnect'
+      fullPath: '/platform/smartconnect'
+      preLoaderRoute: typeof PlatformSmartconnectRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/platform/impact-exchange': {
+      id: '/platform/impact-exchange'
+      path: '/impact-exchange'
+      fullPath: '/platform/impact-exchange'
+      preLoaderRoute: typeof PlatformImpactExchangeRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/platform/esg-ledger': {
+      id: '/platform/esg-ledger'
+      path: '/esg-ledger'
+      fullPath: '/platform/esg-ledger'
+      preLoaderRoute: typeof PlatformEsgLedgerRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/platform/decisionsiq': {
+      id: '/platform/decisionsiq'
+      path: '/decisionsiq'
+      fullPath: '/platform/decisionsiq'
+      preLoaderRoute: typeof PlatformDecisionsiqRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/loesninger/naturprojekter': {
+      id: '/loesninger/naturprojekter'
+      path: '/loesninger/naturprojekter'
+      fullPath: '/loesninger/naturprojekter'
+      preLoaderRoute: typeof LoesningerNaturprojekterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loesninger/kommuner': {
+      id: '/loesninger/kommuner'
+      path: '/loesninger/kommuner'
+      fullPath: '/loesninger/kommuner'
+      preLoaderRoute: typeof LoesningerKommunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loesninger/industri': {
+      id: '/loesninger/industri'
+      path: '/loesninger/industri'
+      fullPath: '/loesninger/industri'
+      preLoaderRoute: typeof LoesningerIndustriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loesninger/esg-compliance': {
+      id: '/loesninger/esg-compliance'
+      path: '/loesninger/esg-compliance'
+      fullPath: '/loesninger/esg-compliance'
+      preLoaderRoute: typeof LoesningerEsgComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface PlatformRouteChildren {
+  PlatformDecisionsiqRoute: typeof PlatformDecisionsiqRoute
+  PlatformEsgLedgerRoute: typeof PlatformEsgLedgerRoute
+  PlatformImpactExchangeRoute: typeof PlatformImpactExchangeRoute
+  PlatformSmartconnectRoute: typeof PlatformSmartconnectRoute
+}
+
+const PlatformRouteChildren: PlatformRouteChildren = {
+  PlatformDecisionsiqRoute: PlatformDecisionsiqRoute,
+  PlatformEsgLedgerRoute: PlatformEsgLedgerRoute,
+  PlatformImpactExchangeRoute: PlatformImpactExchangeRoute,
+  PlatformSmartconnectRoute: PlatformSmartconnectRoute,
+}
+
+const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
+  PlatformRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookDemoRoute: BookDemoRoute,
+  DashboardRoute: DashboardRoute,
+  IndsigterRoute: IndsigterRoute,
+  KontaktRoute: KontaktRoute,
+  OmRoute: OmRoute,
+  PlatformRoute: PlatformRouteWithChildren,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UseCasesRoute: UseCasesRoute,
+  LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
+  LoesningerIndustriRoute: LoesningerIndustriRoute,
+  LoesningerKommunerRoute: LoesningerKommunerRoute,
+  LoesningerNaturprojekterRoute: LoesningerNaturprojekterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
