@@ -8,10 +8,10 @@ import { SectionHeader, MicroStrip, FaqSection } from "@/components/site/section
 import { INSIGHTS, INSIGHT_CATEGORIES } from "@/data/insights";
 
 const FAQ = [
-  { q: "Hvorfor skal jeg udfylde en formular for at læse hele artiklen?", a: "Vi prioriterer at sende relevant viden til de rigtige personer. Indledningen er altid frit tilgængelig — fuld adgang gives mod et professionelt kontaktpunkt." },
-  { q: "Hvor ofte udgiver I nye indsigter?", a: "Løbende, typisk når en pilot, en ny datakilde eller en regulatorisk udvikling giver konkret læring." },
-  { q: "Kan jeg bruge artiklerne internt?", a: "Ja. Del gerne. Skal tekst eller grafik bruges i en rapport, så skriv kort til os først." },
-  { q: "Skriver I på engelsk?", a: "Indtil videre primært på dansk. Udvalgte artikler kommer på engelsk efter behov." },
+  { q: "Hvorfor skal jeg udfylde en formular?", a: "Indledningen er altid frit tilgængelig. Fuld adgang får du ved at oplyse, hvem du er — så vi ved, hvilken viden vi sender, og hvor den lander." },
+  { q: "Hvor ofte udgiver I nye indsigter?", a: "Løbende — når en pilot, en datakilde eller en regulatorisk ændring giver konkret læring." },
+  { q: "Kan jeg dele artiklerne internt?", a: "Ja. Skal tekst eller grafik bruges i en rapport, så skriv kort til os først." },
+  { q: "Skriver I på engelsk?", a: "Primært dansk. Udvalgte artikler oversættes efter behov." },
 ];
 
 export const Route = createFileRoute("/indsigter")({
@@ -33,9 +33,9 @@ function InsightsPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-24 max-w-3xl">
           <span className="eyebrow">Indsigter</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.1]">Indsigter</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.1]">Viden om data, natur og dokumentation</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Praktisk viden om miljødata, ESG-dokumentation, biodiversitet og datadrevet bæredygtighed.
+            Konkret B2B-viden om ESG, miljødata, biodiversitet og audit trail. Læs indledningen frit — få adgang til hele analysen.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ function InsightsPage() {
 
       <FaqSection items={FAQ} />
 
-      <CTASection title="Vil du gå fra teori til opsætning?" subtitle="Book en demo og få en konkret gennemgang af, hvordan GoFreyra arbejder med jeres data." />
+      <CTASection title="Fra indsigt til opsætning" subtitle="Book en demo og få en konkret gennemgang af, hvordan GoFreyra arbejder med jeres data." />
     </PageLayout>
   );
 }

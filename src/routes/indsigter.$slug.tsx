@@ -136,8 +136,8 @@ function ArticlePage() {
 
       {/* DEMO CTA */}
       <GreenCTA
-        title="Vil du se, hvordan det kan bruges i praksis?"
-        subtitle="Book en demo og se, hvordan GoFreyra kan omsætte miljødata, ESG-dokumentation og analyse til et konkret dashboard."
+        title="Se det i praksis"
+        subtitle="På en demo viser vi, hvordan GoFreyra omsætter miljødata, ESG og analyse til et konkret dashboard."
         primary={{ to: "/book-demo", label: "Book demo" }}
         secondary={{ to: "/platform", label: "Se platformen" }}
       />
@@ -167,8 +167,8 @@ function ArticlePage() {
       {insight.faq && insight.faq.length > 0 && <FaqSection items={insight.faq} title="Spørgsmål til artiklen" />}
 
       <CTASection
-        title="Vil du se, hvordan GoFreyra kan bruges i jeres organisation?"
-        subtitle="På en demo gennemgår vi jeres datakilder, dokumentationsbehov og muligheder for et første pilotforløb."
+        title="Klar til et første pilotforløb?"
+        subtitle="Vi gennemgår jeres datakilder, dokumentationsbehov og hvor et pilotforløb skaber mest værdi."
       />
     </PageLayout>
   );
