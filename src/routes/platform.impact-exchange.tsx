@@ -64,6 +64,12 @@ export const Route = createFileRoute("/platform/impact-exchange")({
         "Bedre forberedelse til biodiversitets- og klimamarkeder",
         "Tydeligere kommunikation af reel effekt",
       ]}
+      dataSources={["Feltobservationer", "Drone (RGB / multispektral)", "Satellit (Sentinel-2, Satlas)", "Naturdatabasen", "GBIF / DanBIF", "Jord- og vandsensorer", "Verificerede ESG Ledger-poster", "Projektdokumentation"]}
+      relatedModules={[
+        { name: "SmartConnect+", to: "/platform/smartconnect", d: "Leverer felt-, drone- og satellitdata fra projekter." },
+        { name: "ESG Ledger", to: "/platform/esg-ledger", d: "Bevisgrundlaget bag hver impact-indikator." },
+        { name: "GoFreyra Dashboard", to: "/dashboard", d: "Projekt- og impactvisninger samlet for ledelse, partnere og lodsejere." },
+      ]}
       faq={FAQ}
     />
   ),

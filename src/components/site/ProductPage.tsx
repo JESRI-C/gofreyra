@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Database } from "lucide-react";
 import { PageLayout } from "./PageLayout";
 import { CTASection } from "./CTASection";
 import { FaqSection, type FAQItem, FlowSection, GreenCTA, SectionHeader } from "./sections";
@@ -20,9 +20,13 @@ export interface ProductPageProps {
   notDoing?: string[];
   faq?: FAQItem[];
   extra?: ReactNode;
+  /** New: data sources used by the module */
+  dataSources?: string[];
+  /** New: related modules in the platform */
+  relatedModules?: { name: string; to: string; d: string }[];
 }
 
-export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra }: ProductPageProps) {
+export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra, dataSources, relatedModules }: ProductPageProps) {
   return (
     <PageLayout>
       <section className="gradient-hero">
@@ -112,6 +116,37 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
                 <li key={n} className="flex gap-2 text-sm text-foreground/80"><span className="text-muted-foreground">—</span> <span>{n}</span></li>
               ))}
             </ul>
+          </div>
+        </section>
+      )}
+
+      {dataSources && dataSources.length > 0 && (
+        <section className="surface-beige">
+          <div className="container-page py-16">
+            <SectionHeader eyebrow="Datakilder" title="Hvilke data modulet typisk arbejder med." body="Datakilder kobles gradvist. Vi kræver ikke perfekt datamodenhed fra dag ét." />
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {dataSources.map((d) => (
+                <div key={d} className="card-soft p-4 bg-card flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-brand-deep grid place-items-center"><Database className="w-4 h-4" /></div>
+                  <span className="text-sm font-medium">{d}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {relatedModules && relatedModules.length > 0 && (
+        <section className="container-page py-16">
+          <SectionHeader eyebrow="Modulrelation" title="Sådan spiller modulet sammen med resten af platformen." body="Modulerne deler datagrundlag. Start med ét — kobl flere på, når det giver værdi." />
+          <div className="mt-8 grid md:grid-cols-3 gap-4">
+            {relatedModules.map((m) => (
+              <Link key={m.to} to={m.to} className="card-soft p-5 bg-card hover:border-primary/40 transition">
+                <div className="font-semibold">{m.name}</div>
+                <p className="mt-1.5 text-sm text-muted-foreground">{m.d}</p>
+                <div className="mt-3 inline-flex items-center text-sm font-medium text-brand-deep">Se modulet <ArrowRight className="ml-1 w-4 h-4" /></div>
+              </Link>
+            ))}
           </div>
         </section>
       )}

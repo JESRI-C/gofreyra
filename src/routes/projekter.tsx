@@ -4,6 +4,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { Button } from "@/components/ui/button";
+import { FaqSection, MicroStrip, CardGrid } from "@/components/site/sections";
 import coastal from "@/assets/project-coastal.jpg";
 import stream from "@/assets/project-stream.jpg";
 import field from "@/assets/project-field.jpg";
@@ -12,6 +13,13 @@ import pasture from "@/assets/project-pasture.jpg";
 import lake from "@/assets/project-lake.jpg";
 import coastRestoration from "@/assets/project-coast-restoration.jpg";
 
+const FAQ = [
+  { q: "Er det kunder eller egne projekter?", a: "Begge dele. Listen blander piloter, kundeprojekter og egne reference-arealer, hvor vi bygger og tester platformen." },
+  { q: "Hvor henter I data fra?", a: "En kombination af felt, drone, satellit (Sentinel-2, Satlas), sensorer og officielle registre (DMI, GBIF, Naturdatabasen, Natura 2000, IPCC, SoilGrids)." },
+  { q: "Kan vi lave et lignende projekt på vores areal?", a: "Ja. Et pilotforløb starter typisk med ét areal og en afgrænset baseline. Skriv til os, så foreslår vi et scope." },
+  { q: "Hvor lang tid tager en baseline?", a: "Typisk 2-6 uger afhængigt af areal, datakilder og adgang til feltdata. Drone- og satellitbaselines kan etableres hurtigt." },
+];
+
 export const Route = createFileRoute("/projekter")({
   head: () =>
     buildHead({
@@ -19,6 +27,7 @@ export const Route = createFileRoute("/projekter")({
       description:
         "Eksempler på naturprojekter, kystgenopretning og arealmonitorering hvor GoFreyra kombinerer feltdata, drone, satellit og officielle kilder til dokumenterbar impact.",
       path: "/projekter",
+      jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     }),
   component: ProjekterPage,
 });
@@ -176,6 +185,20 @@ function ProjekterPage() {
         </div>
       </section>
 
+      <MicroStrip items={["Felt + drone + satellit", "Officielle datakilder", "Audit trail på datapunkter", "Klar til biodiversitets- og kulstofmarkeder"]} />
+
+      <CardGrid
+        beige
+        eyebrow="Sådan arbejder vi med projekter"
+        title="Baseline. Drift. Dokumentation."
+        cols={3}
+        cards={[
+          { t: "Baseline", d: "Etablér et dokumenteret startpunkt med felt, drone og satellit." },
+          { t: "Drift og monitorering", d: "Følg udvikling over tid med faste indikatorer og evidence events." },
+          { t: "Rapport og impact", d: "Træk dokumentation til myndigheder, partnere og fremtidige markeder." },
+        ]}
+      />
+
       <section className="container-page py-12 space-y-10">
         {PROJECTS.map((p, i) => (
           <article
@@ -233,6 +256,8 @@ function ProjekterPage() {
           </article>
         ))}
       </section>
+
+      <FaqSection items={FAQ} />
 
       <CTASection />
     </PageLayout>

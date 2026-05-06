@@ -64,6 +64,12 @@ export const Route = createFileRoute("/platform/decisionsiq")({
         "Bedre prioritering af bæredygtighedsindsatser",
         "Stærkere beslutningsgrundlag for drift og ledelse",
       ]}
+      dataSources={["Tidsseriedata fra sensorer", "Driftsdata fra SCADA / ERP", "Satellit- og dronedata", "Feltobservationer", "Vejr- og klimadata", "Emissionsfaktorer (IPCC EFDB)", "Historik fra ESG Ledger"]}
+      relatedModules={[
+        { name: "SmartConnect+", to: "/platform/smartconnect", d: "Leverer det validerede datagrundlag, DecisionsIQ analyserer." },
+        { name: "ESG Ledger", to: "/platform/esg-ledger", d: "Hver anbefaling kan dokumenteres med kilde og metode." },
+        { name: "GoFreyra Dashboard", to: "/dashboard", d: "Risikoflag og prioriteret handlingskø vises samlet for drift, ESG og ledelse." },
+      ]}
       faq={FAQ}
     />
   ),
