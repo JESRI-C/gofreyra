@@ -127,7 +127,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: coastRestoration,
-    alt: "Risgærde af træpæle på vade — kystsikring og marskdannelse i aftenlys",
+    alt: "Naturareal i aftensol — luftfoto af landskab i etablering",
     tag: "Marsk & kystsikring",
     title: "Risgærder — marskdannelse og sedimentfangst",
     location: "Vadehavet, Danmark",
