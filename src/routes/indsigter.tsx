@@ -35,6 +35,7 @@ export const Route = createFileRoute("/indsigter")({
     title: "Indsigter — CSRD, ESG-data, biodiversitet og naturdokumentation | GoFreyra",
     description: "Praktisk viden om CSRD, ESG-data, biodiversitet, AI og audit trail. Artikler, whitepapers og guides fra GoFreyra.",
     path: "/indsigter",
+    jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   }),
   component: InsightsPage,
 });
