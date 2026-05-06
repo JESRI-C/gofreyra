@@ -517,13 +517,25 @@ function PlatformPage() {
             <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 border border-white/20">
               <Sparkles className="w-3.5 h-3.5" /> Pilotklar
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">Klar til at se det på jeres data?</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">Book en demo og se, hvordan jeres data kan blive til dokumenterbar handling.</h2>
             <p className="mt-4 text-white/80 max-w-lg">
-              Vi gennemgår jeres datakilder, dokumentationsbehov og muligheder for et første pilotforløb.
+              Vi gennemgår jeres datakilder, dokumentationsbehov og hvor et første pilotforløb giver mest mening.
             </p>
             <div className="mt-7 flex gap-3 flex-wrap">
               <Button asChild className="rounded-full h-11 px-6 bg-white text-brand-deep hover:bg-white/90"><Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/kontakt">Tal med os om pilot</Link></Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/dashboard">Se dashboardet</Link></Button>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                { to: "/platform/smartconnect", t: "SmartConnect+" },
+                { to: "/platform/decisionsiq", t: "DecisionsIQ" },
+                { to: "/platform/esg-ledger", t: "ESG Ledger" },
+                { to: "/platform/impact-exchange", t: "Impact Exchange" },
+              ].map((m) => (
+                <Link key={m.to} to={m.to} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 text-white hover:bg-white/20 transition border border-white/20">
+                  {m.t} <ArrowRight className="w-3 h-3" />
+                </Link>
+              ))}
             </div>
           </div>
 
