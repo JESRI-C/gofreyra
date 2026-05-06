@@ -5,13 +5,13 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { Button } from "@/components/ui/button";
 import { FaqSection, MicroStrip, CardGrid } from "@/components/site/sections";
-import coastal from "@/assets/project-coastal.jpg";
-import stream from "@/assets/project-stream.jpg";
-import field from "@/assets/project-field.jpg";
-import forest from "@/assets/project-forest.jpg";
-import pasture from "@/assets/project-pasture.jpg";
-import lake from "@/assets/project-lake.jpg";
-import coastRestoration from "@/assets/project-coast-restoration.jpg";
+import coastal from "@/assets/freyra/nature-river.jpg";
+import stream from "@/assets/freyra/nature-stream.jpg";
+import field from "@/assets/freyra/nature-restoration.jpg";
+import forest from "@/assets/freyra/nature-forest.jpg";
+import pasture from "@/assets/freyra/nature-autumn.jpg";
+import lake from "@/assets/freyra/nature-wetland.jpg";
+import coastRestoration from "@/assets/freyra/nature-sunset.jpg";
 
 const FAQ = [
   { q: "Er det kunder eller egne projekter?", a: "Begge dele. Listen blander piloter, kundeprojekter og egne reference-arealer, hvor vi bygger og tester platformen." },
