@@ -4,26 +4,26 @@ import { buildHead } from "@/components/site/SEO";
 
 export const Route = createFileRoute("/platform/smartconnect")({
   head: () => buildHead({
-    title: "SmartConnect+ — Realtidsdata fra sensorer og IoT | GoFreyra",
-    description: "SmartConnect+ samler IoT-enheder, feltdata og driftsdata i ét sikkert monitoreringslag med realtidsindsigt og alarmer.",
+    title: "SmartConnect+ — Indsaml miljø- og driftsdata i realtid | GoFreyra",
+    description: "SmartConnect+ samler data fra sensorer, drone, satellit, felt og drift i ét struktureret lag — klar til analyse og dokumentation.",
     path: "/platform/smartconnect",
   }),
   component: () => (
     <ProductPage
-      eyebrow="Modul · Dataindsamling"
+      eyebrow="Modul 1 · Indsaml data"
       title="SmartConnect+"
-      subtitle="Forbind sensorer, enheder og miljødata i realtid."
-      intro="SmartConnect+ samler IoT-enheder, feltdata og driftsdata i ét sikkert monitoreringslag, så miljødata kan bruges aktivt — ikke bare arkiveres."
+      subtitle="Indsamler data fra sensorer, drone, satellit, felt og drift — så det kan bruges, ikke bare arkiveres."
+      intro="SmartConnect+ er datalaget i GoFreyra. Det forbinder jeres datakilder, validerer kvaliteten og gør strømmen klar til DecisionsIQ og ESG Ledger. Ingen flere regneark og manuelle eksporter."
       features={[
-        { title: "Realtidsmonitorering", desc: "Følg sensorer, miljødata og projektområder i realtid med tydelig status og alarmer." },
-        { title: "Sensorstatus og alarmer", desc: "Få besked når en node mister forbindelse, batteriniveau falder eller måleværdier afviger." },
-        { title: "Miljødata-streams", desc: "Strukturerede datastrømme klar til analyse og dokumentation." },
-        { title: "Sikre integrationer", desc: "Forbind til eksisterende IoT-platforme, dataloggere og driftsystemer." },
-        { title: "Edge-ready arkitektur", desc: "Understøtter lokal dataopsamling i områder uden stabil forbindelse." },
-        { title: "Datavalidering", desc: "Automatisk kvalitetssikring inden data går videre til analyse og rapportering." },
+        { title: "Realtidsmonitorering", desc: "Følg sensorer, måleværdier og projektområder med tydelig status." },
+        { title: "Sensorstatus og alarmer", desc: "Få besked når en node mister forbindelse eller måleværdier afviger." },
+        { title: "Drone-, satellit- og feltdata", desc: "Indlæs ortofotos, Sentinel-pas og feltobservationer i samme datamodel." },
+        { title: "Integrationer til drift og ERP", desc: "Forbind eksisterende IoT-platforme, dataloggere og driftssystemer." },
+        { title: "Edge-ready", desc: "Lokal dataopsamling i områder uden stabil forbindelse." },
+        { title: "Datavalidering", desc: "Automatisk kvalitetstjek inden data går videre." },
       ]}
       bullets={[
-        "Færre manuelle aflæsninger og regneark",
+        "Færre manuelle aflæsninger og eksporter",
         "Hurtigere reaktion på driftsafvigelser",
         "Renere datagrundlag for ESG og naturdokumentation",
       ]}

@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function CTASection({
-  eyebrow = "Demo",
-  title = "Klar til at gøre bæredygtighedsdata brugbare?",
-  subtitle = "Book en demo og se, hvordan GoFreyra kan forbinde data, dokumentation og beslutninger.",
+  eyebrow = "Book demo",
+  title = "Se GoFreyra med jeres egne data.",
+  subtitle = "30 minutter med en specialist. Vi gennemgår jeres datakilder, dokumentationsbehov og hvordan platformen passer ind.",
 }: {
   eyebrow?: string;
   title?: string;

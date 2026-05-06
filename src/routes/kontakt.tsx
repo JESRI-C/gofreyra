@@ -60,9 +60,9 @@ function ContactPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
           <span className="eyebrow">Kontakt</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Kontakt</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Lad os tale sammen.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Skriv til os om platform, pilotprojekter eller partnerskaber.
+            Skriv til os om platformen, et pilotprojekt eller et partnerskab. Vi vender tilbage inden for én arbejdsdag.
           </p>
         </div>
       </section>
@@ -78,8 +78,8 @@ function ContactPage() {
             <p className="mt-2 text-sm text-muted-foreground">Dansk SaaS-platform til miljødata, ESG-dokumentation og verificerbar impact.</p>
           </div>
           <div className="card-soft p-6">
-            <div className="text-sm font-semibold">Vil du se en demo?</div>
-            <p className="mt-2 text-sm text-muted-foreground">Book en gennemgang af platformen tilpasset jeres datakilder.</p>
+            <div className="text-sm font-semibold">Vil du se platformen?</div>
+            <p className="mt-2 text-sm text-muted-foreground">Book 30 minutter med en specialist — vi tilpasser demoen til jeres datakilder.</p>
             <Button asChild className="mt-3 rounded-full"><Link to="/book-demo">Book demo</Link></Button>
           </div>
         </div>
