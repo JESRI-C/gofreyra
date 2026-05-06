@@ -35,8 +35,10 @@ export function Footer() {
           { to: "/om", label: "Om GoFreyra" },
           { to: "/indsigter", label: "Indsigter" },
           { to: "/use-cases", label: "Use cases" },
+          { to: "/brancher", label: "Brancher" },
           { to: "/projekter", label: "Projekter" },
           { to: "/datakilder", label: "Datakilder" },
+          { to: "/ordbog", label: "Ordbog" },
           { to: "/book-demo", label: "Book demo" },
           { to: "/kontakt", label: "Kontakt" },
         ]} />
