@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SECTOR_TEMPLATES, GLOSSARY } from "@/data/pseo";
 
-const URLS = [
+const STATIC_URLS = [
   "/", "/platform",
   "/platform/smartconnect", "/platform/decisionsiq", "/platform/esg-ledger", "/platform/impact-exchange",
   "/dashboard",
   "/loesninger/kommuner", "/loesninger/industri", "/loesninger/esg-compliance", "/loesninger/naturprojekter",
   "/use-cases", "/projekter", "/datakilder", "/indsigter", "/om", "/book-demo", "/kontakt",
+  "/brancher", "/ordbog",
 ];
 
 const SITE = "https://gofreyra.lovable.app";
@@ -15,9 +17,14 @@ export const Route = createFileRoute("/sitemap.xml")({
     handlers: {
       GET: async () => {
         const today = new Date().toISOString().split("T")[0];
+        const urls = [
+          ...STATIC_URLS,
+          ...SECTOR_TEMPLATES.map((t) => `/brancher/${t.slug}`),
+          ...GLOSSARY.map((t) => `/ordbog/${t.slug}`),
+        ];
         const xml =
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-          URLS.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq></url>`).join("\n") +
+          urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq></url>`).join("\n") +
           `\n</urlset>`;
         return new Response(xml, { headers: { "Content-Type": "application/xml; charset=utf-8" } });
       },
