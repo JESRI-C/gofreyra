@@ -27,6 +27,7 @@ export const Route = createFileRoute("/projekter")({
       description:
         "Eksempler på naturprojekter, kystgenopretning og arealmonitorering hvor GoFreyra kombinerer feltdata, drone, satellit og officielle kilder til dokumenterbar impact.",
       path: "/projekter",
+      jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     }),
   component: ProjekterPage,
 });
