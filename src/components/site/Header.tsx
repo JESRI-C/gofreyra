@@ -13,12 +13,6 @@ const platformItems = [
   { to: "/dashboard", label: "GoFreyra Dashboard", desc: "Samler det hele i ét operationelt overblik" },
 ];
 
-const solutionItems = [
-  { to: "/loesninger/kommuner", label: "Kommuner" },
-  { to: "/loesninger/industri", label: "Industri og forsyning" },
-  { to: "/loesninger/esg-compliance", label: "ESG og compliance" },
-  { to: "/loesninger/naturprojekter", label: "Lodsejere og naturprojekter" },
-];
 
 export function Header() {
   const [open, setOpen] = useState(false);
