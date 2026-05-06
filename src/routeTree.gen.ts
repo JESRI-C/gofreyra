@@ -24,6 +24,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
 import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
 import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
 import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
@@ -111,6 +112,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => UseCasesRoute,
+} as any)
 const PlatformSmartconnectRoute = PlatformSmartconnectRouteImport.update({
   id: '/smartconnect',
   path: '/smartconnect',
@@ -183,7 +189,7 @@ export interface FileRoutesByFullPath {
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/use-cases': typeof UseCasesRoute
+  '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -211,7 +218,7 @@ export interface FileRoutesByTo {
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/use-cases': typeof UseCasesRoute
+  '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
@@ -223,6 +230,7 @@ export interface FileRoutesByTo {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -240,7 +248,7 @@ export interface FileRoutesById {
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/use-cases': typeof UseCasesRoute
+  '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
@@ -252,6 +260,7 @@ export interface FileRoutesById {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -282,6 +291,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/use-cases/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -310,6 +320,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/use-cases/$slug'
   id:
     | '__root__'
     | '/'
@@ -338,6 +349,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/use-cases/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -355,7 +367,7 @@ export interface RootRouteChildren {
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  UseCasesRoute: typeof UseCasesRoute
+  UseCasesRoute: typeof UseCasesRouteWithChildren
   LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
   LoesningerIndustriRoute: typeof LoesningerIndustriRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
@@ -468,6 +480,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/use-cases/$slug': {
+      id: '/use-cases/$slug'
+      path: '/$slug'
+      fullPath: '/use-cases/$slug'
+      preLoaderRoute: typeof UseCasesSlugRouteImport
+      parentRoute: typeof UseCasesRoute
     }
     '/platform/smartconnect': {
       id: '/platform/smartconnect'
@@ -602,6 +621,18 @@ const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
   PlatformRouteChildren,
 )
 
+interface UseCasesRouteChildren {
+  UseCasesSlugRoute: typeof UseCasesSlugRoute
+}
+
+const UseCasesRouteChildren: UseCasesRouteChildren = {
+  UseCasesSlugRoute: UseCasesSlugRoute,
+}
+
+const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
+  UseCasesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
@@ -617,7 +648,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  UseCasesRoute: UseCasesRoute,
+  UseCasesRoute: UseCasesRouteWithChildren,
   LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
   LoesningerIndustriRoute: LoesningerIndustriRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
