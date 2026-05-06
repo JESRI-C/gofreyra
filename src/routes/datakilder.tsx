@@ -58,29 +58,47 @@ function DatakilderPage() {
   return (
     <PageLayout>
       <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24">
-          <span className="eyebrow">Source registry</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05] max-w-3xl">
-            Datakilderne bag GoFreyra
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-            Vi bygger ikke claims på løse formuleringer. Hver indikator i platformen er
-            koblet til en officiel kilde med licens, opdateringsfrekvens, attribution og
-            godkendelsesstatus — så data kan dokumenteres og revideres.
-          </p>
+        <div className="container-page py-16 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+          <div>
+            <span className="eyebrow">Source registry</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05] max-w-3xl">
+              Datakilderne bag GoFreyra
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
+              Vi bygger ikke claims på løse formuleringer. Hver indikator i platformen er
+              koblet til en officiel kilde med licens, opdateringsfrekvens, attribution og
+              godkendelsesstatus — så data kan dokumenteres og revideres.
+            </p>
 
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
-            {[
-              { k: stats.total, l: "Officielle kilder" },
-              { k: stats.high, l: "MVP-prioritet High" },
-              { k: stats.dk, l: "Danske kilder" },
-              { k: stats.eu, l: "EU-kilder" },
-            ].map((s) => (
-              <div key={s.l} className="card-soft p-4 bg-card">
-                <div className="text-2xl font-bold">{s.k}</div>
-                <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
-              </div>
-            ))}
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+              {[
+                { k: stats.total, l: "Officielle kilder" },
+                { k: stats.high, l: "MVP-prioritet High" },
+                { k: stats.dk, l: "Danske kilder" },
+                { k: stats.eu, l: "EU-kilder" },
+              ].map((s) => (
+                <div key={s.l} className="card-soft p-4 bg-card">
+                  <div className="text-2xl font-bold">{s.k}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              src={natureWetland}
+              alt="Drone-luftfoto af vådområde og krat — eksempel på naturkilde, der struktureres i GoFreyra"
+              className="w-full h-[320px] md:h-[420px] object-cover rounded-3xl shadow-elegant"
+              loading="lazy"
+            />
+            <div className="absolute top-4 right-4 bg-card/95 backdrop-blur rounded-xl px-3 py-2 shadow-md flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-mono text-brand-deep">Sentinel-2 · NDVI</span>
+            </div>
+            <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur rounded-xl px-3 py-2 shadow-md">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Kilde</div>
+              <div className="text-xs font-semibold text-brand-deep">Drone · Felt · Satellit</div>
+            </div>
           </div>
         </div>
       </section>
