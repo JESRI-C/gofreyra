@@ -257,6 +257,8 @@ function ProjekterPage() {
         ))}
       </section>
 
+      <FaqSection items={FAQ} />
+
       <CTASection />
     </PageLayout>
   );
