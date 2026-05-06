@@ -11,24 +11,37 @@ export interface SolutionPageProps {
   problems: string[];
   outcomes: { title: string; desc: string }[];
   modules: string[];
+  heroImage?: string;
+  heroImageAlt?: string;
 }
 
-export function SolutionPage({ eyebrow, title, subtitle, problems, outcomes, modules }: SolutionPageProps) {
+export function SolutionPage({ eyebrow, title, subtitle, problems, outcomes, modules, heroImage, heroImageAlt }: SolutionPageProps) {
   return (
     <PageLayout>
       <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24 max-w-3xl">
-          <span className="eyebrow">{eyebrow}</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.1]">{title}</h1>
-          <p className="mt-5 text-lg text-muted-foreground">{subtitle}</p>
-          <div className="mt-7 flex gap-3">
-            <Button asChild className="rounded-full h-11 px-5">
-              <Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-full h-11 px-5">
-              <Link to="/platform">Se platformen</Link>
-            </Button>
+        <div className={`container-page py-16 md:py-24 ${heroImage ? "grid lg:grid-cols-2 gap-10 items-center" : "max-w-3xl"}`}>
+          <div>
+            <span className="eyebrow">{eyebrow}</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.1]">{title}</h1>
+            <p className="mt-5 text-lg text-muted-foreground">{subtitle}</p>
+            <div className="mt-7 flex gap-3">
+              <Button asChild className="rounded-full h-11 px-5">
+                <Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5">
+                <Link to="/platform">Se platformen</Link>
+              </Button>
+            </div>
           </div>
+          {heroImage && (
+            <img
+              src={heroImage}
+              alt={heroImageAlt ?? ""}
+              width={1536}
+              height={1024}
+              className="w-full h-auto rounded-2xl border border-border shadow-elegant"
+            />
+          )}
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SolutionPage } from "@/components/site/SolutionPage";
 import { buildHead } from "@/components/site/SEO";
+import kommunerHero from "@/assets/kommuner-hero.png";
 
 export const Route = createFileRoute("/loesninger/kommuner")({
   head: () => buildHead({
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/loesninger/kommuner")({
         { title: "Driftsnær monitorering", desc: "Følg vand, jord, biodiversitet og klimatilpasning løbende." },
       ]}
       modules={["SmartConnect+", "DecisionsIQ", "ESG Ledger", "Impact Exchange", "GoFreyra Dashboard"]}
+      heroImage={kommunerHero}
+      heroImageAlt="SaaS-dashboard for kommuner med kort over offentligt naturområde, sensornoder, biodiversitetsindikatorer, projektstatus og dokumentationskort"
     />
   ),
 });
