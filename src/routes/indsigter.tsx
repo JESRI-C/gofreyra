@@ -81,6 +81,8 @@ function InsightsPage() {
         </div>
       </section>
 
+      <FaqSection items={FAQ} />
+
       <CTASection title="Vil du gå fra teori til opsætning?" subtitle="Book en demo og få en konkret gennemgang af, hvordan GoFreyra arbejder med jeres data." />
     </PageLayout>
   );
