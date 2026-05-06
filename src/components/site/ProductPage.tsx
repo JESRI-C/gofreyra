@@ -120,6 +120,37 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
         </section>
       )}
 
+      {dataSources && dataSources.length > 0 && (
+        <section className="surface-beige">
+          <div className="container-page py-16">
+            <SectionHeader eyebrow="Datakilder" title="Hvilke data modulet typisk arbejder med." body="Datakilder kobles gradvist. Vi kræver ikke perfekt datamodenhed fra dag ét." />
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {dataSources.map((d) => (
+                <div key={d} className="card-soft p-4 bg-card flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-brand-deep grid place-items-center"><Database className="w-4 h-4" /></div>
+                  <span className="text-sm font-medium">{d}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {relatedModules && relatedModules.length > 0 && (
+        <section className="container-page py-16">
+          <SectionHeader eyebrow="Modulrelation" title="Sådan spiller modulet sammen med resten af platformen." body="Modulerne deler datagrundlag. Start med ét — kobl flere på, når det giver værdi." />
+          <div className="mt-8 grid md:grid-cols-3 gap-4">
+            {relatedModules.map((m) => (
+              <Link key={m.to} to={m.to} className="card-soft p-5 bg-card hover:border-primary/40 transition">
+                <div className="font-semibold">{m.name}</div>
+                <p className="mt-1.5 text-sm text-muted-foreground">{m.d}</p>
+                <div className="mt-3 inline-flex items-center text-sm font-medium text-brand-deep">Se modulet <ArrowRight className="ml-1 w-4 h-4" /></div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {faq && faq.length > 0 && <FaqSection items={faq} />}
 
       <GreenCTA title="Vil I se modulet i jeres egen kontekst?" subtitle="Vi sætter en demo op med relevante datakilder for jer." secondary={{ to: "/platform", label: "Se hele platformen" }} />
