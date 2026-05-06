@@ -9,6 +9,8 @@ import stream from "@/assets/project-stream.jpg";
 import field from "@/assets/project-field.jpg";
 import forest from "@/assets/project-forest.jpg";
 import pasture from "@/assets/project-pasture.jpg";
+import lake from "@/assets/project-lake.jpg";
+import coastRestoration from "@/assets/project-coast-restoration.jpg";
 
 export const Route = createFileRoute("/projekter")({
   head: () =>
@@ -96,6 +98,38 @@ const PROJECTS: Project[] = [
       { k: "Areal", v: "47 ha" },
       { k: "Habitattyper", v: "5" },
       { k: "Kulstoflager", v: "estimeret" },
+    ],
+  },
+  {
+    img: lake,
+    alt: "Sø, skov og åbne enge i efterårsfarver fotograferet med drone",
+    tag: "Sø & opland",
+    title: "Sø-opland — vandkvalitet og arealmosaik",
+    location: "Värmland, Sverige",
+    period: "2024 – løbende",
+    summary:
+      "Drone-ortofotos kombineres med Sentinel-2 og DMI-nedbørsdata for at følge vandkvalitet, randzoner og arealanvendelse omkring søen — med fuld evidence trail pr. observation.",
+    sources: ["Drone (RGB)", "Copernicus Sentinel-2", "DMI Open Data", "Danmarks Arealinformation"],
+    metrics: [
+      { k: "Opland", v: "112 ha" },
+      { k: "Randzoner", v: "kortlagt" },
+      { k: "Sentinel-pas", v: "48/år" },
+    ],
+  },
+  {
+    img: coastRestoration,
+    alt: "Risgærde af træpæle på vade — kystsikring og marskdannelse i aftenlys",
+    tag: "Marsk & kystsikring",
+    title: "Risgærder — marskdannelse og sedimentfangst",
+    location: "Vadehavet, Danmark",
+    period: "2023 – løbende",
+    summary:
+      "Risgærder dokumenteres med felt, drone og Sentinel-2 for at måle sedimentaflejring, vegetationsudbredelse og marskdannelse over tid — koblet til Natura 2000 og DMI-vandstand.",
+    sources: ["Feltobservationer", "Drone (RGB)", "Copernicus Sentinel-2", "DMI Open Data", "Natura 2000"],
+    metrics: [
+      { k: "Strækning", v: "2,4 km" },
+      { k: "Sediment", v: "+11 cm/år" },
+      { k: "Evidence events", v: "184" },
     ],
   },
   {
