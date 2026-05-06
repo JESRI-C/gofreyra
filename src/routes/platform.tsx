@@ -218,7 +218,7 @@ function PlatformPage() {
       </section>
 
       {/* FOUR LAYERS — fra rådata til dokumentation */}
-      <section className="bg-background">
+      <section className="surface-beige">
         <div className="container-page py-20 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8">
