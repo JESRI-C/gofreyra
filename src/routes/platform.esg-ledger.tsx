@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/site/ProductPage";
 import { buildHead } from "@/components/site/SEO";
+import esgLedgerHero from "@/assets/esg-ledger-hero.png";
 
 export const Route = createFileRoute("/platform/esg-ledger")({
   head: () => buildHead({
@@ -14,6 +15,14 @@ export const Route = createFileRoute("/platform/esg-ledger")({
       title="ESG Ledger"
       subtitle="Dokumenterer hvert datapunkt med kilde, tidsstempel og audit trail."
       intro="ESG Ledger er det tillidsgrundlag, jeres rapport hviler på. Hvert tal kan spores tilbage til den oprindelige sensor, observation eller datakilde — så I kan svare revisor og bestyrelse uden at lede i regneark."
+      visual={
+        <img
+          src={esgLedgerHero}
+          alt="ESG Ledger-dashboard med verificerede dokumenter, audit trail, datakilder og rapportklar dokumentationsstatus"
+          className="w-full h-auto rounded-2xl border border-border shadow-elegant"
+          loading="eager"
+        />
+      }
       features={[
         { title: "Kildedokumentation", desc: "Hvert datapunkt knyttes til den oprindelige sensor, observation eller systemkilde." },
         { title: "Komplet audit trail", desc: "Sporbar historik over ændringer, godkendelser og rapporteringsflows." },
