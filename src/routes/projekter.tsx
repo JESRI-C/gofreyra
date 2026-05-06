@@ -47,7 +47,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     img: coastal,
-    alt: "Kystnær naturgenopretning fotograferet med drone — vand, slik og dige",
+    alt: "Drone-luftfoto af snoet å gennem dansk natur og engareal",
     tag: "Kystgenopretning",
     title: "Tidevandszone — baseline og dige-monitorering",
     location: "Vestkysten, Danmark",
