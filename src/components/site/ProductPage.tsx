@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { PageLayout } from "./PageLayout";
 import { CTASection } from "./CTASection";
+import { FaqSection, type FAQItem, FlowSection, GreenCTA, SectionHeader } from "./sections";
 
 export interface ProductPageProps {
   eyebrow: string;
@@ -11,10 +13,16 @@ export interface ProductPageProps {
   intro?: string;
   features: { title: string; desc: string }[];
   bullets?: string[];
-  visual?: React.ReactNode;
+  visual?: ReactNode;
+  /** Optional richer sections */
+  flow?: { eyebrow?: string; title: string; subtitle?: string; steps: { n: string; t: string; d: string }[] };
+  useCases?: { t: string; d: string }[];
+  notDoing?: string[];
+  faq?: FAQItem[];
+  extra?: ReactNode;
 }
 
-export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual }: ProductPageProps) {
+export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra }: ProductPageProps) {
   return (
     <PageLayout>
       <section className="gradient-hero">
@@ -37,14 +45,14 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
       </section>
 
       {intro && (
-        <section className="container-page py-12">
+        <section className="container-page py-14">
           <p className="max-w-3xl text-lg text-foreground/80">{intro}</p>
         </section>
       )}
 
       <section className="container-page py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8">Funktioner</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <SectionHeader eyebrow="Funktioner" title="Hvad modulet gør" />
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((f) => (
             <div key={f.title} className="card-soft p-6">
               <div className="w-9 h-9 rounded-lg bg-primary/10 text-brand-deep grid place-items-center mb-3">
@@ -56,6 +64,24 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
           ))}
         </div>
       </section>
+
+      {flow && <FlowSection beige eyebrow={flow.eyebrow} title={flow.title} subtitle={flow.subtitle} steps={flow.steps} />}
+
+      {extra}
+
+      {useCases && useCases.length > 0 && (
+        <section className="container-page py-16">
+          <SectionHeader eyebrow="Anvendelse" title="Sådan bruges modulet i praksis" />
+          <div className="mt-10 grid md:grid-cols-2 gap-5">
+            {useCases.map((u) => (
+              <div key={u.t} className="card-soft p-6">
+                <div className="font-semibold">{u.t}</div>
+                <p className="mt-2 text-sm text-muted-foreground">{u.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {bullets && bullets.length > 0 && (
         <section className="container-page py-12">
@@ -75,6 +101,24 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
           </div>
         </section>
       )}
+
+      {notDoing && notDoing.length > 0 && (
+        <section className="container-page py-12">
+          <div className="card-soft p-8 md:p-10 bg-card max-w-4xl">
+            <span className="eyebrow">Hvad modulet ikke gør</span>
+            <h2 className="mt-3 text-2xl md:text-3xl font-bold">Vi siger det rent ud.</h2>
+            <ul className="mt-5 space-y-2">
+              {notDoing.map((n) => (
+                <li key={n} className="flex gap-2 text-sm text-foreground/80"><span className="text-muted-foreground">—</span> <span>{n}</span></li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {faq && faq.length > 0 && <FaqSection items={faq} />}
+
+      <GreenCTA title="Vil I se modulet i jeres egen kontekst?" subtitle="Vi sætter en demo op med relevante datakilder for jer." secondary={{ to: "/platform", label: "Se hele platformen" }} />
 
       <CTASection />
     </PageLayout>

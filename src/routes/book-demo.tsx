@@ -88,7 +88,22 @@ function BookDemoPage() {
         </div>
       </section>
 
-      <section className="container-page py-14">
+      <section className="container-page py-12 grid lg:grid-cols-3 gap-5">
+        {[
+          { t: "1. Vi vender tilbage", d: "Inden for én arbejdsdag aftaler vi tidspunkt og scope." },
+          { t: "2. 30 min demo", d: "Tilpasset jeres datakilder, sektor og dokumentationsbehov." },
+          { t: "3. Næste skridt", d: "Forslag til pilotforløb — typisk klar på 2-4 uger." },
+        ].map((s) => (
+          <div key={s.t} className="card-soft p-6"><div className="font-semibold">{s.t}</div><p className="mt-2 text-sm text-muted-foreground">{s.d}</p></div>
+        ))}
+      </section>
+
+      <section className="container-page py-8 grid lg:grid-cols-2 gap-6">
+        <div className="card-soft p-6"><div className="font-semibold">Hvem demoen er for</div><ul className="mt-3 space-y-1.5 text-sm text-muted-foreground list-disc pl-5"><li>ESG- og bæredygtighedsansvarlige</li><li>Drift, miljø og forsyning</li><li>Kommuner og natur­projekter</li><li>Lodsejere og rådgivere</li></ul></div>
+        <div className="card-soft p-6"><div className="font-semibold">Hvad I får ud af det</div><ul className="mt-3 space-y-1.5 text-sm text-muted-foreground list-disc pl-5"><li>Konkret gennemgang med jeres datakilder</li><li>Forslag til moduler og pilot-scope</li><li>Indikation af tid og indsats</li><li>Svar på CSRD- og dokumentations­spørgsmål</li></ul></div>
+      </section>
+
+      <section className="container-page py-8">
         <div className="max-w-2xl mx-auto card-soft p-6 md:p-10">
           {submitted ? (
             <div className="text-center py-8">
