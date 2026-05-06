@@ -4,7 +4,14 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { ArrowRight } from "lucide-react";
-import { SectionHeader, MicroStrip } from "@/components/site/sections";
+import { SectionHeader, MicroStrip, FaqSection } from "@/components/site/sections";
+
+const FAQ = [
+  { q: "Hvor ofte udgiver I nye artikler?", a: "Vi udgiver løbende — typisk når en pilot, en ny datakilde eller en regulatorisk udvikling giver konkret læring." },
+  { q: "Kan jeg bruge artiklerne internt?", a: "Ja. Del gerne. Hvis du vil bruge tekst eller grafik i en rapport, så skriv kort til os først." },
+  { q: "Skriver I på engelsk?", a: "Indtil videre primært på dansk. Udvalgte artikler kommer på engelsk efter behov." },
+  { q: "Tager I imod gæsteindlæg?", a: "Ja, hvis vinklen er konkret og praktisk. Skriv til os på hello@gofreyra.com." },
+];
 
 const categories = ["Alle", "ESG-dokumentation", "Biodiversitetsovervågning", "Naturdata", "AI og analyse", "CSRD og compliance", "Datakilder", "Pilotprojekter"] as const;
 
