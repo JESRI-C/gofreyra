@@ -39,6 +39,7 @@ export function Footer() {
           { to: "/projekter", label: "Projekter" },
           { to: "/datakilder", label: "Datakilder" },
           { to: "/ordbog", label: "Ordbog" },
+          { to: "/priser", label: "Priser" },
           { to: "/book-demo", label: "Book demo" },
           { to: "/kontakt", label: "Kontakt" },
         ]} />
