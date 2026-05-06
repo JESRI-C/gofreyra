@@ -59,6 +59,12 @@ export const Route = createFileRoute("/platform/smartconnect")({
         "Hurtigere reaktion på driftsafvigelser",
         "Renere datagrundlag for ESG og naturdokumentation",
       ]}
+      dataSources={["IoT-sensorer (LoRaWAN, NB-IoT, MQTT)", "SCADA og dataloggere", "Dronedata (RGB / multispektral)", "Satellit (Sentinel-2, Satlas)", "Feltobservationer", "Vejrdata (DMI)", "ERP og driftssystemer", "Manuelle registreringer"]}
+      relatedModules={[
+        { name: "DecisionsIQ", to: "/platform/decisionsiq", d: "Bruger data fra SmartConnect+ til at finde mønstre, afvigelser og risici." },
+        { name: "ESG Ledger", to: "/platform/esg-ledger", d: "Lægger audit trail på hvert datapunkt — kilde, tidsstempel og metode." },
+        { name: "GoFreyra Dashboard", to: "/dashboard", d: "Live status, sensoroverblik og alarmer i ét billede." },
+      ]}
       faq={FAQ}
     />
   ),
