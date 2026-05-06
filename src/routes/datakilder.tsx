@@ -6,6 +6,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { FaqSection } from "@/components/site/sections";
 import { SOURCES, APPROVAL_LABEL, type SourcePriority } from "@/data/sources";
+import natureWetland from "@/assets/freyra/nature-wetland.jpg";
 
 const FAQ = [
   { q: "Hvilke datakilder kan vi bruge?", a: "Officielle europæiske og danske kilder (Copernicus, DMI, GBIF, Naturdatabasen, Eurostat, IPCC, SoilGrids m.fl.) sammen med jeres egne sensorer, drone, felt, ERP og driftsdata." },
