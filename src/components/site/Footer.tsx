@@ -36,6 +36,8 @@ export function Footer() {
           { to: "/indsigter", label: "Indsigter" },
           { to: "/use-cases", label: "Use cases" },
           { to: "/brancher", label: "Brancher" },
+          { to: "/data", label: "Data" },
+          { to: "/problemer", label: "Problemer" },
           { to: "/projekter", label: "Projekter" },
           { to: "/datakilder", label: "Datakilder" },
           { to: "/ordbog", label: "Ordbog" },

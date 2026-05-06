@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SECTOR_TEMPLATES, GLOSSARY } from "@/data/pseo";
 import { INSIGHTS } from "@/data/insights";
+import { PROBLEMS } from "@/data/problems";
+import { DATA_PAGES } from "@/data/dataTypes";
 
 const STATIC_URLS = [
   "/", "/platform",
@@ -8,7 +10,7 @@ const STATIC_URLS = [
   "/dashboard",
   "/loesninger/kommuner", "/loesninger/industri", "/loesninger/esg-compliance", "/loesninger/naturprojekter",
   "/use-cases", "/projekter", "/datakilder", "/indsigter", "/om", "/priser", "/book-demo", "/kontakt",
-  "/brancher", "/ordbog",
+  "/brancher", "/ordbog", "/problemer", "/data",
 ];
 
 const SITE = "https://gofreyra.lovable.app";
@@ -23,6 +25,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...SECTOR_TEMPLATES.map((t) => `/brancher/${t.slug}`),
           ...GLOSSARY.map((t) => `/ordbog/${t.slug}`),
           ...INSIGHTS.map((i) => `/indsigter/${i.slug}`),
+          ...PROBLEMS.map((p) => `/problemer/${p.slug}`),
+          ...DATA_PAGES.map((d) => `/data/${d.slug}`),
         ];
         const xml =
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

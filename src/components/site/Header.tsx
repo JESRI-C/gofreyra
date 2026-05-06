@@ -13,12 +13,6 @@ const platformItems = [
   { to: "/dashboard", label: "GoFreyra Dashboard", desc: "Samler det hele i ét operationelt overblik" },
 ];
 
-const solutionItems = [
-  { to: "/loesninger/kommuner", label: "Kommuner" },
-  { to: "/loesninger/industri", label: "Industri og forsyning" },
-  { to: "/loesninger/esg-compliance", label: "ESG og compliance" },
-  { to: "/loesninger/naturprojekter", label: "Lodsejere og naturprojekter" },
-];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -33,13 +27,12 @@ export function Header() {
 
         <nav className="hidden lg:flex items-center gap-1">
           <NavDropdown label="Platform" items={platformItems} wide />
-          <NavDropdown label="Løsninger" items={solutionItems} />
+          <Link to="/brancher" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Brancher</Link>
           <Link to="/use-cases" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Use cases</Link>
-          <Link to="/projekter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Projekter</Link>
-          <Link to="/datakilder" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Datakilder</Link>
+          <Link to="/data" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Data</Link>
+          <Link to="/problemer" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Problemer</Link>
           <Link to="/indsigter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Indsigter</Link>
           <Link to="/priser" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Priser</Link>
-          <Link to="/om" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Om</Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
@@ -58,10 +51,10 @@ export function Header() {
         <div className="lg:hidden border-t border-border bg-background">
           <div className="container-page py-4 space-y-3">
             <MobileGroup label="Platform" items={platformItems} onClick={() => setOpen(false)} />
-            <MobileGroup label="Løsninger" items={solutionItems} onClick={() => setOpen(false)} />
+            <Link to="/brancher" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Brancher</Link>
             <Link to="/use-cases" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Use cases</Link>
-            <Link to="/projekter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Projekter</Link>
-            <Link to="/datakilder" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Datakilder</Link>
+            <Link to="/data" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Data</Link>
+            <Link to="/problemer" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Problemer</Link>
             <Link to="/indsigter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Indsigter</Link>
             <Link to="/priser" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Priser</Link>
             <Link to="/om" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Om</Link>

@@ -13,6 +13,7 @@ import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
+import { Route as ProblemerRouteImport } from './routes/problemer'
 import { Route as PriserRouteImport } from './routes/priser'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OrdbogRouteImport } from './routes/ordbog'
@@ -20,11 +21,13 @@ import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
+import { Route as DataRouteImport } from './routes/data'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
+import { Route as ProblemerSlugRouteImport } from './routes/problemer.$slug'
 import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
 import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
 import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
@@ -35,6 +38,7 @@ import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.komm
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
 import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
+import { Route as DataSlugRouteImport } from './routes/data.$slug'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
 
 const UseCasesRoute = UseCasesRouteImport.update({
@@ -55,6 +59,11 @@ const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
 const ProjekterRoute = ProjekterRouteImport.update({
   id: '/projekter',
   path: '/projekter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProblemerRoute = ProblemerRouteImport.update({
+  id: '/problemer',
+  path: '/problemer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PriserRoute = PriserRouteImport.update({
@@ -92,6 +101,11 @@ const DatakilderRoute = DatakilderRouteImport.update({
   path: '/datakilder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataRoute = DataRouteImport.update({
+  id: '/data',
+  path: '/data',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -116,6 +130,11 @@ const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => UseCasesRoute,
+} as any)
+const ProblemerSlugRoute = ProblemerSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProblemerRoute,
 } as any)
 const PlatformSmartconnectRoute = PlatformSmartconnectRouteImport.update({
   id: '/smartconnect',
@@ -168,6 +187,11 @@ const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => IndsigterRoute,
 } as any)
+const DataSlugRoute = DataSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DataRoute,
+} as any)
 const BrancherSlugRoute = BrancherSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -179,6 +203,7 @@ export interface FileRoutesByFullPath {
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
+  '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
@@ -186,11 +211,13 @@ export interface FileRoutesByFullPath {
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/priser': typeof PriserRoute
+  '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -201,6 +228,7 @@ export interface FileRoutesByFullPath {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRoutesByTo {
@@ -208,6 +236,7 @@ export interface FileRoutesByTo {
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
+  '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
@@ -215,11 +244,13 @@ export interface FileRoutesByTo {
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/priser': typeof PriserRoute
+  '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -230,6 +261,7 @@ export interface FileRoutesByTo {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRoutesById {
@@ -238,6 +270,7 @@ export interface FileRoutesById {
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
+  '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
@@ -245,11 +278,13 @@ export interface FileRoutesById {
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/priser': typeof PriserRoute
+  '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -260,6 +295,7 @@ export interface FileRoutesById {
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
 }
 export interface FileRouteTypes {
@@ -269,6 +305,7 @@ export interface FileRouteTypes {
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
+    | '/data'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
@@ -276,11 +313,13 @@ export interface FileRouteTypes {
     | '/ordbog'
     | '/platform'
     | '/priser'
+    | '/problemer'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/data/$slug'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -291,6 +330,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$slug'
     | '/use-cases/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -298,6 +338,7 @@ export interface FileRouteTypes {
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
+    | '/data'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
@@ -305,11 +346,13 @@ export interface FileRouteTypes {
     | '/ordbog'
     | '/platform'
     | '/priser'
+    | '/problemer'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/data/$slug'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -320,6 +363,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$slug'
     | '/use-cases/$slug'
   id:
     | '__root__'
@@ -327,6 +371,7 @@ export interface FileRouteTypes {
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
+    | '/data'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
@@ -334,11 +379,13 @@ export interface FileRouteTypes {
     | '/ordbog'
     | '/platform'
     | '/priser'
+    | '/problemer'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/data/$slug'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -349,6 +396,7 @@ export interface FileRouteTypes {
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$slug'
     | '/use-cases/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -357,6 +405,7 @@ export interface RootRouteChildren {
   BookDemoRoute: typeof BookDemoRoute
   BrancherRoute: typeof BrancherRouteWithChildren
   DashboardRoute: typeof DashboardRoute
+  DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
   IndsigterRoute: typeof IndsigterRouteWithChildren
   KontaktRoute: typeof KontaktRoute
@@ -364,6 +413,7 @@ export interface RootRouteChildren {
   OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
   PriserRoute: typeof PriserRoute
+  ProblemerRoute: typeof ProblemerRouteWithChildren
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -402,6 +452,13 @@ declare module '@tanstack/react-router' {
       path: '/projekter'
       fullPath: '/projekter'
       preLoaderRoute: typeof ProjekterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/problemer': {
+      id: '/problemer'
+      path: '/problemer'
+      fullPath: '/problemer'
+      preLoaderRoute: typeof ProblemerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/priser': {
@@ -453,6 +510,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatakilderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data': {
+      id: '/data'
+      path: '/data'
+      fullPath: '/data'
+      preLoaderRoute: typeof DataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -487,6 +551,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/use-cases/$slug'
       preLoaderRoute: typeof UseCasesSlugRouteImport
       parentRoute: typeof UseCasesRoute
+    }
+    '/problemer/$slug': {
+      id: '/problemer/$slug'
+      path: '/$slug'
+      fullPath: '/problemer/$slug'
+      preLoaderRoute: typeof ProblemerSlugRouteImport
+      parentRoute: typeof ProblemerRoute
     }
     '/platform/smartconnect': {
       id: '/platform/smartconnect'
@@ -558,6 +629,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndsigterSlugRouteImport
       parentRoute: typeof IndsigterRoute
     }
+    '/data/$slug': {
+      id: '/data/$slug'
+      path: '/$slug'
+      fullPath: '/data/$slug'
+      preLoaderRoute: typeof DataSlugRouteImport
+      parentRoute: typeof DataRoute
+    }
     '/brancher/$slug': {
       id: '/brancher/$slug'
       path: '/$slug'
@@ -579,6 +657,16 @@ const BrancherRouteChildren: BrancherRouteChildren = {
 const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
   BrancherRouteChildren,
 )
+
+interface DataRouteChildren {
+  DataSlugRoute: typeof DataSlugRoute
+}
+
+const DataRouteChildren: DataRouteChildren = {
+  DataSlugRoute: DataSlugRoute,
+}
+
+const DataRouteWithChildren = DataRoute._addFileChildren(DataRouteChildren)
 
 interface IndsigterRouteChildren {
   IndsigterSlugRoute: typeof IndsigterSlugRoute
@@ -621,6 +709,18 @@ const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
   PlatformRouteChildren,
 )
 
+interface ProblemerRouteChildren {
+  ProblemerSlugRoute: typeof ProblemerSlugRoute
+}
+
+const ProblemerRouteChildren: ProblemerRouteChildren = {
+  ProblemerSlugRoute: ProblemerSlugRoute,
+}
+
+const ProblemerRouteWithChildren = ProblemerRoute._addFileChildren(
+  ProblemerRouteChildren,
+)
+
 interface UseCasesRouteChildren {
   UseCasesSlugRoute: typeof UseCasesSlugRoute
 }
@@ -638,6 +738,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookDemoRoute: BookDemoRoute,
   BrancherRoute: BrancherRouteWithChildren,
   DashboardRoute: DashboardRoute,
+  DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
   IndsigterRoute: IndsigterRouteWithChildren,
   KontaktRoute: KontaktRoute,
@@ -645,6 +746,7 @@ const rootRouteChildren: RootRouteChildren = {
   OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
   PriserRoute: PriserRoute,
+  ProblemerRoute: ProblemerRouteWithChildren,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -657,3 +759,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
