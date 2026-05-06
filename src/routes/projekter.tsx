@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: field,
-    alt: "Markareal i Danmark med vejskilt A 630 og grusvej",
+    alt: "Naturareal under restaurering set fra drone — jordarbejde og randzoner",
     tag: "Areal & ESG",
     title: "Arealdrift og ESG-dokumentation",
     location: "Sønderjylland, Danmark",
