@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SECTOR_TEMPLATES, GLOSSARY } from "@/data/pseo";
+import { INSIGHTS } from "@/data/insights";
 
 const STATIC_URLS = [
   "/", "/platform",
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...STATIC_URLS,
           ...SECTOR_TEMPLATES.map((t) => `/brancher/${t.slug}`),
           ...GLOSSARY.map((t) => `/ordbog/${t.slug}`),
+          ...INSIGHTS.map((i) => `/indsigter/${i.slug}`),
         ];
         const xml =
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
