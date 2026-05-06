@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import freyraIcon from "@/assets/freyra-icon.png";
 
 const platformItems = [
   { to: "/platform", label: "GoFreyra Platform", desc: "Hele platformen i ét overblik" },
@@ -26,8 +27,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight">
-          <span className="grid place-items-center w-8 h-8 rounded-lg bg-primary text-primary-foreground font-bold">F</span>
-          <span>GoFreyra</span>
+          <img src={freyraIcon} alt="GoFreyra" className="w-9 h-9 object-contain" />
+          <span className="text-brand-deep">GoFreyra</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

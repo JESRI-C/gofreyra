@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import freyraIcon from "@/assets/freyra-icon.png";
 
 export function Footer() {
   return (
@@ -6,8 +7,8 @@ export function Footer() {
       <div className="container-page py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2 font-semibold text-lg">
-            <span className="grid place-items-center w-8 h-8 rounded-lg bg-primary text-primary-foreground font-bold">F</span>
-            GoFreyra
+            <img src={freyraIcon} alt="GoFreyra" className="w-8 h-8 object-contain" />
+            <span className="text-brand-deep">GoFreyra</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
             Dansk SaaS-platform til miljødata, ESG-dokumentation og verificerbar impact.
