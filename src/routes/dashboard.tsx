@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Activity, Brain, FileCheck, Globe2, Download, Users, LayoutDashboard } from "lucide-react";
+import { ArrowRight, MapPin, Activity, Brain, FileCheck, Globe2, Download, Users, LayoutDashboard, ShieldCheck, Gauge, ClipboardCheck } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { DashboardMockup } from "@/components/site/DashboardMockup";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
-import { FaqSection, GreenCTA, MicroStrip, SectionHeader, FlowSection } from "@/components/site/sections";
+import { FaqSection, GreenCTA, MicroStrip, SectionHeader, FlowSection, CardGrid } from "@/components/site/sections";
 
 const FAQ = [
   { q: "Hvem er dashboardet til?", a: "ESG-team, drift, projektledere og ledelse — med rolletilpassede visninger, så hver bruger ser det relevante." },
