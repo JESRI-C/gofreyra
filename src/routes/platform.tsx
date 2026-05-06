@@ -303,17 +303,22 @@ function PlatformPage() {
             </div>
           </div>
 
-          <p className="mt-10 text-sm text-foreground/65 max-w-2xl">
-            GoFreyra kan starte med få datakilder og udvides, når organisationens behov og datamodenhed vokser.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full">
-              <Link to="/dashboard">Se dashboardet <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full">
-              <Link to="/book-demo">Book demo</Link>
-            </Button>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-border">
+            <p className="text-sm text-foreground/65 max-w-2xl">
+              Start med få datakilder. Udvid når organisationens behov og datamodenhed vokser.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { to: "/platform/smartconnect", t: "SmartConnect+" },
+                { to: "/platform/decisionsiq", t: "DecisionsIQ" },
+                { to: "/platform/esg-ledger", t: "ESG Ledger" },
+                { to: "/platform/impact-exchange", t: "Impact Exchange" },
+              ].map((m) => (
+                <Link key={m.to} to={m.to} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-brand-deep hover:bg-primary hover:text-primary-foreground transition border border-primary/20">
+                  {m.t} <ArrowRight className="w-3 h-3" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -501,19 +506,6 @@ function PlatformPage() {
             </div>
           </div>
 
-          {/* Afsluttende grøn CTA-boks */}
-          <div className="mt-12 rounded-3xl bg-brand-deep text-primary-foreground p-8 md:p-10 grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-semibold leading-tight">Se hvordan GoFreyra passer ind i jeres organisation.</h3>
-              <p className="mt-3 text-white/80 max-w-xl">
-                På en demo gennemgår vi jeres datakilder, jeres dokumentationsbehov og hvor et første pilotforløb giver mest mening.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 md:justify-end">
-              <Button asChild className="rounded-full h-11 px-6 bg-white text-brand-deep hover:bg-white/90"><Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/platform">Se platformen</Link></Button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -525,13 +517,25 @@ function PlatformPage() {
             <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 border border-white/20">
               <Sparkles className="w-3.5 h-3.5" /> Pilotklar
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">Klar til at se det på jeres data?</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">Book en demo og se, hvordan jeres data kan blive til dokumenterbar handling.</h2>
             <p className="mt-4 text-white/80 max-w-lg">
-              Vi gennemgår jeres datakilder, dokumentationsbehov og muligheder for et første pilotforløb.
+              Vi gennemgår jeres datakilder, dokumentationsbehov og hvor et første pilotforløb giver mest mening.
             </p>
             <div className="mt-7 flex gap-3 flex-wrap">
               <Button asChild className="rounded-full h-11 px-6 bg-white text-brand-deep hover:bg-white/90"><Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/kontakt">Tal med os om pilot</Link></Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/dashboard">Se dashboardet</Link></Button>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                { to: "/platform/smartconnect", t: "SmartConnect+" },
+                { to: "/platform/decisionsiq", t: "DecisionsIQ" },
+                { to: "/platform/esg-ledger", t: "ESG Ledger" },
+                { to: "/platform/impact-exchange", t: "Impact Exchange" },
+              ].map((m) => (
+                <Link key={m.to} to={m.to} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 text-white hover:bg-white/20 transition border border-white/20">
+                  {m.t} <ArrowRight className="w-3 h-3" />
+                </Link>
+              ))}
             </div>
           </div>
 
