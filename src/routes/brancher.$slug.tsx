@@ -5,7 +5,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
-import { SECTOR_TEMPLATES } from "@/data/pseo";
+import { SECTOR_TEMPLATES, type PseoTemplate } from "@/data/pseo";
 
 export const Route = createFileRoute("/brancher/$slug")({
   loader: ({ params }) => {
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/brancher/$slug")({
 });
 
 function SectorPage() {
-  const { tpl } = Route.useLoaderData();
+  const { tpl } = Route.useLoaderData() as { tpl: PseoTemplate };
   return (
     <PageLayout>
       <section className="gradient-hero">

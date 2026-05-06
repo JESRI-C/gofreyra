@@ -14,21 +14,25 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
 import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
 import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
 import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
 import { Route as PlatformDecisionsiqRouteImport } from './routes/platform.decisionsiq'
+import { Route as OrdbogTermRouteImport } from './routes/ordbog.$term'
 import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninger.naturprojekter'
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
+import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
 
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
@@ -55,6 +59,11 @@ const PlatformRoute = PlatformRouteImport.update({
   path: '/platform',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrdbogRoute = OrdbogRouteImport.update({
+  id: '/ordbog',
+  path: '/ordbog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OmRoute = OmRouteImport.update({
   id: '/om',
   path: '/om',
@@ -78,6 +87,11 @@ const DatakilderRoute = DatakilderRouteImport.update({
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrancherRoute = BrancherRouteImport.update({
+  id: '/brancher',
+  path: '/brancher',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookDemoRoute = BookDemoRouteImport.update({
@@ -110,6 +124,11 @@ const PlatformDecisionsiqRoute = PlatformDecisionsiqRouteImport.update({
   path: '/decisionsiq',
   getParentRoute: () => PlatformRoute,
 } as any)
+const OrdbogTermRoute = OrdbogTermRouteImport.update({
+  id: '/$term',
+  path: '/$term',
+  getParentRoute: () => OrdbogRoute,
+} as any)
 const LoesningerNaturprojekterRoute =
   LoesningerNaturprojekterRouteImport.update({
     id: '/loesninger/naturprojekter',
@@ -131,24 +150,33 @@ const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
   path: '/loesninger/esg-compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrancherSlugRoute = BrancherSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BrancherRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
+  '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
+  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
+  '/brancher/$slug': typeof BrancherSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
@@ -157,20 +185,24 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
+  '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
+  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
+  '/brancher/$slug': typeof BrancherSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
@@ -180,20 +212,24 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
+  '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
+  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
+  '/brancher/$slug': typeof BrancherSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
@@ -204,20 +240,24 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/book-demo'
+    | '/brancher'
     | '/dashboard'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
+    | '/ordbog'
     | '/platform'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/brancher/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$term'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
@@ -226,20 +266,24 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/book-demo'
+    | '/brancher'
     | '/dashboard'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
+    | '/ordbog'
     | '/platform'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/brancher/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$term'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
@@ -248,20 +292,24 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/book-demo'
+    | '/brancher'
     | '/dashboard'
     | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
+    | '/ordbog'
     | '/platform'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/brancher/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$term'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
@@ -271,11 +319,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookDemoRoute: typeof BookDemoRoute
+  BrancherRoute: typeof BrancherRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   DatakilderRoute: typeof DatakilderRoute
   IndsigterRoute: typeof IndsigterRoute
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
+  OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
@@ -324,6 +374,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ordbog': {
+      id: '/ordbog'
+      path: '/ordbog'
+      fullPath: '/ordbog'
+      preLoaderRoute: typeof OrdbogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/om': {
       id: '/om'
       path: '/om'
@@ -357,6 +414,13 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brancher': {
+      id: '/brancher'
+      path: '/brancher'
+      fullPath: '/brancher'
+      preLoaderRoute: typeof BrancherRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book-demo': {
@@ -401,6 +465,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformDecisionsiqRouteImport
       parentRoute: typeof PlatformRoute
     }
+    '/ordbog/$term': {
+      id: '/ordbog/$term'
+      path: '/$term'
+      fullPath: '/ordbog/$term'
+      preLoaderRoute: typeof OrdbogTermRouteImport
+      parentRoute: typeof OrdbogRoute
+    }
     '/loesninger/naturprojekter': {
       id: '/loesninger/naturprojekter'
       path: '/loesninger/naturprojekter'
@@ -429,8 +500,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoesningerEsgComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brancher/$slug': {
+      id: '/brancher/$slug'
+      path: '/$slug'
+      fullPath: '/brancher/$slug'
+      preLoaderRoute: typeof BrancherSlugRouteImport
+      parentRoute: typeof BrancherRoute
+    }
   }
 }
+
+interface BrancherRouteChildren {
+  BrancherSlugRoute: typeof BrancherSlugRoute
+}
+
+const BrancherRouteChildren: BrancherRouteChildren = {
+  BrancherSlugRoute: BrancherSlugRoute,
+}
+
+const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
+  BrancherRouteChildren,
+)
+
+interface OrdbogRouteChildren {
+  OrdbogTermRoute: typeof OrdbogTermRoute
+}
+
+const OrdbogRouteChildren: OrdbogRouteChildren = {
+  OrdbogTermRoute: OrdbogTermRoute,
+}
+
+const OrdbogRouteWithChildren =
+  OrdbogRoute._addFileChildren(OrdbogRouteChildren)
 
 interface PlatformRouteChildren {
   PlatformDecisionsiqRoute: typeof PlatformDecisionsiqRoute
@@ -453,11 +554,13 @@ const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
+  BrancherRoute: BrancherRouteWithChildren,
   DashboardRoute: DashboardRoute,
   DatakilderRoute: DatakilderRoute,
   IndsigterRoute: IndsigterRoute,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
+  OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,

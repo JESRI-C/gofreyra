@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd, definedTermJsonLd } from "@/components/site/SEO";
-import { GLOSSARY } from "@/data/pseo";
+import { GLOSSARY, type GlossaryTerm } from "@/data/pseo";
 
 export const Route = createFileRoute("/ordbog/$term")({
   loader: ({ params }) => {
@@ -52,10 +52,10 @@ export const Route = createFileRoute("/ordbog/$term")({
 });
 
 function TermPage() {
-  const { term } = Route.useLoaderData();
+  const { term } = Route.useLoaderData() as { term: GlossaryTerm };
   const related = term.related
-    .map((slug) => GLOSSARY.find((g) => g.slug === slug))
-    .filter((g): g is NonNullable<typeof g> => Boolean(g));
+    .map((slug: string) => GLOSSARY.find((g) => g.slug === slug))
+    .filter((g): g is GlossaryTerm => Boolean(g));
 
   return (
     <PageLayout>
