@@ -111,7 +111,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: lake,
-    alt: "Sø, skov og åbne enge i efterårsfarver fotograferet med drone",
+    alt: "Vådområde og krat fotograferet med drone i sommerlys",
     tag: "Sø & opland",
     title: "Sø-opland — vandkvalitet og arealmosaik",
     location: "Värmland, Sverige",
