@@ -1,12 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, faqJsonLd } from "@/components/site/SEO";
-import { InsightAccessGate } from "@/components/site/InsightAccessGate";
+import { InsightAccessGate, INSIGHT_ACCESS_KEY } from "@/components/site/InsightAccessGate";
 import { FaqSection, GreenCTA } from "@/components/site/sections";
 import { CTASection } from "@/components/site/CTASection";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Calendar, Tag, ArrowLeft } from "lucide-react";
+import { ArrowRight, Clock, Calendar, Tag, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { getInsight, INSIGHTS, type Insight } from "@/data/insights";
 
 export const Route = createFileRoute("/indsigter/$slug")({
@@ -57,6 +56,16 @@ export const Route = createFileRoute("/indsigter/$slug")({
 function ArticlePage() {
   const { insight } = Route.useLoaderData() as { insight: Insight };
   const [unlocked, setUnlocked] = useState(false);
+  const [justUnlocked, setJustUnlocked] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem(INSIGHT_ACCESS_KEY) === "true") setUnlocked(true);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
   const related = insight.related
     .map((s: string) => INSIGHTS.find((i) => i.slug === s))
     .filter((x): x is Insight => Boolean(x))
@@ -83,6 +92,22 @@ function ArticlePage() {
 
       {/* CONTENT */}
       <article className="container-page py-12 max-w-3xl">
+        {justUnlocked && (
+          <div
+            className="mb-6 rounded-xl border px-4 py-3 flex items-center gap-2 text-sm font-medium"
+            style={{ backgroundColor: "#F5F1E8", borderColor: "#2BC48A", color: "#27543D" }}
+            role="status"
+          >
+            <CheckCircle2 className="w-4 h-4" style={{ color: "#2BC48A" }} />
+            Tak. Du har nu adgang til hele indsigten.
+          </div>
+        )}
+        {unlocked && !justUnlocked && (
+          <div className="mb-6 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full" style={{ backgroundColor: "#F5F1E8", color: "#27543D" }}>
+            <CheckCircle2 className="w-3.5 h-3.5" style={{ color: "#2BC48A" }} /> Adgang aktiv
+          </div>
+        )}
+
         {/* Executive summary */}
         <div className="card-soft p-6 bg-card border-l-4 border-l-primary">
           <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">Executive summary</div>
@@ -117,7 +142,7 @@ function ArticlePage() {
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background pointer-events-none" />
             </div>
             <div className="mt-6">
-              <InsightAccessGate insight={insight} onUnlock={() => setUnlocked(true)} />
+              <InsightAccessGate insight={insight} onUnlock={() => { setUnlocked(true); setJustUnlocked(true); }} />
             </div>
           </div>
         ) : (
