@@ -21,6 +21,7 @@ export const Route = createFileRoute("/datakilder")({
       description:
         "GoFreyra henter data fra officielle danske og europæiske kilder: DMI, Danmarks Miljøportal, GBIF, Natura 2000, Copernicus, Satlas, Eurostat, SoilGrids og IPCC. Hver kilde har licens, frekvens og godkendelsesstatus.",
       path: "/datakilder",
+      jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     }),
   component: DatakilderPage,
 });
