@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import coastal from "@/assets/project-coastal.jpg";
 import stream from "@/assets/project-stream.jpg";
 import field from "@/assets/project-field.jpg";
+import forest from "@/assets/project-forest.jpg";
+import pasture from "@/assets/project-pasture.jpg";
 
 export const Route = createFileRoute("/projekter")({
   head: () =>
