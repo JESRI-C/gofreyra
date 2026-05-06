@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SolutionPage } from "@/components/site/SolutionPage";
 import { buildHead } from "@/components/site/SEO";
+import naturHero from "@/assets/freyra/nature-river.jpg";
 
 const FAQ = [
   { q: "Hvilke data bruger I til biodiversitet?", a: "En kombination af feltobservationer, satellitdata, droneflyvninger, sensorer og åbne registre som GBIF og Natura 2000." },
@@ -21,6 +22,8 @@ export const Route = createFileRoute("/loesninger/naturprojekter")({
       eyebrow="Løsning · Lodsejere & naturprojekter"
       title="Følg naturimpact dér, hvor den faktisk sker."
       subtitle="Biodiversitet, levesteder, jord og vand — målt med felt, drone og satellit, dokumenteret over tid og klar til markeder."
+      heroImage={naturHero}
+      heroImageAlt="Luftfoto af snoet å gennem naturområde med eng og våde levesteder"
       problems={[
         "Naturdata indsamles ofte usystematisk",
         "Det er svært at vise reel udvikling over tid",

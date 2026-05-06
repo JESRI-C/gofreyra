@@ -5,13 +5,13 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { Button } from "@/components/ui/button";
 import { FaqSection, MicroStrip, CardGrid } from "@/components/site/sections";
-import coastal from "@/assets/project-coastal.jpg";
-import stream from "@/assets/project-stream.jpg";
-import field from "@/assets/project-field.jpg";
-import forest from "@/assets/project-forest.jpg";
-import pasture from "@/assets/project-pasture.jpg";
-import lake from "@/assets/project-lake.jpg";
-import coastRestoration from "@/assets/project-coast-restoration.jpg";
+import coastal from "@/assets/freyra/nature-river.jpg";
+import stream from "@/assets/freyra/nature-stream.jpg";
+import field from "@/assets/freyra/nature-restoration.jpg";
+import forest from "@/assets/freyra/nature-forest.jpg";
+import pasture from "@/assets/freyra/nature-autumn.jpg";
+import lake from "@/assets/freyra/nature-wetland.jpg";
+import coastRestoration from "@/assets/freyra/nature-sunset.jpg";
 
 const FAQ = [
   { q: "Er det kunder eller egne projekter?", a: "Begge dele. Listen blander piloter, kundeprojekter og egne reference-arealer, hvor vi bygger og tester platformen." },
@@ -47,7 +47,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     img: coastal,
-    alt: "Kystnær naturgenopretning fotograferet med drone — vand, slik og dige",
+    alt: "Drone-luftfoto af snoet å gennem dansk natur og engareal",
     tag: "Kystgenopretning",
     title: "Tidevandszone — baseline og dige-monitorering",
     location: "Vestkysten, Danmark",
@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: field,
-    alt: "Markareal i Danmark med vejskilt A 630 og grusvej",
+    alt: "Naturareal under restaurering set fra drone — jordarbejde og randzoner",
     tag: "Areal & ESG",
     title: "Arealdrift og ESG-dokumentation",
     location: "Sønderjylland, Danmark",
@@ -111,7 +111,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: lake,
-    alt: "Sø, skov og åbne enge i efterårsfarver fotograferet med drone",
+    alt: "Vådområde og krat fotograferet med drone i sommerlys",
     tag: "Sø & opland",
     title: "Sø-opland — vandkvalitet og arealmosaik",
     location: "Värmland, Sverige",
@@ -127,7 +127,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: coastRestoration,
-    alt: "Risgærde af træpæle på vade — kystsikring og marskdannelse i aftenlys",
+    alt: "Naturareal i aftensol — luftfoto af landskab i etablering",
     tag: "Marsk & kystsikring",
     title: "Risgærder — marskdannelse og sedimentfangst",
     location: "Vadehavet, Danmark",
@@ -143,7 +143,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: pasture,
-    alt: "Græsningslandskab med birketræer og grusvej i efterårsfarver",
+    alt: "Stort egetræ i efterårsfarver ved sø og græsningsareal",
     tag: "Græsning & biodiversitet",
     title: "Ekstensiv græsning — naturpleje og dokumentation",
     location: "Småland, Sverige",
@@ -163,24 +163,41 @@ function ProjekterPage() {
   return (
     <PageLayout>
       <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24 max-w-3xl">
-          <span className="eyebrow">Projekter fra felten</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05]">
-            Sådan ser GoFreyra ud, når data kommer fra virkeligheden.
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Drone, satellit, felt og officielle kilder samlet ét sted — med kilde,
-            tidspunkt og metode på hvert datapunkt.
-          </p>
-          <div className="mt-7 flex gap-3">
-            <Button asChild className="rounded-full h-11 px-5">
-              <Link to="/book-demo">
-                Book demo <ArrowRight className="ml-1.5 w-4 h-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-full h-11 px-5">
-              <Link to="/datakilder">Se datakilder</Link>
-            </Button>
+        <div className="container-page py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span className="eyebrow">Projekter fra felten</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05]">
+              Sådan ser GoFreyra ud, når data kommer fra virkeligheden.
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground">
+              Drone, satellit, felt og officielle kilder samlet ét sted — med kilde,
+              tidspunkt og metode på hvert datapunkt.
+            </p>
+            <div className="mt-7 flex gap-3">
+              <Button asChild className="rounded-full h-11 px-5">
+                <Link to="/book-demo">
+                  Book demo <ArrowRight className="ml-1.5 w-4 h-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5">
+                <Link to="/datakilder">Se datakilder</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              src={coastal}
+              alt="Drone-luftfoto af snoet å gennem dansk natur — baseline for naturprojekt"
+              className="w-full h-[360px] md:h-[460px] object-cover rounded-3xl shadow-elegant"
+              loading="eager"
+            />
+            <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur rounded-xl px-4 py-2.5 shadow-md flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <div>
+                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Live · NDVI</div>
+                <div className="text-sm font-semibold text-brand-deep">Baseline aktiv</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
