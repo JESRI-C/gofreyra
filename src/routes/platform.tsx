@@ -415,28 +415,105 @@ function PlatformPage() {
         </div>
       </section>
 
-      {/* TEAMS */}
-      <section className="container-page py-20">
-        <SectionHeader eyebrow="Roller" title="Hvad betyder det for forskellige teams?" body="Samme datagrundlag — tre forskellige indgange." />
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {[
-            { i: <ShieldCheck className="w-5 h-5" />, t: "ESG-teamet", d: "Mindre manuel indsamling, bedre dokumentation og lettere rapportflow.", b: ["Sporbar dokumentation", "Klar til CSRD og revision", "Færre regneark"] },
-            { i: <Gauge className="w-5 h-5" />, t: "Driften", d: "Bedre indsigt i miljødata, ressourceforbrug og afvigelser i hverdagen.", b: ["Live-status på områder", "Tidlig varsling om afvigelser", "Konkrete handlingsforslag"] },
-            { i: <ClipboardCheck className="w-5 h-5" />, t: "Ledelsen", d: "Ét samlet overblik over status, risici og fremdrift på tværs af projekter.", b: ["Beslutningsklart overblik", "Risikoindikatorer", "Eksport til bestyrelse"] },
-          ].map((c) => (
-            <div key={c.t} className="card-soft p-7 bg-card">
-              <div className="w-11 h-11 rounded-xl bg-primary/10 text-brand-deep grid place-items-center">{c.i}</div>
-              <div className="mt-4 text-xl font-semibold">{c.t}</div>
-              <p className="mt-2 text-muted-foreground">{c.d}</p>
-              <ul className="mt-4 space-y-2">
-                {c.b.map((x) => (
-                  <li key={x} className="flex gap-2 items-start text-sm">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span className="text-foreground/80">{x}</span>
-                  </li>
-                ))}
-              </ul>
+      {/* TEAMS — Én platform, tre forskellige behov */}
+      <section className="surface-beige">
+        <div className="container-page py-20 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="text-xs font-mono tracking-[0.18em] text-primary uppercase">Samme data — flere brugere</div>
+            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-brand-deep">GoFreyra samler ESG-team, drift og ledelse om samme datagrundlag.</h2>
+            <p className="mt-5 text-lg text-foreground/75">
+              Når bæredygtighedsdata ligger spredt, arbejder teams ofte ud fra forskellige versioner af sandheden. GoFreyra samler datagrundlaget, så organisationen kan se status, forstå risici og dokumentere fremdrift på tværs af funktioner.
+            </p>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {[
+              {
+                tag: "ESG", i: <ShieldCheck className="w-6 h-6" />,
+                role: "For ESG-teamet",
+                t: "Mindre manuel indsamling. Stærkere dokumentation.",
+                d: "ESG-teamet får et samlet sted at arbejde med miljødata, dokumentationsstatus og rapporteringsgrundlag. Det reducerer afhængigheden af manuelle regneark og gør det lettere at følge, hvilke data der er klar, mangler eller skal valideres.",
+                b: ["Samlet overblik over ESG-relevante datakilder", "Dokumentationsstatus på tværs af projekter", "Audit trail fra datakilde til rapport", "Bedre grundlag til CSRD og ESG-rapportering", "Mindre manuelt opfølgningsarbejde"],
+              },
+              {
+                tag: "Drift", i: <Gauge className="w-6 h-6" />,
+                role: "For driften",
+                t: "Data tættere på virkeligheden.",
+                d: "Drift og projektteams kan følge miljødata, sensorer, områder og afvigelser i et operationelt dashboard. Det gør det lettere at reagere tidligere og arbejde mere datadrevet i hverdagen.",
+                b: ["Live status på områder og datakilder", "Sensorstatus og advarsler", "Kortbaseret monitorering", "Overblik over ændringer og afvigelser", "Bedre kobling mellem drift og dokumentation"],
+              },
+              {
+                tag: "Ledelse", i: <ClipboardCheck className="w-6 h-6" />,
+                role: "For ledelsen",
+                t: "Et bedre beslutningsgrundlag.",
+                d: "Ledelsen får et samlet overblik over fremdrift, risici, dokumentation og impact. Det gør bæredygtighedsarbejdet lettere at styre, forklare og prioritere.",
+                b: ["Status på ESG og impact", "Risici og anbefalede handlinger", "Rapportklar dokumentation", "Overblik over projekter og fremdrift", "Klarere grundlag for investeringer og prioriteringer"],
+              },
+            ].map((c) => (
+              <div key={c.role} className="card-soft p-7 bg-card shadow-sm hover:shadow-elegant transition-all flex flex-col">
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 text-brand-deep grid place-items-center border border-primary/20">{c.i}</div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-primary px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">{c.tag}</span>
+                </div>
+                <div className="mt-5 text-xs font-mono uppercase tracking-wider text-muted-foreground">{c.role}</div>
+                <div className="mt-1.5 text-xl font-semibold text-brand-deep leading-snug">{c.t}</div>
+                <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{c.d}</p>
+                <ul className="mt-5 pt-5 border-t border-border space-y-2.5">
+                  {c.b.map((x) => (
+                    <li key={x} className="flex gap-2.5 items-start text-sm">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" /><span className="text-foreground/80">{x}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Sammenligningsboks */}
+          <div className="mt-14 card-soft bg-card overflow-hidden shadow-sm">
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+              <div className="p-7 md:p-8">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Før GoFreyra</div>
+                <div className="mt-2 text-lg font-semibold text-foreground/80">Spredt data, manuel opfølgning</div>
+                <ul className="mt-5 space-y-2.5">
+                  {["Data i siloer", "Manuelle rapporter", "Uklare kilder", "Sent overblik", "Svær dokumentation"].map((x) => (
+                    <li key={x} className="flex items-start gap-2.5 text-sm text-foreground/70">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/40 flex-shrink-0" />{x}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-7 md:p-8 bg-primary/5">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-primary">Med GoFreyra</span>
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                </div>
+                <div className="mt-2 text-lg font-semibold text-brand-deep">Ét datagrundlag, sporbar dokumentation</div>
+                <ul className="mt-5 space-y-2.5">
+                  {["Ét samlet datagrundlag", "Sporbare datapunkter", "Live dashboards", "Audit trail", "Beslutningsklar dokumentation"].map((x) => (
+                    <li key={x} className="flex items-start gap-2.5 text-sm">
+                      <BadgeCheck className="mt-0.5 w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/85">{x}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Afsluttende grøn CTA-boks */}
+          <div className="mt-12 rounded-3xl bg-brand-deep text-primary-foreground p-8 md:p-10 grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-semibold leading-tight">Se hvordan GoFreyra passer ind i jeres organisation.</h3>
+              <p className="mt-3 text-white/80 max-w-xl">
+                På en demo gennemgår vi jeres datakilder, jeres dokumentationsbehov og hvor et første pilotforløb giver mest mening.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <Button asChild className="rounded-full h-11 px-6 bg-white text-brand-deep hover:bg-white/90"><Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/platform">Se platformen</Link></Button>
+            </div>
+          </div>
         </div>
       </section>
 
