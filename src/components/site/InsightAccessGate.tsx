@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { INTEREST_AREAS, type Insight } from "@/data/insights";
-import { forwardInsightLead } from "@/server/insightWebhook.functions";
+import { forwardInsightLead } from "@/lib/insightWebhook.functions";
 
 export const INSIGHT_ACCESS_KEY = "gofreyra_insights_access";
 
