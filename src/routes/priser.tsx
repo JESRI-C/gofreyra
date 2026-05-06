@@ -229,7 +229,7 @@ function PricingPage() {
         </div>
 
         <p className="mt-8 text-sm text-muted-foreground max-w-3xl">
-          Alle priser er ekskl. moms. Sensorer, installation, eksterne datakilder, særlige integrationer og ekstra forbrug prissættes særskilt. Endelig pris afhænger af antal projekter, datakilder, brugere, analysebehov og supportniveau.
+          Alle priser er ekskl. moms. Sensorer, installation, eksterne datakilder og særlige integrationer prissættes særskilt. Endelig pris afhænger af projekter, datakilder, brugere, analysebehov og supportniveau.
         </p>
       </section>
 
@@ -238,15 +238,15 @@ function PricingPage() {
         <div className="container-page py-20">
           <SectionHeader
             eyebrow="Forbrug og skalering"
-            title="Hvordan fungerer forbrug i GoFreyra?"
-            body="Alle platformspakker inkluderer et aftalt niveau af datakilder, AI-analyser, rapportgenereringer og brugere. Ved større datamængder, hyppigere analyser eller særlige integrationer tilpasses prisen efter forbrug og behov."
+            title="Hvordan fungerer forbrug?"
+            body="Hver pakke har et inkluderet niveau af datakilder, AI-analyser, rapporter og brugere. Vokser behovet, justeres aftalen — uden skjulte gebyrer."
           />
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Database className="w-5 h-5" />, t: "Datakilder", d: "Antal sensorer, feltdata, satellitdata, driftsdata og manuelle input kan påvirke behovet for opsætning og databehandling." },
-              { icon: <Brain className="w-5 h-5" />, t: "AI-analyser", d: "Hyppigere analyser, anbefalinger og afvigelsesdetektion kan kræve mere analysekapacitet." },
-              { icon: <FileBarChart className="w-5 h-5" />, t: "Rapportering", d: "Flere rapporter, eksportformater og dokumentationsflows kan tilpasses efter kundens behov." },
-              { icon: <Plug className="w-5 h-5" />, t: "Integrationer", d: "API'er, eksterne systemer og særlige datamodeller prissættes efter kompleksitet." },
+              { icon: <Database className="w-5 h-5" />, t: "Datakilder", d: "Sensorer, feltdata, satellit, drift og manuelle input — antallet styrer opsætning og databehandling." },
+              { icon: <Brain className="w-5 h-5" />, t: "AI-analyser", d: "Hyppigere analyser og afvigelsesdetektion kræver mere analysekapacitet." },
+              { icon: <FileBarChart className="w-5 h-5" />, t: "Rapportering", d: "Flere rapporter, eksportformater og dokumentationsflows efter behov." },
+              { icon: <Plug className="w-5 h-5" />, t: "Integrationer", d: "API'er og særlige datamodeller prissættes efter kompleksitet." },
             ].map((c) => (
               <div key={c.t} className="card-soft p-5 bg-card">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 text-brand-deep grid place-items-center">{c.icon}</div>
@@ -263,9 +263,9 @@ function PricingPage() {
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
           <div>
             <span className="eyebrow">Start trygt</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Start med pilot, før I låser jer fast.</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Start med pilot — ikke med en standardpris.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Et pilotforløb bruges til at forstå jeres datakilder, dokumentationsbehov og den rigtige prisstruktur. Det giver et mere realistisk grundlag end en standardpris, der ikke passer til virkeligheden.
+              Et pilotforløb afdækker jeres datakilder, dokumentationsbehov og det rette prisniveau. Et mere realistisk grundlag end en pakke valgt på må og få.
             </p>
             <div className="mt-6">
               <Button asChild className="rounded-full h-12 px-6">
@@ -277,9 +277,9 @@ function PricingPage() {
             <div className="text-sm font-semibold text-brand-deep">Pilotforløb · 2-4 uger</div>
             <ul className="mt-4 space-y-2.5">
               {[
-                "Afklar datakilder og scope",
-                "Første dashboard-opsætning",
-                "Test af dokumentationsflow",
+                "Datakilder og scope afklaret",
+                "Første dashboard live",
+                "Dokumentationsflow testet",
                 "Anbefaling til løbende setup",
                 "Plan for næste fase",
               ].map((b) => (
@@ -295,8 +295,8 @@ function PricingPage() {
       <FaqSection items={FAQ} />
 
       <GreenCTA
-        title="Find det rigtige startniveau for jeres organisation."
-        subtitle="På en kort demo gennemgår vi jeres datakilder, dokumentationsbehov og muligheder for et første pilotforløb."
+        title="Find det rigtige startniveau."
+        subtitle="På en kort demo gennemgår vi jeres datakilder, dokumentationsbehov og muligheder for et pilotforløb."
         primary={{ to: "/book-demo", label: "Book demo" }}
         secondary={{ to: "/book-demo", label: "Tal med os om pilot" }}
       />
