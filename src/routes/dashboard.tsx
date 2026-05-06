@@ -83,6 +83,36 @@ function DashboardPage() {
         ]}
       />
 
+      <section className="container-page py-16">
+        <SectionHeader eyebrow="Roller" title="Tre indgange — samme datagrundlag." body="Dashboardet viser det relevante for hver rolle. Ingen behøver at fortolke regneark eller bytte system for at få overblik." />
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
+          {[
+            { i: <ShieldCheck className="w-5 h-5" />, t: "ESG-teamet", d: "Fremdrift på rapportering, kildehenvisning, manglende dokumentation og status pr. ESRS-tema." },
+            { i: <Gauge className="w-5 h-5" />, t: "Driften", d: "Live status på sensorer, områder og afvigelser. Tildel handling og luk opgaven uden at skifte system." },
+            { i: <ClipboardCheck className="w-5 h-5" />, t: "Ledelsen", d: "Samlet status, risici og fremdrift på tværs af projekter — klar til bestyrelse og partnere." },
+          ].map((c) => (
+            <div key={c.t} className="card-soft p-7 bg-card">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 text-brand-deep grid place-items-center">{c.i}</div>
+              <div className="mt-4 text-xl font-semibold">{c.t}</div>
+              <p className="mt-2 text-muted-foreground">{c.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CardGrid
+        beige
+        eyebrow="Modulrelation"
+        title="Dashboardet samler hele platformen."
+        cols={4}
+        cards={[
+          { t: "SmartConnect+", d: "Live datakilder, sensorstatus og kortvisning." },
+          { t: "DecisionsIQ", d: "Risikoflag, anomalier og prioriteret handlingskø." },
+          { t: "ESG Ledger", d: "Dokumentationsstatus og audit trail pr. KPI." },
+          { t: "Impact Exchange", d: "Naturprojekter, indikatorer og verifikationsstatus." },
+        ]}
+      />
+
       <GreenCTA title="Vil I se dashboardet med jeres egne data?" subtitle="Vi gør jeres datakilder klar til en konkret demo." />
 
       <FaqSection items={FAQ} />
