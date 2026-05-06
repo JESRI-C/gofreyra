@@ -102,7 +102,7 @@ function ArticlePage() {
           <p className="text-lg leading-relaxed text-foreground/90">{insight.intro}</p>
 
           <h2 className="mt-10 text-2xl font-bold">{insight.visibleSection.h}</h2>
-          {insight.visibleSection.p.map((p, i) => (
+          {insight.visibleSection.p.map((p: string, i: number) => (
             <p key={i} className="mt-4 text-base leading-relaxed text-foreground/85">{p}</p>
           ))}
         </div>
@@ -122,10 +122,10 @@ function ArticlePage() {
           </div>
         ) : (
           <div className="mt-10 prose-content">
-            {insight.lockedSections.map((s, i) => (
+            {insight.lockedSections.map((s: { h: string; p: string[] }, i: number) => (
               <section key={i}>
                 <h2 className="mt-10 text-2xl font-bold">{s.h}</h2>
-                {s.p.map((p, j) => (
+                {s.p.map((p: string, j: number) => (
                   <p key={j} className="mt-4 text-base leading-relaxed text-foreground/85">{p}</p>
                 ))}
               </section>
@@ -150,7 +150,7 @@ function ArticlePage() {
             <h2 className="mt-4 text-2xl md:text-3xl font-bold">Læs videre</h2>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-5">
-            {related.map((r) => (
+            {related.map((r: Insight) => (
               <Link key={r.slug} to="/indsigter/$slug" params={{ slug: r.slug }} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
                 <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">{r.category}</div>
                 <div className="mt-2 font-semibold">{r.title}</div>
