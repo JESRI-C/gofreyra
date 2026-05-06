@@ -6,18 +6,18 @@ import freyraIcon from "@/assets/freyra-icon.png";
 
 const platformItems = [
   { to: "/platform", label: "GoFreyra Platform", desc: "Hele platformen i ét overblik" },
-  { to: "/platform/smartconnect", label: "SmartConnect+", desc: "Sensorer, IoT og realtidsdata" },
-  { to: "/platform/decisionsiq", label: "DecisionsIQ", desc: "AI-analyse og beslutningsstøtte" },
-  { to: "/platform/esg-ledger", label: "ESG Ledger", desc: "Sporbar dokumentation og audit trail" },
-  { to: "/platform/impact-exchange", label: "Impact Exchange", desc: "Verificeret natur- og klimaimpact" },
-  { to: "/dashboard", label: "Dashboard", desc: "Operationelt overblik" },
+  { to: "/platform/smartconnect", label: "SmartConnect+", desc: "Indsamler data fra sensor, drone, satellit og felt" },
+  { to: "/platform/decisionsiq", label: "DecisionsIQ", desc: "Analyserer data og giver konkrete anbefalinger" },
+  { to: "/platform/esg-ledger", label: "ESG Ledger", desc: "Dokumenterer data med audit trail og kildehenvisning" },
+  { to: "/platform/impact-exchange", label: "Impact Exchange", desc: "Synliggør og aktiverer verificeret impact" },
+  { to: "/dashboard", label: "GoFreyra Dashboard", desc: "Samler det hele i ét operationelt overblik" },
 ];
 
 const solutionItems = [
   { to: "/loesninger/kommuner", label: "Kommuner" },
   { to: "/loesninger/industri", label: "Industri og forsyning" },
   { to: "/loesninger/esg-compliance", label: "ESG og compliance" },
-  { to: "/loesninger/naturprojekter", label: "Naturprojekter" },
+  { to: "/loesninger/naturprojekter", label: "Lodsejere og naturprojekter" },
 ];
 
 export function Header() {

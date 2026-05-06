@@ -11,7 +11,7 @@ export function Footer() {
             <span className="text-brand-deep">GoFreyra</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
-            Dansk SaaS-platform til miljødata, ESG-dokumentation og verificerbar impact.
+            Dansk SaaS-platform, der gør miljødata, drift og ESG-dokumentation operationel — fra felten til revisionen.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container-page py-6 flex flex-wrap justify-between gap-2 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} GoFreyra. Alle rettigheder forbeholdes.</div>
-          <div>Bygget til målbar bæredygtighed.</div>
+          <div>Bygget til målbar — og dokumenterbar — bæredygtighed.</div>
         </div>
       </div>
     </footer>

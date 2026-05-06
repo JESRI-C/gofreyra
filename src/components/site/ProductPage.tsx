@@ -61,8 +61,8 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
         <section className="container-page py-12">
           <div className="surface-beige rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Hvorfor det betyder noget</h2>
-              <p className="mt-3 text-muted-foreground">Konkrete fordele, dit team kan mærke i hverdagen.</p>
+              <h2 className="text-2xl md:text-3xl font-bold">Hvad I får ud af det</h2>
+              <p className="mt-3 text-muted-foreground">Konkrete effekter, drift og ESG-team kan mærke fra første pilot.</p>
             </div>
             <ul className="space-y-3">
               {bullets.map((b) => (
@@ -87,7 +87,7 @@ function DefaultVisual() {
       <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">Modul</div>
       <div className="mt-2 text-2xl font-bold">GoFreyra Platform</div>
       <div className="mt-6 grid grid-cols-2 gap-3">
-        {["Realtidsdata", "AI-indsigt", "Audit trail", "Impactdata"].map((x) => (
+        {["Realtidsdata", "AI-anbefalinger", "Audit trail", "Impact-metrics"].map((x) => (
           <div key={x} className="rounded-lg border border-border p-3 text-sm font-medium">{x}</div>
         ))}
       </div>

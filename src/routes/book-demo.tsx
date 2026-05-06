@@ -78,12 +78,12 @@ function BookDemoPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
           <span className="eyebrow">Book demo</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Book en GoFreyra-demo</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Se GoFreyra med jeres egne data.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Se hvordan miljødata fra virkeligheden kan blive til verificerbar bæredygtighedsdokumentation.
+            30 minutter med en specialist. Vi gennemgår jeres datakilder, dokumentationsbehov og hvordan SmartConnect+, DecisionsIQ, ESG Ledger og Impact Exchange passer ind.
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
-            Vi starter typisk med en kort afklaringssamtale, hvor vi forstår jeres datakilder, dokumentationsbehov og projektsetup.
+            Pilotopsætning er typisk klar på 2-4 uger. Udfyld formularen, så vender vi tilbage hurtigst muligt.
           </p>
         </div>
       </section>
