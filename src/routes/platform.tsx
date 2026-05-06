@@ -506,19 +506,6 @@ function PlatformPage() {
             </div>
           </div>
 
-          {/* Afsluttende grøn CTA-boks */}
-          <div className="mt-12 rounded-3xl bg-brand-deep text-primary-foreground p-8 md:p-10 grid md:grid-cols-[1.4fr_1fr] gap-6 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-semibold leading-tight">Se hvordan GoFreyra passer ind i jeres organisation.</h3>
-              <p className="mt-3 text-white/80 max-w-xl">
-                På en demo gennemgår vi jeres datakilder, jeres dokumentationsbehov og hvor et første pilotforløb giver mest mening.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 md:justify-end">
-              <Button asChild className="rounded-full h-11 px-6 bg-white text-brand-deep hover:bg-white/90"><Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-full h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"><Link to="/platform">Se platformen</Link></Button>
-            </div>
-          </div>
         </div>
       </section>
 
