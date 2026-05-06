@@ -16,6 +16,7 @@ import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
+import { Route as DatakilderRouteImport } from './routes/datakilder'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
@@ -61,6 +62,11 @@ const KontaktRoute = KontaktRouteImport.update({
 const IndsigterRoute = IndsigterRouteImport.update({
   id: '/indsigter',
   path: '/indsigter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatakilderRoute = DatakilderRouteImport.update({
+  id: '/datakilder',
+  path: '/datakilder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -124,6 +130,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/dashboard': typeof DashboardRoute
+  '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -144,6 +151,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/dashboard': typeof DashboardRoute
+  '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -165,6 +173,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/dashboard': typeof DashboardRoute
+  '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -187,6 +196,7 @@ export interface FileRouteTypes {
     | '/'
     | '/book-demo'
     | '/dashboard'
+    | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/'
     | '/book-demo'
     | '/dashboard'
+    | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -227,6 +238,7 @@ export interface FileRouteTypes {
     | '/'
     | '/book-demo'
     | '/dashboard'
+    | '/datakilder'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -248,6 +260,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookDemoRoute: typeof BookDemoRoute
   DashboardRoute: typeof DashboardRoute
+  DatakilderRoute: typeof DatakilderRoute
   IndsigterRoute: typeof IndsigterRoute
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
@@ -310,6 +323,13 @@ declare module '@tanstack/react-router' {
       path: '/indsigter'
       fullPath: '/indsigter'
       preLoaderRoute: typeof IndsigterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datakilder': {
+      id: '/datakilder'
+      path: '/datakilder'
+      fullPath: '/datakilder'
+      preLoaderRoute: typeof DatakilderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -414,6 +434,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
   DashboardRoute: DashboardRoute,
+  DatakilderRoute: DatakilderRoute,
   IndsigterRoute: IndsigterRoute,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
