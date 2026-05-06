@@ -4,6 +4,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { Button } from "@/components/ui/button";
+import { FaqSection, MicroStrip, CardGrid } from "@/components/site/sections";
 import coastal from "@/assets/project-coastal.jpg";
 import stream from "@/assets/project-stream.jpg";
 import field from "@/assets/project-field.jpg";
@@ -11,6 +12,13 @@ import forest from "@/assets/project-forest.jpg";
 import pasture from "@/assets/project-pasture.jpg";
 import lake from "@/assets/project-lake.jpg";
 import coastRestoration from "@/assets/project-coast-restoration.jpg";
+
+const FAQ = [
+  { q: "Er det kunder eller egne projekter?", a: "Begge dele. Listen blander piloter, kundeprojekter og egne reference-arealer, hvor vi bygger og tester platformen." },
+  { q: "Hvor henter I data fra?", a: "En kombination af felt, drone, satellit (Sentinel-2, Satlas), sensorer og officielle registre (DMI, GBIF, Naturdatabasen, Natura 2000, IPCC, SoilGrids)." },
+  { q: "Kan vi lave et lignende projekt på vores areal?", a: "Ja. Et pilotforløb starter typisk med ét areal og en afgrænset baseline. Skriv til os, så foreslår vi et scope." },
+  { q: "Hvor lang tid tager en baseline?", a: "Typisk 2-6 uger afhængigt af areal, datakilder og adgang til feltdata. Drone- og satellitbaselines kan etableres hurtigt." },
+];
 
 export const Route = createFileRoute("/projekter")({
   head: () =>
