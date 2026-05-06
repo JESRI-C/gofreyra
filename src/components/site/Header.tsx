@@ -38,6 +38,7 @@ export function Header() {
           <Link to="/projekter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Projekter</Link>
           <Link to="/datakilder" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Datakilder</Link>
           <Link to="/indsigter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Indsigter</Link>
+          <Link to="/priser" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Priser</Link>
           <Link to="/om" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Om</Link>
         </nav>
 
@@ -62,6 +63,7 @@ export function Header() {
             <Link to="/projekter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Projekter</Link>
             <Link to="/datakilder" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Datakilder</Link>
             <Link to="/indsigter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Indsigter</Link>
+            <Link to="/priser" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Priser</Link>
             <Link to="/om" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Om</Link>
             <Link to="/kontakt" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Kontakt</Link>
             <Button asChild className="w-full rounded-full">

@@ -256,6 +256,42 @@ function HomePage() {
 
       <FaqSection items={FAQ} />
 
+      {/* PRICING TEASER */}
+      <section className="surface-beige">
+        <div className="container-page py-20">
+          <div className="max-w-3xl">
+            <span className="eyebrow">Priser</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Start med pilot. Skalér når I er klar.</h2>
+            <p className="mt-3 text-lg text-muted-foreground">
+              Faste pakker med inkluderet forbrug — fra pilotforløb til løbende platform og enterprise. Sensorer og særlige integrationer prissættes særskilt.
+            </p>
+          </div>
+          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { n: "Pilotforløb", p: "Fra 25.000 kr.", u: "engangspris", d: "Test GoFreyra på ét område eller én case." },
+              { n: "Platform", p: "Fra 7.500 kr.", u: "/md.", d: "Løbende platform til 1-3 projekter." },
+              { n: "Growth", p: "Fra 15.000 kr.", u: "/md.", d: "Flere projekter, datakilder og analysekapacitet.", featured: true },
+              { n: "Enterprise", p: "Efter behov", u: "", d: "Komplekse organisationer og integrationer." },
+            ].map((t) => (
+              <div key={t.n} className={`relative rounded-2xl bg-card p-6 ${t.featured ? "border border-primary ring-1 ring-primary/30 shadow-elegant" : "border border-border shadow-sm"}`}>
+                {t.featured && <div className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Anbefalet</div>}
+                <div className="text-sm font-semibold text-brand-deep">{t.n}</div>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <div className="text-2xl font-bold">{t.p}</div>
+                  {t.u && <div className="text-sm text-muted-foreground">{t.u}</div>}
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground">{t.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild className="rounded-full h-12 px-6"><Link to="/priser">Se alle priser <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
+            <Button asChild variant="outline" className="rounded-full h-12 px-6"><Link to="/book-demo">Book demo</Link></Button>
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">Alle priser ekskl. moms.</p>
+        </div>
+      </section>
+
       <CTASection title="Se GoFreyra med jeres egne data." subtitle="På en kort demo gennemgår vi jeres datakilder, dokumentationsbehov og hvordan platformen kan bygges op omkring jeres virkelighed." />
     </PageLayout>
   );
