@@ -13,6 +13,7 @@ import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
+import { Route as PriserRouteImport } from './routes/priser'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
@@ -52,6 +53,11 @@ const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
 const ProjekterRoute = ProjekterRouteImport.update({
   id: '/projekter',
   path: '/projekter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriserRoute = PriserRouteImport.update({
+  id: '/priser',
+  path: '/priser',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/priser': typeof PriserRoute
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -193,6 +200,7 @@ export interface FileRoutesByTo {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/priser': typeof PriserRoute
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/priser': typeof PriserRoute
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/priser'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
@@ -274,6 +284,7 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/priser'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
@@ -300,6 +311,7 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/priser'
     | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
@@ -327,6 +339,7 @@ export interface RootRouteChildren {
   OmRoute: typeof OmRoute
   OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
+  PriserRoute: typeof PriserRoute
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       path: '/projekter'
       fullPath: '/projekter'
       preLoaderRoute: typeof ProjekterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/priser': {
+      id: '/priser'
+      path: '/priser'
+      fullPath: '/priser'
+      preLoaderRoute: typeof PriserRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -562,6 +582,7 @@ const rootRouteChildren: RootRouteChildren = {
   OmRoute: OmRoute,
   OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
+  PriserRoute: PriserRoute,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
