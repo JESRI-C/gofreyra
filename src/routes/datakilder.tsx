@@ -204,6 +204,8 @@ function DatakilderPage() {
         </div>
       </section>
 
+      <FaqSection items={FAQ} />
+
       <CTASection />
     </PageLayout>
   );
