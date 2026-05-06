@@ -92,6 +92,22 @@ function ArticlePage() {
 
       {/* CONTENT */}
       <article className="container-page py-12 max-w-3xl">
+        {justUnlocked && (
+          <div
+            className="mb-6 rounded-xl border px-4 py-3 flex items-center gap-2 text-sm font-medium"
+            style={{ backgroundColor: "#F5F1E8", borderColor: "#2BC48A", color: "#27543D" }}
+            role="status"
+          >
+            <CheckCircle2 className="w-4 h-4" style={{ color: "#2BC48A" }} />
+            Tak. Du har nu adgang til hele indsigten.
+          </div>
+        )}
+        {unlocked && !justUnlocked && (
+          <div className="mb-6 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full" style={{ backgroundColor: "#F5F1E8", color: "#27543D" }}>
+            <CheckCircle2 className="w-3.5 h-3.5" style={{ color: "#2BC48A" }} /> Adgang aktiv
+          </div>
+        )}
+
         {/* Executive summary */}
         <div className="card-soft p-6 bg-card border-l-4 border-l-primary">
           <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">Executive summary</div>
@@ -126,7 +142,7 @@ function ArticlePage() {
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background pointer-events-none" />
             </div>
             <div className="mt-6">
-              <InsightAccessGate insight={insight} onUnlock={() => setUnlocked(true)} />
+              <InsightAccessGate insight={insight} onUnlock={() => { setUnlocked(true); setJustUnlocked(true); }} />
             </div>
           </div>
         ) : (
