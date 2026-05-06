@@ -31,15 +31,15 @@ function HeroVisual() {
   return (
     <div className="relative">
       {/* Soft glow */}
-      <div className="absolute -inset-8 bg-[radial-gradient(ellipse_at_center,theme(colors.primary/15),transparent_70%)] blur-2xl pointer-events-none" />
+      <div className="absolute -inset-8 bg-[radial-gradient(ellipse_at_center,_color-mix(in_oklab,_var(--primary)_15%,_transparent),_transparent_70%)] blur-2xl pointer-events-none" />
 
       {/* Dataflow line */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" viewBox="0 0 600 460" fill="none" preserveAspectRatio="none">
         <defs>
           <linearGradient id="flow" x1="0" x2="1">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-            <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
+            <stop offset="50%" stopColor="var(--primary)" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path d="M30 80 C 180 60, 220 240, 360 230 S 560 380, 580 400" stroke="url(#flow)" strokeWidth="1.5" strokeDasharray="4 6" fill="none" />
@@ -301,7 +301,7 @@ function PlatformPage() {
       {/* FINAL CTA — deep green */}
       <section className="container-page my-16">
         <div className="relative rounded-3xl overflow-hidden bg-brand-deep text-primary-foreground p-8 md:p-12 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,theme(colors.primary/30),transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_color-mix(in_oklab,_var(--primary)_30%,_transparent),_transparent_60%)] pointer-events-none" />
           <div className="relative">
             <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 border border-white/20">
               <Sparkles className="w-3.5 h-3.5" /> Pilotklar
@@ -336,8 +336,8 @@ function PlatformPage() {
                   <span>Trend · 30d</span><span>NDVI</span>
                 </div>
                 <svg viewBox="0 0 200 60" className="mt-2 w-full h-14">
-                  <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="2" points="0,45 20,40 40,42 60,30 80,32 100,22 120,26 140,18 160,20 180,12 200,14" />
-                  <polyline fill="hsl(var(--primary))" fillOpacity="0.15" stroke="none" points="0,45 20,40 40,42 60,30 80,32 100,22 120,26 140,18 160,20 180,12 200,14 200,60 0,60" />
+                  <polyline fill="none" stroke="var(--primary)" strokeWidth="2" points="0,45 20,40 40,42 60,30 80,32 100,22 120,26 140,18 160,20 180,12 200,14" />
+                  <polyline fill="var(--primary)" fillOpacity="0.15" stroke="none" points="0,45 20,40 40,42 60,30 80,32 100,22 120,26 140,18 160,20 180,12 200,14 200,60 0,60" />
                 </svg>
               </div>
               <div className="mt-3 flex items-center gap-2 text-xs text-white/80">
