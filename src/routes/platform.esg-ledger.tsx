@@ -64,6 +64,12 @@ export const Route = createFileRoute("/platform/esg-ledger")({
         "Mindre risiko for greenwashing-kritik",
         "Et fælles datagrundlag på tværs af afdelinger",
       ]}
+      dataSources={["Sensordata via SmartConnect+", "Driftsdata fra ERP og SCADA", "Manuelle ESG-input", "Eksterne registre (DMI, Eurostat, GBIF)", "Leverandørdata", "Emissionsfaktorer (IPCC EFDB)", "Eksisterende ESG-værktøjer", "Revisionsspor og godkendelser"]}
+      relatedModules={[
+        { name: "SmartConnect+", to: "/platform/smartconnect", d: "Leverer struktureret data med tidsstempel og kilde." },
+        { name: "DecisionsIQ", to: "/platform/decisionsiq", d: "Anbefalinger og afvigelser logges i samme audit trail." },
+        { name: "Impact Exchange", to: "/platform/impact-exchange", d: "Bruger den dokumenterede impact som bevisgrundlag." },
+      ]}
       faq={FAQ}
     />
   ),
