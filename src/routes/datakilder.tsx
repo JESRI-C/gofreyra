@@ -4,7 +4,15 @@ import { ExternalLink, Search, ShieldCheck, Database } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
+import { FaqSection } from "@/components/site/sections";
 import { SOURCES, APPROVAL_LABEL, type SourcePriority } from "@/data/sources";
+
+const FAQ = [
+  { q: "Hvilke datakilder kan vi bruge?", a: "Officielle europæiske og danske kilder (Copernicus, DMI, GBIF, Naturdatabasen, Eurostat, IPCC, SoilGrids m.fl.) sammen med jeres egne sensorer, drone, felt, ERP og driftsdata." },
+  { q: "Skal vi købe sensorer?", a: "Nej. Mange kommer i gang med felt-, drifts- eller satellitdata. Sensorer kan tilføjes løbende, hvor de skaber mest værdi." },
+  { q: "Hvordan håndterer I licens og attribution?", a: "Hver kilde er knyttet til licens, opdateringsfrekvens og attribution. Ingen kilde må bruges i en ekstern rapport, før licens og adgang er afklaret." },
+  { q: "Kan vi tilføje vores egne kilder?", a: "Ja. SmartConnect+ understøtter custom integrationer, og hver kilde får samme audit trail som de officielle." },
+];
 
 export const Route = createFileRoute("/datakilder")({
   head: () =>
