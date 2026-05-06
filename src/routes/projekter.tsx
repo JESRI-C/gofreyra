@@ -143,7 +143,7 @@ const PROJECTS: Project[] = [
   },
   {
     img: pasture,
-    alt: "Græsningslandskab med birketræer og grusvej i efterårsfarver",
+    alt: "Stort egetræ i efterårsfarver ved sø og græsningsareal",
     tag: "Græsning & biodiversitet",
     title: "Ekstensiv græsning — naturpleje og dokumentation",
     location: "Småland, Sverige",
