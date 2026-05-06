@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Database } from "lucide-react";
 import { PageLayout } from "./PageLayout";
 import { CTASection } from "./CTASection";
 import { FaqSection, type FAQItem, FlowSection, GreenCTA, SectionHeader } from "./sections";
@@ -20,9 +20,13 @@ export interface ProductPageProps {
   notDoing?: string[];
   faq?: FAQItem[];
   extra?: ReactNode;
+  /** New: data sources used by the module */
+  dataSources?: string[];
+  /** New: related modules in the platform */
+  relatedModules?: { name: string; to: string; d: string }[];
 }
 
-export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra }: ProductPageProps) {
+export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra, dataSources, relatedModules }: ProductPageProps) {
   return (
     <PageLayout>
       <section className="gradient-hero">
