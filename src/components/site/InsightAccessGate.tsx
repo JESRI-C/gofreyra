@@ -53,7 +53,7 @@ export function InsightAccessGate({ insight, onUnlock }: { insight: Insight; onU
       toast.error("Noget gik galt. Prøv igen om lidt.");
       return;
     }
-    toast.success("Tak. Du har nu adgang til hele indsigten.");
+    toast.success("Tak — analysen er låst op.");
     onUnlock();
   }
 
@@ -61,11 +61,11 @@ export function InsightAccessGate({ insight, onUnlock }: { insight: Insight; onU
     <div className="rounded-2xl border border-border p-6 md:p-8 shadow-sm" style={{ backgroundColor: "#F5F1E8" }}>
       <div className="flex items-center gap-2 text-brand-deep">
         <Lock className="w-4 h-4" />
-        <span className="text-xs font-semibold uppercase tracking-wider">Adgang til hele indsigten</span>
+        <span className="text-xs font-semibold uppercase tracking-wider">Professionel adgang</span>
       </div>
-      <h3 className="mt-3 text-2xl md:text-3xl font-bold text-brand-deep">Få adgang til hele indsigten</h3>
+      <h3 className="mt-3 text-2xl md:text-3xl font-bold text-brand-deep">Læs hele analysen</h3>
       <p className="mt-3 text-foreground/80 max-w-2xl">
-        Denne analyse går dybere ned i datagrundlag, dokumentation og praktiske anvendelser. Udfyld formularen, så får du adgang til hele indholdet.
+        Resten af analysen går i dybden med datagrundlag, dokumentation og konkret anvendelse. Udfyld kort, hvem du er — så låser vi indholdet op med det samme.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-6 grid sm:grid-cols-2 gap-4">
@@ -96,15 +96,15 @@ export function InsightAccessGate({ insight, onUnlock }: { insight: Insight; onU
 
         <label className="sm:col-span-2 flex items-start gap-3 text-sm text-foreground/80 cursor-pointer">
           <Checkbox checked={form.consent} onCheckedChange={(v) => setForm({ ...form, consent: v === true })} className="mt-0.5" />
-          <span>Jeg accepterer, at GoFreyra må kontakte mig med relevant viden, invitationer og information om platformen.</span>
+          <span>Jeg accepterer, at GoFreyra må sende mig relevant viden og invitationer. Du kan afmelde når som helst.</span>
         </label>
 
         <div className="sm:col-span-2 flex flex-wrap items-center gap-3 mt-2">
           <Button type="submit" disabled={submitting} className="rounded-full h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground">
-            {submitting ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sender…</> : <>Få adgang <ArrowRight className="ml-1.5 w-4 h-4" /></>}
+            {submitting ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sender…</> : <>Lås analysen op <ArrowRight className="ml-1.5 w-4 h-4" /></>}
           </Button>
           <span className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-primary" /> Vi deler ikke jeres oplysninger med tredjepart.
+            <Check className="w-3.5 h-3.5 text-primary" /> Ingen videregivelse til tredjepart.
           </span>
         </div>
       </form>
