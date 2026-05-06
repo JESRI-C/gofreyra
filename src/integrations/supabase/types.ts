@@ -86,6 +86,48 @@ export type Database = {
         }
         Relationships: []
       }
+      insight_access_requests: {
+        Row: {
+          article_slug: string
+          article_title: string
+          company: string
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          interest_area: string | null
+          name: string
+          role: string | null
+          status: string
+        }
+        Insert: {
+          article_slug: string
+          article_title: string
+          company: string
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          interest_area?: string | null
+          name: string
+          role?: string | null
+          status?: string
+        }
+        Update: {
+          article_slug?: string
+          article_title?: string
+          company?: string
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          interest_area?: string | null
+          name?: string
+          role?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       newsletter_signups: {
         Row: {
           created_at: string
