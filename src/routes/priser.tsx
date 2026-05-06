@@ -152,10 +152,10 @@ function PricingPage() {
         <div className="container-page py-16 md:py-24 max-w-4xl">
           <span className="eyebrow">Priser</span>
           <h1 className="mt-5 text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight">
-            Priser der passer til <span className="text-brand-deep">jeres datamodenhed</span>
+            Priser der følger <span className="text-brand-deep">jeres datamodenhed</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            Start med et afgrænset pilotforløb, og skalér GoFreyra i takt med flere projekter, datakilder og dokumentationsbehov.
+            Start med et afgrænset pilotforløb. Skalér i takt med flere projekter, datakilder og dokumentationsbehov.
           </p>
         </div>
       </section>
@@ -164,7 +164,7 @@ function PricingPage() {
       <section className="container-page py-12">
         <div className="card-soft p-6 md:p-8 bg-card max-w-4xl">
           <p className="text-foreground/80 text-base md:text-lg">
-            GoFreyra kan begynde småt og udvides gradvist. I behøver ikke have alle sensorer, integrationer og rapporteringsflows klar fra dag ét. Et pilotforløb hjælper med at afklare datakilder, behov og den rigtige platformsløsning.
+            I behøver ikke have alle sensorer, integrationer og rapporteringsflows klar fra dag ét. Et pilotforløb afklarer datakilder, behov og det rette platformsniveau — før I beslutter jer.
           </p>
         </div>
       </section>
