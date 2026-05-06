@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
+import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 
 export const Route = createFileRoute("/om")({
   head: () => buildHead({
-    title: "Om GoFreyra — Digital infrastruktur for målbar bæredygtighed",
-    description: "GoFreyra bygger digital infrastruktur for målbar bæredygtighed. Vi forbinder miljødata fra virkeligheden med analyse, beslutninger og dokumentation.",
+    title: "Om GoFreyra — Dansk SaaS-platform til miljødata og ESG",
+    description: "GoFreyra er den danske SaaS-platform, der gør miljødata, drift og ESG-dokumentation operationel — bygget til CSRD, naturkrav og verificerbar impact.",
     path: "/om",
   }),
   component: AboutPage,
@@ -16,10 +17,10 @@ function AboutPage() {
     <PageLayout>
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-24 max-w-3xl">
-          <span className="eyebrow">Om</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Om GoFreyra</h1>
+          <span className="eyebrow">Om GoFreyra</span>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Vi gør bæredygtighed målbar — ikke fortællbar.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Vi bygger digital infrastruktur for målbar bæredygtighed.
+            GoFreyra er en dansk SaaS-platform, der samler, analyserer og dokumenterer miljø- og driftsdata, så virksomheder, kommuner og naturprojekter kan bevise deres indsats.
           </p>
         </div>
       </section>
@@ -27,24 +28,21 @@ function AboutPage() {
       <section className="container-page py-16 grid lg:grid-cols-2 gap-10">
         <div className="space-y-5 text-foreground/85">
           <p>
-            GoFreyra er en del af Freyra-økosystemet og fokuserer på at forbinde miljødata fra virkeligheden med analyse,
-            beslutninger og dokumentation. Vi tror på, at bæredygtighed skal være målbar — ikke en historie om gode intentioner.
+            Vi er bygget til organisationer, der står med CSRD, naturkrav og stigende dokumentationspres — og som er trætte af, at ESG-arbejdet bor i regneark, PDF'er og spredte systemer.
           </p>
           <p>
-            Vi arbejder i krydsfeltet mellem natur, drift og rapportering. Det betyder, at vi designer platformen til at
-            håndtere både feltdata fra et naturprojekt, driftsdata fra et forsyningsselskab og strukturerede ESG-data fra en koncern.
+            GoFreyra dækker hele værdikæden: SmartConnect+ samler data fra felten, DecisionsIQ analyserer dem, ESG Ledger dokumenterer dem, og Impact Exchange aktiverer effekten. Det hele samles i GoFreyra Dashboard.
           </p>
           <p>
-            Vores ambition er at gøre bæredygtighedsarbejde lettere at styre, lettere at dokumentere og lettere at forsvare —
-            med data, der kan spores tilbage til kilden.
+            Vi tror på, at bæredygtighed kun bliver troværdig, når den kan spores tilbage til kilden. Det er det, vi bygger.
           </p>
         </div>
         <div className="space-y-4">
           {[
-            { t: "Vores fokus", d: "Miljødata, ESG-dokumentation og verificerbar impact." },
-            { t: "Vores tilgang", d: "Praktiske arbejdsgange, sporbare data og operationelle dashboards." },
+            { t: "Vores fokus", d: "Miljødata, ESG-dokumentation og verificerbar natur- og klimaeffekt." },
+            { t: "Vores tilgang", d: "Sporbar data, praktiske arbejdsgange og operationelle dashboards." },
             { t: "Vores brugere", d: "Virksomheder, kommuner, industri, forsyning, lodsejere og naturprojekter." },
-            { t: "Vores fundament", d: "En modulær SaaS-platform bygget til pilotprojekter og skalering." },
+            { t: "Vores fundament", d: "Modulær SaaS — start med ét modul, skalér til hele organisationen." },
           ].map((c) => (
             <div key={c.t} className="card-soft p-6">
               <div className="font-semibold">{c.t}</div>
@@ -53,6 +51,8 @@ function AboutPage() {
           ))}
         </div>
       </section>
+
+      <CTASection />
     </PageLayout>
   );
 }

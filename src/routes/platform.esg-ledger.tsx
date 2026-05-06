@@ -4,28 +4,28 @@ import { buildHead } from "@/components/site/SEO";
 
 export const Route = createFileRoute("/platform/esg-ledger")({
   head: () => buildHead({
-    title: "ESG Ledger — Audit-klar ESG-dokumentation | GoFreyra",
-    description: "ESG Ledger skaber et sikkert audit trail for bæredygtighedsdata, impact-claims og rapporteringsflows — bygget med en CSRD-orienteret datamodel.",
+    title: "ESG Ledger — Audit-klar ESG- og naturdokumentation | GoFreyra",
+    description: "ESG Ledger lægger kilde, tidsstempel og audit trail på hvert datapunkt. Bygget til CSRD, ESRS, revision og naturrapportering.",
     path: "/platform/esg-ledger",
   }),
   component: () => (
     <ProductPage
-      eyebrow="Modul · Dokumentation"
+      eyebrow="Modul 3 · Dokumentér data"
       title="ESG Ledger"
-      subtitle="ESG-dokumentation, der kan spores tilbage til kilden."
-      intro="ESG Ledger skaber et sikkert audit trail for bæredygtighedsdata, impact-claims og rapporteringsflows. Et tillidslag, der gør dokumentationen verificerbar."
+      subtitle="Dokumenterer hvert datapunkt med kilde, tidsstempel og audit trail."
+      intro="ESG Ledger er det tillidsgrundlag, jeres rapport hviler på. Hvert tal kan spores tilbage til den oprindelige sensor, observation eller datakilde — så I kan svare revisor og bestyrelse uden at lede i regneark."
       features={[
-        { title: "Kildedokumentation", desc: "Hvert datapunkt er knyttet til den oprindelige kilde — sensor, observation eller system." },
-        { title: "Audit trail", desc: "Sporbar historik over ændringer, godkendelser og rapporteringsflows." },
-        { title: "Verificerbart datalag", desc: "Et tillidslag, der gør det muligt at bevise, at data ikke er manipuleret." },
-        { title: "Rapportklar struktur", desc: "Strukturer data klar til ESG-rapportering, revision og intern audit." },
-        { title: "CSRD-orienteret datamodel", desc: "Datapunkter, der mapper til ESRS-temaer og rapporteringskrav." },
-        { title: "Roller og adgang", desc: "Klar adgangsstyring for ESG-team, drift, revisorer og eksterne partnere." },
+        { title: "Kildedokumentation", desc: "Hvert datapunkt knyttes til den oprindelige sensor, observation eller systemkilde." },
+        { title: "Komplet audit trail", desc: "Sporbar historik over ændringer, godkendelser og rapporteringsflows." },
+        { title: "Verificerbar dataintegritet", desc: "Bevis at data ikke er ændret efter indsamling — fx via kryptografisk hash." },
+        { title: "CSRD- og ESRS-mapping", desc: "Datapunkter struktureret efter ESRS-temaer og rapporteringskrav." },
+        { title: "Rapportklar struktur", desc: "Træk data direkte ind i ESG-rapport, revision eller intern audit." },
+        { title: "Roller og adgang", desc: "Adgangsstyring for ESG, drift, revisorer og eksterne partnere." },
       ]}
       bullets={[
         "Stærkere svar når revisor stiller spørgsmål",
-        "Mindre frygt for greenwashing-kritik",
-        "Et fælles tillidsgrundlag på tværs af afdelinger",
+        "Mindre risiko for greenwashing-kritik",
+        "Et fælles datagrundlag på tværs af afdelinger",
       ]}
     />
   ),

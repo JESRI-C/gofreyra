@@ -5,18 +5,18 @@ import { buildHead } from "@/components/site/SEO";
 import { ArrowRight } from "lucide-react";
 
 const articles = [
-  { t: "Bæredygtighed uden data bliver hurtigt en fortælling", c: "Artikel", d: "Hvorfor datagrundlag er forskellen mellem reel impact og grøn historiefortælling." },
-  { t: "Natur skal kunne måles for at kunne styres", c: "Artikel", d: "Hvad betyder det at gøre naturindsatser målbare i praksis?" },
-  { t: "Hvorfor ESG-teams har brug for real-world data", c: "Whitepaper", d: "Tre konkrete områder hvor real-world data ændrer ESG-arbejdet." },
-  { t: "Fra biodiversitetsovervågning til dokumenterbar impact", c: "Guide", d: "Praktisk guide til at gøre naturdata til verificerbar dokumentation." },
-  { t: "Hvordan AI kan understøtte miljødata og ESG-dokumentation", c: "Artikel", d: "Hvor giver AI reel værdi — og hvor er det stadig støj?" },
-  { t: "CSRD i praksis — datakrav og dokumentationsflows", c: "Whitepaper", d: "Et overblik over de mest praksisnære krav til datagrundlaget." },
+  { t: "CSRD i praksis: hvad revisor faktisk spørger om", c: "Whitepaper", d: "De konkrete dokumentationskrav, der oftest stopper rapporten." },
+  { t: "Hvorfor naturindsatser skal kunne måles for at kunne styres", c: "Artikel", d: "Forskellen mellem en naturhistorie og et naturprojekt med tal bag." },
+  { t: "Real-world data i ESG-arbejdet — tre praksiseksempler", c: "Whitepaper", d: "Hvor sensor-, drone- og satellitdata flytter rapporteringen mest." },
+  { t: "Fra biodiversitetsmåling til verificerbar impact", c: "Guide", d: "Sådan bygges en naturbaseline, der kan stå mål med købere og myndigheder." },
+  { t: "AI i miljødata: hvor giver det værdi — og hvor er det støj?", c: "Artikel", d: "Realistisk gennemgang af, hvad AI kan og ikke kan i ESG-arbejdet." },
+  { t: "Audit trail: hvad det er, og hvorfor jeres rapport ikke holder uden", c: "Guide", d: "Praktisk indføring i sporbar dokumentation." },
 ];
 
 export const Route = createFileRoute("/indsigter")({
   head: () => buildHead({
-    title: "Indsigter — Bæredygtighedsdata, ESG og naturintelligens | GoFreyra",
-    description: "Praktisk viden om bæredygtighedsdata, ESG-dokumentation og naturintelligens. Artikler, whitepapers, guides og webinarer.",
+    title: "Indsigter — CSRD, ESG-data og naturdokumentation | GoFreyra",
+    description: "Praktisk viden om CSRD, ESG-data, biodiversitetsdokumentation og audit trail. Artikler, whitepapers og guides fra GoFreyra.",
     path: "/indsigter",
   }),
   component: InsightsPage,
@@ -28,9 +28,9 @@ function InsightsPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-24 max-w-3xl">
           <span className="eyebrow">Indsigter</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Indsigter</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Praktisk viden om data, dokumentation og CSRD.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Praktisk viden om bæredygtighedsdata, ESG-dokumentation og naturintelligens.
+            Artikler, whitepapers og guides skrevet til ESG-team, drift og naturprojekter — uden floskler.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {["Artikler", "Whitepapers", "Guides", "Webinarer", "FAQ"].map((c) => (
@@ -53,7 +53,7 @@ function InsightsPage() {
         ))}
       </section>
 
-      <CTASection title="Vil du dykke dybere?" subtitle="Book en demo og få en konkret gennemgang af, hvordan GoFreyra arbejder med jeres data." />
+      <CTASection title="Vil du gå fra teori til opsætning?" subtitle="Book en demo og få en konkret gennemgang af, hvordan GoFreyra arbejder med jeres data." />
     </PageLayout>
   );
 }

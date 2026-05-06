@@ -5,14 +5,14 @@ import { buildHead } from "@/components/site/SEO";
 export const Route = createFileRoute("/loesninger/industri")({
   head: () => buildHead({
     title: "Løsninger til industri og forsyning — ESG og driftsdata | GoFreyra",
-    description: "Forbind driftsdata med bæredygtighed og ESG-performance. Følg emissioner, energi, vand og ressourceforbrug med audit-klar dokumentation.",
+    description: "Træk ESG-indikatorer direkte ud af driften. Følg energi, vand, emissioner og ressourceforbrug — med audit trail og uden regneark.",
     path: "/loesninger/industri",
   }),
   component: () => (
     <SolutionPage
       eyebrow="Løsning · Industri & forsyning"
-      title="Forbind driftsdata med bæredygtighed og ESG-performance."
-      subtitle="Få ESG-indikatorer ud af driften — ikke ud af regneark. Stærkere data, færre manuelle processer, bedre risikostyring."
+      title="ESG-tal direkte fra driften — ikke fra regneark."
+      subtitle="Forbind drifts-, energi- og forsyningsdata med ESG-rapportering og risikostyring. Færre manuelle processer, stærkere bevisbyrde."
       problems={[
         "Driftsdata og ESG-data lever i hver sin verden",
         "Energi-, vand- og emissionsdata er fragmenterede",
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/loesninger/industri")({
         { title: "Audit-klar dokumentation", desc: "Sporbart datagrundlag for ESG- og compliance-rapportering." },
         { title: "Mindre manuelt arbejde", desc: "Strukturerede flows fra dataindsamling til rapport." },
       ]}
-      modules={["SmartConnect+", "DecisionsIQ", "ESG Ledger", "Dashboard"]}
+      modules={["SmartConnect+", "DecisionsIQ", "ESG Ledger", "GoFreyra Dashboard"]}
     />
   ),
 });

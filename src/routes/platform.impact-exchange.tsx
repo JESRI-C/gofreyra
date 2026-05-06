@@ -4,28 +4,28 @@ import { buildHead } from "@/components/site/SEO";
 
 export const Route = createFileRoute("/platform/impact-exchange")({
   head: () => buildHead({
-    title: "Impact Exchange — Verificerbar natur- og klimaimpact | GoFreyra",
-    description: "Impact Exchange forbinder dokumenterede miljøforbedringer med rapportering, projektvisibilitet og fremtidige credit-modeller.",
+    title: "Impact Exchange — Synliggør og aktivér jeres impact | GoFreyra",
+    description: "Impact Exchange gør verificeret natur- og klimaeffekt synlig for partnere, kunder og fremtidige biodiversitets- og kulstofmarkeder.",
     path: "/platform/impact-exchange",
   }),
   component: () => (
     <ProductPage
-      eyebrow="Modul · Impact"
+      eyebrow="Modul 4 · Aktivér impact"
       title="Impact Exchange"
-      subtitle="Gør natur- og impactprojekter klar til fremtidens markedsmodeller."
-      intro="Impact Exchange forbinder dokumenterede miljøforbedringer med rapportering, projektvisibilitet og fremtidige credit-modeller for natur og klima."
+      subtitle="Synliggør verificeret natur- og klimaeffekt — klar til rapportering, partnere og fremtidige markeder."
+      intro="Impact Exchange tager den dokumenterede effekt fra ESG Ledger og pakker den, så I kan vise den til kunder, partnere og myndigheder — og være klar, når nye biodiversitets- og kulstofmarkeder modnes."
       features={[
         { title: "Projektregister", desc: "Registrér natur- og impactprojekter med dokumentation og indikatorer." },
         { title: "Verificerede impactdata", desc: "Brug data fra SmartConnect+ og ESG Ledger som bevisgrundlag." },
         { title: "Biodiversitets- og CO₂-indikatorer", desc: "Følg udviklingen i centrale natur- og klimaindikatorer over tid." },
-        { title: "Køber/sælger-forberedelse", desc: "Strukturer data så projekter er klar til markedsdialog og partnerskaber." },
-        { title: "Fremtidig marketplace-logik", desc: "Klar til at understøtte kommende natur- og biodiversitetsmarkeder." },
-        { title: "Projekt-storytelling", desc: "Visualisér impact for interessenter, ledelse og partnere." },
+        { title: "Køber-/partner-pakke", desc: "Strukturér data, så projekter er klar til markedsdialog og partnerskaber." },
+        { title: "Marketplace-klar", desc: "Forberedt til kommende natur- og biodiversitetsmarkeder." },
+        { title: "Storytelling med tal bag", desc: "Visualisér impact for ledelse, kunder og interessenter." },
       ]}
       bullets={[
         "Naturprojekter bliver mere troværdige",
-        "Bedre forberedelse til fremtidige biodiversitets- og klimamarkeder",
-        "Tydeligere kommunikation af reel impact",
+        "Bedre forberedelse til biodiversitets- og klimamarkeder",
+        "Tydeligere kommunikation af reel effekt",
       ]}
     />
   ),
