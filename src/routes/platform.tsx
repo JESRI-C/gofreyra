@@ -303,17 +303,22 @@ function PlatformPage() {
             </div>
           </div>
 
-          <p className="mt-10 text-sm text-foreground/65 max-w-2xl">
-            GoFreyra kan starte med få datakilder og udvides, når organisationens behov og datamodenhed vokser.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full">
-              <Link to="/dashboard">Se dashboardet <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full">
-              <Link to="/book-demo">Book demo</Link>
-            </Button>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-border">
+            <p className="text-sm text-foreground/65 max-w-2xl">
+              Start med få datakilder. Udvid når organisationens behov og datamodenhed vokser.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { to: "/platform/smartconnect", t: "SmartConnect+" },
+                { to: "/platform/decisionsiq", t: "DecisionsIQ" },
+                { to: "/platform/esg-ledger", t: "ESG Ledger" },
+                { to: "/platform/impact-exchange", t: "Impact Exchange" },
+              ].map((m) => (
+                <Link key={m.to} to={m.to} className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-brand-deep hover:bg-primary hover:text-primary-foreground transition border border-primary/20">
+                  {m.t} <ArrowRight className="w-3 h-3" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
