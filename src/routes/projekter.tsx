@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import coastal from "@/assets/project-coastal.jpg";
 import stream from "@/assets/project-stream.jpg";
 import field from "@/assets/project-field.jpg";
+import forest from "@/assets/project-forest.jpg";
+import pasture from "@/assets/project-pasture.jpg";
 
 export const Route = createFileRoute("/projekter")({
   head: () =>
@@ -78,6 +80,38 @@ const PROJECTS: Project[] = [
       { k: "Felter", v: "23" },
       { k: "Scope 1+2", v: "beregnet" },
       { k: "Coverage", v: "92 %" },
+    ],
+  },
+  {
+    img: forest,
+    alt: "Skovbryn med fyrretræer og åbent landskab i efterårslys",
+    tag: "Skov & habitat",
+    title: "Skovbryn — habitatkortlægning og kulstoflager",
+    location: "Sydsverige",
+    period: "2024 – løbende",
+    summary:
+      "Drone og Sentinel-2 bruges til at kortlægge habitatstruktur, træhøjde og kulstoflager. GBIF-observationer kobles til polygonen for at dokumentere artsdiversitet over tid.",
+    sources: ["Drone (RGB)", "Copernicus Sentinel-2", "GBIF / DanBIF", "EEA Datahub"],
+    metrics: [
+      { k: "Areal", v: "47 ha" },
+      { k: "Habitattyper", v: "5" },
+      { k: "Kulstoflager", v: "estimeret" },
+    ],
+  },
+  {
+    img: pasture,
+    alt: "Græsningslandskab med birketræer og grusvej i efterårsfarver",
+    tag: "Græsning & biodiversitet",
+    title: "Ekstensiv græsning — naturpleje og dokumentation",
+    location: "Småland, Sverige",
+    period: "2023 – løbende",
+    summary:
+      "Feltregistreringer fra græsningsareal kombineres med NDVI-trend fra Satlas og artsdata fra GBIF for at dokumentere effekten af ekstensiv naturpleje på biodiversitet.",
+    sources: ["Feltobservationer", "Satlas 2.0", "GBIF / DanBIF", "DMI Open Data"],
+    metrics: [
+      { k: "Areal", v: "62 ha" },
+      { k: "Plantearter", v: "138" },
+      { k: "NDVI-stabilitet", v: "høj" },
     ],
   },
 ];
