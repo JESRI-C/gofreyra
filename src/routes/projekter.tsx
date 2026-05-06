@@ -163,24 +163,41 @@ function ProjekterPage() {
   return (
     <PageLayout>
       <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24 max-w-3xl">
-          <span className="eyebrow">Projekter fra felten</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05]">
-            Sådan ser GoFreyra ud, når data kommer fra virkeligheden.
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Drone, satellit, felt og officielle kilder samlet ét sted — med kilde,
-            tidspunkt og metode på hvert datapunkt.
-          </p>
-          <div className="mt-7 flex gap-3">
-            <Button asChild className="rounded-full h-11 px-5">
-              <Link to="/book-demo">
-                Book demo <ArrowRight className="ml-1.5 w-4 h-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-full h-11 px-5">
-              <Link to="/datakilder">Se datakilder</Link>
-            </Button>
+        <div className="container-page py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span className="eyebrow">Projekter fra felten</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-[1.05]">
+              Sådan ser GoFreyra ud, når data kommer fra virkeligheden.
+            </h1>
+            <p className="mt-5 text-lg text-muted-foreground">
+              Drone, satellit, felt og officielle kilder samlet ét sted — med kilde,
+              tidspunkt og metode på hvert datapunkt.
+            </p>
+            <div className="mt-7 flex gap-3">
+              <Button asChild className="rounded-full h-11 px-5">
+                <Link to="/book-demo">
+                  Book demo <ArrowRight className="ml-1.5 w-4 h-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full h-11 px-5">
+                <Link to="/datakilder">Se datakilder</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              src={coastal}
+              alt="Drone-luftfoto af snoet å gennem dansk natur — baseline for naturprojekt"
+              className="w-full h-[360px] md:h-[460px] object-cover rounded-3xl shadow-elegant"
+              loading="eager"
+            />
+            <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur rounded-xl px-4 py-2.5 shadow-md flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <div>
+                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Live · NDVI</div>
+                <div className="text-sm font-semibold text-brand-deep">Baseline aktiv</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
