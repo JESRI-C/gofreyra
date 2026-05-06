@@ -185,6 +185,20 @@ function ProjekterPage() {
         </div>
       </section>
 
+      <MicroStrip items={["Felt + drone + satellit", "Officielle datakilder", "Audit trail på datapunkter", "Klar til biodiversitets- og kulstofmarkeder"]} />
+
+      <CardGrid
+        beige
+        eyebrow="Sådan arbejder vi med projekter"
+        title="Baseline. Drift. Dokumentation."
+        cols={3}
+        cards={[
+          { t: "Baseline", d: "Etablér et dokumenteret startpunkt med felt, drone og satellit." },
+          { t: "Drift og monitorering", d: "Følg udvikling over tid med faste indikatorer og evidence events." },
+          { t: "Rapport og impact", d: "Træk dokumentation til myndigheder, partnere og fremtidige markeder." },
+        ]}
+      />
+
       <section className="container-page py-12 space-y-10">
         {PROJECTS.map((p, i) => (
           <article
