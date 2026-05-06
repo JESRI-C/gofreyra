@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/site/ProductPage";
 import { buildHead } from "@/components/site/SEO";
+import impactExchangeHero from "@/assets/impact-exchange-hero.png";
 
 export const Route = createFileRoute("/platform/impact-exchange")({
   head: () => buildHead({
@@ -14,6 +15,14 @@ export const Route = createFileRoute("/platform/impact-exchange")({
       title="Impact Exchange"
       subtitle="Synliggør verificeret natur- og klimaeffekt — klar til rapportering, partnere og fremtidige markeder."
       intro="Impact Exchange tager den dokumenterede effekt fra ESG Ledger og pakker den, så I kan vise den til kunder, partnere og myndigheder — og være klar, når nye biodiversitets- og kulstofmarkeder modnes."
+      visual={
+        <img
+          src={impactExchangeHero}
+          alt="Impact Exchange-dashboard med verificerede natur- og klimaprojekter, verdenskort, biodiversitets- og CO2-indikatorer samt verifikationsstatus"
+          className="w-full h-auto rounded-2xl border border-border shadow-elegant"
+          loading="eager"
+        />
+      }
       features={[
         { title: "Projektregister", desc: "Registrér natur- og impactprojekter med dokumentation og indikatorer." },
         { title: "Verificerede impactdata", desc: "Brug data fra SmartConnect+ og ESG Ledger som bevisgrundlag." },
