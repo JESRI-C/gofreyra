@@ -217,33 +217,103 @@ function PlatformPage() {
         </div>
       </section>
 
-      {/* FOUR LAYERS — horizontal visual */}
-      <section className="container-page py-20">
-        <SectionHeader eyebrow="Arkitektur" title="Platformens fire lag." body="Fire lag, der hænger sammen. Intet datapunkt rejser uden kilde, tidsstempel og kontekst." />
-        <div className="mt-12 relative">
-          {/* connecting line */}
-          <div className="hidden lg:block absolute top-[42px] left-[8%] right-[8%] h-px bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { i: <Network className="w-5 h-5" />, n: "Lag 1", t: "Dataindsamling", d: "Sensorer, satellit, droner, feltregistreringer og driftsdata.", ex: ["Temperatur · 14,2 °C", "Vandstand · 0,82 m", "NDVI · 0,71"] },
-              { i: <ShieldCheck className="w-5 h-5" />, n: "Lag 2", t: "Datavalidering", d: "Rensning, strukturering, tidsstempling og kvalitetskontrol.", ex: ["Kilde verificeret", "Tidsstempel · UTC", "Outlier flag · 2"] },
-              { i: <Brain className="w-5 h-5" />, n: "Lag 3", t: "Analyse og indsigt", d: "AI-understøttet mønstergenkendelse, risici og anbefalinger.", ex: ["Afvigelse · medium", "Trend · stigende", "Risiko · 0,34"] },
-              { i: <FileText className="w-5 h-5" />, n: "Lag 4", t: "Dokumentation", d: "Audit trail, rapportstatus, eksport og ledelsesoverblik.", ex: ["Audit trail · OK", "CSRD-felt · klar", "Eksport · PDF/CSV"] },
-            ].map((l, i) => (
-              <div key={l.t} className="card-soft p-6 bg-card relative">
-                <div className="w-12 h-12 rounded-full bg-card border-2 border-primary/30 text-brand-deep grid place-items-center mx-auto lg:mx-0 relative z-10">{l.i}</div>
-                <div className="text-xs font-mono text-primary mt-3">{l.n}</div>
-                <div className="font-semibold text-lg">{l.t}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{l.d}</p>
-                <div className="mt-4 pt-4 border-t border-border space-y-1.5">
-                  {l.ex.map((e) => (
-                    <div key={e} className="text-xs font-mono text-foreground/70 flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-primary" />{e}
+      {/* FOUR LAYERS — fra rådata til dokumentation */}
+      <section className="surface-beige">
+        <div className="container-page py-20 lg:py-24">
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <div className="text-xs font-mono tracking-[0.18em] text-primary uppercase">Fra rådata til dokumentation</div>
+              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-brand-deep">Platformens fire lag gør data brugbar.</h2>
+              <p className="mt-5 text-lg text-foreground/75 max-w-3xl">
+                GoFreyra er bygget som en sammenhængende platform, hvor data fra virkeligheden kan indsamles, struktureres, analyseres og omsættes til dokumentation. Det betyder, at ESG-team, drift og ledelse arbejder ud fra samme datagrundlag.
+              </p>
+            </div>
+            {/* mini datastream illustration */}
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="card-soft bg-card p-5 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Datastream · live</div>
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                </div>
+                <svg viewBox="0 0 240 80" className="mt-3 w-full h-16">
+                  <defs>
+                    <linearGradient id="ds-fill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#2BC48A" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="#2BC48A" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 55 L30 48 L60 52 L90 32 L120 38 L150 22 L180 28 L210 14 L240 20 L240 80 L0 80 Z" fill="url(#ds-fill)" />
+                  <path d="M0 55 L30 48 L60 52 L90 32 L120 38 L150 22 L180 28 L210 14 L240 20" fill="none" stroke="#2BC48A" strokeWidth="1.75" />
+                </svg>
+                <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                  {[{l:"Kilder",v:"14"},{l:"Punkter",v:"3,2k"},{l:"Audit",v:"OK"}].map(s=>(
+                    <div key={s.l} className="rounded-lg bg-[#F5F1E8] py-2">
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{s.l}</div>
+                      <div className="text-sm font-semibold text-brand-deep">{s.v}</div>
                     </div>
                   ))}
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Four layers */}
+          <div className="mt-14 relative">
+            <div className="hidden lg:block absolute top-[58px] left-[8%] right-[8%] h-px bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  i: <Network className="w-6 h-6" />, n: "Lag 1", t: "Dataindsamling",
+                  d: "GoFreyra kan samle data fra sensorer, feltregistreringer, satellitdata, dronedata, vejrdata, driftsdata og manuelle input. Det gør det muligt at starte med de datakilder, organisationen allerede har, og udvide gradvist.",
+                  ex: ["IoT-sensorer", "Feltobservationer", "Satellit- og dronedata", "Driftsdata", "Manuelle registreringer"],
+                },
+                {
+                  i: <ShieldCheck className="w-6 h-6" />, n: "Lag 2", t: "Datavalidering",
+                  d: "Data bliver først værdifuld, når den kan forstås og bruges. GoFreyra strukturerer datakilder, tilføjer kildeinformation, tidsstempler og kvalitetsspor, så data kan indgå i et samlet dokumentationsflow.",
+                  ex: ["Kildeangivelse", "Tidsstempling", "Datakvalitet", "Strukturering", "Sporbarhed"],
+                },
+                {
+                  i: <Brain className="w-6 h-6" />, n: "Lag 3", t: "Analyse og indsigt",
+                  d: "Med DecisionsIQ kan platformen hjælpe med at finde mønstre, afvigelser, risici og mulige handlinger. AI-laget skal ikke erstatte faglig vurdering, men gøre det lettere at se, hvor der bør handles først.",
+                  ex: ["Afvigelser", "Risikoindikatorer", "Trendanalyse", "AI-anbefalinger", "Beslutningsstøtte"],
+                },
+                {
+                  i: <FileText className="w-6 h-6" />, n: "Lag 4", t: "Dokumentation og handling",
+                  d: "Når data, analyse og kontekst samles, bliver det muligt at skabe bedre ESG-dokumentation, audit trails, rapportstatus og projektopfølgning. Målet er at gøre bæredygtighed lettere at styre og lettere at forklare.",
+                  ex: ["ESG-dokumentation", "Audit trail", "Rapporteksport", "Impact-overblik", "Ledelsesrapportering"],
+                },
+              ].map((l) => (
+                <div key={l.t} className="card-soft p-7 bg-card relative shadow-sm hover:shadow-elegant transition-all flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <div className="w-14 h-14 rounded-2xl bg-[#2BC48A]/12 text-brand-deep grid place-items-center border border-primary/20 relative z-10">{l.i}</div>
+                    <span className="text-[10px] font-mono tracking-wider uppercase text-primary px-2 py-1 rounded-full bg-primary/10">{l.n}</span>
+                  </div>
+                  <div className="mt-5 font-semibold text-xl text-brand-deep">{l.t}</div>
+                  <p className="mt-2 text-sm text-foreground/70 leading-relaxed">{l.d}</p>
+                  <div className="mt-5 pt-5 border-t border-border space-y-2">
+                    {l.ex.map((e) => (
+                      <div key={e} className="flex items-center gap-2 text-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <span className="font-mono text-foreground/75">{e}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-10 text-sm text-foreground/65 max-w-2xl">
+            GoFreyra kan starte med få datakilder og udvides, når organisationens behov og datamodenhed vokser.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="rounded-full">
+              <Link to="/dashboard">Se dashboardet <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-full">
+              <Link to="/book-demo">Book demo</Link>
+            </Button>
           </div>
         </div>
       </section>
