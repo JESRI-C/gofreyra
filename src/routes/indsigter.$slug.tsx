@@ -1,12 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, faqJsonLd } from "@/components/site/SEO";
-import { InsightAccessGate } from "@/components/site/InsightAccessGate";
+import { InsightAccessGate, INSIGHT_ACCESS_KEY } from "@/components/site/InsightAccessGate";
 import { FaqSection, GreenCTA } from "@/components/site/sections";
 import { CTASection } from "@/components/site/CTASection";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Calendar, Tag, ArrowLeft } from "lucide-react";
+import { ArrowRight, Clock, Calendar, Tag, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { getInsight, INSIGHTS, type Insight } from "@/data/insights";
 
 export const Route = createFileRoute("/indsigter/$slug")({
@@ -57,6 +56,16 @@ export const Route = createFileRoute("/indsigter/$slug")({
 function ArticlePage() {
   const { insight } = Route.useLoaderData() as { insight: Insight };
   const [unlocked, setUnlocked] = useState(false);
+  const [justUnlocked, setJustUnlocked] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem(INSIGHT_ACCESS_KEY) === "true") setUnlocked(true);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
   const related = insight.related
     .map((s: string) => INSIGHTS.find((i) => i.slug === s))
     .filter((x): x is Insight => Boolean(x))
