@@ -7,7 +7,7 @@ import { FaqSection, GreenCTA } from "@/components/site/sections";
 import { CTASection } from "@/components/site/CTASection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Calendar, Tag, ArrowLeft } from "lucide-react";
-import { getInsight, INSIGHTS } from "@/data/insights";
+import { getInsight, INSIGHTS, type Insight } from "@/data/insights";
 
 export const Route = createFileRoute("/indsigter/$slug")({
   loader: ({ params }) => {
@@ -55,11 +55,11 @@ export const Route = createFileRoute("/indsigter/$slug")({
 });
 
 function ArticlePage() {
-  const { insight } = Route.useLoaderData();
+  const { insight } = Route.useLoaderData() as { insight: Insight };
   const [unlocked, setUnlocked] = useState(false);
   const related = insight.related
-    .map((s) => INSIGHTS.find((i) => i.slug === s))
-    .filter((x): x is (typeof INSIGHTS)[number] => Boolean(x))
+    .map((s: string) => INSIGHTS.find((i) => i.slug === s))
+    .filter((x): x is Insight => Boolean(x))
     .slice(0, 3);
 
   const dateFmt = new Date(insight.date).toLocaleDateString("da-DK", { day: "numeric", month: "long", year: "numeric" });

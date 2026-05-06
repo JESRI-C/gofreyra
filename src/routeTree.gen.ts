@@ -33,6 +33,7 @@ import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninge
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
+import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
 
 const UseCasesRoute = UseCasesRouteImport.update({
@@ -156,6 +157,11 @@ const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
   path: '/loesninger/esg-compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => IndsigterRoute,
+} as any)
 const BrancherSlugRoute = BrancherSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -168,7 +174,7 @@ export interface FileRoutesByFullPath {
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
-  '/indsigter': typeof IndsigterRoute
+  '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -179,6 +185,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -195,7 +202,7 @@ export interface FileRoutesByTo {
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
-  '/indsigter': typeof IndsigterRoute
+  '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -206,6 +213,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -223,7 +231,7 @@ export interface FileRoutesById {
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/datakilder': typeof DatakilderRoute
-  '/indsigter': typeof IndsigterRoute
+  '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -234,6 +242,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -263,6 +272,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -290,6 +300,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -317,6 +328,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/brancher/$slug'
+    | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -334,7 +346,7 @@ export interface RootRouteChildren {
   BrancherRoute: typeof BrancherRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   DatakilderRoute: typeof DatakilderRoute
-  IndsigterRoute: typeof IndsigterRoute
+  IndsigterRoute: typeof IndsigterRouteWithChildren
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
   OrdbogRoute: typeof OrdbogRouteWithChildren
@@ -520,6 +532,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoesningerEsgComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/indsigter/$slug': {
+      id: '/indsigter/$slug'
+      path: '/$slug'
+      fullPath: '/indsigter/$slug'
+      preLoaderRoute: typeof IndsigterSlugRouteImport
+      parentRoute: typeof IndsigterRoute
+    }
     '/brancher/$slug': {
       id: '/brancher/$slug'
       path: '/$slug'
@@ -540,6 +559,18 @@ const BrancherRouteChildren: BrancherRouteChildren = {
 
 const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
   BrancherRouteChildren,
+)
+
+interface IndsigterRouteChildren {
+  IndsigterSlugRoute: typeof IndsigterSlugRoute
+}
+
+const IndsigterRouteChildren: IndsigterRouteChildren = {
+  IndsigterSlugRoute: IndsigterSlugRoute,
+}
+
+const IndsigterRouteWithChildren = IndsigterRoute._addFileChildren(
+  IndsigterRouteChildren,
 )
 
 interface OrdbogRouteChildren {
@@ -577,7 +608,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrancherRoute: BrancherRouteWithChildren,
   DashboardRoute: DashboardRoute,
   DatakilderRoute: DatakilderRoute,
-  IndsigterRoute: IndsigterRoute,
+  IndsigterRoute: IndsigterRouteWithChildren,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
   OrdbogRoute: OrdbogRouteWithChildren,
