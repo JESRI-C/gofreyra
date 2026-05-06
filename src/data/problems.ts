@@ -66,7 +66,7 @@ export const PROBLEMS: ProblemPage[] = [
     ],
     useCases: [
       { slug: "esg-dokumentation", label: "ESG-dokumentation" },
-      { slug: "audit-trail", label: "Audit trail i ESG" },
+      { slug: "audit-trail-esg", label: "Audit trail i ESG" },
     ],
     dataPages: [
       { slug: "co2", label: "CO₂ og klimaindikatorer" },
@@ -109,8 +109,8 @@ export const PROBLEMS: ProblemPage[] = [
       { slug: "landbrug", label: "Landbrug" },
     ],
     useCases: [
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
-      { slug: "smartconnect-integration", label: "Datakilder samlet ét sted" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
+      { slug: "miljoedata-dashboard", label: "Datakilder samlet ét sted" },
     ],
     dataPages: [
       { slug: "sensordata", label: "Sensordata" },
@@ -152,8 +152,8 @@ export const PROBLEMS: ProblemPage[] = [
       { slug: "ngo-og-fonde", label: "NGO'er og fonde" },
     ],
     useCases: [
-      { slug: "audit-trail", label: "Audit trail i ESG" },
-      { slug: "feltdata-til-rapportklar-dokumentation", label: "Feltdata til rapportklar dokumentation" },
+      { slug: "audit-trail-esg", label: "Audit trail i ESG" },
+      { slug: "rapportklar-dokumentation", label: "Feltdata til rapportklar dokumentation" },
     ],
     dataPages: [
       { slug: "feltregistreringer", label: "Feltregistreringer" },
@@ -196,7 +196,7 @@ export const PROBLEMS: ProblemPage[] = [
     ],
     useCases: [
       { slug: "esg-dokumentation", label: "ESG-dokumentation" },
-      { slug: "audit-trail", label: "Audit trail i ESG" },
+      { slug: "audit-trail-esg", label: "Audit trail i ESG" },
     ],
     dataPages: [
       { slug: "co2", label: "CO₂ og klimaindikatorer" },
@@ -239,7 +239,7 @@ export const PROBLEMS: ProblemPage[] = [
       { slug: "ngo-og-fonde", label: "NGO'er og fonde" },
     ],
     useCases: [
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
       { slug: "biodiversitetsovervaagning", label: "Biodiversitetsovervågning" },
     ],
     dataPages: [
@@ -283,8 +283,8 @@ export const PROBLEMS: ProblemPage[] = [
       { slug: "energi", label: "Energi" },
     ],
     useCases: [
-      { slug: "smartconnect-integration", label: "Datakilder samlet ét sted" },
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "miljoedata-dashboard", label: "Datakilder samlet ét sted" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     dataPages: [
       { slug: "sensordata", label: "Sensordata" },

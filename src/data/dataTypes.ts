@@ -69,7 +69,7 @@ export const DATA_PAGES: DataPage[] = [
     ],
     useCases: [
       { slug: "biodiversitetsovervaagning", label: "Biodiversitetsovervågning" },
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     problems: [
       { slug: "naturdata-uden-struktur", label: "Naturdata uden struktur" },
@@ -98,8 +98,8 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "landbrug", label: "Landbrug" },
     ],
     useCases: [
-      { slug: "smartconnect-integration", label: "Datakilder samlet ét sted" },
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "miljoedata-dashboard", label: "Datakilder samlet ét sted" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     problems: [
       { slug: "fragmenterede-data", label: "Fragmenterede data" },
@@ -127,7 +127,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "kommuner", label: "Kommuner" },
     ],
     useCases: [
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     problems: [
       { slug: "naturdata-uden-struktur", label: "Naturdata uden struktur" },
@@ -184,7 +184,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "naturprojekter", label: "Naturprojekter" },
     ],
     useCases: [
-      { slug: "smartconnect-integration", label: "Datakilder samlet ét sted" },
+      { slug: "miljoedata-dashboard", label: "Datakilder samlet ét sted" },
     ],
     problems: [
       { slug: "beslutninger-uden-realtidsdata", label: "Beslutninger uden realtidsdata" },
@@ -212,7 +212,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "kommuner", label: "Kommuner" },
     ],
     useCases: [
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     problems: [
       { slug: "naturdata-uden-struktur", label: "Naturdata uden struktur" },
@@ -239,7 +239,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "kommuner", label: "Kommuner" },
     ],
     useCases: [
-      { slug: "datadrevet-naturprojekt", label: "Datadrevet naturprojekt" },
+      { slug: "naturgenopretning", label: "Datadrevet naturprojekt" },
     ],
     problems: [
       { slug: "naturdata-uden-struktur", label: "Naturdata uden struktur" },
@@ -266,7 +266,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "ngo-og-fonde", label: "NGO'er og fonde" },
     ],
     useCases: [
-      { slug: "feltdata-til-rapportklar-dokumentation", label: "Feltdata til rapportklar dokumentation" },
+      { slug: "rapportklar-dokumentation", label: "Feltdata til rapportklar dokumentation" },
     ],
     problems: [
       { slug: "naturdata-uden-struktur", label: "Naturdata uden struktur" },
@@ -294,7 +294,7 @@ export const DATA_PAGES: DataPage[] = [
       { slug: "kommuner", label: "Kommuner" },
     ],
     useCases: [
-      { slug: "smartconnect-integration", label: "Datakilder samlet ét sted" },
+      { slug: "miljoedata-dashboard", label: "Datakilder samlet ét sted" },
     ],
     problems: [
       { slug: "beslutninger-uden-realtidsdata", label: "Beslutninger uden realtidsdata" },
