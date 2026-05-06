@@ -34,6 +34,7 @@ export function Header() {
           <NavDropdown label="Platform" items={platformItems} wide />
           <NavDropdown label="Løsninger" items={solutionItems} />
           <Link to="/use-cases" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Use cases</Link>
+          <Link to="/datakilder" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Datakilder</Link>
           <Link to="/indsigter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Indsigter</Link>
           <Link to="/om" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Om</Link>
         </nav>
@@ -56,6 +57,7 @@ export function Header() {
             <MobileGroup label="Platform" items={platformItems} onClick={() => setOpen(false)} />
             <MobileGroup label="Løsninger" items={solutionItems} onClick={() => setOpen(false)} />
             <Link to="/use-cases" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Use cases</Link>
+            <Link to="/datakilder" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Datakilder</Link>
             <Link to="/indsigter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Indsigter</Link>
             <Link to="/om" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Om</Link>
             <Link to="/kontakt" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Kontakt</Link>
