@@ -318,28 +318,100 @@ function PlatformPage() {
         </div>
       </section>
 
-      {/* PILOT TIMELINE */}
-      <section className="surface-beige">
-        <div className="container-page py-20">
-          <SectionHeader eyebrow="Pilotforløb" title="Sådan ser et pilotforløb ud." body="Fem trin — typisk på 2-4 uger. Vi starter med ét område og bygger op derfra." />
-          <ol className="mt-12 relative grid md:grid-cols-5 gap-6">
-            <div className="hidden md:block absolute top-5 left-[10%] right-[10%] h-0.5 bg-primary/25" />
-            {[
-              { i: <Target className="w-4 h-4" />, t: "Afklar databehov", d: "Hvilke KPI'er, rapporter eller områder skal i fokus?" },
-              { i: <Map className="w-4 h-4" />, t: "Vælg use case", d: "Et naturområde, en lokation eller en driftsproces." },
-              { i: <Plug className="w-4 h-4" />, t: "Forbind datakilder", d: "Sensorer, ERP, dataloggere, fillager og felt." },
-              { i: <LayoutDashboard className="w-4 h-4" />, t: "Byg dashboard", d: "Indikatorer, audit trail og handlingsoverblik." },
-              { i: <Rocket className="w-4 h-4" />, t: "Evaluer og skaler", d: "Læring tilbage i platformen — næste område kobles på." },
-            ].map((s, i) => (
-              <li key={s.t} className="relative">
-                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground grid place-items-center font-mono text-sm relative z-10 mx-auto md:mx-0">{i + 1}</div>
-                <div className="mt-4 card-soft bg-card p-5">
-                  <div className="flex items-center gap-2 text-brand-deep">{s.i}<span className="font-semibold">{s.t}</span></div>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+      {/* PILOT TIMELINE — Sådan starter et pilotforløb */}
+      <section className="bg-background">
+        <div className="container-page py-20 lg:py-24">
+          <div className="grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-8">
+              <div className="text-xs font-mono tracking-[0.18em] text-primary uppercase">Pilotklar platform</div>
+              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-brand-deep">Start småt. Byg datagrundlaget rigtigt.</h2>
+              <p className="mt-5 text-lg text-foreground/75 max-w-3xl">
+                Et GoFreyra-pilotforløb kan starte med ét naturområde, én afdeling, én lokation eller ét dokumentationsbehov. Målet er ikke at bygge alt på én gang, men at skabe et brugbart datagrundlag, der hurtigt kan testes i praksis.
+              </p>
+
+              {/* Timeline */}
+              <ol className="mt-12 relative space-y-5">
+                <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-primary/0 via-primary/40 to-primary/0" />
+                {[
+                  { t: "Afklar mål og databehov", d: "Vi starter med at forstå, hvad I skal dokumentere, hvem der skal bruge data, og hvilke beslutninger platformen skal understøtte.", out: ["Målsætning", "Databehov", "Første use case"] },
+                  { t: "Vælg område eller use case", d: "Pilotprojektet afgrænses til et konkret område, projekt eller datasæt. Det kan være biodiversitet, vand, jord, CO₂, drift, rapportering eller ESG-dokumentation.", out: ["Pilotområde", "Datakilder", "Succeskriterier"] },
+                  { t: "Forbind datakilder", d: "Eksisterende data kan kobles på først. Sensorer, feltdata, satellitdata eller manuelle registreringer kan tilføjes efter behov.", out: ["Datakildeoversigt", "Integrationer", "Første datastruktur"] },
+                  { t: "Byg dashboard og dokumentationsflow", d: "Data omsættes til et visuelt overblik, så ESG-team, drift og ledelse kan følge status, se afvigelser og forstå dokumentationsgrundlaget.", out: ["Dashboard", "Dokumentationsstatus", "Audit trail-logik"] },
+                  { t: "Evaluer, lær og skaler", d: "Når pilotforløbet er testet, kan løsningen udvides til flere områder, datakilder, moduler eller rapporteringsbehov.", out: ["Læringsrapport", "Skaleringstrin", "Næste roadmap"] },
+                ].map((s, i) => (
+                  <li key={s.t} className="relative pl-16">
+                    <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary text-primary-foreground grid place-items-center font-mono text-sm shadow-md ring-4 ring-background">{String(i + 1).padStart(2, "0")}</div>
+                    <div className="card-soft bg-card p-6 shadow-sm hover:shadow-elegant transition-all">
+                      <div className="font-semibold text-lg text-brand-deep">Trin {i + 1}: {s.t}</div>
+                      <p className="mt-2 text-sm text-foreground/70 leading-relaxed">{s.d}</p>
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-2">Output</div>
+                        <div className="flex flex-wrap gap-2">
+                          {s.out.map((o) => (
+                            <span key={o} className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-brand-deep border border-primary/20">{o}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Sidekort */}
+            <aside className="lg:col-span-4">
+              <div className="lg:sticky lg:top-24 space-y-5">
+                <div className="card-soft bg-card p-7 shadow-sm border-primary/30">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-primary px-2 py-1 rounded-full bg-primary/10">Pilotklar</span>
+                  </div>
+                  <div className="mt-4 text-2xl font-semibold text-brand-deep">Pilot på 2-4 uger</div>
+                  <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
+                    Et første pilotforløb kan startes med få datakilder og et afgrænset formål. Det vigtigste er at få datagrundlaget i gang og teste, hvor platformen skaber mest værdi.
+                  </p>
+                  <ul className="mt-5 space-y-2.5">
+                    {["Start med ét område", "Brug eksisterende data", "Udvid med sensorer senere", "Skab første dashboard", "Test dokumentationsflow"].map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-sm">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <span className="text-foreground/80">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 flex flex-col gap-2.5">
+                    <Button asChild size="lg" className="rounded-full w-full">
+                      <Link to="/book-demo">Tal med os om pilot <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+                    </Button>
+                    <Button asChild size="lg" variant="outline" className="rounded-full w-full">
+                      <Link to="/book-demo">Book demo</Link>
+                    </Button>
+                  </div>
                 </div>
-              </li>
-            ))}
-          </ol>
+
+                {/* Mini projekt-/dashboardkort */}
+                <div className="card-soft bg-card p-5 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Pilot · status</div>
+                    <span className="text-[10px] font-mono text-primary">Uge 2/4</span>
+                  </div>
+                  <div className="mt-3 font-semibold text-brand-deep">Naturområde Nord</div>
+                  <div className="mt-3 space-y-2.5">
+                    {[
+                      { l: "Datakilder forbundet", v: 80 },
+                      { l: "Dashboard bygget", v: 55 },
+                      { l: "Audit trail aktiv", v: 30 },
+                    ].map((p) => (
+                      <div key={p.l}>
+                        <div className="flex justify-between text-xs mb-1"><span className="text-foreground/70">{p.l}</span><span className="font-mono text-muted-foreground">{p.v}%</span></div>
+                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                          <div className="h-full bg-primary rounded-full" style={{ width: `${p.v}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
