@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ProjekterRouteImport } from './routes/projekter'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
@@ -42,6 +43,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
   id: '/robots.txt',
   path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjekterRoute = ProjekterRouteImport.update({
+  id: '/projekter',
+  path: '/projekter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
+  '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
@@ -156,6 +163,7 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
+  '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
@@ -178,6 +186,7 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
+  '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRoute
@@ -201,6 +210,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/om'
     | '/platform'
+    | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
@@ -222,6 +232,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/om'
     | '/platform'
+    | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
@@ -243,6 +254,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/om'
     | '/platform'
+    | '/projekter'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
@@ -265,6 +277,7 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
   PlatformRoute: typeof PlatformRouteWithChildren
+  ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRoute
@@ -295,6 +308,13 @@ declare module '@tanstack/react-router' {
       path: '/robots.txt'
       fullPath: '/robots.txt'
       preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projekter': {
+      id: '/projekter'
+      path: '/projekter'
+      fullPath: '/projekter'
+      preLoaderRoute: typeof ProjekterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -439,6 +459,7 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
   PlatformRoute: PlatformRouteWithChildren,
+  ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRoute,

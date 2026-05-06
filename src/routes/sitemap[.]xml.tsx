@@ -5,7 +5,7 @@ const URLS = [
   "/platform/smartconnect", "/platform/decisionsiq", "/platform/esg-ledger", "/platform/impact-exchange",
   "/dashboard",
   "/loesninger/kommuner", "/loesninger/industri", "/loesninger/esg-compliance", "/loesninger/naturprojekter",
-  "/use-cases", "/datakilder", "/indsigter", "/om", "/book-demo", "/kontakt",
+  "/use-cases", "/projekter", "/datakilder", "/indsigter", "/om", "/book-demo", "/kontakt",
 ];
 
 const SITE = "https://gofreyra.lovable.app";

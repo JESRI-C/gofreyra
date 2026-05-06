@@ -6,6 +6,9 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { DashboardMockup } from "@/components/site/DashboardMockup";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
+import coastal from "@/assets/project-coastal.jpg";
+import stream from "@/assets/project-stream.jpg";
+import field from "@/assets/project-field.jpg";
 
 const FAQ = [
   { q: "Hvad er GoFreyra?", a: "GoFreyra er en SaaS-platform, der forbinder miljødata, AI-analyse og dokumentationsflows til ESG, natur og verificerbar impact." },
@@ -204,6 +207,37 @@ function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PROJEKTER STRIBE */}
+      <section className="container-page py-20">
+        <div className="flex items-end justify-between gap-6 max-w-4xl">
+          <div>
+            <span className="eyebrow">Fra felten</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Projekter, hvor data kommer fra virkeligheden.</h2>
+            <p className="mt-3 text-muted-foreground">Drone, satellit, sensor og felt — koblet til officielle datakilder og evidence trail.</p>
+          </div>
+          <Link to="/projekter" className="hidden md:inline-flex items-center text-sm font-medium text-brand-deep whitespace-nowrap">
+            Se alle projekter <ArrowRight className="ml-1 w-4 h-4" />
+          </Link>
+        </div>
+        <div className="mt-8 grid md:grid-cols-3 gap-5">
+          {[
+            { img: coastal, t: "Tidevandszone", d: "Dige- og kystmonitorering med drone og Sentinel-2." },
+            { img: stream, t: "Vandløb og eng", d: "Naturbaseline med GBIF, Satlas og feltobservationer." },
+            { img: field, t: "Areal og drift", d: "ESG-startgrundlag med SoilGrids og IPCC EFDB." },
+          ].map((p) => (
+            <Link key={p.t} to="/projekter" className="card-soft overflow-hidden p-0 bg-card group">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img src={p.img} alt={p.t} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+              </div>
+              <div className="p-5">
+                <div className="font-semibold">{p.t}</div>
+                <p className="mt-1 text-sm text-muted-foreground">{p.d}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
