@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import freyraIcon from "@/assets/freyra-icon.png";
+import { NewsletterSignup } from "./NewsletterSignup";
 
 export function Footer() {
   return (
@@ -13,6 +14,11 @@ export function Footer() {
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
             Dansk SaaS-platform, der gør miljødata, drift og ESG-dokumentation operationel — fra felten til revisionen.
           </p>
+          <div className="mt-6">
+            <p className="text-sm font-semibold">Nyhedsbrev</p>
+            <p className="text-xs text-muted-foreground mt-1">Få viden om ESG, miljødata og bæredygtighed direkte i din indbakke.</p>
+            <NewsletterSignup />
+          </div>
         </div>
 
         <FooterCol title="Platform" links={[

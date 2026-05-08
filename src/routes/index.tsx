@@ -29,6 +29,7 @@ export const Route = createFileRoute("/")({
       path: "/",
       jsonLd: [
         { "@context": "https://schema.org", "@type": "Organization", name: "GoFreyra", url: "https://gofreyra.com", description: "Dansk SaaS-platform til miljødata, ESG-dokumentation og verificerbar impact." },
+        { "@context": "https://schema.org", "@type": "WebSite", name: "GoFreyra", url: "https://gofreyra.com", inLanguage: "da-DK", potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://gofreyra.com/indsigter?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
         { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
       ],
     }),

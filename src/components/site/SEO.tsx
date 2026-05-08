@@ -10,7 +10,7 @@ export interface SEOProps {
   noindex?: boolean;
 }
 
-const SITE = "https://gofreyra.lovable.app";
+const SITE = "https://gofreyra.com";
 const SITE_NAME = "GoFreyra";
 const DEFAULT_OG = `${SITE}/og-default.jpg`;
 const TWITTER_HANDLE = "@gofreyra";
@@ -56,7 +56,11 @@ export function buildHead({
     { name: "twitter:image", content: image },
     { name: "twitter:image:alt", content: title },
   ];
-  const links = [{ rel: "canonical", href: url }];
+  const links = [
+    { rel: "canonical", href: url },
+    { rel: "alternate", hreflang: "da", href: url },
+    { rel: "alternate", hreflang: "x-default", href: url },
+  ];
   const scripts = jsonLd
     ? [
         {
