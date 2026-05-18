@@ -1,0 +1,38 @@
+# GoFreyra
+
+> Dansk SaaS-platform der samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle, dokumentere og bevise reel impact.
+
+GoFreyra er bygget til kommuner, industri, forsyning, ESG- og compliance-teams, naturprojektejere, landbrug, skovbrug og rådgivere. Platformen består af fire moduler — SmartConnect+ (dataindsamling), DecisionsIQ (AI-analyse), ESG Ledger (audit trail og dokumentation) og Impact Exchange (impact-synliggørelse) — der deler ét fælles datagrundlag.
+
+## Platform
+
+- [Platform-overblik](/platform): De fire moduler og hvordan de spiller sammen.
+- [SmartConnect+](/platform/smartconnect): Indsamling af sensor-, felt-, drifts- og satellitdata.
+- [DecisionsIQ](/platform/decisionsiq): AI-analyse, mønstre og anbefalinger.
+- [ESG Ledger](/platform/esg-ledger): Audit trail og rapportklar ESG-dokumentation.
+- [Impact Exchange](/platform/impact-exchange): Natur- og impactprojekter klar til rapportering.
+
+## Brancher
+
+- [Brancher](/brancher): Oversigt over de 10 brancher GoFreyra arbejder med.
+- [Kommuner](/loesninger/kommuner): Natur, klima, biodiversitet og borgervendt dokumentation.
+- [Industri og forsyning](/loesninger/industri): Drift, energi, vand og emissioner.
+- [ESG og compliance](/loesninger/esg-compliance): CSRD, ESRS-mapping og audit trail.
+- [Naturprojekter](/loesninger/naturprojekter): Felt-, drone- og satellitdata til biodiversitet.
+
+## Viden og indsigter
+
+- [Indsigter](/indsigter): Praktisk B2B-viden om ESG, miljødata og audit trail.
+- [Problemer](/problemer): De konkrete problemer GoFreyra løser.
+- [Data](/data): Datatyper platformen arbejder med.
+- [Datakilder](/datakilder): Officielle datakilder og registry.
+- [Use cases](/use-cases): Sådan bruges GoFreyra i praksis.
+- [Projekter](/projekter): Eksempler på pilotforløb og projekter.
+- [Ordbog](/ordbog): Klare definitioner på ESG- og miljødatabegreber.
+
+## Virksomhed
+
+- [Om GoFreyra](/om): Mission, hold og baggrund.
+- [Priser](/priser): Pakker fra pilot til enterprise.
+- [Book demo](/book-demo): Få en gennemgang af platformen.
+- [Kontakt](/kontakt): Skriv eller ring til os.

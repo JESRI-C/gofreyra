@@ -11,7 +11,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/loesninger/esg-compliance")({
   head: () => buildHead({
-    title: "Løsninger til ESG og compliance — CSRD-dokumentation | GoFreyra",
+    title: "ESG og compliance — CSRD-dokumentation | GoFreyra",
     description: "Stærkere ESG-dokumentation på bedre data. Komplet audit trail, ESRS-mapping og rapporter, der kan holde til revision.",
     path: "/loesninger/esg-compliance",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },

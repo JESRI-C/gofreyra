@@ -12,7 +12,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/platform/decisionsiq")({
   head: () => buildHead({
-    title: "DecisionsIQ — Analyser miljødata og få konkrete anbefalinger | GoFreyra",
+    title: "DecisionsIQ — AI-analyse og anbefalinger | GoFreyra",
     description: "DecisionsIQ analyserer data fra SmartConnect+ og giver mønstre, risikoflag og prioriterede handlinger — med forklaring på hver anbefaling.",
     path: "/platform/decisionsiq",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },

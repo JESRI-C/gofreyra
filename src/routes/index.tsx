@@ -24,7 +24,7 @@ const FAQ = [
 export const Route = createFileRoute("/")({
   head: () =>
     buildHead({
-      title: "GoFreyra — Data fra virkeligheden. Dokumentation du kan bruge.",
+      title: "GoFreyra — Miljødata og ESG-dokumentation, du kan stole på",
       description: "GoFreyra samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle, styre og bevise deres impact.",
       path: "/",
       jsonLd: [

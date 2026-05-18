@@ -12,7 +12,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/platform/smartconnect")({
   head: () => buildHead({
-    title: "SmartConnect+ — Indsaml miljø- og driftsdata i realtid | GoFreyra",
+    title: "SmartConnect+ — Miljø- og driftsdata i realtid | GoFreyra",
     description: "SmartConnect+ samler data fra sensorer, drone, satellit, felt og drift i ét struktureret lag — klar til analyse og dokumentation.",
     path: "/platform/smartconnect",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },

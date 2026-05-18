@@ -12,7 +12,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/platform/impact-exchange")({
   head: () => buildHead({
-    title: "Impact Exchange — Synliggør og aktivér jeres impact | GoFreyra",
+    title: "Impact Exchange — Synliggør jeres impact | GoFreyra",
     description: "Impact Exchange gør verificeret natur- og klimaeffekt synlig for partnere, kunder og fremtidige biodiversitets- og kulstofmarkeder.",
     path: "/platform/impact-exchange",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
