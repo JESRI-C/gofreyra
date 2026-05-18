@@ -16,7 +16,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/indsigter")({
   head: () => buildHead({
-    title: "Indsigter — ESG, miljødata, biodiversitet og dokumentation | GoFreyra",
+    title: "Indsigter — ESG, miljødata og dokumentation | GoFreyra",
     description: "Praktisk B2B-viden om ESG-dokumentation, miljødata, biodiversitet, AI og audit trail. Læs indledningen frit — få adgang til hele analysen.",
     path: "/indsigter",
     jsonLd: faqJsonLd(FAQ),
