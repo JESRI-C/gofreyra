@@ -12,7 +12,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/platform/esg-ledger")({
   head: () => buildHead({
-    title: "ESG Ledger — Audit-klar ESG- og naturdokumentation | GoFreyra",
+    title: "ESG Ledger — Audit-klar ESG-dokumentation | GoFreyra",
     description: "ESG Ledger lægger kilde, tidsstempel og audit trail på hvert datapunkt. Bygget til CSRD, ESRS, revision og naturrapportering.",
     path: "/platform/esg-ledger",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },

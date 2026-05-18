@@ -18,7 +18,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/platform")({
   head: () => buildHead({
-    title: "GoFreyra Platform — Fra rådata til revisionsklar dokumentation",
+    title: "GoFreyra Platform — Fra rådata til revisionsklar ESG",
     description: "GoFreyra Platform binder sensorer, feltdata, driftsdata, AI-analyse og ESG-dokumentation sammen i ét system. Modulær SaaS for ESG-team, drift og ledelse.",
     path: "/platform",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },

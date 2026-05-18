@@ -11,7 +11,7 @@ const FAQ = [
 
 export const Route = createFileRoute("/loesninger/industri")({
   head: () => buildHead({
-    title: "Løsninger til industri og forsyning — ESG og driftsdata | GoFreyra",
+    title: "Industri og forsyning — ESG og driftsdata | GoFreyra",
     description: "Træk ESG-indikatorer direkte ud af driften. Følg energi, vand, emissioner og ressourceforbrug — med audit trail og uden regneark.",
     path: "/loesninger/industri",
     jsonLd: { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
