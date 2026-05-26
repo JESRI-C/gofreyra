@@ -3,16 +3,19 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Check, Database, Brain, ShieldCheck, Globe2, Activity } from "lucide-react";
 import type { ReactNode } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ---------- FAQ ---------- */
 export type FAQItem = { q: string; a: string };
 
-export function FaqSection({ items, eyebrow = "FAQ", title = "Ofte stillede spørgsmål", subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
+export function FaqSection({ items, eyebrow = "FAQ", title, subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
+  const isEn = useLocale() === "en";
+  const ti = title ?? (isEn ? "Frequently asked questions" : "Ofte stillede spørgsmål");
   return (
     <section className="container-page py-20">
       <div className="max-w-3xl">
         <span className="eyebrow">{eyebrow}</span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-bold">{title}</h2>
+        <h2 className="mt-4 text-3xl md:text-4xl font-bold">{ti}</h2>
         {subtitle && <p className="mt-3 text-muted-foreground">{subtitle}</p>}
       </div>
       <div className="mt-8 max-w-3xl">
