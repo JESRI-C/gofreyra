@@ -76,7 +76,9 @@ export function Header() {
   );
 }
 
-function NavDropdown({ label, items, wide }: { label: string; items: { to: string; label: string; desc?: string }[]; wide?: boolean }) {
+type NavItem = { to: string; label: string; desc?: string };
+
+function NavDropdown({ label, items, wide }: { label: string; items: readonly NavItem[]; wide?: boolean }) {
   return (
     <div className="relative group">
       <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground inline-flex items-center gap-1">
@@ -100,7 +102,7 @@ function NavDropdown({ label, items, wide }: { label: string; items: { to: strin
   );
 }
 
-function MobileGroup({ label, items, onClick }: { label: string; items: { to: string; label: string }[]; onClick: () => void }) {
+function MobileGroup({ label, items, onClick }: { label: string; items: readonly NavItem[]; onClick: () => void }) {
   return (
     <div>
       <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mt-2 mb-1">{label}</div>
