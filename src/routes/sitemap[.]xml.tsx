@@ -31,6 +31,18 @@ const STATIC_ENTRIES: SitemapEntry[] = [
   { path: "/priser",                        lastmod: "2026-05-06", changefreq: "monthly", priority: "0.7" },
   { path: "/book-demo",                     lastmod: "2026-05-06", changefreq: "monthly", priority: "0.8" },
   { path: "/kontakt",                       lastmod: "2026-05-06", changefreq: "monthly", priority: "0.5" },
+  // English versions
+  { path: "/en",                            lastmod: "2026-05-26", changefreq: "weekly",  priority: "0.9" },
+  { path: "/en/platform",                   lastmod: "2026-05-26", changefreq: "monthly", priority: "0.8" },
+  { path: "/en/platform/smartconnect",      lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/platform/decisionsiq",       lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/platform/esg-ledger",        lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/platform/impact-exchange",   lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/dashboard",                  lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/pricing",                    lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/book-demo",                  lastmod: "2026-05-26", changefreq: "monthly", priority: "0.7" },
+  { path: "/en/about",                      lastmod: "2026-05-26", changefreq: "monthly", priority: "0.5" },
+  { path: "/en/contact",                    lastmod: "2026-05-26", changefreq: "monthly", priority: "0.5" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
