@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { LocaleProvider } from "@/i18n/LocaleContext";
 
 import appCss from "../styles.css?url";
 
