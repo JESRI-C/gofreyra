@@ -3,45 +3,45 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import freyraIcon from "@/assets/freyra-icon.png";
-
-const platformItems = [
-  { to: "/platform", label: "GoFreyra Platform", desc: "Hele platformen i ét overblik" },
-  { to: "/platform/smartconnect", label: "SmartConnect+", desc: "Indsamler data fra sensor, drone, satellit og felt" },
-  { to: "/platform/decisionsiq", label: "DecisionsIQ", desc: "Analyserer data og giver konkrete anbefalinger" },
-  { to: "/platform/esg-ledger", label: "ESG Ledger", desc: "Dokumenterer data med audit trail og kildehenvisning" },
-  { to: "/platform/impact-exchange", label: "Impact Exchange", desc: "Synliggør og aktiverer verificeret impact" },
-  { to: "/dashboard", label: "GoFreyra Dashboard", desc: "Samler det hele i ét operationelt overblik" },
-];
-
+import { useLocale } from "@/i18n/LocaleContext";
+import { t } from "@/i18n/chrome";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const locale = useLocale();
+  const T = t(locale);
+  const base = locale === "en" ? "/en" : "";
+  const home = locale === "en" ? "/en" : "/";
+
+  const platformItems = T.platformMenu.items;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight">
+        <Link to={home} className="flex items-center gap-2 font-semibold text-lg tracking-tight">
           <img src={freyraIcon} alt="GoFreyra" className="w-9 h-9 object-contain" />
           <span className="text-brand-deep">GoFreyra</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          <NavDropdown label="Platform" items={platformItems} wide />
-          <Link to="/brancher" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Brancher</Link>
-          <Link to="/use-cases" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Use cases</Link>
-          <Link to="/data" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Data</Link>
-          <Link to="/problemer" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Problemer</Link>
-          <Link to="/indsigter" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Indsigter</Link>
-          <Link to="/priser" className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">Priser</Link>
+          <NavDropdown label={T.platformMenu.title} items={platformItems} wide />
+          <Link to={`${base}/brancher`} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.brancher}</Link>
+          <Link to={`${base}/use-cases`} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.useCases}</Link>
+          <Link to={`${base}/data`} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.data}</Link>
+          <Link to={`${base}/problemer`} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.problemer}</Link>
+          <Link to={`${base}/indsigter`} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.indsigter}</Link>
+          <Link to={locale === "en" ? "/en/pricing" : "/priser"} className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground">{T.nav.priser}</Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Link to="/kontakt" className="text-sm font-medium text-foreground/80 hover:text-foreground px-3">Kontakt</Link>
+          <LanguageSwitcher />
+          <Link to={locale === "en" ? "/en/contact" : "/kontakt"} className="text-sm font-medium text-foreground/80 hover:text-foreground px-3">{T.nav.kontakt}</Link>
           <Button asChild variant="outline" className="rounded-full h-9 px-4">
-            <Link to="/dashboard">Log ind</Link>
+            <Link to={locale === "en" ? "/en/dashboard" : "/dashboard"}>{T.cta.login}</Link>
           </Button>
           <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-            <Link to="/book-demo">Book demo</Link>
+            <Link to={locale === "en" ? "/en/book-demo" : "/book-demo"}>{T.cta.bookDemo}</Link>
           </Button>
         </div>
 
@@ -53,20 +53,21 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background">
           <div className="container-page py-4 space-y-3">
-            <MobileGroup label="Platform" items={platformItems} onClick={() => setOpen(false)} />
-            <Link to="/brancher" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Brancher</Link>
-            <Link to="/use-cases" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Use cases</Link>
-            <Link to="/data" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Data</Link>
-            <Link to="/problemer" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Problemer</Link>
-            <Link to="/indsigter" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Indsigter</Link>
-            <Link to="/priser" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Priser</Link>
-            <Link to="/om" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Om</Link>
-            <Link to="/kontakt" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Kontakt</Link>
+            <MobileGroup label={T.platformMenu.title} items={platformItems} onClick={() => setOpen(false)} />
+            <Link to={`${base}/brancher`} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.brancher}</Link>
+            <Link to={`${base}/use-cases`} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.useCases}</Link>
+            <Link to={`${base}/data`} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.data}</Link>
+            <Link to={`${base}/problemer`} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.problemer}</Link>
+            <Link to={`${base}/indsigter`} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.indsigter}</Link>
+            <Link to={locale === "en" ? "/en/pricing" : "/priser"} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.priser}</Link>
+            <Link to={locale === "en" ? "/en/about" : "/om"} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.om}</Link>
+            <Link to={locale === "en" ? "/en/contact" : "/kontakt"} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">{T.nav.kontakt}</Link>
+            <div className="py-2"><LanguageSwitcher /></div>
             <Button asChild variant="outline" className="w-full rounded-full">
-              <Link to="/dashboard" onClick={() => setOpen(false)}>Log ind på dashboard</Link>
+              <Link to={locale === "en" ? "/en/dashboard" : "/dashboard"} onClick={() => setOpen(false)}>{T.cta.loginMobile}</Link>
             </Button>
             <Button asChild className="w-full rounded-full">
-              <Link to="/book-demo" onClick={() => setOpen(false)}>Book demo</Link>
+              <Link to={locale === "en" ? "/en/book-demo" : "/book-demo"} onClick={() => setOpen(false)}>{T.cta.bookDemo}</Link>
             </Button>
           </div>
         </div>
