@@ -27,6 +27,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
 import { Route as ProblemerSlugRouteImport } from './routes/problemer.$slug'
 import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
@@ -134,6 +135,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnRoute,
+} as any)
 const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -224,7 +230,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -251,6 +257,7 @@ export interface FileRoutesByFullPath {
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/en/': typeof EnIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
@@ -260,7 +267,6 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -287,6 +293,7 @@ export interface FileRoutesByTo {
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/en': typeof EnIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
@@ -297,7 +304,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -324,6 +331,7 @@ export interface FileRoutesById {
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
+  '/en/': typeof EnIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -362,6 +370,7 @@ export interface FileRouteTypes {
     | '/platform/smartconnect'
     | '/problemer/$slug'
     | '/use-cases/$slug'
+    | '/en/'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -371,7 +380,6 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/data'
     | '/datakilder'
-    | '/en'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -398,6 +406,7 @@ export interface FileRouteTypes {
     | '/platform/smartconnect'
     | '/problemer/$slug'
     | '/use-cases/$slug'
+    | '/en'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
@@ -434,6 +443,7 @@ export interface FileRouteTypes {
     | '/platform/smartconnect'
     | '/problemer/$slug'
     | '/use-cases/$slug'
+    | '/en/'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -444,7 +454,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
-  EnRoute: typeof EnRoute
+  EnRoute: typeof EnRouteWithChildren
   IndsigterRoute: typeof IndsigterRouteWithChildren
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
@@ -592,6 +602,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/use-cases/$slug': {
       id: '/use-cases/$slug'
       path: '/$slug'
@@ -729,6 +746,16 @@ const DataRouteChildren: DataRouteChildren = {
 
 const DataRouteWithChildren = DataRoute._addFileChildren(DataRouteChildren)
 
+interface EnRouteChildren {
+  EnIndexRoute: typeof EnIndexRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnIndexRoute: EnIndexRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
+
 interface IndsigterRouteChildren {
   IndsigterSlugRoute: typeof IndsigterSlugRoute
 }
@@ -801,7 +828,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
-  EnRoute: EnRoute,
+  EnRoute: EnRouteWithChildren,
   IndsigterRoute: IndsigterRouteWithChildren,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
