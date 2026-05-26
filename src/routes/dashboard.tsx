@@ -58,6 +58,9 @@ function DashboardPage() {
 
       <MicroStrip items={["Rolletilpassede visninger", "Kortbaseret monitorering", "Audit trail på datapunkter", "Eksport til rapport"]} />
 
+      <AIDemoPanel />
+
+
       <section className="container-page py-16">
         <SectionHeader eyebrow="Dashboard tour" title="Det får I i overblikket." />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
