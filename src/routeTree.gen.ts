@@ -40,9 +40,19 @@ import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.komm
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
 import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
+import { Route as EnPricingRouteImport } from './routes/en.pricing'
+import { Route as EnPlatformRouteImport } from './routes/en.platform'
+import { Route as EnDashboardRouteImport } from './routes/en.dashboard'
+import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnBookDemoRouteImport } from './routes/en.book-demo'
+import { Route as EnAboutRouteImport } from './routes/en.about'
 import { Route as DataSlugRouteImport } from './routes/data.$slug'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
 import { Route as ApiAiEsgAnalyseRouteImport } from './routes/api/ai-esg-analyse'
+import { Route as EnPlatformSmartconnectRouteImport } from './routes/en.platform.smartconnect'
+import { Route as EnPlatformImpactExchangeRouteImport } from './routes/en.platform.impact-exchange'
+import { Route as EnPlatformEsgLedgerRouteImport } from './routes/en.platform.esg-ledger'
+import { Route as EnPlatformDecisionsiqRouteImport } from './routes/en.platform.decisionsiq'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const UseCasesRoute = UseCasesRouteImport.update({
@@ -201,6 +211,36 @@ const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => IndsigterRoute,
 } as any)
+const EnPricingRoute = EnPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnPlatformRoute = EnPlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnDashboardRoute = EnDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnContactRoute = EnContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnBookDemoRoute = EnBookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnAboutRoute = EnAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => EnRoute,
+} as any)
 const DataSlugRoute = DataSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -215,6 +255,27 @@ const ApiAiEsgAnalyseRoute = ApiAiEsgAnalyseRouteImport.update({
   id: '/api/ai-esg-analyse',
   path: '/api/ai-esg-analyse',
   getParentRoute: () => rootRouteImport,
+} as any)
+const EnPlatformSmartconnectRoute = EnPlatformSmartconnectRouteImport.update({
+  id: '/smartconnect',
+  path: '/smartconnect',
+  getParentRoute: () => EnPlatformRoute,
+} as any)
+const EnPlatformImpactExchangeRoute =
+  EnPlatformImpactExchangeRouteImport.update({
+    id: '/impact-exchange',
+    path: '/impact-exchange',
+    getParentRoute: () => EnPlatformRoute,
+  } as any)
+const EnPlatformEsgLedgerRoute = EnPlatformEsgLedgerRouteImport.update({
+  id: '/esg-ledger',
+  path: '/esg-ledger',
+  getParentRoute: () => EnPlatformRoute,
+} as any)
+const EnPlatformDecisionsiqRoute = EnPlatformDecisionsiqRouteImport.update({
+  id: '/decisionsiq',
+  path: '/decisionsiq',
+  getParentRoute: () => EnPlatformRoute,
 } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
@@ -245,6 +306,12 @@ export interface FileRoutesByFullPath {
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/book-demo': typeof EnBookDemoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/dashboard': typeof EnDashboardRoute
+  '/en/platform': typeof EnPlatformRouteWithChildren
+  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -258,6 +325,10 @@ export interface FileRoutesByFullPath {
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en/': typeof EnIndexRoute
+  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
+  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
+  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
+  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
@@ -281,6 +352,12 @@ export interface FileRoutesByTo {
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/book-demo': typeof EnBookDemoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/dashboard': typeof EnDashboardRoute
+  '/en/platform': typeof EnPlatformRouteWithChildren
+  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -294,6 +371,10 @@ export interface FileRoutesByTo {
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en': typeof EnIndexRoute
+  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
+  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
+  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
+  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
@@ -319,6 +400,12 @@ export interface FileRoutesById {
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/book-demo': typeof EnBookDemoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/dashboard': typeof EnDashboardRoute
+  '/en/platform': typeof EnPlatformRouteWithChildren
+  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
@@ -332,6 +419,10 @@ export interface FileRoutesById {
   '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en/': typeof EnIndexRoute
+  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
+  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
+  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
+  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -358,6 +449,12 @@ export interface FileRouteTypes {
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
+    | '/en/about'
+    | '/en/book-demo'
+    | '/en/contact'
+    | '/en/dashboard'
+    | '/en/platform'
+    | '/en/pricing'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -371,6 +468,10 @@ export interface FileRouteTypes {
     | '/problemer/$slug'
     | '/use-cases/$slug'
     | '/en/'
+    | '/en/platform/decisionsiq'
+    | '/en/platform/esg-ledger'
+    | '/en/platform/impact-exchange'
+    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -394,6 +495,12 @@ export interface FileRouteTypes {
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
+    | '/en/about'
+    | '/en/book-demo'
+    | '/en/contact'
+    | '/en/dashboard'
+    | '/en/platform'
+    | '/en/pricing'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -407,6 +514,10 @@ export interface FileRouteTypes {
     | '/problemer/$slug'
     | '/use-cases/$slug'
     | '/en'
+    | '/en/platform/decisionsiq'
+    | '/en/platform/esg-ledger'
+    | '/en/platform/impact-exchange'
+    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
@@ -431,6 +542,12 @@ export interface FileRouteTypes {
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
+    | '/en/about'
+    | '/en/book-demo'
+    | '/en/contact'
+    | '/en/dashboard'
+    | '/en/platform'
+    | '/en/pricing'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
@@ -444,6 +561,10 @@ export interface FileRouteTypes {
     | '/problemer/$slug'
     | '/use-cases/$slug'
     | '/en/'
+    | '/en/platform/decisionsiq'
+    | '/en/platform/esg-ledger'
+    | '/en/platform/impact-exchange'
+    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -693,6 +814,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndsigterSlugRouteImport
       parentRoute: typeof IndsigterRoute
     }
+    '/en/pricing': {
+      id: '/en/pricing'
+      path: '/pricing'
+      fullPath: '/en/pricing'
+      preLoaderRoute: typeof EnPricingRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/platform': {
+      id: '/en/platform'
+      path: '/platform'
+      fullPath: '/en/platform'
+      preLoaderRoute: typeof EnPlatformRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/dashboard': {
+      id: '/en/dashboard'
+      path: '/dashboard'
+      fullPath: '/en/dashboard'
+      preLoaderRoute: typeof EnDashboardRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/contact': {
+      id: '/en/contact'
+      path: '/contact'
+      fullPath: '/en/contact'
+      preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/book-demo': {
+      id: '/en/book-demo'
+      path: '/book-demo'
+      fullPath: '/en/book-demo'
+      preLoaderRoute: typeof EnBookDemoRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/about': {
+      id: '/en/about'
+      path: '/about'
+      fullPath: '/en/about'
+      preLoaderRoute: typeof EnAboutRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/data/$slug': {
       id: '/data/$slug'
       path: '/$slug'
@@ -713,6 +876,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/ai-esg-analyse'
       preLoaderRoute: typeof ApiAiEsgAnalyseRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/en/platform/smartconnect': {
+      id: '/en/platform/smartconnect'
+      path: '/smartconnect'
+      fullPath: '/en/platform/smartconnect'
+      preLoaderRoute: typeof EnPlatformSmartconnectRouteImport
+      parentRoute: typeof EnPlatformRoute
+    }
+    '/en/platform/impact-exchange': {
+      id: '/en/platform/impact-exchange'
+      path: '/impact-exchange'
+      fullPath: '/en/platform/impact-exchange'
+      preLoaderRoute: typeof EnPlatformImpactExchangeRouteImport
+      parentRoute: typeof EnPlatformRoute
+    }
+    '/en/platform/esg-ledger': {
+      id: '/en/platform/esg-ledger'
+      path: '/esg-ledger'
+      fullPath: '/en/platform/esg-ledger'
+      preLoaderRoute: typeof EnPlatformEsgLedgerRouteImport
+      parentRoute: typeof EnPlatformRoute
+    }
+    '/en/platform/decisionsiq': {
+      id: '/en/platform/decisionsiq'
+      path: '/decisionsiq'
+      fullPath: '/en/platform/decisionsiq'
+      preLoaderRoute: typeof EnPlatformDecisionsiqRouteImport
+      parentRoute: typeof EnPlatformRoute
     }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
@@ -746,11 +937,41 @@ const DataRouteChildren: DataRouteChildren = {
 
 const DataRouteWithChildren = DataRoute._addFileChildren(DataRouteChildren)
 
+interface EnPlatformRouteChildren {
+  EnPlatformDecisionsiqRoute: typeof EnPlatformDecisionsiqRoute
+  EnPlatformEsgLedgerRoute: typeof EnPlatformEsgLedgerRoute
+  EnPlatformImpactExchangeRoute: typeof EnPlatformImpactExchangeRoute
+  EnPlatformSmartconnectRoute: typeof EnPlatformSmartconnectRoute
+}
+
+const EnPlatformRouteChildren: EnPlatformRouteChildren = {
+  EnPlatformDecisionsiqRoute: EnPlatformDecisionsiqRoute,
+  EnPlatformEsgLedgerRoute: EnPlatformEsgLedgerRoute,
+  EnPlatformImpactExchangeRoute: EnPlatformImpactExchangeRoute,
+  EnPlatformSmartconnectRoute: EnPlatformSmartconnectRoute,
+}
+
+const EnPlatformRouteWithChildren = EnPlatformRoute._addFileChildren(
+  EnPlatformRouteChildren,
+)
+
 interface EnRouteChildren {
+  EnAboutRoute: typeof EnAboutRoute
+  EnBookDemoRoute: typeof EnBookDemoRoute
+  EnContactRoute: typeof EnContactRoute
+  EnDashboardRoute: typeof EnDashboardRoute
+  EnPlatformRoute: typeof EnPlatformRouteWithChildren
+  EnPricingRoute: typeof EnPricingRoute
   EnIndexRoute: typeof EnIndexRoute
 }
 
 const EnRouteChildren: EnRouteChildren = {
+  EnAboutRoute: EnAboutRoute,
+  EnBookDemoRoute: EnBookDemoRoute,
+  EnContactRoute: EnContactRoute,
+  EnDashboardRoute: EnDashboardRoute,
+  EnPlatformRoute: EnPlatformRouteWithChildren,
+  EnPricingRoute: EnPricingRoute,
   EnIndexRoute: EnIndexRoute,
 }
 
@@ -850,3 +1071,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
