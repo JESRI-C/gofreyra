@@ -37,6 +37,9 @@ export function Header() {
 
         <div className="hidden lg:flex items-center gap-2">
           <Link to="/kontakt" className="text-sm font-medium text-foreground/80 hover:text-foreground px-3">Kontakt</Link>
+          <Button asChild variant="outline" className="rounded-full h-9 px-4">
+            <Link to="/dashboard">Log ind</Link>
+          </Button>
           <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
             <Link to="/book-demo">Book demo</Link>
           </Button>
@@ -59,6 +62,9 @@ export function Header() {
             <Link to="/priser" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Priser</Link>
             <Link to="/om" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Om</Link>
             <Link to="/kontakt" onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">Kontakt</Link>
+            <Button asChild variant="outline" className="w-full rounded-full">
+              <Link to="/dashboard" onClick={() => setOpen(false)}>Log ind på dashboard</Link>
+            </Button>
             <Button asChild className="w-full rounded-full">
               <Link to="/book-demo" onClick={() => setOpen(false)}>Book demo</Link>
             </Button>
