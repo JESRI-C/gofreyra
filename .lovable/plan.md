@@ -1,68 +1,80 @@
 ## Mål
+Hele sitet tilgængeligt på engelsk under `gofreyra.com/en/...`, med dansk som standard på root. AI-genereret oversættelse som udgangspunkt, du retter til efterfølgende.
 
-Tilføj en interaktiv AI-drevet ESG-analyse demo direkte på `/dashboard` — så besøgende kan prøve GoFreyras AI på rigtige data og se en analyse genereret live. Det bliver det stærkeste "wow"-element på siden og driver mod /book-demo.
+## Arkitekturvalg
 
-## Hvad bygges
+**URL-struktur:** Dansk forbliver på root (`/platform`, `/priser`, `/ordbog/...`). Engelsk spejles under `/en/` (`/en/platform`, `/en/pricing`, `/en/glossary/...`). Det bevarer al eksisterende SEO-autoritet på de danske URL'er.
 
-En ny sektion på `/dashboard` (placeret lige under hero, før "Det får I i overblikket"): **"Prøv DecisionsIQ live"**.
+**Kode-struktur:** Ét sæt komponenter — to sæt tekster. Vi undgår at duplikere 30+ route-filer som copy-paste.
 
-Brugeren kan:
-1. Vælge et **scenarie** fra 3-4 forudbyggede dummy-datasæt (fx "Naturprojekt – heden ved Mols", "Vindmøllepark – biodiversitet", "Kommunal vandkvalitet", "Industri – CO2 & spildevand").
-2. Se datapunkter (sensorværdier, afvigelser, kontekst) i et lille panel.
-3. Klikke **"Kør AI-analyse"** → får en streamet, AI-genereret ESG-vurdering med:
-   - Risikoflag (rød/gul/grøn)
-   - 3 konkrete anbefalinger
-   - Forslag til dokumentation/rapportering (CSRD-vinklet)
-4. CTA under output: "Vil du se det på dine egne data? → Book demo".
+```text
+src/
+  i18n/
+    config.ts            # 'da' | 'en', defaultLocale, locales[]
+    LocaleContext.tsx    # useLocale() hook + Provider
+    dictionaries/
+      da/                # nuværende tekster løftet ud af komponenter
+      en/                # AI-oversat, du finpudser
+    utils.ts             # localizedPath(), useT(), Link wrapper
+  routes/
+    (eksisterende DA-routes uændret)
+    en.tsx               # layout: <LocaleProvider locale="en"><Outlet/></LocaleProvider>
+    en.index.tsx         # render samme Home-komponent
+    en.platform.tsx      # render samme Platform-komponent
+    en.pricing.tsx       # = priser
+    en.glossary.tsx      # = ordbog
+    en.glossary.$term.tsx
+    ... (én per DA-route)
+  components/site/       # uændret — læser tekst via useT()
+  data/
+    insights.ts          # udvides: { da: {...}, en: {...} } per felt
+    sectors.ts, useCases.ts, problems.ts, sources.ts, pseo.ts, dataTypes.ts
+    aiDemoScenarios.ts
+```
 
-## Teknisk
+Route-filerne under `en.*` indeholder kun ~5 linjer hver: importer page-komponenten og sæt locale + `head()` med engelsk title/description.
 
-**Backend** — TanStack server route (streaming):
-- `src/routes/api/ai-esg-analyse.ts` (POST, streaming)
-- Bruger Lovable AI Gateway via `@ai-sdk/openai-compatible` + `ai` (streamText)
-- Model: `google/gemini-3-flash-preview` (hurtig, billig, godt nok til demo)
-- System prompt: "Du er en ESG-analytiker for GoFreyra. Vurder data, flag risici, foreslå handlinger og dokumentation iht. CSRD/ESRS." (på dansk)
-- Input: valgt scenarie + dets datapunkter (sendes fra klient)
-- Output: streamet markdown
-- Rate limit (simpel in-memory per IP) for at undgå misbrug
-- Håndterer 429/402 fra gateway og returnerer pæn fejl
+## Implementeringsfaser
 
-**Frontend** — ny komponent:
-- `src/components/site/AIDemoPanel.tsx`
-- Scenarie-vælger (tabs/cards), datavisning, "Kør analyse"-knap, streamet svar med `ReactMarkdown` (allerede i projektet hvis ikke, så installeres)
-- Bruger `fetch` med `ReadableStream` til at vise svaret token-for-token
-- Loading/skeleton state, fejlhåndtering, "prøv igen"
-- Designet matcher resten af dashboardet (card-soft, brand-deep, gradient accents)
+**Fase 1 — Fundament (foundation)**
+- Opret `src/i18n/` med locale-config, context, `useT()` hook og en `<LocalizedLink>` der oversætter slugs automatisk.
+- Tilføj sprog-switcher i `Header.tsx` (DA / EN) og `Footer.tsx`.
+- Mount `LocaleProvider` i `__root.tsx` baseret på første URL-segment.
 
-**Dummy-data**:
-- `src/data/aiDemoScenarios.ts` — 3-4 scenarier med navn, kort beskrivelse, datapunkter (JSON), pre-baked kontekst
+**Fase 2 — Tekst-ekstraktion**
+- Gå hver route-fil igennem og flyt hardcoded dansk tekst til `dictionaries/da/<route>.ts`.
+- Komponenten læser via `const t = useT('platform')` → `t.hero.title`.
+- Samme for delte komponenter (`Header`, `Footer`, `CTASection`, `sections.tsx`, `AIDemoPanel`, `DashboardMockup`).
 
-**Integration**:
-- Importeres i `src/routes/dashboard.tsx` lige efter hero-sektionen
-- Får eyebrow "AI live demo" og SectionHeader "Prøv DecisionsIQ på et eksempel"
+**Fase 3 — AI-oversættelse**
+- Engangs-script (`scripts/translate.ts`) der kører alle DA-dictionaries gennem Lovable AI (`google/gemini-2.5-pro` for kvalitet på fagsprog) og genererer `dictionaries/en/`.
+- Samme script oversætter dynamisk content i `data/*.ts` til parallelle `en`-felter — bevarer slugs men oversætter titler, beskrivelser, body.
+- Slugs for dynamiske routes: behold danske slugs på `/ordbog/audit-trail`, oversæt til `/en/glossary/audit-trail` (engelsk slug). Mapping ligger i samme data-fil.
 
-## Sekundær: skab tryghed
+**Fase 4 — EN-route-filer**
+- Generér `en.<route>.tsx` for hver eksisterende route med engelsk SEO-`head()`.
+- Dynamiske routes (`en.glossary.$term.tsx` mv.) bruger oversatte slugs til lookup.
 
-- Lille disclaimer under panelet: "Demoen kører på syntetiske data. AI-output er illustrativt."
-- Link til /platform/decisionsiq for at læse mere
+**Fase 5 — SEO**
+- `hreflang`-tags: hver side får `<link rel="alternate" hreflang="da" href="..."/>`, `hreflang="en"`, og `hreflang="x-default"` (DA).
+- Canonical URL pr. sprog (DA-side canonical → DA-URL; EN-side canonical → EN-URL).
+- `sitemap.xml` udvides med alle EN-URL'er.
+- `llms.txt` får en EN-sektion.
+- `<html lang>` opdateres dynamisk pr. locale.
 
-## Hvad det IKKE er
+**Fase 6 — Kvalitetscheck**
+- Visuel gennemgang af de vigtigste EN-sider (forside, platform, priser, kontakt, book demo).
+- Tjek at sprog-switcher bevarer side-kontekst (`/platform` ↔ `/en/platform`).
 
-- Ingen persistering, ingen login, ingen brugerupload af egne data (det er hvad book-demo er til)
-- Ikke en fuld chatbot — én-shot analyse pr. scenarie (kan evt. udvides senere)
+## Hvad du skal gøre bagefter
+Rette AI-oversættelserne i `src/i18n/dictionaries/en/` og `data/*` til. Filerne er rene TS-objekter — én linje per streng. Ingen kodeændringer nødvendige for tekstrettelser.
 
-## Filer
+## Estimat & risici
+- 30+ route-filer + 9 data-filer skal igennem ekstraktion. Det er en stor ændring (mange filer), men mekanisk.
+- Vigtigt at gøre i én sammenhængende implementering — halvfærdig i18n efterlader sitet i mixed state.
+- AI-oversættelse af fagtermer (ESG, ESRS, audit trail, datakilder) skal verificeres af dig — Gemini kan ramme ved siden af branche-specifikt sprog.
 
-**Nye:**
-- `src/routes/api/ai-esg-analyse.ts`
-- `src/lib/ai-gateway.server.ts` (provider helper, genbrugelig)
-- `src/components/site/AIDemoPanel.tsx`
-- `src/data/aiDemoScenarios.ts`
-
-**Ændrede:**
-- `src/routes/dashboard.tsx` (indsæt `<AIDemoPanel />` efter hero)
-- evt. `package.json` (tilføj `ai`, `@ai-sdk/openai-compatible`, `react-markdown` hvis ikke til stede)
-
-## Krav fra Lovable AI
-
-`LOVABLE_API_KEY` er allerede sat i projektet — ingen ekstra opsætning nødvendig.
+## Alternativer der blev fravalgt
+- **`$lang`-param på alle routes** (`/$lang/platform`): Ville flytte eksisterende DA-URL'er til `/da/platform` — bryder al indekseret SEO.
+- **Subdomæne `en.gofreyra.com`**: Du valgte undermappe — bedre for SEO-deling.
+- **i18next-bibliotek**: Overkill her; vi har ikke pluralization, dato-formatering eller nested namespaces der retfærdiggør ekstra dependency. Letvægts custom `useT()` er nok.
