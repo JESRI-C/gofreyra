@@ -20,6 +20,7 @@ import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
+import { Route as EnRouteImport } from './routes/en'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
 import { Route as DataRouteImport } from './routes/data'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -96,6 +97,11 @@ const KontaktRoute = KontaktRouteImport.update({
 const IndsigterRoute = IndsigterRouteImport.update({
   id: '/indsigter',
   path: '/indsigter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatakilderRoute = DatakilderRouteImport.update({
@@ -218,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
+  '/en': typeof EnRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -253,6 +260,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
+  '/en': typeof EnRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -289,6 +297,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
+  '/en': typeof EnRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
@@ -326,6 +335,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/data'
     | '/datakilder'
+    | '/en'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -361,6 +371,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/data'
     | '/datakilder'
+    | '/en'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -396,6 +407,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/data'
     | '/datakilder'
+    | '/en'
     | '/indsigter'
     | '/kontakt'
     | '/om'
@@ -432,6 +444,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
+  EnRoute: typeof EnRoute
   IndsigterRoute: typeof IndsigterRouteWithChildren
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
@@ -528,6 +541,13 @@ declare module '@tanstack/react-router' {
       path: '/indsigter'
       fullPath: '/indsigter'
       preLoaderRoute: typeof IndsigterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datakilder': {
@@ -781,6 +801,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
+  EnRoute: EnRoute,
   IndsigterRoute: IndsigterRouteWithChildren,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
