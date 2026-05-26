@@ -3,16 +3,19 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Check, Database, Brain, ShieldCheck, Globe2, Activity } from "lucide-react";
 import type { ReactNode } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ---------- FAQ ---------- */
 export type FAQItem = { q: string; a: string };
 
-export function FaqSection({ items, eyebrow = "FAQ", title = "Ofte stillede spørgsmål", subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
+export function FaqSection({ items, eyebrow = "FAQ", title, subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
+  const isEn = useLocale() === "en";
+  const ti = title ?? (isEn ? "Frequently asked questions" : "Ofte stillede spørgsmål");
   return (
     <section className="container-page py-20">
       <div className="max-w-3xl">
         <span className="eyebrow">{eyebrow}</span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-bold">{title}</h2>
+        <h2 className="mt-4 text-3xl md:text-4xl font-bold">{ti}</h2>
         {subtitle && <p className="mt-3 text-muted-foreground">{subtitle}</p>}
       </div>
       <div className="mt-8 max-w-3xl">
@@ -57,7 +60,9 @@ export function FlowSection({ eyebrow, title, subtitle, steps, beige }: { eyebro
 }
 
 /* ---------- Green CTA strip ---------- */
-export function GreenCTA({ title, subtitle, primary = { to: "/book-demo", label: "Book demo" }, secondary }: { title: string; subtitle?: string; primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
+export function GreenCTA({ title, subtitle, primary, secondary }: { title: string; subtitle?: string; primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
+  const isEn = useLocale() === "en";
+  const p = primary ?? { to: isEn ? "/en/book-demo" : "/book-demo", label: isEn ? "Book a demo" : "Book demo" };
   return (
     <section className="container-page my-16">
       <div className="rounded-3xl bg-primary/10 border border-primary/30 p-8 md:p-10 grid md:grid-cols-[1fr_auto] gap-6 items-center">
@@ -66,7 +71,7 @@ export function GreenCTA({ title, subtitle, primary = { to: "/book-demo", label:
           {subtitle && <p className="mt-2 text-foreground/80 max-w-xl">{subtitle}</p>}
         </div>
         <div className="flex gap-3 flex-wrap">
-          <Button asChild className="rounded-full h-11 px-5"><Link to={primary.to}>{primary.label} <ArrowRight className="ml-1 w-4 h-4" /></Link></Button>
+          <Button asChild className="rounded-full h-11 px-5"><Link to={p.to}>{p.label} <ArrowRight className="ml-1 w-4 h-4" /></Link></Button>
           {secondary && <Button asChild variant="outline" className="rounded-full h-11 px-5"><Link to={secondary.to}>{secondary.label}</Link></Button>}
         </div>
       </div>
@@ -137,6 +142,7 @@ export function CardGrid({ eyebrow, title, subtitle, cards, cols = 3, beige, ico
 
 /* ---------- Module benefits row ---------- */
 export function ModuleBenefits({ modules }: { modules: { icon: ReactNode; t: string; to: string; d: string; bullets: string[] }[] }) {
+  const seeModule = useLocale() === "en" ? "See module" : "Se modulet";
   return (
     <section className="container-page py-20">
       <div className="grid md:grid-cols-2 gap-5">
@@ -156,7 +162,7 @@ export function ModuleBenefits({ modules }: { modules: { icon: ReactNode; t: str
                 </li>
               ))}
             </ul>
-            <Link to={m.to} className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">Se modulet <ArrowRight className="ml-1 w-4 h-4" /></Link>
+            <Link to={m.to} className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">{seeModule} <ArrowRight className="ml-1 w-4 h-4" /></Link>
           </div>
         ))}
       </div>

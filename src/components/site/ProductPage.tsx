@@ -5,6 +5,7 @@ import { ArrowRight, Check, Database } from "lucide-react";
 import { PageLayout } from "./PageLayout";
 import { CTASection } from "./CTASection";
 import { FaqSection, type FAQItem, FlowSection, GreenCTA, SectionHeader } from "./sections";
+import { useLocale } from "@/i18n/LocaleContext";
 
 export interface ProductPageProps {
   eyebrow: string;
@@ -14,19 +15,43 @@ export interface ProductPageProps {
   features: { title: string; desc: string }[];
   bullets?: string[];
   visual?: ReactNode;
-  /** Optional richer sections */
   flow?: { eyebrow?: string; title: string; subtitle?: string; steps: { n: string; t: string; d: string }[] };
   useCases?: { t: string; d: string }[];
   notDoing?: string[];
   faq?: FAQItem[];
   extra?: ReactNode;
-  /** New: data sources used by the module */
   dataSources?: string[];
-  /** New: related modules in the platform */
   relatedModules?: { name: string; to: string; d: string }[];
 }
 
 export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets, visual, flow, useCases, notDoing, faq, extra, dataSources, relatedModules }: ProductPageProps) {
+  const locale = useLocale();
+  const isEn = locale === "en";
+  const L = {
+    bookDemo: isEn ? "Book a demo" : "Book demo",
+    seePlatform: isEn ? "See the platform" : "Se platformen",
+    featuresEyebrow: isEn ? "Features" : "Funktioner",
+    featuresTitle: isEn ? "What the module does" : "Hvad modulet gør",
+    useCasesEyebrow: isEn ? "In practice" : "Anvendelse",
+    useCasesTitle: isEn ? "How the module is used in practice" : "Sådan bruges modulet i praksis",
+    bulletsTitle: isEn ? "What you get out of it" : "Hvad I får ud af det",
+    bulletsBody: isEn ? "Concrete effects operations and ESG teams feel from the first pilot." : "Konkrete effekter, drift og ESG-team kan mærke fra første pilot.",
+    notDoingEyebrow: isEn ? "What the module doesn't do" : "Hvad modulet ikke gør",
+    notDoingTitle: isEn ? "Plainly put." : "Vi siger det rent ud.",
+    dataSourcesEyebrow: isEn ? "Data sources" : "Datakilder",
+    dataSourcesTitle: isEn ? "What data the module typically works with." : "Hvilke data modulet typisk arbejder med.",
+    dataSourcesBody: isEn ? "Data sources are connected gradually. We don't require perfect data maturity from day one." : "Datakilder kobles gradvist. Vi kræver ikke perfekt datamodenhed fra dag ét.",
+    relatedEyebrow: isEn ? "Related modules" : "Modulrelation",
+    relatedTitle: isEn ? "How the module connects to the rest of the platform." : "Sådan spiller modulet sammen med resten af platformen.",
+    relatedBody: isEn ? "The modules share a data foundation. Start with one — add more when it creates value." : "Modulerne deler datagrundlag. Start med ét — kobl flere på, når det giver værdi.",
+    seeModule: isEn ? "See module" : "Se modulet",
+    greenTitle: isEn ? "Want to see the module in your own context?" : "Vil I se modulet i jeres egen kontekst?",
+    greenSubtitle: isEn ? "We'll set up a demo with relevant data sources for you." : "Vi sætter en demo op med relevante datakilder for jer.",
+    greenSecondary: isEn ? "See the full platform" : "Se hele platformen",
+  };
+  const bookDemoTo = isEn ? "/en/book-demo" : "/book-demo";
+  const platformTo = isEn ? "/en/platform" : "/platform";
+
   return (
     <PageLayout>
       <section className="gradient-hero">
@@ -37,10 +62,10 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">{subtitle}</p>
             <div className="mt-7 flex gap-3">
               <Button asChild className="rounded-full h-11 px-5">
-                <Link to="/book-demo">Book demo <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+                <Link to={bookDemoTo}>{L.bookDemo} <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
               </Button>
               <Button asChild variant="outline" className="rounded-full h-11 px-5">
-                <Link to="/platform">Se platformen</Link>
+                <Link to={platformTo}>{L.seePlatform}</Link>
               </Button>
             </div>
           </div>
@@ -55,7 +80,7 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
       )}
 
       <section className="container-page py-12">
-        <SectionHeader eyebrow="Funktioner" title="Hvad modulet gør" />
+        <SectionHeader eyebrow={L.featuresEyebrow} title={L.featuresTitle} />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((f) => (
             <div key={f.title} className="card-soft p-6">
@@ -75,7 +100,7 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
 
       {useCases && useCases.length > 0 && (
         <section className="container-page py-16">
-          <SectionHeader eyebrow="Anvendelse" title="Sådan bruges modulet i praksis" />
+          <SectionHeader eyebrow={L.useCasesEyebrow} title={L.useCasesTitle} />
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             {useCases.map((u) => (
               <div key={u.t} className="card-soft p-6">
@@ -91,8 +116,8 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
         <section className="container-page py-12">
           <div className="surface-beige rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Hvad I får ud af det</h2>
-              <p className="mt-3 text-muted-foreground">Konkrete effekter, drift og ESG-team kan mærke fra første pilot.</p>
+              <h2 className="text-2xl md:text-3xl font-bold">{L.bulletsTitle}</h2>
+              <p className="mt-3 text-muted-foreground">{L.bulletsBody}</p>
             </div>
             <ul className="space-y-3">
               {bullets.map((b) => (
@@ -109,8 +134,8 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
       {notDoing && notDoing.length > 0 && (
         <section className="container-page py-12">
           <div className="card-soft p-8 md:p-10 bg-card max-w-4xl">
-            <span className="eyebrow">Hvad modulet ikke gør</span>
-            <h2 className="mt-3 text-2xl md:text-3xl font-bold">Vi siger det rent ud.</h2>
+            <span className="eyebrow">{L.notDoingEyebrow}</span>
+            <h2 className="mt-3 text-2xl md:text-3xl font-bold">{L.notDoingTitle}</h2>
             <ul className="mt-5 space-y-2">
               {notDoing.map((n) => (
                 <li key={n} className="flex gap-2 text-sm text-foreground/80"><span className="text-muted-foreground">—</span> <span>{n}</span></li>
@@ -123,7 +148,7 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
       {dataSources && dataSources.length > 0 && (
         <section className="surface-beige">
           <div className="container-page py-16">
-            <SectionHeader eyebrow="Datakilder" title="Hvilke data modulet typisk arbejder med." body="Datakilder kobles gradvist. Vi kræver ikke perfekt datamodenhed fra dag ét." />
+            <SectionHeader eyebrow={L.dataSourcesEyebrow} title={L.dataSourcesTitle} body={L.dataSourcesBody} />
             <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {dataSources.map((d) => (
                 <div key={d} className="card-soft p-4 bg-card flex items-center gap-3">
@@ -138,13 +163,13 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
 
       {relatedModules && relatedModules.length > 0 && (
         <section className="container-page py-16">
-          <SectionHeader eyebrow="Modulrelation" title="Sådan spiller modulet sammen med resten af platformen." body="Modulerne deler datagrundlag. Start med ét — kobl flere på, når det giver værdi." />
+          <SectionHeader eyebrow={L.relatedEyebrow} title={L.relatedTitle} body={L.relatedBody} />
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             {relatedModules.map((m) => (
               <Link key={m.to} to={m.to} className="card-soft p-5 bg-card hover:border-primary/40 transition">
                 <div className="font-semibold">{m.name}</div>
                 <p className="mt-1.5 text-sm text-muted-foreground">{m.d}</p>
-                <div className="mt-3 inline-flex items-center text-sm font-medium text-brand-deep">Se modulet <ArrowRight className="ml-1 w-4 h-4" /></div>
+                <div className="mt-3 inline-flex items-center text-sm font-medium text-brand-deep">{L.seeModule} <ArrowRight className="ml-1 w-4 h-4" /></div>
               </Link>
             ))}
           </div>
@@ -153,7 +178,7 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
 
       {faq && faq.length > 0 && <FaqSection items={faq} />}
 
-      <GreenCTA title="Vil I se modulet i jeres egen kontekst?" subtitle="Vi sætter en demo op med relevante datakilder for jer." secondary={{ to: "/platform", label: "Se hele platformen" }} />
+      <GreenCTA title={L.greenTitle} subtitle={L.greenSubtitle} secondary={{ to: platformTo, label: L.greenSecondary }} />
 
       <CTASection />
     </PageLayout>
@@ -163,10 +188,10 @@ export function ProductPage({ eyebrow, title, subtitle, intro, features, bullets
 function DefaultVisual() {
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
-      <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">Modul</div>
+      <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep">Module</div>
       <div className="mt-2 text-2xl font-bold">GoFreyra Platform</div>
       <div className="mt-6 grid grid-cols-2 gap-3">
-        {["Realtidsdata", "AI-anbefalinger", "Audit trail", "Impact-metrics"].map((x) => (
+        {["Real-time data", "AI recommendations", "Audit trail", "Impact metrics"].map((x) => (
           <div key={x} className="rounded-lg border border-border p-3 text-sm font-medium">{x}</div>
         ))}
       </div>
