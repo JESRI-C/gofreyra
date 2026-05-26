@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Activity, Brain, FileCheck, Globe2, Download, Users, LayoutDashboard, ShieldCheck, Gauge, ClipboardCheck } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { DashboardMockup } from "@/components/site/DashboardMockup";
+import { AIDemoPanel } from "@/components/site/AIDemoPanel";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead } from "@/components/site/SEO";
 import { FaqSection, GreenCTA, MicroStrip, SectionHeader, FlowSection, CardGrid } from "@/components/site/sections";
@@ -56,6 +57,9 @@ function DashboardPage() {
       </section>
 
       <MicroStrip items={["Rolletilpassede visninger", "Kortbaseret monitorering", "Audit trail på datapunkter", "Eksport til rapport"]} />
+
+      <AIDemoPanel />
+
 
       <section className="container-page py-16">
         <SectionHeader eyebrow="Dashboard tour" title="Det får I i overblikket." />

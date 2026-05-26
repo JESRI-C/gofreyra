@@ -40,6 +40,7 @@ import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger
 import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
 import { Route as DataSlugRouteImport } from './routes/data.$slug'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
+import { Route as ApiAiEsgAnalyseRouteImport } from './routes/api/ai-esg-analyse'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const UseCasesRoute = UseCasesRouteImport.update({
@@ -198,6 +199,11 @@ const BrancherSlugRoute = BrancherSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BrancherRoute,
 } as any)
+const ApiAiEsgAnalyseRoute = ApiAiEsgAnalyseRouteImport.update({
+  id: '/api/ai-esg-analyse',
+  path: '/api/ai-esg-analyse',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
@@ -223,6 +229,7 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
@@ -257,6 +264,7 @@ export interface FileRoutesByTo {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
@@ -292,6 +300,7 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
@@ -328,6 +337,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
     | '/indsigter/$slug'
@@ -362,6 +372,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
     | '/indsigter/$slug'
@@ -396,6 +407,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
     | '/indsigter/$slug'
@@ -431,6 +443,7 @@ export interface RootRouteChildren {
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
+  ApiAiEsgAnalyseRoute: typeof ApiAiEsgAnalyseRoute
   LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
   LoesningerIndustriRoute: typeof LoesningerIndustriRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
@@ -657,6 +670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrancherSlugRouteImport
       parentRoute: typeof BrancherRoute
     }
+    '/api/ai-esg-analyse': {
+      id: '/api/ai-esg-analyse'
+      path: '/api/ai-esg-analyse'
+      fullPath: '/api/ai-esg-analyse'
+      preLoaderRoute: typeof ApiAiEsgAnalyseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
       path: '/lovable/email/queue/process'
@@ -772,6 +792,7 @@ const rootRouteChildren: RootRouteChildren = {
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
+  ApiAiEsgAnalyseRoute: ApiAiEsgAnalyseRoute,
   LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
   LoesningerIndustriRoute: LoesningerIndustriRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
