@@ -60,7 +60,9 @@ export function FlowSection({ eyebrow, title, subtitle, steps, beige }: { eyebro
 }
 
 /* ---------- Green CTA strip ---------- */
-export function GreenCTA({ title, subtitle, primary = { to: "/book-demo", label: "Book demo" }, secondary }: { title: string; subtitle?: string; primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
+export function GreenCTA({ title, subtitle, primary, secondary }: { title: string; subtitle?: string; primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
+  const isEn = useLocale() === "en";
+  const p = primary ?? { to: isEn ? "/en/book-demo" : "/book-demo", label: isEn ? "Book a demo" : "Book demo" };
   return (
     <section className="container-page my-16">
       <div className="rounded-3xl bg-primary/10 border border-primary/30 p-8 md:p-10 grid md:grid-cols-[1fr_auto] gap-6 items-center">
@@ -69,7 +71,7 @@ export function GreenCTA({ title, subtitle, primary = { to: "/book-demo", label:
           {subtitle && <p className="mt-2 text-foreground/80 max-w-xl">{subtitle}</p>}
         </div>
         <div className="flex gap-3 flex-wrap">
-          <Button asChild className="rounded-full h-11 px-5"><Link to={primary.to}>{primary.label} <ArrowRight className="ml-1 w-4 h-4" /></Link></Button>
+          <Button asChild className="rounded-full h-11 px-5"><Link to={p.to}>{p.label} <ArrowRight className="ml-1 w-4 h-4" /></Link></Button>
           {secondary && <Button asChild variant="outline" className="rounded-full h-11 px-5"><Link to={secondary.to}>{secondary.label}</Link></Button>}
         </div>
       </div>
