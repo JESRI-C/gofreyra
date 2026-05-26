@@ -142,6 +142,7 @@ export function CardGrid({ eyebrow, title, subtitle, cards, cols = 3, beige, ico
 
 /* ---------- Module benefits row ---------- */
 export function ModuleBenefits({ modules }: { modules: { icon: ReactNode; t: string; to: string; d: string; bullets: string[] }[] }) {
+  const seeModule = useLocale() === "en" ? "See module" : "Se modulet";
   return (
     <section className="container-page py-20">
       <div className="grid md:grid-cols-2 gap-5">
@@ -161,7 +162,7 @@ export function ModuleBenefits({ modules }: { modules: { icon: ReactNode; t: str
                 </li>
               ))}
             </ul>
-            <Link to={m.to} className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">{useLocale() === "en" ? "See module" : "Se modulet"} <ArrowRight className="ml-1 w-4 h-4" /></Link>
+            <Link to={m.to} className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">{seeModule} <ArrowRight className="ml-1 w-4 h-4" /></Link>
           </div>
         ))}
       </div>
