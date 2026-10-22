@@ -83,10 +83,11 @@ function ContactPage() {
             <p className="mt-2 text-sm text-muted-foreground">Bøgevej 4, 7160 Tørring</p>
           </div>
           {/* TODO: Tilføj direkte email og telefon, når de er klar fra kunden. */}
+          {/* TODO: Beskeder gemmes i backend-databasen (contact_messages). Opsæt email-notifikation, så nye henvendelser ikke skal tjekkes manuelt. */}
           <div className="card-soft p-6">
             <div className="text-sm font-semibold">Hvad sker der bagefter?</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Vi læser jeres besked og vender tilbage inden for én arbejdsdag. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
+              Beskeden gemmes sikkert hos os, og vi læser den personligt. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
             </p>
           </div>
         </div>
@@ -98,7 +99,7 @@ function ContactPage() {
                 <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
               <h2 className="mt-4 text-2xl ">Tak for beskeden</h2>
-              <p className="mt-2 text-muted-foreground">Vi vender tilbage inden for én arbejdsdag.</p>
+              <p className="mt-2 text-muted-foreground">Den er gemt sikkert hos os, og vi vender tilbage.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
