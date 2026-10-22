@@ -10,7 +10,7 @@ export const Route = createFileRoute("/om")({
   head: () =>
     buildHead({
       title: "Om Freyra | Gofreyra ApS",
-      description: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder.",
+      description: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder med dokumentation af naturprojekter.",
       path: "/om",
       jsonLd: [
         organizationJsonLd(),

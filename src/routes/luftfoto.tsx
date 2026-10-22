@@ -59,7 +59,7 @@ export const Route = createFileRoute("/luftfoto")({
   head: () =>
     buildHead({
       title: "Luftfoto | Freyra Evidence Workspace",
-      description: "Billeder fra vores egne droneflyvninger af vandløb og arealer. Lokaliteter er udeladt.",
+      description: "Billeder fra vores egne droneflyvninger af vandløb, enge, skov og arealer ved førregistrering og efterflyvning. Lokaliteter er udeladt.",
       path: "/luftfoto",
       jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Luftfoto", path: "/luftfoto" }]),
     }),

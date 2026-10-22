@@ -21,7 +21,7 @@ const schema = z.object({
 export const Route = createFileRoute("/kontakt")({
   head: () => buildHead({
     title: "Kontakt | Freyra Evidence Workspace",
-    description: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde. Skriv via formularen, så vender vi tilbage.",
+    description: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde om natur- og arealprojekter. Skriv via formularen, så vender vi tilbage.",
     path: "/kontakt",
     jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Kontakt", path: "/kontakt" }]),
   }),
