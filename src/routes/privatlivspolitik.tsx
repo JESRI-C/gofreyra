@@ -5,7 +5,7 @@ import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 export const Route = createFileRoute("/privatlivspolitik")({
   head: () => buildHead({
     title: "Privatlivspolitik | Gofreyra ApS",
-    description: "Sådan behandler Gofreyra ApS personoplysninger på gofreyra.com og i Freyra Evidence Workspace.",
+    description: "Sådan behandler Gofreyra ApS personoplysninger på gofreyra.com og i Freyra Evidence Workspace. Læs hvem der er dataansvarlig, og hvordan du kontakter os.",
     path: "/privatlivspolitik",
     jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Privatlivspolitik", path: "/privatlivspolitik" }]),
   }),

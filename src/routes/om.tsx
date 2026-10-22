@@ -4,12 +4,13 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead, organizationJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
 import { GreenCTA, MicroStrip, CardGrid } from "@/components/site/sections";
 import moodPhoto from "@/assets/freyra-luftfoto-05.jpg.asset.json";
+import { photoProps } from "@/lib/photo-variants";
 
 export const Route = createFileRoute("/om")({
   head: () =>
     buildHead({
       title: "Om Freyra | Gofreyra ApS",
-      description: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder.",
+      description: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder med dokumentation af naturprojekter.",
       path: "/om",
       jsonLd: [
         organizationJsonLd(),
@@ -32,7 +33,7 @@ function AboutPage() {
 
       <section className="container-page pb-12">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img src={moodPhoto.url} alt="Landskab i solnedgang, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <img {...photoProps(moodPhoto.url, "100vw")} alt="Landskab i solnedgang, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
           <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, august 2023.</figcaption>
         </figure>
       </section>

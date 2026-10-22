@@ -10,6 +10,7 @@ const NAV = [
   { to: "/fonde-og-lodsejere", label: "Fonde og lodsejere" },
   { to: "/platformen", label: "Platformen" },
   { to: "/saadan-arbejder-vi", label: "Sådan arbejder vi" },
+  { to: "/viden", label: "Viden" },
   { to: "/om", label: "Om" },
   { to: "/kontakt", label: "Kontakt" },
 ] as const;

@@ -4,6 +4,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { GreenCTA } from "@/components/site/sections";
 import sectionPhoto from "@/assets/freyra-luftfoto-02.jpg.asset.json";
+import { photoProps } from "@/lib/photo-variants";
 
 const FASER = [
   { n: "01", t: "Afklaring af område og formål", d: "Vi aftaler områdets afgrænsning, projektets formål og hvad dokumentationen skal kunne bruges til. Først når det er klart, planlægger vi flyvning." },
@@ -47,7 +48,7 @@ function MethodPage() {
 
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img src={sectionPhoto.url} alt="Åbent vandløb mellem træer og eng, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <img {...photoProps(sectionPhoto.url, "100vw")} alt="Åbent vandløb mellem træer og eng, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
           <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, august 2022.</figcaption>
         </figure>
       </section>

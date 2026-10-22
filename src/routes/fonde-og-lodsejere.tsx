@@ -1,9 +1,19 @@
+import { ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { GreenCTA } from "@/components/site/sections";
 import sectionPhoto from "@/assets/freyra-luftfoto-06.jpg.asset.json";
+import { photoProps, ogImageFor } from "@/lib/photo-variants";
+import { getArtikel } from "@/lib/viden-helpers";
+
+const LAES_MERE = [
+  "evidenspakke-til-fonde",
+  "tilskud-vaadomraader-lavbundsprojekter",
+  "skovrejsning-groen-trepart",
+  "baseline-foer-projektstart",
+].map(getArtikel).filter((a) => !!a);
 
 const PAKKE = [
   "Dronefotos med GPS og tidspunkt fra før og efter indsatsen",
@@ -18,6 +28,7 @@ export const Route = createFileRoute("/fonde-og-lodsejere")({
       title: "Til naturfonde og lodsejere | Freyra Evidence Workspace",
       description: "Dokumentation før og efter indsatsen. Evidenspakker til ansøgninger og lokal trepart for naturfonde og større lodsejere.",
       path: "/fonde-og-lodsejere",
+      ogImage: ogImageFor(sectionPhoto.url),
       jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Til naturfonde og lodsejere", path: "/fonde-og-lodsejere" }]),
     }),
   component: FondePage,
@@ -36,7 +47,7 @@ function FondePage() {
 
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img src={sectionPhoto.url} alt="Sø med skov i efterårsfarver, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <img {...photoProps(sectionPhoto.url, "100vw")} alt="Sø med skov i efterårsfarver, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
           <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, oktober 2024.</figcaption>
         </figure>
       </section>
@@ -105,6 +116,19 @@ function FondePage() {
         subtitle="Så vender vi tilbage med en konkret vurdering af, hvad der kan dokumenteres, og hvad det kræver."
         primary={{ to: "/kontakt", label: "Book en snak" }}
       />
+
+      <section className="container-page py-12">
+        <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+        <ul className="mt-5 grid md:grid-cols-2 gap-3">
+          {LAES_MERE.map((a) => (
+            <li key={a.slug}>
+              <Link to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
+                <ArrowRight className="w-4 h-4 shrink-0" /> <span>{a.h1}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <CTASection />
     </PageLayout>

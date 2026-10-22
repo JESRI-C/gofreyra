@@ -6,6 +6,15 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
 import { FaqSection, GreenCTA, MicroStrip, SectionHeader } from "@/components/site/sections";
 import heroPhoto from "@/assets/drone-vandloeb-06.jpg.asset.json";
+import { photoProps, ogImageFor } from "@/lib/photo-variants";
+import { getArtikel } from "@/lib/viden-helpers";
+
+const LAES_MERE = [
+  "groen-trepart",
+  "lokale-groenne-treparter",
+  "lavbundsprojekter",
+  "dokumentation-af-naturprojekter",
+].map(getArtikel).filter((a) => !!a);
 
 const FAQ = [
   { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
@@ -21,6 +30,7 @@ export const Route = createFileRoute("/kommuner")({
       title: "Til kommuner og treparter | Freyra Evidence Workspace",
       description: "Dokumentation af natur- og arealprojekter i Grøn Trepart, som kommunen kan stå på mål for. Login, evidenspakker og versionerede baseliner.",
       path: "/kommuner",
+      ogImage: ogImageFor(heroPhoto.url),
       jsonLd: [
         breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Til kommuner", path: "/kommuner" }]),
         faqJsonLd(FAQ),
@@ -48,7 +58,7 @@ function MunicipalitiesPage() {
         </div>
         <figure className="card-soft overflow-hidden p-0 bg-card">
           <img
-            src={heroPhoto.url}
+            {...photoProps(heroPhoto.url, "100vw")}
             alt="Landbrugslandskab med vandløb og markarealer set fra drone"
             width={2000}
             height={1333}
@@ -169,6 +179,19 @@ function MunicipalitiesPage() {
         primary={{ to: "/kontakt", label: "Book en snak" }}
         secondary={{ to: "/platformen", label: "Se platformen" }}
       />
+
+      <section className="container-page py-12">
+        <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+        <ul className="mt-5 grid md:grid-cols-2 gap-3">
+          {LAES_MERE.map((a) => (
+            <li key={a.slug}>
+              <Link to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
+                <ArrowRight className="w-4 h-4 shrink-0" /> <span>{a.h1}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <CTASection />
     </PageLayout>

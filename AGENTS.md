@@ -1,0 +1,2 @@
+- Own drone photos render via `photoProps()` from src/lib/photo-variants.ts (pre-generated 800/1400 px WebP and 1200x630 share JPEG on the asset CDN); new photos need variants uploaded and added there, because the asset pipeline does not resize at build time.
+- Viden and Ordbog pages are generated from src/data/viden.ts and src/data/ordbog.ts; never edit those data files' text from code changes, since they are fact-checked content supplied by the client.

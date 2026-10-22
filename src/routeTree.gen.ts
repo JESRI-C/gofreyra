@@ -20,7 +20,6 @@ import { Route as PrivatlivspolitikRouteImport } from './routes/privatlivspoliti
 import { Route as PriserRouteImport } from './routes/priser'
 import { Route as PlatformenRouteImport } from './routes/platformen'
 import { Route as PlatformRouteImport } from './routes/platform'
-import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as LuftfotoRouteImport } from './routes/luftfoto'
 import { Route as KontaktRouteImport } from './routes/kontakt'
@@ -35,11 +34,14 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VidenIndexRouteImport } from './routes/viden.index'
+import { Route as OrdbogIndexRouteImport } from './routes/ordbog.index'
 import { Route as YdelserSlugRouteImport } from './routes/ydelser_.$slug'
+import { Route as VidenSlugRouteImport } from './routes/viden.$slug'
 import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
 import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
 import { Route as PlatformSplatRouteImport } from './routes/platform.$'
-import { Route as OrdbogSplatRouteImport } from './routes/ordbog.$'
+import { Route as OrdbogSlugRouteImport } from './routes/ordbog.$slug'
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
 import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
@@ -101,11 +103,6 @@ const PlatformenRoute = PlatformenRouteImport.update({
 const PlatformRoute = PlatformRouteImport.update({
   id: '/platform',
   path: '/platform',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OrdbogRoute = OrdbogRouteImport.update({
-  id: '/ordbog',
-  path: '/ordbog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OmRoute = OmRouteImport.update({
@@ -178,9 +175,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VidenIndexRoute = VidenIndexRouteImport.update({
+  id: '/viden/',
+  path: '/viden/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdbogIndexRoute = OrdbogIndexRouteImport.update({
+  id: '/ordbog/',
+  path: '/ordbog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const YdelserSlugRoute = YdelserSlugRouteImport.update({
   id: '/ydelser_/$slug',
   path: '/ydelser/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VidenSlugRoute = VidenSlugRouteImport.update({
+  id: '/viden/$slug',
+  path: '/viden/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
@@ -198,10 +210,10 @@ const PlatformSplatRoute = PlatformSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => PlatformRoute,
 } as any)
-const OrdbogSplatRoute = OrdbogSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => OrdbogRoute,
+const OrdbogSlugRoute = OrdbogSlugRouteImport.update({
+  id: '/ordbog/$slug',
+  path: '/ordbog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
   id: '/loesninger/kommuner',
@@ -255,7 +267,6 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
-  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
@@ -273,11 +284,14 @@ export interface FileRoutesByFullPath {
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$': typeof OrdbogSplatRoute
+  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/viden/$slug': typeof VidenSlugRoute
   '/ydelser/$slug': typeof YdelserSlugRoute
+  '/ordbog/': typeof OrdbogIndexRoute
+  '/viden/': typeof VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
@@ -295,7 +309,6 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
-  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
@@ -313,11 +326,14 @@ export interface FileRoutesByTo {
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$': typeof OrdbogSplatRoute
+  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/viden/$slug': typeof VidenSlugRoute
   '/ydelser/$slug': typeof YdelserSlugRoute
+  '/ordbog': typeof OrdbogIndexRoute
+  '/viden': typeof VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
@@ -336,7 +352,6 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
-  '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
   '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
@@ -354,11 +369,14 @@ export interface FileRoutesById {
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$': typeof OrdbogSplatRoute
+  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/viden/$slug': typeof VidenSlugRoute
   '/ydelser_/$slug': typeof YdelserSlugRoute
+  '/ordbog/': typeof OrdbogIndexRoute
+  '/viden/': typeof VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -378,7 +396,6 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/luftfoto'
     | '/om'
-    | '/ordbog'
     | '/platform'
     | '/platformen'
     | '/priser'
@@ -396,11 +413,14 @@ export interface FileRouteTypes {
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$'
+    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/viden/$slug'
     | '/ydelser/$slug'
+    | '/ordbog/'
+    | '/viden/'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -418,7 +438,6 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/luftfoto'
     | '/om'
-    | '/ordbog'
     | '/platform'
     | '/platformen'
     | '/priser'
@@ -436,11 +455,14 @@ export interface FileRouteTypes {
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$'
+    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/viden/$slug'
     | '/ydelser/$slug'
+    | '/ordbog'
+    | '/viden'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
@@ -458,7 +480,6 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/luftfoto'
     | '/om'
-    | '/ordbog'
     | '/platform'
     | '/platformen'
     | '/priser'
@@ -476,11 +497,14 @@ export interface FileRouteTypes {
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$'
+    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/viden/$slug'
     | '/ydelser_/$slug'
+    | '/ordbog/'
+    | '/viden/'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -499,7 +523,6 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   LuftfotoRoute: typeof LuftfotoRoute
   OmRoute: typeof OmRoute
-  OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
   PlatformenRoute: typeof PlatformenRoute
   PriserRoute: typeof PriserRoute
@@ -513,7 +536,11 @@ export interface RootRouteChildren {
   YdelserRoute: typeof YdelserRoute
   LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
+  OrdbogSlugRoute: typeof OrdbogSlugRoute
+  VidenSlugRoute: typeof VidenSlugRoute
   YdelserSlugRoute: typeof YdelserSlugRoute
+  OrdbogIndexRoute: typeof OrdbogIndexRoute
+  VidenIndexRoute: typeof VidenIndexRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
@@ -594,13 +621,6 @@ declare module '@tanstack/react-router' {
       path: '/platform'
       fullPath: '/platform'
       preLoaderRoute: typeof PlatformRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ordbog': {
-      id: '/ordbog'
-      path: '/ordbog'
-      fullPath: '/ordbog'
-      preLoaderRoute: typeof OrdbogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/om': {
@@ -701,11 +721,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/viden/': {
+      id: '/viden/'
+      path: '/viden'
+      fullPath: '/viden/'
+      preLoaderRoute: typeof VidenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ordbog/': {
+      id: '/ordbog/'
+      path: '/ordbog'
+      fullPath: '/ordbog/'
+      preLoaderRoute: typeof OrdbogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ydelser_/$slug': {
       id: '/ydelser_/$slug'
       path: '/ydelser/$slug'
       fullPath: '/ydelser/$slug'
       preLoaderRoute: typeof YdelserSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/viden/$slug': {
+      id: '/viden/$slug'
+      path: '/viden/$slug'
+      fullPath: '/viden/$slug'
+      preLoaderRoute: typeof VidenSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-cases/$': {
@@ -729,12 +770,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformSplatRouteImport
       parentRoute: typeof PlatformRoute
     }
-    '/ordbog/$': {
-      id: '/ordbog/$'
-      path: '/$'
-      fullPath: '/ordbog/$'
-      preLoaderRoute: typeof OrdbogSplatRouteImport
-      parentRoute: typeof OrdbogRoute
+    '/ordbog/$slug': {
+      id: '/ordbog/$slug'
+      path: '/ordbog/$slug'
+      fullPath: '/ordbog/$slug'
+      preLoaderRoute: typeof OrdbogSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/loesninger/kommuner': {
       id: '/loesninger/kommuner'
@@ -832,17 +873,6 @@ const IndsigterRouteWithChildren = IndsigterRoute._addFileChildren(
   IndsigterRouteChildren,
 )
 
-interface OrdbogRouteChildren {
-  OrdbogSplatRoute: typeof OrdbogSplatRoute
-}
-
-const OrdbogRouteChildren: OrdbogRouteChildren = {
-  OrdbogSplatRoute: OrdbogSplatRoute,
-}
-
-const OrdbogRouteWithChildren =
-  OrdbogRoute._addFileChildren(OrdbogRouteChildren)
-
 interface PlatformRouteChildren {
   PlatformSplatRoute: typeof PlatformSplatRoute
 }
@@ -894,7 +924,6 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   LuftfotoRoute: LuftfotoRoute,
   OmRoute: OmRoute,
-  OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
   PlatformenRoute: PlatformenRoute,
   PriserRoute: PriserRoute,
@@ -908,7 +937,11 @@ const rootRouteChildren: RootRouteChildren = {
   YdelserRoute: YdelserRoute,
   LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
+  OrdbogSlugRoute: OrdbogSlugRoute,
+  VidenSlugRoute: VidenSlugRoute,
   YdelserSlugRoute: YdelserSlugRoute,
+  OrdbogIndexRoute: OrdbogIndexRoute,
+  VidenIndexRoute: VidenIndexRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport

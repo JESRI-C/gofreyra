@@ -68,7 +68,7 @@ export const Route = createFileRoute("/faq")({
   head: () =>
     buildHead({
       title: "Ressourcer og FAQ | Freyra Evidence Workspace",
-      description: "Svar på ofte stillede spørgsmål om metode, data, leverancer, pris og teknik, plus en ordliste over centrale begreber.",
+      description: "Svar på ofte stillede spørgsmål om metode, data, leverancer, pris og teknik i Freyra Evidence Workspace, plus en ordliste over centrale begreber.",
       path: "/faq",
       jsonLd: [
         breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "FAQ", path: "/faq" }]),

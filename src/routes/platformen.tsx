@@ -10,6 +10,7 @@ import s1 from "@/assets/drone-vandloeb-08.jpg.asset.json";
 import s2 from "@/assets/drone-vandloeb-09.jpg.asset.json";
 import s3 from "@/assets/drone-vandloeb-10.jpg.asset.json";
 import s4 from "@/assets/freyra-luftfoto-08.jpg.asset.json";
+import { photoProps } from "@/lib/photo-variants";
 
 const KILDER = [
   { t: "Dataforsyningen", d: "Ortofoto, matrikel og dansk højdemodel (DHM)." },
@@ -101,7 +102,7 @@ function PlatformPage() {
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {SCREENS.map((s) => (
             <figure key={s.src} className="card-soft overflow-hidden p-0 bg-card">
-              <img src={s.src} alt={s.alt} width={1600} height={1000} loading="lazy" className="w-full aspect-[8/5] object-cover" />
+              <img {...photoProps(s.src, "100vw")} alt={s.alt} width={1600} height={1000} loading="lazy" className="w-full aspect-[8/5] object-cover" />
               <figcaption className="p-4 text-sm text-muted-foreground">{s.caption}</figcaption>
             </figure>
           ))}

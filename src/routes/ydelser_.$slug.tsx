@@ -12,6 +12,8 @@ import photoMon from "@/assets/freyra-luftfoto-04.jpg.asset.json";
 import photoBepl from "@/assets/freyra-luftfoto-07.jpg.asset.json";
 import photoEvi from "@/assets/drone-vandloeb-11.jpg.asset.json";
 import photoPilot from "@/assets/drone-vandloeb-05.jpg.asset.json";
+import { photoProps, ogImageFor } from "@/lib/photo-variants";
+import { articlesForService } from "@/lib/viden-helpers";
 
 const PHOTOS: Record<string, { url: string; alt: string; caption: string }> = {
   dronefoerregistrering: {
@@ -46,6 +48,34 @@ const PHOTOS: Record<string, { url: string; alt: string; caption: string }> = {
   },
 };
 
+
+const SEO_TEXT: Record<string, { title: string; description: string }> = {
+  dronefoerregistrering: {
+    title: "Droneførregistrering og baseline af arealer | Freyra",
+    description: "Førregistrering af vandløb og arealer før projektstart: droneflyvning, relevante offentlige data og faglig verifikation samlet i en versioneret baseline.",
+  },
+  datagrundlag: {
+    title: "Datagrundlag og screening fra offentlige data | Freyra",
+    description: "Offentlige data fra Dataforsyningen, Danmarks Arealinformation, GEUS, DMI og Sentinel-2 samlet på jeres areal med kildeangivelse og hentedato.",
+  },
+  monitorering: {
+    title: "Gentagen monitorering og efterflyvning | Freyra",
+    description: "Efterflyvning fra de samme gentagelsespunkter som ved førregistreringen, så før og efter kan sammenlignes direkte og udviklingen kan følges over tid.",
+  },
+  beplantningsanalyse: {
+    title: "Beplantnings- og naturegnethedsanalyse | Freyra",
+    description: "Regelbaseret vurdering af, hvor beplantning og naturtiltag er egnet, betinget egnet eller uegnet. En skitse med kilder, som jeres rådgiver kan validere.",
+  },
+  evidenspakke: {
+    title: "Evidenspakke til fonde og lokal trepart | Freyra",
+    description: "Dronefotos, kortdata og vurderinger samlet med kilde på hver påstand. Versioneret og med SHA-256 fingeraftryk til fonde, ansøgninger og lokal trepart.",
+  },
+  pilot: {
+    title: "Pilotforløb og licens til Evidence Workspace | Freyra",
+    description: "Et afgrænset pilotforløb på jeres eget område med hele evidenskæden fra dronefoto til versioneret baseline. Pilotforløb fra 125.000 kr. ekskl. moms.",
+  },
+};
+
 export const Route = createFileRoute("/ydelser_/$slug")({
   beforeLoad: ({ params }) => {
     if (!getYdelse(params.slug)) throw notFound();
@@ -54,8 +84,9 @@ export const Route = createFileRoute("/ydelser_/$slug")({
     const s = getYdelse(params.slug);
     if (!s) return buildHead({ title: "Ydelse | Freyra", description: "Ydelse fra Freyra.", path: `/ydelser/${params.slug}`, noindex: true });
     return buildHead({
-      title: `${s.title} | Freyra`,
-      description: s.short,
+      title: SEO_TEXT[s.slug]?.title ?? `${s.title} | Freyra`,
+      description: SEO_TEXT[s.slug]?.description ?? s.short,
+      ogImage: PHOTOS[s.slug] ? ogImageFor(PHOTOS[s.slug].url) : undefined,
       path: `/ydelser/${s.slug}`,
       jsonLd: breadcrumbJsonLd([
         { name: "Forside", path: "/" },
@@ -72,6 +103,7 @@ function ServiceDetailPage() {
   const s = getYdelse(slug);
   if (!s) return null;
   const photo = PHOTOS[s.slug];
+  const reading = articlesForService(s.slug, 4);
   const related = s.related.map((r) => getYdelse(r)).filter(Boolean) as typeof YDELSER;
 
   return (
@@ -86,7 +118,7 @@ function ServiceDetailPage() {
 
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img src={photo.url} alt={photo.alt} width={2000} height={photo.url.includes("freyra-luftfoto") ? 1500 : 1333} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <img {...photoProps(photo.url, "100vw")} alt={photo.alt} width={2000} height={photo.url.includes("freyra-luftfoto") ? 1500 : 1333} loading="lazy" className="w-full aspect-[21/9] object-cover" />
           <figcaption className="p-3 text-xs text-muted-foreground">{photo.caption}</figcaption>
         </figure>
       </section>
@@ -150,6 +182,21 @@ function ServiceDetailPage() {
           ))}
         </div>
       </section>
+
+      {reading.length > 0 && (
+        <section className="container-page pb-16">
+          <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+          <ul className="mt-5 space-y-2">
+            {reading.map((a) => (
+              <li key={a.slug}>
+                <Link to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
+                  <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {a.h1}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <GreenCTA
         title="Skal vi tage en snak om jeres område?"
