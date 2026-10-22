@@ -21,21 +21,19 @@ export const Route = createFileRoute("/om")({
 function AboutPage() {
   return (
     <PageLayout>
-      <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24 max-w-3xl">
-          <span className="eyebrow">Om Freyra</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Vi bygger dokumentation, der kan efterprøves.</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Freyra Evidence Workspace er udviklet af Gofreyra ApS. Vi hjælper kommuner, treparter og projektejere med at dokumentere natur- og arealprojekter, så hver konklusion kan spores tilbage til sin kilde.
-          </p>
-        </div>
+      <section className="container-page py-16 md:py-24 max-w-3xl">
+        <span className="eyebrow">Om Freyra</span>
+        <h1 className="mt-4 text-4xl md:text-5xl leading-[1.1]">Vi bygger dokumentation, der kan efterprøves.</h1>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Freyra Evidence Workspace er udviklet af Gofreyra ApS. Vi hjælper kommuner, treparter og projektejere med at dokumentere natur- og arealprojekter, så hver konklusion kan spores tilbage til sin kilde.
+        </p>
       </section>
 
       <MicroStrip items={["Dansk virksomhed", "Bygget til Grøn Trepart", "Offentlige datakilder", "Faglig verifikation"]} />
 
-      <section className="container-page py-16 grid lg:grid-cols-2 gap-10">
+      <section className="container-page py-16 md:py-20 grid lg:grid-cols-2 gap-10">
         <div className="space-y-5 text-foreground/85">
-          <h2 className="text-2xl md:text-3xl font-bold">Hvorfor Freyra findes</h2>
+          <h2 className="text-2xl md:text-3xl">Hvorfor Freyra findes</h2>
           <p>
             Natur- og arealprojekter dokumenteres ofte med fotos i mapper, regneark og rapporter, der er svære at efterprøve. Når en fond, en trepart eller en borger spørger til grundlaget, skal svaret kunne findes.
           </p>
@@ -47,7 +45,7 @@ function AboutPage() {
           </p>
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold">Holdet</h2>
+          <h2 className="text-2xl md:text-3xl">Holdet</h2>
           <div className="mt-5 space-y-4">
             {[
               { t: "Jesper Brøchner Riel", r: "Founder", d: "Står for produkt, metode og den faglige kvalitet i evidenskæden." },
@@ -75,10 +73,10 @@ function AboutPage() {
         title="Sådan arbejder vi."
         cols={4}
         cards={[
-          { t: "Sporbarhed først", d: "Hver påstand skal kunne spores tilbage til kilde, metode og vurdering." },
-          { t: "Ikke mere, end data understøtter", d: "Vi viser effekter som litteraturintervaller, ikke som løfter." },
-          { t: "Mennesker vurderer", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
-          { t: "Byg videre på det eksisterende", d: "Vi erstatter ikke jeres systemer. Vi gør dem lettere at dokumentere i." },
+          { t: "Alt kan spores til kilde", d: "Hver påstand skal kunne spores tilbage til kilde, metode og vurdering." },
+          { t: "Ingen tal uden belæg", d: "Vi viser effekter som litteraturintervaller, ikke som løfter." },
+          { t: "Fagperson godkender", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
+          { t: "Versioneret og reproducerbart", d: "Hver ændring gemmes. En evidenspakke kan genskabes og efterprøves." },
         ]}
       />
 
