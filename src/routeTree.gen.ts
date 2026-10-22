@@ -35,7 +35,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as YdelserSlugRouteImport } from './routes/ydelser.$slug'
+import { Route as YdelserSlugRouteImport } from './routes/ydelser_.$slug'
 import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
 import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
 import { Route as PlatformSplatRouteImport } from './routes/platform.$'
@@ -179,9 +179,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const YdelserSlugRoute = YdelserSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => YdelserRoute,
+  id: '/ydelser_/$slug',
+  path: '/ydelser/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
   id: '/$',
@@ -266,7 +266,7 @@ export interface FileRoutesByFullPath {
   '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -306,7 +306,7 @@ export interface FileRoutesByTo {
   '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -347,7 +347,7 @@ export interface FileRoutesById {
   '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -358,7 +358,7 @@ export interface FileRoutesById {
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/ydelser/$slug': typeof YdelserSlugRoute
+  '/ydelser_/$slug': typeof YdelserSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -480,7 +480,7 @@ export interface FileRouteTypes {
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
-    | '/ydelser/$slug'
+    | '/ydelser_/$slug'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -510,9 +510,10 @@ export interface RootRouteChildren {
   SaadanArbejderViRoute: typeof SaadanArbejderViRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
-  YdelserRoute: typeof YdelserRouteWithChildren
+  YdelserRoute: typeof YdelserRoute
   LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
+  YdelserSlugRoute: typeof YdelserSlugRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
@@ -700,12 +701,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ydelser/$slug': {
-      id: '/ydelser/$slug'
-      path: '/$slug'
+    '/ydelser_/$slug': {
+      id: '/ydelser_/$slug'
+      path: '/ydelser/$slug'
       fullPath: '/ydelser/$slug'
       preLoaderRoute: typeof YdelserSlugRouteImport
-      parentRoute: typeof YdelserRoute
+      parentRoute: typeof rootRouteImport
     }
     '/use-cases/$': {
       id: '/use-cases/$'
@@ -878,17 +879,6 @@ const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
   UseCasesRouteChildren,
 )
 
-interface YdelserRouteChildren {
-  YdelserSlugRoute: typeof YdelserSlugRoute
-}
-
-const YdelserRouteChildren: YdelserRouteChildren = {
-  YdelserSlugRoute: YdelserSlugRoute,
-}
-
-const YdelserRouteWithChildren =
-  YdelserRoute._addFileChildren(YdelserRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
@@ -915,9 +905,10 @@ const rootRouteChildren: RootRouteChildren = {
   SaadanArbejderViRoute: SaadanArbejderViRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
-  YdelserRoute: YdelserRouteWithChildren,
+  YdelserRoute: YdelserRoute,
   LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
+  YdelserSlugRoute: YdelserSlugRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
