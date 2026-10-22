@@ -79,7 +79,7 @@ function HomePage() {
               <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
               <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><Link to="/ydelser">Se ydelserne</Link></Button>
             </div>
-            <p className="mt-6 text-xs text-white/60">Eget dronefoto, august 2026.</p>
+            <p className="mt-6 text-xs text-white/60">Eget dronefoto, september 2024.</p>
           </div>
         </div>
       </section>
