@@ -83,8 +83,8 @@ const SERVICES = [
 ];
 
 const FAQ = [
-  { q: "Hvad koster et pilotforløb?", a: "Et pilotforløb starter fra 125.000 kr. Det dækker et afgrænset forløb på jeres eget område med hele evidenskæden fra dronefoto til versioneret baseline." },
-  { q: "Hvad koster de øvrige ydelser?", a: "Pris efter aftale. Prisen afhænger af områdets størrelse, datagrundlag og omfang. I får altid en fast pris, før vi går i gang." },
+  { q: "Hvad koster et pilotforløb?", a: "Et pilotforløb starter fra 125.000 kr. Det dækker et afgrænset område med aftalt omfang." },
+  { q: "Hvad koster de øvrige ydelser?", a: "Pris efter aftale. Prisen afhænger af områdets størrelse, datagrundlag og omfang. Vi aftaler omfang og pris, før vi går i gang." },
   { q: "Skal vi bruge alle seks ydelser?", a: "Nej. De fleste starter med en droneførregistrering eller et pilotforløb og bygger videre derfra." },
   { q: "Kan I arbejde sammen med vores rådgiver?", a: "Ja. Vi leverer datagrundlag og evidenspakker, som jeres rådgiver kan bygge videre på. Egnethedsanalyser leveres som skitser til faglig validering hos jeres rådgiver." },
 ];
