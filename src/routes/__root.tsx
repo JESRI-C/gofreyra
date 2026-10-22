@@ -7,7 +7,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { LocaleProvider } from "@/i18n/LocaleContext";
 
 import appCss from "../styles.css?url";
 
@@ -74,14 +73,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#2BC48A" },
-      { title: "GoFreyra - Platform til ESG-data og dokumentation" },
-      { property: "og:title", content: "GoFreyra - Platform til ESG-data og dokumentation" },
-      { name: "twitter:title", content: "GoFreyra - Platform til ESG-data og dokumentation" },
-      { name: "description", content: "GoFreyra samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle og dokumentere reel impact." },
-      { property: "og:description", content: "GoFreyra samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle og dokumentere reel impact." },
-      { name: "twitter:description", content: "GoFreyra samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle og dokumentere reel impact." },
-      { property: "og:image", content: "https://gofreyra.com/og-default.jpg" },
-      { name: "twitter:image", content: "https://gofreyra.com/og-default.jpg" },
+      { title: "Freyra Evidence Workspace" },
+      { property: "og:title", content: "Freyra Evidence Workspace" },
+      { name: "twitter:title", content: "Freyra Evidence Workspace" },
+      { name: "description", content: "Freyra er en verificerbar evidenskæde for natur- og arealprojekter i Grøn Trepart. Fra dronefoto og offentlige data til en baseline, kommunen kan stå på mål for." },
+      { property: "og:description", content: "Freyra er en verificerbar evidenskæde for natur- og arealprojekter i Grøn Trepart. Fra dronefoto og offentlige data til en baseline, kommunen kan stå på mål for." },
+      { name: "twitter:description", content: "Freyra er en verificerbar evidenskæde for natur- og arealprojekter i Grøn Trepart. Fra dronefoto og offentlige data til en baseline, kommunen kan stå på mål for." },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
@@ -115,9 +112,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <LocaleProvider>
-        <Outlet />
-      </LocaleProvider>
+      <Outlet />
     </QueryClientProvider>
   );
 }
