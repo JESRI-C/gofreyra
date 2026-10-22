@@ -6,6 +6,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
 import { FaqSection, GreenCTA } from "@/components/site/sections";
 import sectionPhoto from "@/assets/drone-vandloeb-03.jpg.asset.json";
+import { photoProps } from "@/lib/photo-variants";
 
 const SERVICES = [
   {
@@ -123,7 +124,7 @@ function ServicesPage() {
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
           <img
-            src={sectionPhoto.url}
+            {...photoProps(sectionPhoto.url, "100vw")}
             alt="Mark med hegn og bevoksning set fra drone under en førregistrering"
             width={2000}
             height={1333}

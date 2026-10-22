@@ -17,7 +17,7 @@ const SIDER = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/40 mt-24">
-      <div className="container-page py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-page py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <div className="flex items-center gap-2 font-semibold text-lg">
             <img src={freyraIcon} alt="Freyra" className="w-8 h-8 object-contain" />
@@ -50,6 +50,14 @@ export function Footer() {
                 <Link to={l.to} className="text-sm text-muted-foreground hover:text-foreground">{l.label}</Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <div className="text-sm font-semibold mb-3">Viden</div>
+          <ul className="space-y-2">
+            <li><Link to="/viden" className="text-sm text-muted-foreground hover:text-foreground">Viden</Link></li>
+            <li><Link to="/ordbog" className="text-sm text-muted-foreground hover:text-foreground">Ordbog</Link></li>
           </ul>
         </div>
 

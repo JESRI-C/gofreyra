@@ -15,3 +15,76 @@ Selskab: Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring. Ejet af Freyra G
 - [Om](https://gofreyra.com/om): Holdet og principperne bag Freyra
 - [Kontakt](https://gofreyra.com/kontakt): Book en snak om et projekt
 - [Privatlivspolitik](https://gofreyra.com/privatlivspolitik): Behandling af personoplysninger
+
+## Viden
+
+- [Viden](https://gofreyra.com/viden): Artikler og guides om Grøn Trepart, lavbund, offentlige data og dokumentation
+- [Grøn Trepart: aftalen, målene og hvad den betyder lokalt](https://gofreyra.com/viden/groen-trepart): Overblik over Aftale om et grønt Danmark: 250.000 ha skov, 140.000 ha lavbund, 23 lokale treparter og MARS. Med links til officielle kilder.
+- [Lokale grønne treparter: hvem sidder med, og hvad laver de?](https://gofreyra.com/viden/lokale-groenne-treparter): Hvem sidder i de 23 lokale grønne treparter, hvad er kommunens rolle, og hvordan arbejder de med udtagningskonsulenter og Naturstyrelsen?
+- [Omlægningsplaner: hvad står der i dem, og hvem står på mål?](https://gofreyra.com/viden/omlaegningsplaner): Hvad er en omlægningsplan, hvad omfatter den, og hvordan hænger den sammen med kvælstofindsatsbehovet og MARS? Kort forklaret med kilder.
+- [MARS: de fire moduler forklaret](https://gofreyra.com/viden/mars-guide): Hvad kan MARS? Screening, planlægning, ansøgning og status. Hvem kræver login, og hvordan hænger MARS sammen med tilskud og WFS-data?
+- [Lavbundsprojekter og vådområder: fra idé til anlæg](https://gofreyra.com/viden/lavbundsprojekter): Sådan forløber et lavbundsprojekt: formål, tilskudsordningen VLP, forundersøgelse, etablering, servitut og dokumentation før og efter.
+- [Tilskud til vådområder og lavbundsprojekter (VLP) 2026](https://gofreyra.com/viden/tilskud-vaadomraader-lavbundsprojekter): Frister, indsatser, ansøgere og finansiering i VLP 2026, opsummeret fra Landbrugsstyrelsens tilskudsguide. Tjek altid den officielle side.
+- [Forundersøgelse af lavbunds- og vådområdeprojekter](https://gofreyra.com/viden/forundersoegelse-lavbundsprojekt): Hvad en forundersøgelse i VLP skal afdække, hvilke rapporter den giver, og hvordan en tidlig baseline med drone og offentlige data kan bruges.
+- [Dokumentation af naturprojekter: baseline, monitorering og sporbarhed](https://gofreyra.com/viden/dokumentation-af-naturprojekter): Sådan dokumenterer du et natur- eller arealprojekt, så det holder: baseline før start, faste punkter, kilder med dato, faglig vurdering og hash.
+- [Baseline før projektstart: sådan gør du det rigtigt](https://gofreyra.com/viden/baseline-foer-projektstart): Hvorfor en baseline skal laves før de første gravemaskiner, hvad den bør indeholde, og hvordan den kan gentages ved senere efterflyvninger.
+- [Hvorfor en rapport med SHA-256 gør dokumentation stærkere](https://gofreyra.com/viden/sha-256-rapporter): Hvad en SHA-256-hash er, hvorfor den gør det muligt at se, om en rapport er ændret, og hvordan versionering hænger sammen med revisionsspor.
+- [Offentlige data til natur- og arealprojekter: hvad findes der?](https://gofreyra.com/viden/offentlige-data-natur): Overblik over de vigtigste offentlige datasæt til natur- og lavbundsprojekter: MARS, Danmarks Arealinformation, ortofoto, DHM og Sentinel-2.
+- [Danmarks Arealinformation: find §3-natur og lavbund på kortet](https://gofreyra.com/viden/danmarks-arealinformation-guide): Kort guide til Danmarks Arealinformation: tilføj kortlag som beskyttede naturtyper, se detaljer for et areal, og husk at tjekke status hos kommunen.
+- [Sentinel-2 i naturprojekter: hvad kan satellitdata vise?](https://gofreyra.com/viden/sentinel-2-naturovervaagning): Hvad gratis Sentinel-2-data kan og ikke kan bruges til i natur- og lavbundsprojekter, herunder opløsning, skydække og NDVI.
+- [Droner i naturforvaltning: registrering, regler og sporbarhed](https://gofreyra.com/viden/droner-i-naturforvaltning): Hvordan droner bruges til at registrere natur- og vandløbsarealer, hvilke regler der gælder, og hvordan billederne gøres sporbare.
+- [Dronefotos med GPS: sådan bevarer du positionen i billederne](https://gofreyra.com/viden/dronefotos-gps-metadata): Hvorfor positionen i dronefotos er afgørende for dokumentation, hvor den gemmes (EXIF/XMP), og hvordan du undgår at miste den.
+- [Monitorering af naturprojekter: før og efter fra samme punkt](https://gofreyra.com/viden/monitorering-af-naturprojekter): Sådan planlægger du monitorering af et natur- eller lavbundsprojekt med faste gentagelsespunkter, så før og efter kan sammenlignes.
+- [§ 3-beskyttet natur: hvad er beskyttet, og hvad betyder det?](https://gofreyra.com/viden/paragraf-3-natur): Naturbeskyttelseslovens § 3 kort forklaret: hvilke naturtyper der er beskyttet, størrelsesgrænser, mosaikreglen og hvad det betyder for projekter.
+- [Skovrejsning i Grøn Trepart: mål, tilskud og krav til arealet](https://gofreyra.com/viden/skovrejsning-groen-trepart): 250.000 ha ny skov frem mod 2045. Hvad gælder for tilskud til skovrejsning, hvilke arealer der er udelukket, og hvordan du screener.
+- [Beplantning langs vandløb: sådan screener du egnede arealer](https://gofreyra.com/viden/beplantning-langs-vandloeb): En praktisk metode til at screene, hvor træer langs et vandløb kan give mening: buffere, § 3, eksisterende skov, lavbund og faglig validering.
+- [Restaurering af ådale og vandløb: formål og dokumentation](https://gofreyra.com/viden/vandloebsrestaurering): Hvad restaurering af ådale er i VLP, hvad formålet er, og hvordan du dokumenterer vandløbets tilstand før og efter.
+- [Kystvandråd: hvad laver de, og hvordan spiller de sammen med treparterne?](https://gofreyra.com/viden/kystvandraad): De 17 kystvandråd rådgiver om lokale virkemidler for sundere kystvand. Her er deres opgaver og samspil med de lokale grønne treparter.
+- [Dokumentation til fonde og bevillingsgivere i naturprojekter](https://gofreyra.com/viden/evidenspakke-til-fonde): Hvad en fond typisk vil kunne se om et naturprojekt, og hvordan en samlet evidenspakke med fotos, kilder og faglig vurdering gør det let.
+
+## Ordbog
+
+- [Ordbog](https://gofreyra.com/ordbog): Begreber i natur- og arealprojekter
+- [§ 3-natur](https://gofreyra.com/ordbog/paragraf-3-natur): § 3-natur er naturtyper, der er beskyttet efter naturbeskyttelseslovens § 3, så deres tilstand ikke må ændres uden dispensation.
+- [Baseline](https://gofreyra.com/ordbog/baseline): En baseline er en dateret registrering af et areals tilstand, som senere ændringer sammenlignes med.
+- [Bufferzone langs vandløb](https://gofreyra.com/ordbog/bufferzone-vandloeb): En bufferzone er et bælte langs et vandløb, hvor arealanvendelsen vurderes særskilt, fx til beplantning eller ekstensiv drift.
+- [Danmarks Arealinformation](https://gofreyra.com/ordbog/danmarks-arealinformation): Danmarks Arealinformation er Danmarks Miljøportals kortløsning med data om arealanvendelse, naturbeskyttelse og reguleringer.
+- [Danmarks Grønne Arealfond](https://gofreyra.com/ordbog/danmarks-groenne-arealfond): Danmarks Grønne Arealfond er den fond, der etableres med Grøn Trepart for at drive omlægningen af landarealet.
+- [Danmarks Højdemodel (DHM)](https://gofreyra.com/ordbog/dhm): Danmarks Højdemodel er den landsdækkende model af terræn og overflade, som kan hentes gratis via Dataforsyningen.
+- [Danmarks Miljøportal](https://gofreyra.com/ordbog/danmarks-miljoeportal): Danmarks Miljøportal er et fællesoffentligt partnerskab ejet af staten, kommunerne og regionerne, der understøtter digital miljøforvaltning.
+- [Efterflyvning](https://gofreyra.com/ordbog/efterflyvning): En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen.
+- [Ekstensivering](https://gofreyra.com/ordbog/ekstensivering): Ekstensivering betyder, at et areal drives mindre intensivt, fx med mindre gødning eller som vedvarende græs.
+- [Engangskompensation](https://gofreyra.com/ordbog/engangskompensation): Engangskompensation er en kompensation til lodsejere, der beholder deres arealer i et vådområde- eller lavbundsprojekt.
+- [Etableringsprojekt](https://gofreyra.com/ordbog/etableringsprojekt): Et etableringsprojekt er den del af et vådområde- eller lavbundsprojekt, hvor projektet faktisk anlægges.
+- [Evidenskæde](https://gofreyra.com/ordbog/evidenskaede): En evidenskæde er en sammenhængende dokumentation, hvor hvert led kan spores: hvor data kommer fra, hvem der har vurderet dem, og hvornår.
+- [EXIF](https://gofreyra.com/ordbog/exif): EXIF er en standard for metadata i billedfiler, fx tidspunkt, kamera og GPS-position.
+- [Forundersøgelse](https://gofreyra.com/ordbog/forundersoegelse): En forundersøgelse afklarer, om et vådområde- eller lavbundsprojekt kan gennemføres, før der søges om etablering.
+- [Fosforvådområde](https://gofreyra.com/ordbog/fosforvaadomraade): Et fosforvådområde skal reducere udledningen af fosfor til søer.
+- [Fredskovspligt](https://gofreyra.com/ordbog/fredskovspligt): Fredskovspligt er en binding efter skovloven, der betyder, at et areal skal forblive skov.
+- [Gentagelsespunkt](https://gofreyra.com/ordbog/gentagelsespunkt): Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid.
+- [Grøn Trepart](https://gofreyra.com/ordbog/groen-trepart): Grøn Trepart er betegnelsen for Aftale om et grønt Danmark fra 24. juni 2024 mellem regeringen og parterne i den grønne trepart.
+- [Hydrologisk kystvandsgruppe](https://gofreyra.com/ordbog/kystvandsgruppe): En hydrologisk kystvandsgruppe er en gruppe af delvandoplande, som kvælstofeffekten af omlægningsplanerne opgøres i.
+- [Kulstofrig lavbundsjord](https://gofreyra.com/ordbog/kulstofrig-lavbundsjord): Kulstofrig lavbundsjord er jord med et højt indhold af organisk kulstof, typisk i ådale og tidligere moser, der udleder drivhusgasser, når den er drænet.
+- [Kvælstofvådområde](https://gofreyra.com/ordbog/kvaelstofvaadomraade): Et kvælstofvådområde er et vådområde, der skal reducere udledningen af kvælstof til fjorde og kystvande.
+- [Kystvandråd](https://gofreyra.com/ordbog/kystvandraad): Et kystvandråd er et rådgivende partnerskab, der arbejder for sundere kystvand i et eller flere vandoplande.
+- [Lokal grøn trepart](https://gofreyra.com/ordbog/lokal-groen-trepart): En lokal grøn trepart er et samarbejdsorgan, der koordinerer arealomlægningen i et vandopland. Der er 23 af dem.
+- [MARS](https://gofreyra.com/ordbog/mars): MARS står for Multifunktionel Arealregistrering og er platformen for arealindsatserne i Grøn Trepart.
+- [Matrikel](https://gofreyra.com/ordbog/matrikel): En matrikel er et registreret jordstykke i matriklen, det officielle register over fast ejendom i Danmark.
+- [Mosaikbestemmelsen](https://gofreyra.com/ordbog/mosaikbestemmelsen): Mosaikbestemmelsen betyder, at små naturarealer under 2.500 m² også er § 3-beskyttede, når de sammen med andre beskyttede naturtyper udgør mindst 2.500 m².
+- [MRV](https://gofreyra.com/ordbog/mrv): MRV står for Measurement, Reporting and Verification, altså måling, rapportering og verifikation af effekter.
+- [Naturstyrelsen](https://gofreyra.com/ordbog/naturstyrelsen): Naturstyrelsen er statens forvalter af skov- og naturarealer og en central projektejer i arealomlægningen.
+- [NDVI](https://gofreyra.com/ordbog/ndvi): NDVI (Normalized Difference Vegetation Index) er et indeks for grøn vegetation beregnet ud fra nær-infrarødt og rødt lys.
+- [Omlægningsplan](https://gofreyra.com/ordbog/omlaegningsplan): En omlægningsplan viser, hvordan en lokal grøn trepart vil nå sin del af kvælstofindsatsbehovet og lavbundsmålet gennem arealomlægning.
+- [Ortofoto](https://gofreyra.com/ordbog/ortofoto): Et ortofoto er et luftfoto, der er rettet op geometrisk, så det kan bruges som et målfast kort.
+- [Restaurering af ådale](https://gofreyra.com/ordbog/aadalsrestaurering): Restaurering af ådale genskaber sammenhængen mellem et vandløb og de vandløbsnære arealer.
+- [Revisionsspor](https://gofreyra.com/ordbog/revisionsspor): Et revisionsspor er en log over, hvem der har gjort hvad og hvornår i en sag.
+- [Sentinel-2](https://gofreyra.com/ordbog/sentinel-2): Sentinel-2 er EU's Copernicus-satellitter, der leverer gratis optiske billeder af hele jorden.
+- [Servitut om fastholdelse](https://gofreyra.com/ordbog/servitut): En servitut om fastholdelse er en tinglyst rådighedsindskrænkning, der sikrer, at et vådområde eller lavbundsprojekt bliver bevaret.
+- [SGAV](https://gofreyra.com/ordbog/sgav): SGAV er Styrelsen for Grøn Arealomlægning og Vandmiljø, som administrerer store dele af arealindsatsen i Grøn Trepart.
+- [SHA-256](https://gofreyra.com/ordbog/sha-256): SHA-256 er en kryptografisk hashfunktion, der laver et unikt fingeraftryk af en fil.
+- [Skovrejsning](https://gofreyra.com/ordbog/skovrejsning): Skovrejsning er etablering af ny skov på arealer, der ikke tidligere var skov, typisk landbrugsjord.
+- [Udtagningskonsulent](https://gofreyra.com/ordbog/udtagningskonsulent): En udtagningskonsulent hjælper lodsejere og projektejere med at realisere arealomlægningsprojekter.
+- [Urørt skov](https://gofreyra.com/ordbog/uroert-skov): Urørt skov er skov, der overlades til naturlig udvikling uden almindelig skovdrift.
+- [VLP (Vådområder og lavbundsprojekter)](https://gofreyra.com/ordbog/vlp): VLP er den fælles tilskudsordning for vådområder og lavbundsprojekter, der viderefører VKP og KLA.
+- [Vådområde](https://gofreyra.com/ordbog/vaadomraade): Et vådområde er et areal, hvor vandstanden er hævet, så jorden er våd det meste af året.
+- [WFS](https://gofreyra.com/ordbog/wfs): WFS (Web Feature Service) er en standard for at hente geografiske vektordata over nettet, fx til QGIS eller ArcGIS.

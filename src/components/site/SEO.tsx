@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { DEFAULT_OG_IMAGE } from "@/lib/photo-variants";
 
 export interface SEOProps {
   title: string;
@@ -19,7 +20,7 @@ export function buildHead({
   title,
   description,
   path,
-  ogImage,
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   jsonLd,
   noindex = false,

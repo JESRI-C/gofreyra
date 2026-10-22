@@ -10,6 +10,7 @@ import g2 from "@/assets/drone-vandloeb-02.jpg.asset.json";
 import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
 import g3 from "@/assets/drone-vandloeb-03.jpg.asset.json";
 import g4 from "@/assets/drone-vandloeb-04.jpg.asset.json";
+import { photoProps, ogImageFor } from "@/lib/photo-variants";
 
 const FAQ = [
   { q: "Hvad er Freyra?", a: "Freyra er et evidence workspace for natur- og arealprojekter. Vi samler dronefotos, offentlige data og faglig verifikation i én evidenskæde, så kommunen kan stå på mål for sin dokumentation." },
@@ -39,9 +40,10 @@ const GALLERY = [
 export const Route = createFileRoute("/")({
   head: () =>
     buildHead({
-      title: "Freyra Evidence Workspace | Dokumentation af natur- og arealprojekter",
+      title: "Freyra: dokumentation af natur- og arealprojekter",
       description: "Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde for natur- og arealprojekter i Grøn Trepart.",
       path: "/",
+      ogImage: ogImageFor(heroAsset.url),
       jsonLd: [
         organizationJsonLd(),
         { "@context": "https://schema.org", "@type": "WebSite", name: "Freyra", url: "https://gofreyra.com", inLanguage: "da-DK" },
@@ -58,7 +60,8 @@ function HomePage() {
       <section className="relative">
         <div className="absolute inset-0">
           <img
-            src={heroAsset.url}
+            {...photoProps(heroAsset.url, "100vw")}
+            fetchPriority="high"
             alt="Slyngende vandløb gennem eng, set fra drone"
             width={2000}
             height={1500}
@@ -163,7 +166,7 @@ function HomePage() {
             <div className="grid grid-cols-2 gap-4">
               {GALLERY.map((g) => (
                 <figure key={g.caption} className="card-soft overflow-hidden p-0 bg-card">
-                  <img src={g.img} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+                  <img {...photoProps(g.img, "(min-width: 1024px) 50vw, 100vw")} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
                   <figcaption className="p-3 text-xs text-muted-foreground">{g.caption}. Eget dronefoto, august 2026.</figcaption>
                 </figure>
               ))}

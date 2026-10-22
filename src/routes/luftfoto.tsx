@@ -23,6 +23,7 @@ import f05 from "@/assets/freyra-luftfoto-05.jpg.asset.json";
 import f06 from "@/assets/freyra-luftfoto-06.jpg.asset.json";
 import f07 from "@/assets/freyra-luftfoto-07.jpg.asset.json";
 import f08 from "@/assets/freyra-luftfoto-08.jpg.asset.json";
+import { photoProps } from "@/lib/photo-variants";
 
 interface Foto {
   url: string;
@@ -109,7 +110,7 @@ function GalleryPage() {
                 className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep"
                 aria-label={`Vis billede: ${f.caption}`}
               >
-                <img src={f.url} alt={f.alt} width={2000} height={f.h ?? 1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+                <img {...photoProps(f.url, "(min-width: 1024px) 50vw, 100vw")} alt={f.alt} width={2000} height={f.h ?? 1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
               </button>
               <figcaption className="p-3 text-xs text-muted-foreground">
                 {f.caption}. Eget dronefoto, {f.month.toLowerCase()}.
