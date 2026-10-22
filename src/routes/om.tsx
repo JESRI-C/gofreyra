@@ -3,6 +3,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, organizationJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
 import { GreenCTA, MicroStrip, CardGrid } from "@/components/site/sections";
+import moodPhoto from "@/assets/freyra-luftfoto-05.jpg.asset.json";
 
 export const Route = createFileRoute("/om")({
   head: () =>
@@ -27,6 +28,13 @@ function AboutPage() {
         <p className="mt-4 text-lg text-muted-foreground">
           Freyra Evidence Workspace er udviklet af Gofreyra ApS. Vi hjælper kommuner, treparter og projektejere med at dokumentere natur- og arealprojekter, så hver konklusion kan spores tilbage til sin kilde.
         </p>
+      </section>
+
+      <section className="container-page pb-12">
+        <figure className="card-soft overflow-hidden p-0 bg-card">
+          <img src={moodPhoto.url} alt="Landskab i solnedgang, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, august 2023.</figcaption>
+        </figure>
       </section>
 
       <MicroStrip items={["Dansk virksomhed", "Bygget til Grøn Trepart", "Offentlige datakilder", "Faglig verifikation"]} />

@@ -5,11 +5,11 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, organizationJsonLd } from "@/components/site/SEO";
 import { FaqSection, FlowSection, GreenCTA, MicroStrip, SectionHeader, CardGrid } from "@/components/site/sections";
-import heroAsset from "@/assets/drone-vandloeb-02.jpg.asset.json";
+import heroAsset from "@/assets/freyra-luftfoto-01.jpg.asset.json";
+import g2 from "@/assets/drone-vandloeb-02.jpg.asset.json";
 import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
 import g3 from "@/assets/drone-vandloeb-03.jpg.asset.json";
 import g4 from "@/assets/drone-vandloeb-04.jpg.asset.json";
-import g5 from "@/assets/drone-vandloeb-05.jpg.asset.json";
 
 const FAQ = [
   { q: "Hvad er Freyra?", a: "Freyra er et evidence workspace for natur- og arealprojekter. Vi samler dronefotos, offentlige data og faglig verifikation i én evidenskæde, så kommunen kan stå på mål for sin dokumentation." },
@@ -33,7 +33,7 @@ const GALLERY = [
   { img: g1.url, alt: "Delstrækning med tæt bevoksning langs vandløb, set fra drone", caption: "Delstrækning, set fra drone" },
   { img: g3.url, alt: "Gentagelsespunkt ved mark og hegn, referencefoto fra drone", caption: "Gentagelsespunkt, referencefoto" },
   { img: g4.url, alt: "Vandløbskorridor gennem græsarealer, set fra drone", caption: "Vandløbskorridor, oversigt" },
-  { img: g5.url, alt: "Græsstrimmel mellem dyrkede marker, referencefoto fra drone", caption: "Delstrækning, referencefoto" },
+  { img: g2.url, alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -59,9 +59,9 @@ function HomePage() {
         <div className="absolute inset-0">
           <img
             src={heroAsset.url}
-            alt="Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone"
+            alt="Slyngende vandløb gennem eng, set fra drone"
             width={2000}
-            height={1333}
+            height={1500}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,30,25,0.55) 0%, rgba(20,30,25,0.35) 50%, rgba(20,30,25,0.65) 100%)" }} />

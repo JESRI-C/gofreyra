@@ -15,15 +15,26 @@ import p08 from "@/assets/drone-vandloeb-08.jpg.asset.json";
 import p09 from "@/assets/drone-vandloeb-09.jpg.asset.json";
 import p10 from "@/assets/drone-vandloeb-10.jpg.asset.json";
 import p11 from "@/assets/drone-vandloeb-11.jpg.asset.json";
+import f01 from "@/assets/freyra-luftfoto-01.jpg.asset.json";
+import f02 from "@/assets/freyra-luftfoto-02.jpg.asset.json";
+import f03 from "@/assets/freyra-luftfoto-03.jpg.asset.json";
+import f04 from "@/assets/freyra-luftfoto-04.jpg.asset.json";
+import f05 from "@/assets/freyra-luftfoto-05.jpg.asset.json";
+import f06 from "@/assets/freyra-luftfoto-06.jpg.asset.json";
+import f07 from "@/assets/freyra-luftfoto-07.jpg.asset.json";
+import f08 from "@/assets/freyra-luftfoto-08.jpg.asset.json";
 
 interface Foto {
   url: string;
   alt: string;
   caption: string;
   month: string;
+  h?: number;
 }
 
 const FOTOS: Foto[] = [
+  { url: p10.url, alt: "Vandløbskorridor mellem marker med majs, set fra drone ved efterflyvning", caption: "Efterflyvning, vandløbskorridor", month: "September 2026" },
+  { url: p11.url, alt: "Vandløbskorridor mellem dyrkede marker, set fra drone ved efterflyvning", caption: "Efterflyvning, korridor mellem marker", month: "September 2026" },
   { url: p01.url, alt: "Delstrækning med tæt bevoksning langs vandløb, set fra drone", caption: "Delstrækning, set fra drone", month: "August 2026" },
   { url: p02.url, alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning", month: "August 2026" },
   { url: p03.url, alt: "Gentagelsespunkt ved mark og hegn, referencefoto fra drone", caption: "Gentagelsespunkt, referencefoto", month: "August 2026" },
@@ -33,8 +44,14 @@ const FOTOS: Foto[] = [
   { url: p07.url, alt: "Vandløb med små åbne vandflader, græs og bevoksning, set fra drone", caption: "Åbne vandflader langs vandløb", month: "August 2026" },
   { url: p08.url, alt: "Vandløbsstrækning med græs og bevoksning, set fra drone", caption: "Delstrækning med græs og bevoksning", month: "August 2026" },
   { url: p09.url, alt: "Græsareal og bevoksning langs vandløb, set fra drone", caption: "Græsareal langs vandløb", month: "August 2026" },
-  { url: p10.url, alt: "Vandløbskorridor mellem marker med majs, set fra drone ved efterflyvning", caption: "Efterflyvning, vandløbskorridor", month: "September 2026" },
-  { url: p11.url, alt: "Vandløbskorridor mellem dyrkede marker, set fra drone ved efterflyvning", caption: "Efterflyvning, korridor mellem marker", month: "September 2026" },
+  { url: f06.url, alt: "Sø med skov i efterårsfarver, set fra drone", caption: "Sø med skov i efterårsfarver", month: "Oktober 2024", h: 1500 },
+  { url: f01.url, alt: "Slyngende vandløb gennem eng, set fra drone", caption: "Slyngende vandløb gennem eng", month: "September 2024", h: 1500 },
+  { url: f04.url, alt: "Lige vandløb mellem eng og krat, set fra drone", caption: "Lige vandløb mellem eng og krat", month: "August 2024", h: 1500 },
+  { url: f07.url, alt: "Naturgenopretning med jordarbejde, set fra drone", caption: "Naturgenopretning med jordarbejde", month: "August 2024", h: 1500 },
+  { url: f08.url, alt: "Overdrev og krat, set fra drone", caption: "Overdrev og krat", month: "August 2024", h: 1500 },
+  { url: f03.url, alt: "Vandløb gennem skov, set oppefra med drone", caption: "Vandløb gennem skov, set oppefra", month: "August 2023", h: 1500 },
+  { url: f05.url, alt: "Landskab i solnedgang, set fra drone", caption: "Landskab i solnedgang", month: "August 2023", h: 1500 },
+  { url: f02.url, alt: "Åbent vandløb mellem træer og eng, set fra drone", caption: "Åbent vandløb mellem træer og eng", month: "August 2022", h: 1500 },
 ];
 
 export const Route = createFileRoute("/luftfoto")({
@@ -92,7 +109,7 @@ function GalleryPage() {
                 className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-deep"
                 aria-label={`Vis billede: ${f.caption}`}
               >
-                <img src={f.url} alt={f.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+                <img src={f.url} alt={f.alt} width={2000} height={f.h ?? 1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
               </button>
               <figcaption className="p-3 text-xs text-muted-foreground">
                 {f.caption}. Eget dronefoto, {f.month.toLowerCase()}.
