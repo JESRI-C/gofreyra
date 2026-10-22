@@ -7,9 +7,9 @@ import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { GreenCTA } from "@/components/site/sections";
 import { getYdelse, YDELSER } from "@/data/ydelser";
 import photoDrone from "@/assets/drone-vandloeb-07.jpg.asset.json";
-import photoData from "@/assets/drone-vandloeb-08.jpg.asset.json";
-import photoMon from "@/assets/drone-vandloeb-10.jpg.asset.json";
-import photoBepl from "@/assets/drone-vandloeb-09.jpg.asset.json";
+import photoData from "@/assets/freyra-luftfoto-03.jpg.asset.json";
+import photoMon from "@/assets/freyra-luftfoto-04.jpg.asset.json";
+import photoBepl from "@/assets/freyra-luftfoto-07.jpg.asset.json";
 import photoEvi from "@/assets/drone-vandloeb-11.jpg.asset.json";
 import photoPilot from "@/assets/drone-vandloeb-05.jpg.asset.json";
 
@@ -21,18 +21,18 @@ const PHOTOS: Record<string, { url: string; alt: string; caption: string }> = {
   },
   datagrundlag: {
     url: photoData.url,
-    alt: "Vandløbsstrækning med græs og bevoksning, set fra drone",
-    caption: "Eget dronefoto, august 2026.",
+    alt: "Vandløb gennem skov, set oppefra med drone",
+    caption: "Eget dronefoto, august 2023.",
   },
   monitorering: {
     url: photoMon.url,
-    alt: "Vandløbskorridor mellem marker med majs, set fra drone ved efterflyvning",
-    caption: "Eget dronefoto, september 2026.",
+    alt: "Lige vandløb mellem eng og krat, set fra drone",
+    caption: "Eget dronefoto, august 2024.",
   },
   beplantningsanalyse: {
     url: photoBepl.url,
-    alt: "Græsareal og bevoksning langs vandløb, set fra drone",
-    caption: "Eget dronefoto, august 2026.",
+    alt: "Naturgenopretning med jordarbejde, set fra drone",
+    caption: "Eget dronefoto, august 2024.",
   },
   evidenspakke: {
     url: photoEvi.url,
@@ -86,7 +86,7 @@ function ServiceDetailPage() {
 
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img src={photo.url} alt={photo.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <img src={photo.url} alt={photo.alt} width={2000} height={photo.url.includes("freyra-luftfoto") ? 1500 : 1333} loading="lazy" className="w-full aspect-[21/9] object-cover" />
           <figcaption className="p-3 text-xs text-muted-foreground">{photo.caption}</figcaption>
         </figure>
       </section>
