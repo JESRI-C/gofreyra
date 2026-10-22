@@ -15,7 +15,7 @@ export const Route = createFileRoute("/privatlivspolitik")({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-10">
-      <h2 className="text-xl font-bold">{title}</h2>
+      <h2 className="text-xl ">{title}</h2>
       <div className="mt-3 space-y-3 text-sm text-foreground/85 leading-relaxed">{children}</div>
     </section>
   );
@@ -27,7 +27,7 @@ function PrivacyPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
           <span className="eyebrow">Privatlivspolitik</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Sådan behandler vi jeres oplysninger.</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl ">Sådan behandler vi jeres oplysninger.</h1>
           <p className="mt-4 text-lg text-muted-foreground">Senest opdateret: oktober 2026</p>
         </div>
       </section>
