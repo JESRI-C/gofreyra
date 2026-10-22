@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Plane, Database, ShieldCheck, FileText, TreePine, MapPin, Camera, CalendarCheck, Building2, Handshake, Users, Landmark, Home } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
-import { EvidenceChain } from "@/components/site/EvidenceChain";
 import { buildHead, faqJsonLd, organizationJsonLd } from "@/components/site/SEO";
 import { FaqSection, FlowSection, GreenCTA, MicroStrip, SectionHeader, CardGrid } from "@/components/site/sections";
-import stream from "@/assets/project-stream.jpg";
+import heroAsset from "@/assets/drone-vandloeb-02.jpg.asset.json";
+import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
+import g3 from "@/assets/drone-vandloeb-03.jpg.asset.json";
+import g4 from "@/assets/drone-vandloeb-04.jpg.asset.json";
+import g5 from "@/assets/drone-vandloeb-05.jpg.asset.json";
 
 const FAQ = [
   { q: "Hvad er Freyra?", a: "Freyra er et evidence workspace for natur- og arealprojekter. Vi samler dronefotos, offentlige data og faglig verifikation i én evidenskæde, så kommunen kan stå på mål for sin dokumentation." },
@@ -24,6 +27,13 @@ const YDELSER = [
   { t: "Opfølgning og genbesøg", d: "Gentagelsespunkter og før/efter-dokumentation, så udviklingen kan følges over tid." },
   { t: "Kommunalt evidens-setup", d: "Faste workflows og login, så kommunen altid kan finde og genbruge sin dokumentation." },
   { t: "Rådgivning om data og metoder", d: "Hjælp til at vælge datakilder, metoder og dokumentationsniveau, før I går i gang." },
+];
+
+const GALLERY = [
+  { img: g1.url, alt: "Delstrækning med tæt bevoksning langs vandløb, set fra drone", caption: "Delstrækning, set fra drone" },
+  { img: g3.url, alt: "Gentagelsespunkt ved mark og hegn, referencefoto fra drone", caption: "Gentagelsespunkt, referencefoto" },
+  { img: g4.url, alt: "Vandløbskorridor gennem græsarealer, set fra drone", caption: "Vandløbskorridor, oversigt" },
+  { img: g5.url, alt: "Græsstrimmel mellem dyrkede marker, referencefoto fra drone", caption: "Delstrækning, referencefoto" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -44,45 +54,53 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <PageLayout>
-      {/* HERO */}
-      <section className="gradient-hero">
-        <div className="container-page py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-          <div>
-            <span className="eyebrow">Freyra Evidence Workspace</span>
-            <h1 className="mt-5 text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight">
-              Dokumentation af naturprojekter,{" "}
-              <span className="text-brand-deep">kommunen kan stå på mål for.</span>
+      {/* HERO med eget dronefoto */}
+      <section className="relative">
+        <div className="absolute inset-0">
+          <img
+            src={heroAsset.url}
+            alt="Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone"
+            width={2000}
+            height={1333}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,30,25,0.55) 0%, rgba(20,30,25,0.35) 50%, rgba(20,30,25,0.65) 100%)" }} />
+        </div>
+        <div className="relative container-page py-28 md:py-40">
+          <div className="max-w-2xl">
+            <span className="eyebrow" style={{ color: "#fff" }}>Freyra Evidence Workspace</span>
+            <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08] text-white">
+              Dokumentation af naturprojekter, kommunen kan stå på mål for.
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+            <p className="mt-6 text-lg text-white/85">
               Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde. Fra første flyvning til en baseline, der kan bruges i Grøn Trepart.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="rounded-full h-12 px-6 text-base"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-full h-12 px-6 text-base"><Link to="/ydelser">Se ydelserne</Link></Button>
+              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
+              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><Link to="/ydelser">Se ydelserne</Link></Button>
             </div>
+            <p className="mt-6 text-xs text-white/60">Eget dronefoto, august 2026.</p>
           </div>
-          <EvidenceChain />
         </div>
       </section>
 
       <MicroStrip items={["Bygget til Grøn Trepart", "Offentlige datakilder", "Versionerede evidenspakker", "Dansk virksomhed"]} />
 
       {/* PROBLEM */}
-      <section className="container-page py-20">
+      <section className="container-page py-20 md:py-24">
         <SectionHeader
           eyebrow="Problemet"
           title="Dokumentationen er spredt, og den er svær at efterprøve."
           body="Natur- og arealprojekter dokumenteres i dag med fotos i mapper, regneark og PDF'er. Når en fond, en trepart eller en borger spørger til grundlaget, skal kommunen kunne svare præcist."
         />
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
           {[
-            { icon: <Camera className="w-5 h-5" />, t: "Fotos uden kontekst", d: "Feltdokumentation ligger spredt uden GPS, tidspunkt og kobling til det konkrete areal." },
-            { icon: <Database className="w-5 h-5" />, t: "Data fra mange kilder", d: "Kort, jorddata, vejr og satellit skal hentes hvert sit sted og samles manuelt." },
-            { icon: <FileText className="w-5 h-5" />, t: "Svag sporbarhed", d: "Det er svært at vise, hvordan en konklusion i en rapport er nået, og hvem der har vurderet hvad." },
+            { t: "Fotos uden kontekst", d: "Feltdokumentation ligger spredt uden GPS, tidspunkt og kobling til det konkrete areal." },
+            { t: "Data fra mange kilder", d: "Kort, jorddata, vejr og satellit skal hentes hvert sit sted og samles manuelt." },
+            { t: "Svag sporbarhed", d: "Det er svært at vise, hvordan en konklusion i en rapport er nået, og hvem der har vurderet hvad." },
           ].map((p) => (
             <div key={p.t} className="card-soft p-6">
-              <div className="w-10 h-10 rounded-lg bg-secondary text-brand-deep grid place-items-center">{p.icon}</div>
-              <div className="mt-4 font-semibold">{p.t}</div>
+              <div className="font-semibold">{p.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
             </div>
           ))}
@@ -105,10 +123,8 @@ function HomePage() {
       />
 
       {/* YDELSER */}
-      <section className="container-page py-20">
-        <div className="flex items-end justify-between gap-6 max-w-4xl">
-          <SectionHeader eyebrow="Ydelser" title="Seks ydelser. Én evidenskæde." />
-        </div>
+      <section className="container-page py-20 md:py-24">
+        <SectionHeader eyebrow="Ydelser" title="Seks ydelser. Én evidenskæde." />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {YDELSER.map((y) => (
             <Link key={y.t} to="/ydelser" className="card-soft p-6 bg-card group hover:border-primary/40 transition">
@@ -120,34 +136,68 @@ function HomePage() {
         </div>
       </section>
 
-      {/* LEVERANCE */}
+      {/* LEVERANCE med billedgalleri */}
       <section className="surface-beige">
-        <div className="container-page py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="eyebrow">Sådan ser en leverance ud</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold">Førregistrering af et vandløb i Sønderjylland.</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Et konkret eksempel på, hvad en førregistrering indeholder. Tallene er fra en faktisk leverance.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {[
-                { icon: <CalendarCheck className="w-4 h-4" />, t: "Droneflyvning gennemført 24.08.2026" },
-                { icon: <MapPin className="w-4 h-4" />, t: "5 delstrækninger registreret langs vandløbet" },
-                { icon: <Camera className="w-4 h-4" />, t: "6 gentagelsespunkter til før/efter-dokumentation" },
-                { icon: <FileText className="w-4 h-4" />, t: "21 referencefotos med GPS, klar til genbesøg" },
-              ].map((b) => (
-                <li key={b.t} className="flex gap-3 items-start text-sm">
-                  <span className="w-8 h-8 rounded-lg bg-primary/10 text-brand-deep grid place-items-center shrink-0">{b.icon}</span>
-                  <span className="pt-1.5 font-medium">{b.t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="card-soft overflow-hidden p-0 bg-card">
-            <img src={stream} alt="Dansk vandløb med engarealer, eksempel på område til førregistrering" loading="lazy" className="w-full aspect-[4/3] object-cover" />
-            <div className="p-5 text-sm text-muted-foreground">
-              Feltmateriale fra flyvning kobles med offentlige data og samles i en versioneret baselinerapport.
+        <div className="container-page py-20 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <span className="eyebrow">Sådan ser en leverance ud</span>
+              <h2 className="mt-4 text-3xl md:text-4xl">Førregistrering af et vandløb i Sønderjylland.</h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Et konkret eksempel på, hvad en førregistrering indeholder. Tallene er fra en faktisk leverance. Området er anonymiseret.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "Droneflyvning gennemført 24.08.2026",
+                  "5 delstrækninger registreret langs vandløbet",
+                  "6 gentagelsespunkter til før/efter-dokumentation",
+                  "21 referencefotos med GPS, klar til genbesøg",
+                ].map((b) => (
+                  <li key={b} className="flex gap-3 items-start">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
+                    <span className="font-medium">{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
+            <div className="grid grid-cols-2 gap-4">
+              {GALLERY.map((g) => (
+                <figure key={g.caption} className="card-soft overflow-hidden p-0 bg-card">
+                  <img src={g.img} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+                  <figcaption className="p-3 text-xs text-muted-foreground">{g.caption}. Eget dronefoto, august 2026.</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OFFENTLIGE DATA */}
+      <section className="container-page py-16 md:py-20">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="eyebrow">Bygget på offentlige data</span>
+          <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">
+            Dataforsyningen · Danmarks Arealinformation · GEUS · DMI · Copernicus Sentinel-2
+          </p>
+        </div>
+      </section>
+
+      {/* SÅDAN ARBEJDER VI */}
+      <section className="surface-beige">
+        <div className="container-page py-20 md:py-24">
+          <SectionHeader eyebrow="Sådan arbejder vi" title="Fire principper. Ingen undtagelser." />
+          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { t: "Alt kan spores til kilde", d: "Hver påstand i en leverance har kilde, tidspunkt og metode." },
+              { t: "Ingen tal uden belæg", d: "Vi viser kun tal, der kan dokumenteres. Effekter vises som intervaller fra forskningslitteraturen." },
+              { t: "Fagperson godkender", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
+              { t: "Versioneret og reproducerbart", d: "Hver ændring gemmes som en ny version. En evidenspakke kan genskabes og efterprøves." },
+            ].map((c) => (
+              <div key={c.t} className="card-soft p-6 bg-card">
+                <div className="font-semibold">{c.t}</div>
+                <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
