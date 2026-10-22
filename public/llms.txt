@@ -42,6 +42,31 @@ Selskab: Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring. Ejet af Freyra G
 - [Kystvandråd: hvad laver de, og hvordan spiller de sammen med treparterne?](https://gofreyra.com/viden/kystvandraad): De 17 kystvandråd rådgiver om lokale virkemidler for sundere kystvand. Her er deres opgaver og samspil med de lokale grønne treparter.
 - [Dokumentation til fonde og bevillingsgivere i naturprojekter](https://gofreyra.com/viden/evidenspakke-til-fonde): Hvad en fond typisk vil kunne se om et naturprojekt, og hvordan en samlet evidenspakke med fotos, kilder og faglig vurdering gør det let.
 
+- [De 23 lokale grønne treparter: kommuner og formandskommuner](https://gofreyra.com/viden/de-23-lokale-groenne-treparter-oversigt): Oversigt over alle 23 lokale grønne treparter med formands- og sekretariatskommuner og deltagende kommuner, baseret på SGAV's lister fra 2025.
+- [Kommunens rolle i Grøn Trepart: myndighed, projektejer og driver](https://gofreyra.com/viden/kommunens-rolle-i-groen-trepart): Kommunen er myndighed for arealanvendelsen, ansvarlig for sin del af omlægningsplanen og kan søge alle seks VLP-indsatser. Her er rollerne samlet.
+- [Status på Grøn Trepart i 2026: hvor langt er kommunerne?](https://gofreyra.com/viden/status-groen-trepart-2026): Tal fra KL's statusrapport maj 2026: igangsat lavbund, kvælstofeffekt, antal projekter og overansøgning. Med kilde og link til MARS-status.
+- [Kvælstofindsatsen i Grøn Trepart: vandplan, delvandoplande og miljøgaranti](https://gofreyra.com/viden/vandplan-og-kvaelstofindsats): Hvordan kvælstofmålet i Grøn Trepart er fordelt på 108 delvandoplande og 37 kystvandsgrupper, og hvad skærpet miljøgaranti fra 2027 betyder.
+- [Kvælstofvådområder: formål, placering og tilskud](https://gofreyra.com/viden/kvaelstofvaadomraader): Kvælstofvådområder skal fjerne kvælstof før det når fjorde og kystvande. Her er krav til placering, hvem der kan søge og forskellen på VKP og KLA.
+- [Fosforvådområder: når søerne er målet](https://gofreyra.com/viden/fosforvaadomraader): Fosforvådområder placeres opstrøms søer med fosforindsatsbehov. Her er formål, finansiering og hvem der kan søge i VLP-ordningen.
+- [Spor 1 og spor 2 i VLP: hvad er forskellen?](https://gofreyra.com/viden/spor-1-og-spor-2): I VLP etableres projekter i spor 1 (EU, jordfordeling) eller spor 2 (nationalt, engangskompensation). Her er forskellene og hvad der afgør valget.
+- [Jordfordeling og erstatningsjord i vådområde- og lavbundsprojekter](https://gofreyra.com/viden/jordfordeling-og-erstatningsjord): Sådan fungerer jordfordeling og erstatningsjord, hvem der står for det, og hvorfor SGAV midlertidigt ejer arealer. Med kilder fra SGAV og LBST.
+- [Den ejendomsmæssige forundersøgelse: lodsejerne først](https://gofreyra.com/viden/ejendomsmaessig-forundersoegelse): Hvad den ejendomsmæssige forundersøgelse i VLP skal indeholde: lodsejertilslutning, ønsker til kompensation og kort over ejerforhold.
+- [Lodsejerens vej ind i et lavbunds- eller vådområdeprojekt](https://gofreyra.com/viden/lodsejerens-vej-ind-i-et-lavbundsprojekt): Som lodsejer kan du selv søge eller deltage i et kommunalt projekt. Her er mulighederne, kompensationsformerne og hvem du kan spørge.
+- [Ansøgning via MARS: sådan starter tilskudssagen](https://gofreyra.com/viden/ansoegning-via-mars): Alle VLP-ansøgninger starter i MARS. Her er vejen fra indtegning til F2-selvbetjening eller Tast selv, og hvordan bilag sendes.
+- [Screening i MARS: kom i gang uden login](https://gofreyra.com/viden/mars-screening-trin-for-trin): MARS' screeningsmodul viser potentialer og konflikter for et areal uden login. Her er fremgangsmåden og hvad screeningen ikke fortæller.
+- [Ændringer og udbetaling i VLP-projekter: frister og dokumentation](https://gofreyra.com/viden/aendringer-og-udbetaling-vlp): Frister for ændringsansøgninger og udbetaling i VLP, hvad en ændringsansøgning skal indeholde, og hvorfor god dokumentation sparer tid.
+- [Tilskud til privat urørt skov: krav og forløb](https://gofreyra.com/viden/privat-uroert-skov-tilskud): Hvem kan få tilskud til privat urørt skov, hvilke krav skoven skal opfylde, og hvad 2026-runden indeholdt. Baseret på SGAV's vejledning.
+- [Skov eller vådområde? Sådan afgør arealet valget](https://gofreyra.com/viden/skovrejsning-eller-vaadomraade): Kulstofrig lavbund, § 3-natur og kvælstofbehov afgør ofte, om et areal egner sig til skov eller vådområde. En praktisk tjekliste med kilder.
+- [Naturnationalparker: 21 i alt og seks nye på vej](https://gofreyra.com/viden/naturnationalparker): Grøn Trepart udvider antallet af naturnationalparker til 21. Her er status, de 11 områder i spil og hvad en naturnationalpark er.
+- [CO2e-afgiften på husdyr og andre økonomiske elementer i Grøn Trepart](https://gofreyra.com/viden/co2e-afgift-og-landbrugets-omstilling): Afgiftens satser, bundfradraget, biokul-ordningen og Danmarks Grønne Arealfond, som de fremgår af regeringens faktaark om aftalen.
+- [Danmarks Grønne Arealfond: motoren i arealomlægningen](https://gofreyra.com/viden/danmarks-groenne-arealfond-forklaret): Danmarks Grønne Arealfond samler indsatser for ca. 40 mia. kr. til skov, lavbund og jordopkøb. Her er hvad vi ved fra de officielle kilder.
+- [Udtagningskonsulenter: lodsejernes indgang til arealomlægning](https://gofreyra.com/viden/udtagningskonsulenter): Udtagningskonsulenter hjælper lodsejere med tilskud og godkendelser og faciliterer større projekter. Her er rollerne ifølge SGAV.
+- [Ortofoto eller dronefoto? Hvornår du har brug for hvad](https://gofreyra.com/viden/ortofoto-eller-dronefoto): GeoDanmark-ortofotos optages årligt i foråret i 12,5 cm. Her er hvornår de er nok, og hvornår et dronefoto fra i dag giver mere.
+- [Faglig verifikation: når AI foreslår, og fagpersonen afgør](https://gofreyra.com/viden/faglig-verifikation-af-dronefotos): Hvorfor AI kan hjælpe med at gennemgå dronefotos, men aldrig bør have sidste ord, og hvordan bekræftelse og afvisning logges.
+- [Effekter som intervaller: hvorfor vi ikke regner tal frem](https://gofreyra.com/viden/effekter-som-intervaller): Hvorfor effekter af beplantning og vådgøring bør vises som intervaller fra litteraturen med kilde, og hvor de officielle beregninger laves.
+- [Planlæg en droneflyvning over et naturprojekt](https://gofreyra.com/viden/planlaeg-droneflyvning-naturprojekt): Tjekliste til droneflyvning i natur- og lavbundsprojekter: regler, forsikring, punkter, lys, vejr, lodsejere og originalfiler.
+- [Højdemodellen i lavbundsprojekter: læs terrænet før vandet gør](https://gofreyra.com/viden/hoejdemodel-i-lavbundsprojekter): Hvordan Danmarks Højdemodel bruges til at forstå lavninger, fald og vandets vej i lavbundsprojekter, og hvad den ikke kan vise.
+
 ## Ordbog
 
 - [Ordbog](https://gofreyra.com/ordbog): Begreber i natur- og arealprojekter
@@ -88,3 +113,27 @@ Selskab: Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring. Ejet af Freyra G
 - [VLP (Vådområder og lavbundsprojekter)](https://gofreyra.com/ordbog/vlp): VLP er den fælles tilskudsordning for vådområder og lavbundsprojekter, der viderefører VKP og KLA.
 - [Vådområde](https://gofreyra.com/ordbog/vaadomraade): Et vådområde er et areal, hvor vandstanden er hævet, så jorden er våd det meste af året.
 - [WFS](https://gofreyra.com/ordbog/wfs): WFS (Web Feature Service) er en standard for at hente geografiske vektordata over nettet, fx til QGIS eller ArcGIS.
+
+- [Formandskommune](https://gofreyra.com/ordbog/formandskommune): Formandskommunen driver arbejdet i en lokal grøn trepart og sikrer fremdriften.
+- [Sekretariatskommune](https://gofreyra.com/ordbog/sekretariatskommune): Sekretariatskommunen står for sekretariatsbetjening og tværgående koordinering i en lokal grøn trepart.
+- [Ankerkommune](https://gofreyra.com/ordbog/ankerkommune): En ankerkommune samler et af de 10 tværkommunale samarbejder mellem de lokale grønne treparter.
+- [Delvandopland](https://gofreyra.com/ordbog/delvandopland): Et delvandopland er en del af et vandopland, som kvælstofindsatsbehovet fordeles på.
+- [Skærpet miljøgaranti](https://gofreyra.com/ordbog/skaerpet-miljoegaranti): Den skærpede miljøgaranti er et element i Grøn Trepart, der gælder fra og med 2027.
+- [VKP (Vand- og klimaprojekter)](https://gofreyra.com/ordbog/vkp): VKP er de fire EU-medfinansierede indsatser i VLP, der etableres i spor 1.
+- [KLA (Klima-lavbundsprojekter)](https://gofreyra.com/ordbog/kla): KLA er de to nationalt finansierede indsatser i VLP, der etableres i spor 2.
+- [ELFUL](https://gofreyra.com/ordbog/elful): ELFUL er Den Europæiske Landbrugsfond for Udvikling af Landdistrikterne, som medfinansierer VKP-projekter.
+- [Spor 1](https://gofreyra.com/ordbog/spor-1): Spor 1 er etablering af VKP-projekter med EU-midler, hvor jordfordeling, opkøb og værditabskompensation er mulig.
+- [Spor 2](https://gofreyra.com/ordbog/spor-2): Spor 2 er etablering af KLA-projekter med nationale midler, hvor lodsejerne beholder jorden mod engangskompensation.
+- [Jordfordeling](https://gofreyra.com/ordbog/jordfordeling): Jordfordeling er en samlet handel, hvor lodder byttes og handles samtidigt, så et projektområde kan samles.
+- [Erstatningsjord](https://gofreyra.com/ordbog/erstatningsjord): Erstatningsjord er landbrugsjord uden for projektområdet, som lodsejere kan få i bytte for projektjord.
+- [Projektjord](https://gofreyra.com/ordbog/projektjord): Projektjord er arealer inden for et vådområde- eller lavbundsprojekts område.
+- [Værditabskompensation](https://gofreyra.com/ordbog/vaerditabskompensation): Værditabskompensation er en kompensation til lodsejere for det værditab, et projekt påfører deres jord.
+- [Ejendomsmæssig forundersøgelse](https://gofreyra.com/ordbog/ejendomsmaessig-forundersoegelse): Den ejendomsmæssige forundersøgelse afdækker lodsejernes interesse og ønsker i et vådområde- eller lavbundsprojekt.
+- [Teknisk forundersøgelse](https://gofreyra.com/ordbog/teknisk-forundersoegelse): Den tekniske forundersøgelse vurderer effekter og konsekvenser af et vådområde- eller lavbundsprojekt.
+- [F2-selvbetjening](https://gofreyra.com/ordbog/f2-selvbetjening): F2-selvbetjening er det ansøgningssystem, man kommer til fra MARS ved forundersøgelser og spor 2 i VLP.
+- [Tast selv](https://gofreyra.com/ordbog/tast-selv): Tast selv er det system, der bruges til ansøgning og udbetaling for VKP-etableringsprojekter i spor 1.
+- [MiljøGIS](https://gofreyra.com/ordbog/miljoegis): MiljøGIS er Miljøministeriets kortsystem, som fx bruges til at indtegne arealer ved ansøgning om tilskud til privat urørt skov.
+- [Naturnationalpark](https://gofreyra.com/ordbog/naturnationalpark): En naturnationalpark er et stort statsligt naturområde, hvor naturen skal udvikle sig mere på egne præmisser.
+- [CO2e-afgift på husdyr](https://gofreyra.com/ordbog/co2e-afgift): CO2e-afgiften på husdyr er en afgift på udledninger fra husdyr, der indføres med Grøn Trepart fra 2030.
+- [Biokul](https://gofreyra.com/ordbog/biokul): Biokul er kulstofrigt materiale fra pyrolyse af biomasse, som kan lagre kulstof i jorden.
+- [GSD (Ground Sample Distance)](https://gofreyra.com/ordbog/gsd): GSD angiver, hvor stort et område på jorden én pixel i et luftfoto dækker.
