@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YdelserRouteImport } from './routes/ydelser'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
@@ -19,6 +20,7 @@ import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as KommunerRouteImport } from './routes/kommuner'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
 import { Route as EnRouteImport } from './routes/en'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
@@ -55,6 +57,11 @@ import { Route as EnPlatformEsgLedgerRouteImport } from './routes/en.platform.es
 import { Route as EnPlatformDecisionsiqRouteImport } from './routes/en.platform.decisionsiq'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
+const YdelserRoute = YdelserRouteImport.update({
+  id: '/ydelser',
+  path: '/ydelser',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
   path: '/use-cases',
@@ -103,6 +110,11 @@ const OmRoute = OmRouteImport.update({
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KommunerRoute = KommunerRouteImport.update({
+  id: '/kommuner',
+  path: '/kommuner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndsigterRoute = IndsigterRouteImport.update({
@@ -293,6 +305,7 @@ export interface FileRoutesByFullPath {
   '/datakilder': typeof DatakilderRoute
   '/en': typeof EnRouteWithChildren
   '/indsigter': typeof IndsigterRouteWithChildren
+  '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -303,6 +316,7 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
@@ -339,6 +353,7 @@ export interface FileRoutesByTo {
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/indsigter': typeof IndsigterRouteWithChildren
+  '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -349,6 +364,7 @@ export interface FileRoutesByTo {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
@@ -387,6 +403,7 @@ export interface FileRoutesById {
   '/datakilder': typeof DatakilderRoute
   '/en': typeof EnRouteWithChildren
   '/indsigter': typeof IndsigterRouteWithChildren
+  '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
@@ -397,6 +414,7 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
+  '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$slug': typeof DataSlugRoute
@@ -436,6 +454,7 @@ export interface FileRouteTypes {
     | '/datakilder'
     | '/en'
     | '/indsigter'
+    | '/kommuner'
     | '/kontakt'
     | '/om'
     | '/ordbog'
@@ -446,6 +465,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/ydelser'
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
@@ -482,6 +502,7 @@ export interface FileRouteTypes {
     | '/data'
     | '/datakilder'
     | '/indsigter'
+    | '/kommuner'
     | '/kontakt'
     | '/om'
     | '/ordbog'
@@ -492,6 +513,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/ydelser'
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
@@ -529,6 +551,7 @@ export interface FileRouteTypes {
     | '/datakilder'
     | '/en'
     | '/indsigter'
+    | '/kommuner'
     | '/kontakt'
     | '/om'
     | '/ordbog'
@@ -539,6 +562,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/use-cases'
+    | '/ydelser'
     | '/api/ai-esg-analyse'
     | '/brancher/$slug'
     | '/data/$slug'
@@ -577,6 +601,7 @@ export interface RootRouteChildren {
   DatakilderRoute: typeof DatakilderRoute
   EnRoute: typeof EnRouteWithChildren
   IndsigterRoute: typeof IndsigterRouteWithChildren
+  KommunerRoute: typeof KommunerRoute
   KontaktRoute: typeof KontaktRoute
   OmRoute: typeof OmRoute
   OrdbogRoute: typeof OrdbogRouteWithChildren
@@ -587,6 +612,7 @@ export interface RootRouteChildren {
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
+  YdelserRoute: typeof YdelserRoute
   ApiAiEsgAnalyseRoute: typeof ApiAiEsgAnalyseRoute
   LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
   LoesningerIndustriRoute: typeof LoesningerIndustriRoute
@@ -597,6 +623,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ydelser': {
+      id: '/ydelser'
+      path: '/ydelser'
+      fullPath: '/ydelser'
+      preLoaderRoute: typeof YdelserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-cases': {
       id: '/use-cases'
       path: '/use-cases'
@@ -665,6 +698,13 @@ declare module '@tanstack/react-router' {
       path: '/kontakt'
       fullPath: '/kontakt'
       preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kommuner': {
+      id: '/kommuner'
+      path: '/kommuner'
+      fullPath: '/kommuner'
+      preLoaderRoute: typeof KommunerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/indsigter': {
@@ -1051,6 +1091,7 @@ const rootRouteChildren: RootRouteChildren = {
   DatakilderRoute: DatakilderRoute,
   EnRoute: EnRouteWithChildren,
   IndsigterRoute: IndsigterRouteWithChildren,
+  KommunerRoute: KommunerRoute,
   KontaktRoute: KontaktRoute,
   OmRoute: OmRoute,
   OrdbogRoute: OrdbogRouteWithChildren,
@@ -1061,6 +1102,7 @@ const rootRouteChildren: RootRouteChildren = {
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
+  YdelserRoute: YdelserRoute,
   ApiAiEsgAnalyseRoute: ApiAiEsgAnalyseRoute,
   LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
   LoesningerIndustriRoute: LoesningerIndustriRoute,

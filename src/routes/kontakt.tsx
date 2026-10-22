@@ -1,14 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { PageLayout } from "@/components/site/PageLayout";
-import { buildHead } from "@/components/site/SEO";
+import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Mail } from "lucide-react";
+import { CheckCircle2, MapPin, Building } from "lucide-react";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
@@ -20,9 +20,10 @@ const schema = z.object({
 
 export const Route = createFileRoute("/kontakt")({
   head: () => buildHead({
-    title: "Kontakt — GoFreyra",
-    description: "Kontakt GoFreyra. Skriv til os om platform, pilotprojekter eller partnerskaber.",
+    title: "Kontakt | Freyra Evidence Workspace",
+    description: "Kontakt Freyra om et pilotprojekt, en førregistrering eller et samarbejde. Vi vender tilbage inden for én arbejdsdag.",
     path: "/kontakt",
+    jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Kontakt", path: "/kontakt" }]),
   }),
   component: ContactPage,
 });
@@ -60,9 +61,9 @@ function ContactPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
           <span className="eyebrow">Kontakt</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Lad os tale sammen.</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Book en snak om jeres projekt.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Skriv til os om platformen, et pilotprojekt eller et partnerskab. Vi vender tilbage inden for én arbejdsdag.
+            Fortæl os kort om området eller opgaven, så vender vi tilbage inden for én arbejdsdag med en konkret vurdering af, hvad der kan dokumenteres.
           </p>
         </div>
       </section>
@@ -70,17 +71,23 @@ function ContactPage() {
       <section className="container-page py-14 grid lg:grid-cols-[1fr_1.2fr] gap-10">
         <div className="space-y-5">
           <div className="card-soft p-6">
-            <div className="flex items-center gap-2 text-sm font-semibold"><Mail className="w-4 h-4 text-primary" /> Email</div>
-            <a href="mailto:hello@gofreyra.com" className="mt-2 block text-lg font-medium text-brand-deep">hello@gofreyra.com</a>
+            <div className="flex items-center gap-2 text-sm font-semibold"><Building className="w-4 h-4 text-primary" /> Selskab</div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Gofreyra ApS<br />
+              CVR 45384489<br />
+              Ejet af Freyra Group ApS
+            </p>
           </div>
           <div className="card-soft p-6">
-            <div className="text-sm font-semibold">GoFreyra</div>
-            <p className="mt-2 text-sm text-muted-foreground">Dansk SaaS-platform til miljødata, ESG-dokumentation og verificerbar impact.</p>
+            <div className="flex items-center gap-2 text-sm font-semibold"><MapPin className="w-4 h-4 text-primary" /> Adresse</div>
+            <p className="mt-2 text-sm text-muted-foreground">Bøgevej 4, 7160 Tørring</p>
           </div>
+          {/* TODO: Tilføj direkte email og telefon, når de er klar fra kunden. */}
           <div className="card-soft p-6">
-            <div className="text-sm font-semibold">Vil du se platformen?</div>
-            <p className="mt-2 text-sm text-muted-foreground">Book 30 minutter med en specialist — vi tilpasser demoen til jeres datakilder.</p>
-            <Button asChild className="mt-3 rounded-full"><Link to="/book-demo">Book demo</Link></Button>
+            <div className="text-sm font-semibold">Hvad sker der bagefter?</div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Vi læser jeres besked og vender tilbage inden for én arbejdsdag. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
+            </p>
           </div>
         </div>
 
@@ -91,7 +98,7 @@ function ContactPage() {
                 <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
               <h2 className="mt-4 text-2xl font-bold">Tak for beskeden</h2>
-              <p className="mt-2 text-muted-foreground">Vi vender tilbage hurtigst muligt.</p>
+              <p className="mt-2 text-muted-foreground">Vi vender tilbage inden for én arbejdsdag.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -100,12 +107,15 @@ function ContactPage() {
                 <div><Label htmlFor="email">Email *</Label><Input id="email" name="email" type="email" required className="mt-1.5" /></div>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
-                <div><Label htmlFor="company">Virksomhed</Label><Input id="company" name="company" className="mt-1.5" /></div>
+                <div><Label htmlFor="company">Virksomhed eller kommune</Label><Input id="company" name="company" className="mt-1.5" /></div>
                 <div><Label htmlFor="subject">Emne</Label><Input id="subject" name="subject" className="mt-1.5" /></div>
               </div>
-              <div><Label htmlFor="message">Besked *</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" /></div>
+              <div><Label htmlFor="message">Besked *</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" placeholder="Fortæl kort om området eller opgaven" /></div>
               {error && <p className="text-sm text-destructive">{error}</p>}
               <Button type="submit" disabled={loading} className="w-full rounded-full h-11">{loading ? "Sender…" : "Send besked"}</Button>
+              <p className="text-xs text-muted-foreground">
+                Vi bruger kun jeres oplysninger til at svare på henvendelsen. Læs mere i vores privatlivspolitik.
+              </p>
             </form>
           )}
         </div>
