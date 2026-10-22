@@ -21,7 +21,7 @@ const schema = z.object({
 export const Route = createFileRoute("/kontakt")({
   head: () => buildHead({
     title: "Kontakt | Freyra Evidence Workspace",
-    description: "Kontakt Freyra om et pilotprojekt, en førregistrering eller et samarbejde. Vi vender tilbage inden for én arbejdsdag.",
+    description: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde. Skriv via formularen, så vender vi tilbage.",
     path: "/kontakt",
     jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Kontakt", path: "/kontakt" }]),
   }),
@@ -63,7 +63,7 @@ function ContactPage() {
           <span className="eyebrow">Kontakt</span>
           <h1 className="mt-4 text-4xl md:text-5xl ">Book en snak om jeres projekt.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Fortæl os kort om området eller opgaven, så vender vi tilbage inden for én arbejdsdag med en konkret vurdering af, hvad der kan dokumenteres.
+            Fortæl os kort om området eller opgaven, så vender vi tilbage med en konkret vurdering af, hvad der kan dokumenteres.
           </p>
         </div>
       </section>
@@ -83,10 +83,11 @@ function ContactPage() {
             <p className="mt-2 text-sm text-muted-foreground">Bøgevej 4, 7160 Tørring</p>
           </div>
           {/* TODO: Tilføj direkte email og telefon, når de er klar fra kunden. */}
+          {/* TODO: Beskeder gemmes i backend-databasen (contact_messages). Opsæt email-notifikation, så nye henvendelser ikke skal tjekkes manuelt. */}
           <div className="card-soft p-6">
             <div className="text-sm font-semibold">Hvad sker der bagefter?</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Vi læser jeres besked og vender tilbage inden for én arbejdsdag. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
+              Beskeden gemmes sikkert hos os, og vi læser den personligt. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
             </p>
           </div>
         </div>
@@ -98,7 +99,7 @@ function ContactPage() {
                 <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
               <h2 className="mt-4 text-2xl ">Tak for beskeden</h2>
-              <p className="mt-2 text-muted-foreground">Vi vender tilbage inden for én arbejdsdag.</p>
+              <p className="mt-2 text-muted-foreground">Den er gemt sikkert hos os, og vi vender tilbage.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
