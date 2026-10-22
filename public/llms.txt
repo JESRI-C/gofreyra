@@ -1,38 +1,17 @@
-# GoFreyra
+# Freyra Evidence Workspace
 
-> Dansk SaaS-platform der samler miljødata, AI-analyse og ESG-dokumentation i én platform, så organisationer kan måle, dokumentere og bevise reel impact.
+> Freyra er en verificerbar evidenskæde for natur- og arealprojekter i Grøn Trepart. Platformen samler dronefotos, offentlige danske data og faglig verifikation i versionerede evidenspakker, så kommuner, treparter og projektejere kan stå på mål for deres dokumentation.
 
-GoFreyra er bygget til kommuner, industri, forsyning, ESG- og compliance-teams, naturprojektejere, landbrug, skovbrug og rådgivere. Platformen består af fire moduler — SmartConnect+ (dataindsamling), DecisionsIQ (AI-analyse), ESG Ledger (audit trail og dokumentation) og Impact Exchange (impact-synliggørelse) — der deler ét fælles datagrundlag.
+Freyra er et lag oven på de systemer, kommunen allerede bruger (MARS, GATE, Miljøportalen), ikke en erstatning. Datakilder omfatter Dataforsyningen, Danmarks Arealinformation, GEUS, DMI og Sentinel-2. Evidenspakker er versionerede med SHA-256 fingeraftryk og revisionsspor.
 
-## Platform
+Selskab: Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring. Ejet af Freyra Group ApS.
 
-- [Platform-overblik](/platform): De fire moduler og hvordan de spiller sammen.
-- [SmartConnect+](/platform/smartconnect): Indsamling af sensor-, felt-, drifts- og satellitdata.
-- [DecisionsIQ](/platform/decisionsiq): AI-analyse, mønstre og anbefalinger.
-- [ESG Ledger](/platform/esg-ledger): Audit trail og rapportklar ESG-dokumentation.
-- [Impact Exchange](/platform/impact-exchange): Natur- og impactprojekter klar til rapportering.
+## Sider
 
-## Brancher
-
-- [Brancher](/brancher): Oversigt over de 10 brancher GoFreyra arbejder med.
-- [Kommuner](/loesninger/kommuner): Natur, klima, biodiversitet og borgervendt dokumentation.
-- [Industri og forsyning](/loesninger/industri): Drift, energi, vand og emissioner.
-- [ESG og compliance](/loesninger/esg-compliance): CSRD, ESRS-mapping og audit trail.
-- [Naturprojekter](/loesninger/naturprojekter): Felt-, drone- og satellitdata til biodiversitet.
-
-## Viden og indsigter
-
-- [Indsigter](/indsigter): Praktisk B2B-viden om ESG, miljødata og audit trail.
-- [Problemer](/problemer): De konkrete problemer GoFreyra løser.
-- [Data](/data): Datatyper platformen arbejder med.
-- [Datakilder](/datakilder): Officielle datakilder og registry.
-- [Use cases](/use-cases): Sådan bruges GoFreyra i praksis.
-- [Projekter](/projekter): Eksempler på pilotforløb og projekter.
-- [Ordbog](/ordbog): Klare definitioner på ESG- og miljødatabegreber.
-
-## Virksomhed
-
-- [Om GoFreyra](/om): Mission, hold og baggrund.
-- [Priser](/priser): Pakker fra pilot til enterprise.
-- [Book demo](/book-demo): Få en gennemgang af platformen.
-- [Kontakt](/kontakt): Skriv eller ring til os.
+- [Forside](https://gofreyra.com/): Evidenskæde for natur- og arealprojekter
+- [Ydelser](https://gofreyra.com/ydelser): Førregistrering, beplantningsanalyse, evidenspakker, opfølgning, kommunalt setup og rådgivning
+- [Til kommuner](https://gofreyra.com/kommuner): Dokumentation til Grøn Trepart, fonde og trepartsmøder
+- [Platformen](https://gofreyra.com/platformen): Sådan virker Freyra Evidence Workspace
+- [Om](https://gofreyra.com/om): Holdet og principperne bag Freyra
+- [Kontakt](https://gofreyra.com/kontakt): Book en snak om et projekt
+- [Privatlivspolitik](https://gofreyra.com/privatlivspolitik): Behandling af personoplysninger
