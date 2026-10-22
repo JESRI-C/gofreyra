@@ -14,6 +14,15 @@
 - [x] Ord-sweep: ingen forbudte ord i synligt indhold
 - [x] Mobil (375px): overflow rettet i CTA-boks, menu virker, galleri stabler
 
+## Runde 4 (færdig)
+- [x] 5 nye dronefotos (07-11) på CDN, mærket august/september 2026
+- [x] /saadan-arbejder-vi: 6 faser, kvalitet og sporbarhed, hvad vi ikke gør
+- [x] /ydelser/<slug>: underside pr. ydelse med leverance, behov, trin, pris, relaterede
+- [x] /luftfoto: galleri med alle 11 fotos og tilgængelig lightbox
+- [x] /fonde-og-lodsejere: målgruppeside
+- [x] /faq: grupperet FAQ + ordliste + FAQPage schema
+- [x] Menu med Ydelser-dropdown, grupperet footer, sitemap opdateret
+
 Åbent (afventer kunden):
 - Rigtige skærmbilleder til public/images/screens/ (erstat pladsholdere)
 - Direkte email og telefon til /kontakt og privatlivspolitik (TODO i koden)
