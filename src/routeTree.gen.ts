@@ -47,6 +47,7 @@ import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninge
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
+import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
 import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
 import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
 import { Route as EnPricingRouteImport } from './routes/en.pricing'
@@ -55,6 +56,7 @@ import { Route as EnDashboardRouteImport } from './routes/en.dashboard'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnBookDemoRouteImport } from './routes/en.book-demo'
 import { Route as EnAboutRouteImport } from './routes/en.about'
+import { Route as EnSplatRouteImport } from './routes/en.$'
 import { Route as DataSlugRouteImport } from './routes/data.$slug'
 import { Route as DataSplatRouteImport } from './routes/data.$'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
@@ -257,6 +259,11 @@ const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
   path: '/loesninger/esg-compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoesningerSplatRoute = LoesningerSplatRouteImport.update({
+  id: '/loesninger/$',
+  path: '/loesninger/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -295,6 +302,11 @@ const EnBookDemoRoute = EnBookDemoRouteImport.update({
 const EnAboutRoute = EnAboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnSplatRoute = EnSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => EnRoute,
 } as any)
 const DataSlugRoute = DataSlugRouteImport.update({
@@ -378,6 +390,7 @@ export interface FileRoutesByFullPath {
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/$': typeof EnSplatRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
   '/en/contact': typeof EnContactRoute
@@ -386,6 +399,7 @@ export interface FileRoutesByFullPath {
   '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
+  '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -435,6 +449,7 @@ export interface FileRoutesByTo {
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/$': typeof EnSplatRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
   '/en/contact': typeof EnContactRoute
@@ -443,6 +458,7 @@ export interface FileRoutesByTo {
   '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
+  '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -494,6 +510,7 @@ export interface FileRoutesById {
   '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
+  '/en/$': typeof EnSplatRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
   '/en/contact': typeof EnContactRoute
@@ -502,6 +519,7 @@ export interface FileRoutesById {
   '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
+  '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
@@ -554,6 +572,7 @@ export interface FileRouteTypes {
     | '/brancher/$slug'
     | '/data/$'
     | '/data/$slug'
+    | '/en/$'
     | '/en/about'
     | '/en/book-demo'
     | '/en/contact'
@@ -562,6 +581,7 @@ export interface FileRouteTypes {
     | '/en/pricing'
     | '/indsigter/$'
     | '/indsigter/$slug'
+    | '/loesninger/$'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -611,6 +631,7 @@ export interface FileRouteTypes {
     | '/brancher/$slug'
     | '/data/$'
     | '/data/$slug'
+    | '/en/$'
     | '/en/about'
     | '/en/book-demo'
     | '/en/contact'
@@ -619,6 +640,7 @@ export interface FileRouteTypes {
     | '/en/pricing'
     | '/indsigter/$'
     | '/indsigter/$slug'
+    | '/loesninger/$'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -669,6 +691,7 @@ export interface FileRouteTypes {
     | '/brancher/$slug'
     | '/data/$'
     | '/data/$slug'
+    | '/en/$'
     | '/en/about'
     | '/en/book-demo'
     | '/en/contact'
@@ -677,6 +700,7 @@ export interface FileRouteTypes {
     | '/en/pricing'
     | '/indsigter/$'
     | '/indsigter/$slug'
+    | '/loesninger/$'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
@@ -724,6 +748,7 @@ export interface RootRouteChildren {
   UseCasesRoute: typeof UseCasesRouteWithChildren
   YdelserRoute: typeof YdelserRoute
   ApiAiEsgAnalyseRoute: typeof ApiAiEsgAnalyseRoute
+  LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
   LoesningerIndustriRoute: typeof LoesningerIndustriRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
@@ -999,6 +1024,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoesningerEsgComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/loesninger/$': {
+      id: '/loesninger/$'
+      path: '/loesninger/$'
+      fullPath: '/loesninger/$'
+      preLoaderRoute: typeof LoesningerSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/indsigter/$slug': {
       id: '/indsigter/$slug'
       path: '/$slug'
@@ -1053,6 +1085,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/en/about'
       preLoaderRoute: typeof EnAboutRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/$': {
+      id: '/en/$'
+      path: '/$'
+      fullPath: '/en/$'
+      preLoaderRoute: typeof EnSplatRouteImport
       parentRoute: typeof EnRoute
     }
     '/data/$slug': {
@@ -1173,6 +1212,7 @@ const EnPlatformRouteWithChildren = EnPlatformRoute._addFileChildren(
 )
 
 interface EnRouteChildren {
+  EnSplatRoute: typeof EnSplatRoute
   EnAboutRoute: typeof EnAboutRoute
   EnBookDemoRoute: typeof EnBookDemoRoute
   EnContactRoute: typeof EnContactRoute
@@ -1183,6 +1223,7 @@ interface EnRouteChildren {
 }
 
 const EnRouteChildren: EnRouteChildren = {
+  EnSplatRoute: EnSplatRoute,
   EnAboutRoute: EnAboutRoute,
   EnBookDemoRoute: EnBookDemoRoute,
   EnContactRoute: EnContactRoute,
@@ -1293,6 +1334,7 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesRoute: UseCasesRouteWithChildren,
   YdelserRoute: YdelserRoute,
   ApiAiEsgAnalyseRoute: ApiAiEsgAnalyseRoute,
+  LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
   LoesningerIndustriRoute: LoesningerIndustriRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
