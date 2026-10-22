@@ -46,7 +46,7 @@ const PHOTOS: Record<string, { url: string; alt: string; caption: string }> = {
   },
 };
 
-export const Route = createFileRoute("/ydelser/$slug")({
+export const Route = createFileRoute("/ydelser_/$slug")({
   beforeLoad: ({ params }) => {
     if (!getYdelse(params.slug)) throw notFound();
   },
