@@ -16,17 +16,17 @@ const FAQ = [
   { q: "Hvad er en evidenskæde?", a: "En evidenskæde betyder, at hver påstand i en rapport kan spores tilbage til sin kilde. Et dronefoto, et offentligt datasæt, en beregning og en faglig vurdering hænger sammen og er versioneret." },
   { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
   { q: "Hvem bruger Freyra?", a: "Kommuner, lokale treparter, rådgivere, naturfonde og større lodsejere, der arbejder med natur- og arealprojekter i Grøn Trepart." },
-  { q: "Hvad koster det?", a: "Et pilotprojekt starter fra 125.000 kr. De øvrige ydelser prissættes efter aftale, afhængigt af område, datagrundlag og omfang." },
-  { q: "Hvor hurtigt kan vi komme i gang?", a: "Et pilotprojekt kan typisk gennemføres på få uger, afhængigt af område og vejrforhold til droneflyvning." },
+  { q: "Hvad koster det?", a: "Et pilotforløb starter fra 125.000 kr. De øvrige ydelser prissættes efter aftale, afhængigt af område, datagrundlag og omfang." },
+  { q: "Hvor hurtigt kan vi komme i gang?", a: "Det afhænger af området og vejret til droneflyvning. Vi aftaler en plan i første samtale." },
 ];
 
 const YDELSER = [
-  { t: "Førregistrering af natur- og arealprojekter", d: "Droneflyvning, offentlige data og faglig verifikation samlet i en versioneret baseline." },
-  { t: "Beplantnings- og etableringsanalyse", d: "Regelbaseret vurdering af, hvor beplantning er egnet, betinget egnet eller uegnet." },
-  { t: "Evidenspakker til trepart og fonde", d: "Et samlet, efterprøveligt grundlag til ansøgninger, fonde og den lokale trepart." },
-  { t: "Opfølgning og genbesøg", d: "Gentagelsespunkter og før/efter-dokumentation, så udviklingen kan følges over tid." },
-  { t: "Kommunalt evidens-setup", d: "Faste workflows og login, så kommunen altid kan finde og genbruge sin dokumentation." },
-  { t: "Rådgivning om data og metoder", d: "Hjælp til at vælge datakilder, metoder og dokumentationsniveau, før I går i gang." },
+  { t: "Droneførregistrering og baseline af vandløb og arealer", d: "Droneflyvning, offentlige data og faglig verifikation samlet i en versioneret baseline.", anchor: "dronefoerregistrering" },
+  { t: "Datagrundlag og screening fra offentlige data", d: "Kort, jord, vejr og satellit hentet og samlet på det konkrete areal.", anchor: "datagrundlag" },
+  { t: "Gentagen monitorering og efterflyvning (før/efter)", d: "Gentagelsespunkter og før/efter-dokumentation, så udviklingen kan følges over tid.", anchor: "monitorering" },
+  { t: "Beplantnings- og naturegnethedsanalyse (skitse til faglig validering)", d: "Regelbaseret vurdering af, hvor beplantning er egnet, betinget egnet eller uegnet.", anchor: "beplantningsanalyse" },
+  { t: "Evidenspakke til fonde, ansøgninger og lokal trepart", d: "Et samlet, efterprøveligt grundlag, hvor hver påstand kan spores til sin kilde.", anchor: "evidenspakke" },
+  { t: "Pilotforløb og projekt-/porteføljelicens til Evidence Workspace (fra 125.000 kr.)", d: "Et afgrænset forløb, der viser hele evidenskæden i praksis på jeres eget område.", anchor: "pilot" },
 ];
 
 const GALLERY = [
