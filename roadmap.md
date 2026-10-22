@@ -30,6 +30,6 @@
 - Publicering: sker først når kunden siger til
 
 ## Runde 2, del 2
-- [ ] Integrér de præcise batches, ret kun de to godkendte metaDescriptions og kontrollér links/sitemap
-- [ ] Brug kun mindre dronevarianter og kontrollér sider og billedstørrelser
-- [ ] Kontrollér tests og automatisk build/typecheck; publicér ikke
+- [x] Integrér de præcise batches, ret kun de to godkendte metaDescriptions og kontrollér links/sitemap
+- [x] Brug kun mindre dronevarianter og kontrollér sider og billedstørrelser
+- [x] Kontrollér tests og automatisk build/typecheck; publicér ikke
