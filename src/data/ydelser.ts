@@ -172,7 +172,7 @@ export const YDELSER: Ydelse[] = [
       "En kontaktperson og et lille team, der skal have adgang",
     ],
     steps: [
-      { n: "01", t: "Aftale", d: "Vi aftaler område, omfang og fast pris, før vi går i gang." },
+      { n: "01", t: "Aftale", d: "Vi aftaler område, omfang og pris, før vi går i gang." },
       { n: "02", t: "Gennemførelse", d: "Flyvning, datahentning, verifikation og baseline." },
       { n: "03", t: "Adgang", d: "Jeres team får adgang til Evidence Workspace." },
       { n: "04", t: "Evaluering", d: "Vi gennemgår resultatet og lægger en plan for videre brug." },

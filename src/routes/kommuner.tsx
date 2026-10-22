@@ -9,7 +9,7 @@ import heroPhoto from "@/assets/drone-vandloeb-06.jpg.asset.json";
 
 const FAQ = [
   { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
-  { q: "Kan kommunen selv tilgå materialet?", a: "Ja. Kommunen får login til Freyra Evidence Workspace og kan altid finde sine projekter, baseliner og evidenspakker." },
+  { q: "Kan kommunen selv tilgå materialet?", a: "Ja. Kommunen får login til Freyra Evidence Workspace og kan selv finde sine projekter, baseliner og evidenspakker." },
   { q: "Kan evidenspakkerne bruges til fondsansøgninger?", a: "Ja. Evidenspakkerne er bygget til at kunne deles med fonde, treparter og samarbejdspartnere. Hver påstand kan spores tilbage til sin kilde." },
   { q: "Hvad koster det for en kommune?", a: "Et pilotprojekt starter fra 125.000 kr. Et fast kommunalt setup prissættes efter aftale, afhængigt af antal projekter og omfang." },
   { q: "Hvem ejer data?", a: "Kommunen ejer sine egne data og evidenspakker. Vi opbevarer dem sikkert og gør dem tilgængelige via jeres login." },
@@ -87,7 +87,7 @@ function MunicipalitiesPage() {
           <SectionHeader eyebrow="Hvad I får" title="Et fælles, efterprøveligt grundlag." />
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             {[
-              { t: "Versioneret baseline", d: "En baselinerapport pr. område med dronefotos, offentlige data og faglig verifikation. Altid den samme struktur." },
+              { t: "Versioneret baseline", d: "En baselinerapport pr. område med dronefotos, offentlige data og faglig verifikation. Den har samme struktur fra område til område." },
               { t: "Evidenspakker til deling", d: "Pakker til fondsansøgninger, trepartsmøder og politisk behandling. Hver påstand har en kilde." },
               { t: "Gentagelsespunkter", d: "Faste positioner til før/efter-dokumentation, så udviklingen kan følges over tid." },
               { t: "Login for kommunen", d: "Adgang til egne projekter i Freyra Evidence Workspace. Materialet forsvinder ikke, når en medarbejder skifter job." },
@@ -147,7 +147,7 @@ function MunicipalitiesPage() {
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
           <div>
             <span className="eyebrow">Adgang</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Kommunen har altid adgang til sit eget materiale.</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl">Kommunen har adgang til sit eget materiale.</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Med login til Freyra Evidence Workspace kan jeres team finde projekter, baseliner og evidenspakker ét sted. Uden at skulle spørge os først.
             </p>

@@ -26,7 +26,7 @@ const SCREENS = [
 const FAQ = [
   { q: "Hvad er Freyra Evidence Workspace?", a: "Det er den platform, hvor jeres projekter, baseliner og evidenspakker ligger. Her samler vi dronefotos, offentlige data og faglig verifikation i én evidenskæde pr. projekt." },
   { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
-  { q: "Hvad betyder versionering?", a: "Hver ændring i et projekt gemmes som en ny version. I kan altid se, hvad der er ændret, hvornår og af hvem, og I kan gå tilbage til en tidligere version." },
+  { q: "Hvad betyder versionering?", a: "Hver ændring i et projekt gemmes som en ny version. I kan se, hvad der er ændret, hvornår og af hvem, og I kan gå tilbage til en tidligere version." },
   { q: "Hvad er et SHA-256 fingeraftryk?", a: "Det er en digital kontrolsum på en fil eller en evidenspakke. Hvis indholdet ændres, ændres fingeraftrykket. Det gør det muligt at dokumentere, at en pakke er uændret siden den blev lavet." },
   { q: "Hvem har adgang?", a: "Kommunen eller projektejeren får login og styrer selv, hvem der skal have adgang. Vi giver ikke andre adgang til jeres data." },
 ];

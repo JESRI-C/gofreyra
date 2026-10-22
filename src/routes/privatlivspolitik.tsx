@@ -84,7 +84,7 @@ function PrivacyPage() {
 
         <Section title="8. Ændringer">
           <p>
-            Vi opdaterer denne privatlivspolitik, når vores behandling ændrer sig. Den gældende version findes altid på denne side.
+            Vi opdaterer denne privatlivspolitik, når vores behandling ændrer sig. Den gældende version findes på denne side.
           </p>
         </Section>
       </div>

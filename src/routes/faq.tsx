@@ -33,8 +33,8 @@ const GRUPPER: { title: string; items: { q: string; a: string }[] }[] = [
   {
     title: "Samarbejde og pris",
     items: [
-      { q: "Hvad koster et pilotforløb?", a: "Et pilotforløb starter fra 125.000 kr. Det dækker et afgrænset forløb på jeres eget område med hele evidenskæden fra dronefoto til versioneret baseline." },
-      { q: "Hvad koster de øvrige ydelser?", a: "Pris efter aftale. Prisen afhænger af områdets størrelse, datagrundlag og omfang. I får altid en fast pris, før vi går i gang." },
+      { q: "Hvad koster et pilotforløb?", a: "Et pilotforløb starter fra 125.000 kr. Det dækker et afgrænset område med aftalt omfang." },
+      { q: "Hvad koster de øvrige ydelser?", a: "Pris efter aftale. Prisen afhænger af områdets størrelse, datagrundlag og omfang. Vi aftaler omfang og pris, før vi går i gang." },
       { q: "Kan I arbejde sammen med vores rådgiver?", a: "Ja. Vi leverer datagrundlag og evidenspakker, som jeres rådgiver kan bygge videre på. Egnethedsanalyser leveres som skitser til faglig validering hos jeres rådgiver." },
       { q: "Hvem bruger Freyra?", a: "Kommuner, lokale treparter, rådgivere, naturfonde og større lodsejere, der arbejder med natur- og arealprojekter i Grøn Trepart." },
     ],
@@ -50,8 +50,8 @@ const GRUPPER: { title: string; items: { q: string; a: string }[] }[] = [
 ];
 
 const ORDLISTE = [
-  { t: "Grøn Trepart", d: "Samarbejdet mellem kommuner, landbrug og naturorganisationer om natur- og klimaprojekter på landarealer." },
-  { t: "Lokal trepart", d: "Det lokale samarbejde om et konkret projekt, typisk mellem kommunen, lodsejere og lokale organisationer." },
+  { t: "Grøn Trepart", d: "Aftalen mellem staten, landbruget, natur- og miljøorganisationer og kommunerne om omstilling af arealer til natur, skov og klima. Indsatsen gennemføres lokalt i lokale treparter." },
+  { t: "Lokal trepart", d: "Det lokale samarbejde, typisk ledet af kommunerne, der omsætter Grøn Trepart til konkrete projekter med lodsejere og organisationer." },
   { t: "Baseline", d: "Det dokumenterede udgangspunkt for et område, før et projekt går i gang. Uden baseline kan forandring ikke vises." },
   { t: "Førregistrering", d: "Registrering af et områdes tilstand før en indsats, typisk med dronefotos, kortdata og faglig vurdering." },
   { t: "Gentagelsespunkt", d: "Et fast punkt med kendt position, hvorfra der tages fotos ved hver flyvning, så før og efter kan sammenlignes." },
