@@ -31,6 +31,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as YdelserSlugRouteImport } from './routes/ydelser.$slug'
 import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
 import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
 import { Route as PlatformSplatRouteImport } from './routes/platform.$'
@@ -153,6 +154,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const YdelserSlugRoute = YdelserSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => YdelserRoute,
+} as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -232,7 +238,7 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
+  '/ydelser': typeof YdelserRouteWithChildren
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -243,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/ydelser/$slug': typeof YdelserSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
@@ -267,7 +274,7 @@ export interface FileRoutesByTo {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
+  '/ydelser': typeof YdelserRouteWithChildren
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -278,6 +285,7 @@ export interface FileRoutesByTo {
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/ydelser/$slug': typeof YdelserSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
@@ -303,7 +311,7 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
+  '/ydelser': typeof YdelserRouteWithChildren
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
   '/en/$': typeof EnSplatRoute
@@ -314,6 +322,7 @@ export interface FileRoutesById {
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
+  '/ydelser/$slug': typeof YdelserSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -351,6 +360,7 @@ export interface FileRouteTypes {
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/ydelser/$slug'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/ydelser/$slug'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
@@ -421,6 +432,7 @@ export interface FileRouteTypes {
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
+    | '/ydelser/$slug'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -446,7 +458,7 @@ export interface RootRouteChildren {
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
-  YdelserRoute: typeof YdelserRoute
+  YdelserRoute: typeof YdelserRouteWithChildren
   LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
@@ -607,6 +619,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/ydelser/$slug': {
+      id: '/ydelser/$slug'
+      path: '/$slug'
+      fullPath: '/ydelser/$slug'
+      preLoaderRoute: typeof YdelserSlugRouteImport
+      parentRoute: typeof YdelserRoute
     }
     '/use-cases/$': {
       id: '/use-cases/$'
@@ -779,6 +798,17 @@ const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
   UseCasesRouteChildren,
 )
 
+interface YdelserRouteChildren {
+  YdelserSlugRoute: typeof YdelserSlugRoute
+}
+
+const YdelserRouteChildren: YdelserRouteChildren = {
+  YdelserSlugRoute: YdelserSlugRoute,
+}
+
+const YdelserRouteWithChildren =
+  YdelserRoute._addFileChildren(YdelserRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
@@ -801,7 +831,7 @@ const rootRouteChildren: RootRouteChildren = {
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
-  YdelserRoute: YdelserRoute,
+  YdelserRoute: YdelserRouteWithChildren,
   LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
