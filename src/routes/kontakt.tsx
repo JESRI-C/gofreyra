@@ -61,7 +61,7 @@ function ContactPage() {
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
           <span className="eyebrow">Kontakt</span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Book en snak om jeres projekt.</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl ">Book en snak om jeres projekt.</h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Fortæl os kort om området eller opgaven, så vender vi tilbage inden for én arbejdsdag med en konkret vurdering af, hvad der kan dokumenteres.
           </p>
@@ -94,10 +94,10 @@ function ContactPage() {
         <div className="card-soft p-6 md:p-8">
           {done ? (
             <div className="text-center py-8">
-              <div className="w-14 h-14 rounded-full bg-primary/10 grid place-items-center mx-auto">
+              <div className="w-14 h-14 rounded-md bg-primary/10 grid place-items-center mx-auto">
                 <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
-              <h2 className="mt-4 text-2xl font-bold">Tak for beskeden</h2>
+              <h2 className="mt-4 text-2xl ">Tak for beskeden</h2>
               <p className="mt-2 text-muted-foreground">Vi vender tilbage inden for én arbejdsdag.</p>
             </div>
           ) : (
@@ -112,7 +112,7 @@ function ContactPage() {
               </div>
               <div><Label htmlFor="message">Besked *</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" placeholder="Fortæl kort om området eller opgaven" /></div>
               {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" disabled={loading} className="w-full rounded-full h-11">{loading ? "Sender…" : "Send besked"}</Button>
+              <Button type="submit" disabled={loading} className="w-full rounded-md h-11">{loading ? "Sender…" : "Send besked"}</Button>
               <p className="text-xs text-muted-foreground">
                 Vi bruger kun jeres oplysninger til at svare på henvendelsen. Læs mere i vores privatlivspolitik.
               </p>

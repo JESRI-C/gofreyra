@@ -36,7 +36,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
+          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md">
             <Link to="/kontakt">Book en snak</Link>
           </Button>
         </div>
@@ -59,7 +59,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="w-full rounded-full">
+            <Button asChild className="w-full rounded-md">
               <Link to="/kontakt" onClick={() => setOpen(false)}>Book en snak</Link>
             </Button>
           </div>

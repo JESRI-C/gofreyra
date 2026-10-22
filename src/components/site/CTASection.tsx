@@ -17,20 +17,18 @@ export function CTASection({
 
   return (
     <section className="container-page my-20">
-      <div className="relative overflow-hidden rounded-3xl bg-brand-deep text-white p-10 md:p-16">
-        <div className="absolute inset-0 opacity-30 pointer-events-none"
-          style={{ background: "radial-gradient(600px 240px at 80% 20%, rgba(43,196,138,0.55), transparent 60%)" }} />
-        <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+      <div className="rounded-lg bg-brand-deep text-white p-10 md:p-16">
+        <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-white/70">{ey}</div>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white max-w-2xl">{ti}</h2>
+            <div className="inline-flex items-center gap-2 text-xs font-medium tracking-wider uppercase text-white/70">{ey}</div>
+            <h2 className="mt-3 text-3xl md:text-4xl text-white max-w-2xl">{ti}</h2>
             <p className="mt-3 text-white/80 max-w-xl">{su}</p>
           </div>
           <div className="flex gap-3">
-            <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-6">
+            <Button asChild className="rounded-md bg-white text-brand-deep hover:bg-white/90 h-12 px-6">
               <Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full h-12 px-6 bg-transparent border-white/30 text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="rounded-md h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10">
               <Link to="/platformen">Se platformen</Link>
             </Button>
           </div>
