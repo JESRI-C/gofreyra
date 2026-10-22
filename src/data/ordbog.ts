@@ -790,7 +790,7 @@ export const ordbog: Term[] = [
   "slug": "gentagelsespunkt",
   "term": "Gentagelsespunkt",
   "metaTitle": "Gentagelsespunkt: hvad betyder det?",
-  "metaDescription": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid. Kort forklaret med kilder og relaterede begreber.",
+  "metaDescription": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid. Kort forklaret i Freyras ordbog.",
   "short": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid.",
   "body": [
    "Punkterne vælges ved baseline og dækker de vigtigste dele af projektområdet. Samme position, retning og helst samme årstid gør før/efter-billeder sammenlignelige."
@@ -810,7 +810,7 @@ export const ordbog: Term[] = [
   "slug": "efterflyvning",
   "term": "Efterflyvning",
   "metaTitle": "Efterflyvning: hvad betyder det?",
-  "metaDescription": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen. Kort forklaret med kilder og relaterede begreber.",
+  "metaDescription": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen. Kort forklaret i Freyras ordbog.",
   "short": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen.",
   "body": [
    "Efterflyvninger bruges til at dokumentere udviklingen, fx efter anlæg af et vådområde eller beplantning."

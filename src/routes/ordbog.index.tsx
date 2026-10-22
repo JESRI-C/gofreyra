@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
-import { ordbog } from "@/data/ordbog";
+import { alleTermer } from "@/data/content";
 import { DEFAULT_OG_IMAGE } from "@/lib/photo-variants";
 
-const sorted = [...ordbog].sort((a, b) => a.term.localeCompare(b.term, "da"));
+const sorted = [...alleTermer].sort((a, b) => a.term.localeCompare(b.term, "da"));
 
 function letterOf(term: string) {
   const c = term.replace(/^[^A-Za-zÆØÅæøå0-9]+/, "").charAt(0).toLocaleUpperCase("da");
