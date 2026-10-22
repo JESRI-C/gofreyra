@@ -2,7 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const BASE = "https://gofreyra.com";
 
-const PAGES = ["/", "/ydelser", "/kommuner", "/platformen", "/om", "/kontakt", "/privatlivspolitik"];
+const PAGES = [
+  "/",
+  "/ydelser",
+  "/ydelser/dronefoerregistrering",
+  "/ydelser/datagrundlag",
+  "/ydelser/monitorering",
+  "/ydelser/beplantningsanalyse",
+  "/ydelser/evidenspakke",
+  "/ydelser/pilot",
+  "/kommuner",
+  "/fonde-og-lodsejere",
+  "/platformen",
+  "/saadan-arbejder-vi",
+  "/luftfoto",
+  "/faq",
+  "/om",
+  "/kontakt",
+  "/privatlivspolitik",
+];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
