@@ -1,8 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useLocale } from "@/i18n/LocaleContext";
-import { t } from "@/i18n/chrome";
 
 export function CTASection({
   eyebrow,
@@ -13,12 +11,9 @@ export function CTASection({
   title?: string;
   subtitle?: string;
 }) {
-  const locale = useLocale();
-  const T = t(locale);
-  const isEn = locale === "en";
-  const ey = eyebrow ?? T.ctaSection.eyebrow;
-  const ti = title ?? T.ctaSection.title;
-  const su = subtitle ?? T.ctaSection.subtitle;
+  const ey = eyebrow ?? "Book en snak";
+  const ti = title ?? "Skal vi se på jeres projektområde?";
+  const su = subtitle ?? "En uforpligtende samtale om jeres område, jeres data og hvad en førregistrering kan give jer.";
 
   return (
     <section className="container-page my-20">
@@ -33,10 +28,10 @@ export function CTASection({
           </div>
           <div className="flex gap-3">
             <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-6">
-              <Link to={isEn ? "/en/book-demo" : "/book-demo"}>{T.cta.bookDemo} <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+              <Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
             </Button>
             <Button asChild variant="outline" className="rounded-full h-12 px-6 bg-transparent border-white/30 text-white hover:bg-white/10">
-              <Link to={isEn ? "/en/platform" : "/platform"}>{T.cta.seePlatform}</Link>
+              <Link to="/platformen">Se platformen</Link>
             </Button>
           </div>
         </div>
