@@ -31,41 +31,16 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EnIndexRouteImport } from './routes/en.index'
-import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
 import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
-import { Route as ProblemerSlugRouteImport } from './routes/problemer.$slug'
 import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
-import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
-import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
-import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
-import { Route as PlatformDecisionsiqRouteImport } from './routes/platform.decisionsiq'
 import { Route as PlatformSplatRouteImport } from './routes/platform.$'
-import { Route as OrdbogTermRouteImport } from './routes/ordbog.$term'
 import { Route as OrdbogSplatRouteImport } from './routes/ordbog.$'
-import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninger.naturprojekter'
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
-import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
-import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
 import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
-import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
 import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
-import { Route as EnPricingRouteImport } from './routes/en.pricing'
-import { Route as EnPlatformRouteImport } from './routes/en.platform'
-import { Route as EnDashboardRouteImport } from './routes/en.dashboard'
-import { Route as EnContactRouteImport } from './routes/en.contact'
-import { Route as EnBookDemoRouteImport } from './routes/en.book-demo'
-import { Route as EnAboutRouteImport } from './routes/en.about'
 import { Route as EnSplatRouteImport } from './routes/en.$'
-import { Route as DataSlugRouteImport } from './routes/data.$slug'
 import { Route as DataSplatRouteImport } from './routes/data.$'
-import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
 import { Route as BrancherSplatRouteImport } from './routes/brancher.$'
-import { Route as ApiAiEsgAnalyseRouteImport } from './routes/api/ai-esg-analyse'
-import { Route as EnPlatformSmartconnectRouteImport } from './routes/en.platform.smartconnect'
-import { Route as EnPlatformImpactExchangeRouteImport } from './routes/en.platform.impact-exchange'
-import { Route as EnPlatformEsgLedgerRouteImport } from './routes/en.platform.esg-ledger'
-import { Route as EnPlatformDecisionsiqRouteImport } from './routes/en.platform.decisionsiq'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const YdelserRoute = YdelserRouteImport.update({
@@ -178,85 +153,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnIndexRoute = EnIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => EnRoute,
-} as any)
-const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => UseCasesRoute,
-} as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => UseCasesRoute,
-} as any)
-const ProblemerSlugRoute = ProblemerSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProblemerRoute,
 } as any)
 const ProblemerSplatRoute = ProblemerSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => ProblemerRoute,
 } as any)
-const PlatformSmartconnectRoute = PlatformSmartconnectRouteImport.update({
-  id: '/smartconnect',
-  path: '/smartconnect',
-  getParentRoute: () => PlatformRoute,
-} as any)
-const PlatformImpactExchangeRoute = PlatformImpactExchangeRouteImport.update({
-  id: '/impact-exchange',
-  path: '/impact-exchange',
-  getParentRoute: () => PlatformRoute,
-} as any)
-const PlatformEsgLedgerRoute = PlatformEsgLedgerRouteImport.update({
-  id: '/esg-ledger',
-  path: '/esg-ledger',
-  getParentRoute: () => PlatformRoute,
-} as any)
-const PlatformDecisionsiqRoute = PlatformDecisionsiqRouteImport.update({
-  id: '/decisionsiq',
-  path: '/decisionsiq',
-  getParentRoute: () => PlatformRoute,
-} as any)
 const PlatformSplatRoute = PlatformSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => PlatformRoute,
-} as any)
-const OrdbogTermRoute = OrdbogTermRouteImport.update({
-  id: '/$term',
-  path: '/$term',
-  getParentRoute: () => OrdbogRoute,
 } as any)
 const OrdbogSplatRoute = OrdbogSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => OrdbogRoute,
 } as any)
-const LoesningerNaturprojekterRoute =
-  LoesningerNaturprojekterRouteImport.update({
-    id: '/loesninger/naturprojekter',
-    path: '/loesninger/naturprojekter',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
   id: '/loesninger/kommuner',
   path: '/loesninger/kommuner',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoesningerIndustriRoute = LoesningerIndustriRouteImport.update({
-  id: '/loesninger/industri',
-  path: '/loesninger/industri',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
-  id: '/loesninger/esg-compliance',
-  path: '/loesninger/esg-compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoesningerSplatRoute = LoesningerSplatRouteImport.update({
@@ -264,96 +183,25 @@ const LoesningerSplatRoute = LoesningerSplatRouteImport.update({
   path: '/loesninger/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => IndsigterRoute,
-} as any)
 const IndsigterSplatRoute = IndsigterSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => IndsigterRoute,
-} as any)
-const EnPricingRoute = EnPricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnPlatformRoute = EnPlatformRouteImport.update({
-  id: '/platform',
-  path: '/platform',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnDashboardRoute = EnDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnContactRoute = EnContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnBookDemoRoute = EnBookDemoRouteImport.update({
-  id: '/book-demo',
-  path: '/book-demo',
-  getParentRoute: () => EnRoute,
-} as any)
-const EnAboutRoute = EnAboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => EnRoute,
 } as any)
 const EnSplatRoute = EnSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => EnRoute,
 } as any)
-const DataSlugRoute = DataSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => DataRoute,
-} as any)
 const DataSplatRoute = DataSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => DataRoute,
 } as any)
-const BrancherSlugRoute = BrancherSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BrancherRoute,
-} as any)
 const BrancherSplatRoute = BrancherSplatRouteImport.update({
   id: '/$',
   path: '/$',
   getParentRoute: () => BrancherRoute,
-} as any)
-const ApiAiEsgAnalyseRoute = ApiAiEsgAnalyseRouteImport.update({
-  id: '/api/ai-esg-analyse',
-  path: '/api/ai-esg-analyse',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnPlatformSmartconnectRoute = EnPlatformSmartconnectRouteImport.update({
-  id: '/smartconnect',
-  path: '/smartconnect',
-  getParentRoute: () => EnPlatformRoute,
-} as any)
-const EnPlatformImpactExchangeRoute =
-  EnPlatformImpactExchangeRouteImport.update({
-    id: '/impact-exchange',
-    path: '/impact-exchange',
-    getParentRoute: () => EnPlatformRoute,
-  } as any)
-const EnPlatformEsgLedgerRoute = EnPlatformEsgLedgerRouteImport.update({
-  id: '/esg-ledger',
-  path: '/esg-ledger',
-  getParentRoute: () => EnPlatformRoute,
-} as any)
-const EnPlatformDecisionsiqRoute = EnPlatformDecisionsiqRouteImport.update({
-  id: '/decisionsiq',
-  path: '/decisionsiq',
-  getParentRoute: () => EnPlatformRoute,
 } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
@@ -385,41 +233,16 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
-  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$': typeof BrancherSplatRoute
-  '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
-  '/data/$slug': typeof DataSlugRoute
   '/en/$': typeof EnSplatRoute
-  '/en/about': typeof EnAboutRoute
-  '/en/book-demo': typeof EnBookDemoRoute
-  '/en/contact': typeof EnContactRoute
-  '/en/dashboard': typeof EnDashboardRoute
-  '/en/platform': typeof EnPlatformRouteWithChildren
-  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
-  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/$': typeof LoesningerSplatRoute
-  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
-  '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
   '/ordbog/$': typeof OrdbogSplatRoute
-  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/$': typeof PlatformSplatRoute
-  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
-  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
-  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
-  '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$': typeof ProblemerSplatRoute
-  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/use-cases/$slug': typeof UseCasesSlugRoute
-  '/en/': typeof EnIndexRoute
-  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
-  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
-  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
-  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
@@ -429,6 +252,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
+  '/en': typeof EnRouteWithChildren
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
@@ -444,41 +268,16 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
-  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$': typeof BrancherSplatRoute
-  '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
-  '/data/$slug': typeof DataSlugRoute
   '/en/$': typeof EnSplatRoute
-  '/en/about': typeof EnAboutRoute
-  '/en/book-demo': typeof EnBookDemoRoute
-  '/en/contact': typeof EnContactRoute
-  '/en/dashboard': typeof EnDashboardRoute
-  '/en/platform': typeof EnPlatformRouteWithChildren
-  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
-  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/$': typeof LoesningerSplatRoute
-  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
-  '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
   '/ordbog/$': typeof OrdbogSplatRoute
-  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/$': typeof PlatformSplatRoute
-  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
-  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
-  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
-  '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$': typeof ProblemerSplatRoute
-  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/use-cases/$slug': typeof UseCasesSlugRoute
-  '/en': typeof EnIndexRoute
-  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
-  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
-  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
-  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
@@ -505,41 +304,16 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
-  '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
   '/brancher/$': typeof BrancherSplatRoute
-  '/brancher/$slug': typeof BrancherSlugRoute
   '/data/$': typeof DataSplatRoute
-  '/data/$slug': typeof DataSlugRoute
   '/en/$': typeof EnSplatRoute
-  '/en/about': typeof EnAboutRoute
-  '/en/book-demo': typeof EnBookDemoRoute
-  '/en/contact': typeof EnContactRoute
-  '/en/dashboard': typeof EnDashboardRoute
-  '/en/platform': typeof EnPlatformRouteWithChildren
-  '/en/pricing': typeof EnPricingRoute
   '/indsigter/$': typeof IndsigterSplatRoute
-  '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/$': typeof LoesningerSplatRoute
-  '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
-  '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
   '/ordbog/$': typeof OrdbogSplatRoute
-  '/ordbog/$term': typeof OrdbogTermRoute
   '/platform/$': typeof PlatformSplatRoute
-  '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
-  '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
-  '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
-  '/platform/smartconnect': typeof PlatformSmartconnectRoute
   '/problemer/$': typeof ProblemerSplatRoute
-  '/problemer/$slug': typeof ProblemerSlugRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/use-cases/$slug': typeof UseCasesSlugRoute
-  '/en/': typeof EnIndexRoute
-  '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
-  '/en/platform/esg-ledger': typeof EnPlatformEsgLedgerRoute
-  '/en/platform/impact-exchange': typeof EnPlatformImpactExchangeRoute
-  '/en/platform/smartconnect': typeof EnPlatformSmartconnectRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -567,41 +341,16 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
-    | '/api/ai-esg-analyse'
     | '/brancher/$'
-    | '/brancher/$slug'
     | '/data/$'
-    | '/data/$slug'
     | '/en/$'
-    | '/en/about'
-    | '/en/book-demo'
-    | '/en/contact'
-    | '/en/dashboard'
-    | '/en/platform'
-    | '/en/pricing'
     | '/indsigter/$'
-    | '/indsigter/$slug'
     | '/loesninger/$'
-    | '/loesninger/esg-compliance'
-    | '/loesninger/industri'
     | '/loesninger/kommuner'
-    | '/loesninger/naturprojekter'
     | '/ordbog/$'
-    | '/ordbog/$term'
     | '/platform/$'
-    | '/platform/decisionsiq'
-    | '/platform/esg-ledger'
-    | '/platform/impact-exchange'
-    | '/platform/smartconnect'
     | '/problemer/$'
-    | '/problemer/$slug'
     | '/use-cases/$'
-    | '/use-cases/$slug'
-    | '/en/'
-    | '/en/platform/decisionsiq'
-    | '/en/platform/esg-ledger'
-    | '/en/platform/impact-exchange'
-    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -611,6 +360,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/data'
     | '/datakilder'
+    | '/en'
     | '/indsigter'
     | '/kommuner'
     | '/kontakt'
@@ -626,41 +376,16 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
-    | '/api/ai-esg-analyse'
     | '/brancher/$'
-    | '/brancher/$slug'
     | '/data/$'
-    | '/data/$slug'
     | '/en/$'
-    | '/en/about'
-    | '/en/book-demo'
-    | '/en/contact'
-    | '/en/dashboard'
-    | '/en/platform'
-    | '/en/pricing'
     | '/indsigter/$'
-    | '/indsigter/$slug'
     | '/loesninger/$'
-    | '/loesninger/esg-compliance'
-    | '/loesninger/industri'
     | '/loesninger/kommuner'
-    | '/loesninger/naturprojekter'
     | '/ordbog/$'
-    | '/ordbog/$term'
     | '/platform/$'
-    | '/platform/decisionsiq'
-    | '/platform/esg-ledger'
-    | '/platform/impact-exchange'
-    | '/platform/smartconnect'
     | '/problemer/$'
-    | '/problemer/$slug'
     | '/use-cases/$'
-    | '/use-cases/$slug'
-    | '/en'
-    | '/en/platform/decisionsiq'
-    | '/en/platform/esg-ledger'
-    | '/en/platform/impact-exchange'
-    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
@@ -686,41 +411,16 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
-    | '/api/ai-esg-analyse'
     | '/brancher/$'
-    | '/brancher/$slug'
     | '/data/$'
-    | '/data/$slug'
     | '/en/$'
-    | '/en/about'
-    | '/en/book-demo'
-    | '/en/contact'
-    | '/en/dashboard'
-    | '/en/platform'
-    | '/en/pricing'
     | '/indsigter/$'
-    | '/indsigter/$slug'
     | '/loesninger/$'
-    | '/loesninger/esg-compliance'
-    | '/loesninger/industri'
     | '/loesninger/kommuner'
-    | '/loesninger/naturprojekter'
     | '/ordbog/$'
-    | '/ordbog/$term'
     | '/platform/$'
-    | '/platform/decisionsiq'
-    | '/platform/esg-ledger'
-    | '/platform/impact-exchange'
-    | '/platform/smartconnect'
     | '/problemer/$'
-    | '/problemer/$slug'
     | '/use-cases/$'
-    | '/use-cases/$slug'
-    | '/en/'
-    | '/en/platform/decisionsiq'
-    | '/en/platform/esg-ledger'
-    | '/en/platform/impact-exchange'
-    | '/en/platform/smartconnect'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
@@ -747,12 +447,8 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
   YdelserRoute: typeof YdelserRoute
-  ApiAiEsgAnalyseRoute: typeof ApiAiEsgAnalyseRoute
   LoesningerSplatRoute: typeof LoesningerSplatRoute
-  LoesningerEsgComplianceRoute: typeof LoesningerEsgComplianceRoute
-  LoesningerIndustriRoute: typeof LoesningerIndustriRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
-  LoesningerNaturprojekterRoute: typeof LoesningerNaturprojekterRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
@@ -912,33 +608,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/': {
-      id: '/en/'
-      path: '/'
-      fullPath: '/en/'
-      preLoaderRoute: typeof EnIndexRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/use-cases/$slug': {
-      id: '/use-cases/$slug'
-      path: '/$slug'
-      fullPath: '/use-cases/$slug'
-      preLoaderRoute: typeof UseCasesSlugRouteImport
-      parentRoute: typeof UseCasesRoute
-    }
     '/use-cases/$': {
       id: '/use-cases/$'
       path: '/$'
       fullPath: '/use-cases/$'
       preLoaderRoute: typeof UseCasesSplatRouteImport
       parentRoute: typeof UseCasesRoute
-    }
-    '/problemer/$slug': {
-      id: '/problemer/$slug'
-      path: '/$slug'
-      fullPath: '/problemer/$slug'
-      preLoaderRoute: typeof ProblemerSlugRouteImport
-      parentRoute: typeof ProblemerRoute
     }
     '/problemer/$': {
       id: '/problemer/$'
@@ -947,47 +622,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProblemerSplatRouteImport
       parentRoute: typeof ProblemerRoute
     }
-    '/platform/smartconnect': {
-      id: '/platform/smartconnect'
-      path: '/smartconnect'
-      fullPath: '/platform/smartconnect'
-      preLoaderRoute: typeof PlatformSmartconnectRouteImport
-      parentRoute: typeof PlatformRoute
-    }
-    '/platform/impact-exchange': {
-      id: '/platform/impact-exchange'
-      path: '/impact-exchange'
-      fullPath: '/platform/impact-exchange'
-      preLoaderRoute: typeof PlatformImpactExchangeRouteImport
-      parentRoute: typeof PlatformRoute
-    }
-    '/platform/esg-ledger': {
-      id: '/platform/esg-ledger'
-      path: '/esg-ledger'
-      fullPath: '/platform/esg-ledger'
-      preLoaderRoute: typeof PlatformEsgLedgerRouteImport
-      parentRoute: typeof PlatformRoute
-    }
-    '/platform/decisionsiq': {
-      id: '/platform/decisionsiq'
-      path: '/decisionsiq'
-      fullPath: '/platform/decisionsiq'
-      preLoaderRoute: typeof PlatformDecisionsiqRouteImport
-      parentRoute: typeof PlatformRoute
-    }
     '/platform/$': {
       id: '/platform/$'
       path: '/$'
       fullPath: '/platform/$'
       preLoaderRoute: typeof PlatformSplatRouteImport
       parentRoute: typeof PlatformRoute
-    }
-    '/ordbog/$term': {
-      id: '/ordbog/$term'
-      path: '/$term'
-      fullPath: '/ordbog/$term'
-      preLoaderRoute: typeof OrdbogTermRouteImport
-      parentRoute: typeof OrdbogRoute
     }
     '/ordbog/$': {
       id: '/ordbog/$'
@@ -996,32 +636,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OrdbogSplatRouteImport
       parentRoute: typeof OrdbogRoute
     }
-    '/loesninger/naturprojekter': {
-      id: '/loesninger/naturprojekter'
-      path: '/loesninger/naturprojekter'
-      fullPath: '/loesninger/naturprojekter'
-      preLoaderRoute: typeof LoesningerNaturprojekterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/loesninger/kommuner': {
       id: '/loesninger/kommuner'
       path: '/loesninger/kommuner'
       fullPath: '/loesninger/kommuner'
       preLoaderRoute: typeof LoesningerKommunerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/loesninger/industri': {
-      id: '/loesninger/industri'
-      path: '/loesninger/industri'
-      fullPath: '/loesninger/industri'
-      preLoaderRoute: typeof LoesningerIndustriRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/loesninger/esg-compliance': {
-      id: '/loesninger/esg-compliance'
-      path: '/loesninger/esg-compliance'
-      fullPath: '/loesninger/esg-compliance'
-      preLoaderRoute: typeof LoesningerEsgComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/loesninger/$': {
@@ -1031,61 +650,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoesningerSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/indsigter/$slug': {
-      id: '/indsigter/$slug'
-      path: '/$slug'
-      fullPath: '/indsigter/$slug'
-      preLoaderRoute: typeof IndsigterSlugRouteImport
-      parentRoute: typeof IndsigterRoute
-    }
     '/indsigter/$': {
       id: '/indsigter/$'
       path: '/$'
       fullPath: '/indsigter/$'
       preLoaderRoute: typeof IndsigterSplatRouteImport
       parentRoute: typeof IndsigterRoute
-    }
-    '/en/pricing': {
-      id: '/en/pricing'
-      path: '/pricing'
-      fullPath: '/en/pricing'
-      preLoaderRoute: typeof EnPricingRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/platform': {
-      id: '/en/platform'
-      path: '/platform'
-      fullPath: '/en/platform'
-      preLoaderRoute: typeof EnPlatformRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/dashboard': {
-      id: '/en/dashboard'
-      path: '/dashboard'
-      fullPath: '/en/dashboard'
-      preLoaderRoute: typeof EnDashboardRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/contact': {
-      id: '/en/contact'
-      path: '/contact'
-      fullPath: '/en/contact'
-      preLoaderRoute: typeof EnContactRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/book-demo': {
-      id: '/en/book-demo'
-      path: '/book-demo'
-      fullPath: '/en/book-demo'
-      preLoaderRoute: typeof EnBookDemoRouteImport
-      parentRoute: typeof EnRoute
-    }
-    '/en/about': {
-      id: '/en/about'
-      path: '/about'
-      fullPath: '/en/about'
-      preLoaderRoute: typeof EnAboutRouteImport
-      parentRoute: typeof EnRoute
     }
     '/en/$': {
       id: '/en/$'
@@ -1094,13 +664,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnSplatRouteImport
       parentRoute: typeof EnRoute
     }
-    '/data/$slug': {
-      id: '/data/$slug'
-      path: '/$slug'
-      fullPath: '/data/$slug'
-      preLoaderRoute: typeof DataSlugRouteImport
-      parentRoute: typeof DataRoute
-    }
     '/data/$': {
       id: '/data/$'
       path: '/$'
@@ -1108,54 +671,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DataSplatRouteImport
       parentRoute: typeof DataRoute
     }
-    '/brancher/$slug': {
-      id: '/brancher/$slug'
-      path: '/$slug'
-      fullPath: '/brancher/$slug'
-      preLoaderRoute: typeof BrancherSlugRouteImport
-      parentRoute: typeof BrancherRoute
-    }
     '/brancher/$': {
       id: '/brancher/$'
       path: '/$'
       fullPath: '/brancher/$'
       preLoaderRoute: typeof BrancherSplatRouteImport
       parentRoute: typeof BrancherRoute
-    }
-    '/api/ai-esg-analyse': {
-      id: '/api/ai-esg-analyse'
-      path: '/api/ai-esg-analyse'
-      fullPath: '/api/ai-esg-analyse'
-      preLoaderRoute: typeof ApiAiEsgAnalyseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/platform/smartconnect': {
-      id: '/en/platform/smartconnect'
-      path: '/smartconnect'
-      fullPath: '/en/platform/smartconnect'
-      preLoaderRoute: typeof EnPlatformSmartconnectRouteImport
-      parentRoute: typeof EnPlatformRoute
-    }
-    '/en/platform/impact-exchange': {
-      id: '/en/platform/impact-exchange'
-      path: '/impact-exchange'
-      fullPath: '/en/platform/impact-exchange'
-      preLoaderRoute: typeof EnPlatformImpactExchangeRouteImport
-      parentRoute: typeof EnPlatformRoute
-    }
-    '/en/platform/esg-ledger': {
-      id: '/en/platform/esg-ledger'
-      path: '/esg-ledger'
-      fullPath: '/en/platform/esg-ledger'
-      preLoaderRoute: typeof EnPlatformEsgLedgerRouteImport
-      parentRoute: typeof EnPlatformRoute
-    }
-    '/en/platform/decisionsiq': {
-      id: '/en/platform/decisionsiq'
-      path: '/decisionsiq'
-      fullPath: '/en/platform/decisionsiq'
-      preLoaderRoute: typeof EnPlatformDecisionsiqRouteImport
-      parentRoute: typeof EnPlatformRoute
     }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
@@ -1169,12 +690,10 @@ declare module '@tanstack/react-router' {
 
 interface BrancherRouteChildren {
   BrancherSplatRoute: typeof BrancherSplatRoute
-  BrancherSlugRoute: typeof BrancherSlugRoute
 }
 
 const BrancherRouteChildren: BrancherRouteChildren = {
   BrancherSplatRoute: BrancherSplatRoute,
-  BrancherSlugRoute: BrancherSlugRoute,
 }
 
 const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
@@ -1183,66 +702,30 @@ const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
 
 interface DataRouteChildren {
   DataSplatRoute: typeof DataSplatRoute
-  DataSlugRoute: typeof DataSlugRoute
 }
 
 const DataRouteChildren: DataRouteChildren = {
   DataSplatRoute: DataSplatRoute,
-  DataSlugRoute: DataSlugRoute,
 }
 
 const DataRouteWithChildren = DataRoute._addFileChildren(DataRouteChildren)
 
-interface EnPlatformRouteChildren {
-  EnPlatformDecisionsiqRoute: typeof EnPlatformDecisionsiqRoute
-  EnPlatformEsgLedgerRoute: typeof EnPlatformEsgLedgerRoute
-  EnPlatformImpactExchangeRoute: typeof EnPlatformImpactExchangeRoute
-  EnPlatformSmartconnectRoute: typeof EnPlatformSmartconnectRoute
-}
-
-const EnPlatformRouteChildren: EnPlatformRouteChildren = {
-  EnPlatformDecisionsiqRoute: EnPlatformDecisionsiqRoute,
-  EnPlatformEsgLedgerRoute: EnPlatformEsgLedgerRoute,
-  EnPlatformImpactExchangeRoute: EnPlatformImpactExchangeRoute,
-  EnPlatformSmartconnectRoute: EnPlatformSmartconnectRoute,
-}
-
-const EnPlatformRouteWithChildren = EnPlatformRoute._addFileChildren(
-  EnPlatformRouteChildren,
-)
-
 interface EnRouteChildren {
   EnSplatRoute: typeof EnSplatRoute
-  EnAboutRoute: typeof EnAboutRoute
-  EnBookDemoRoute: typeof EnBookDemoRoute
-  EnContactRoute: typeof EnContactRoute
-  EnDashboardRoute: typeof EnDashboardRoute
-  EnPlatformRoute: typeof EnPlatformRouteWithChildren
-  EnPricingRoute: typeof EnPricingRoute
-  EnIndexRoute: typeof EnIndexRoute
 }
 
 const EnRouteChildren: EnRouteChildren = {
   EnSplatRoute: EnSplatRoute,
-  EnAboutRoute: EnAboutRoute,
-  EnBookDemoRoute: EnBookDemoRoute,
-  EnContactRoute: EnContactRoute,
-  EnDashboardRoute: EnDashboardRoute,
-  EnPlatformRoute: EnPlatformRouteWithChildren,
-  EnPricingRoute: EnPricingRoute,
-  EnIndexRoute: EnIndexRoute,
 }
 
 const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 interface IndsigterRouteChildren {
   IndsigterSplatRoute: typeof IndsigterSplatRoute
-  IndsigterSlugRoute: typeof IndsigterSlugRoute
 }
 
 const IndsigterRouteChildren: IndsigterRouteChildren = {
   IndsigterSplatRoute: IndsigterSplatRoute,
-  IndsigterSlugRoute: IndsigterSlugRoute,
 }
 
 const IndsigterRouteWithChildren = IndsigterRoute._addFileChildren(
@@ -1251,12 +734,10 @@ const IndsigterRouteWithChildren = IndsigterRoute._addFileChildren(
 
 interface OrdbogRouteChildren {
   OrdbogSplatRoute: typeof OrdbogSplatRoute
-  OrdbogTermRoute: typeof OrdbogTermRoute
 }
 
 const OrdbogRouteChildren: OrdbogRouteChildren = {
   OrdbogSplatRoute: OrdbogSplatRoute,
-  OrdbogTermRoute: OrdbogTermRoute,
 }
 
 const OrdbogRouteWithChildren =
@@ -1264,18 +745,10 @@ const OrdbogRouteWithChildren =
 
 interface PlatformRouteChildren {
   PlatformSplatRoute: typeof PlatformSplatRoute
-  PlatformDecisionsiqRoute: typeof PlatformDecisionsiqRoute
-  PlatformEsgLedgerRoute: typeof PlatformEsgLedgerRoute
-  PlatformImpactExchangeRoute: typeof PlatformImpactExchangeRoute
-  PlatformSmartconnectRoute: typeof PlatformSmartconnectRoute
 }
 
 const PlatformRouteChildren: PlatformRouteChildren = {
   PlatformSplatRoute: PlatformSplatRoute,
-  PlatformDecisionsiqRoute: PlatformDecisionsiqRoute,
-  PlatformEsgLedgerRoute: PlatformEsgLedgerRoute,
-  PlatformImpactExchangeRoute: PlatformImpactExchangeRoute,
-  PlatformSmartconnectRoute: PlatformSmartconnectRoute,
 }
 
 const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
@@ -1284,12 +757,10 @@ const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
 
 interface ProblemerRouteChildren {
   ProblemerSplatRoute: typeof ProblemerSplatRoute
-  ProblemerSlugRoute: typeof ProblemerSlugRoute
 }
 
 const ProblemerRouteChildren: ProblemerRouteChildren = {
   ProblemerSplatRoute: ProblemerSplatRoute,
-  ProblemerSlugRoute: ProblemerSlugRoute,
 }
 
 const ProblemerRouteWithChildren = ProblemerRoute._addFileChildren(
@@ -1298,12 +769,10 @@ const ProblemerRouteWithChildren = ProblemerRoute._addFileChildren(
 
 interface UseCasesRouteChildren {
   UseCasesSplatRoute: typeof UseCasesSplatRoute
-  UseCasesSlugRoute: typeof UseCasesSlugRoute
 }
 
 const UseCasesRouteChildren: UseCasesRouteChildren = {
   UseCasesSplatRoute: UseCasesSplatRoute,
-  UseCasesSlugRoute: UseCasesSlugRoute,
 }
 
 const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
@@ -1333,12 +802,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
   YdelserRoute: YdelserRoute,
-  ApiAiEsgAnalyseRoute: ApiAiEsgAnalyseRoute,
   LoesningerSplatRoute: LoesningerSplatRoute,
-  LoesningerEsgComplianceRoute: LoesningerEsgComplianceRoute,
-  LoesningerIndustriRoute: LoesningerIndustriRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
-  LoesningerNaturprojekterRoute: LoesningerNaturprojekterRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
