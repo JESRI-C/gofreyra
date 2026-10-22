@@ -127,7 +127,7 @@ function HomePage() {
         <SectionHeader eyebrow="Ydelser" title="Seks ydelser. Én evidenskæde." />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {YDELSER.map((y) => (
-            <Link key={y.t} to="/ydelser" className="card-soft p-6 bg-card group hover:border-primary/40 transition">
+            <Link key={y.anchor} to="/ydelser" hash={y.anchor} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
               <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">Læs mere <ArrowRight className="ml-1 w-4 h-4" /></span>
