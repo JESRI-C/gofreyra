@@ -138,7 +138,9 @@ function ServicesPage() {
         <div className="grid md:grid-cols-2 gap-5">
           {SERVICES.map((s) => (
             <div key={s.anchor} id={s.anchor} className="card-soft p-6 md:p-8 bg-card flex flex-col scroll-mt-24">
-              <h2 className="text-xl font-semibold">{s.name}</h2>
+              <h2 className="text-xl font-semibold">
+                <Link to="/ydelser/$slug" params={{ slug: s.anchor }} className="hover:text-brand-deep transition">{s.name}</Link>
+              </h2>
               <div className="mt-5">
                 <div className="text-xs font-medium uppercase tracking-wider text-foreground/70 mb-2">Hvad du får</div>
                 <ul className="space-y-2">
@@ -157,7 +159,7 @@ function ServicesPage() {
               <div className="mt-6 pt-5 border-t border-border flex items-center justify-between gap-4 mt-auto">
                 <span className="text-sm font-semibold text-brand-deep">{s.price}</span>
                 <Button asChild variant="outline" className="rounded-md">
-                  <Link to="/kontakt">Hør mere <ArrowRight className="ml-1 w-4 h-4" /></Link>
+                  <Link to="/ydelser/$slug" params={{ slug: s.anchor }}>Læs mere <ArrowRight className="ml-1 w-4 h-4" /></Link>
                 </Button>
               </div>
             </div>

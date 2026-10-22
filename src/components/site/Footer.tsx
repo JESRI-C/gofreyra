@@ -1,10 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import freyraIcon from "@/assets/freyra-icon.png";
+import { YDELSER } from "@/data/ydelser";
 
-const LINKS = [
-  { to: "/ydelser", label: "Ydelser" },
+const SIDER = [
   { to: "/kommuner", label: "Til kommuner" },
+  { to: "/fonde-og-lodsejere", label: "Fonde og lodsejere" },
   { to: "/platformen", label: "Platformen" },
+  { to: "/saadan-arbejder-vi", label: "Sådan arbejder vi" },
+  { to: "/luftfoto", label: "Luftfoto" },
+  { to: "/faq", label: "FAQ" },
   { to: "/om", label: "Om" },
   { to: "/kontakt", label: "Kontakt" },
   { to: "/privatlivspolitik", label: "Privatlivspolitik" },
@@ -13,7 +17,7 @@ const LINKS = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/40 mt-24">
-      <div className="container-page py-14 grid gap-10 md:grid-cols-3">
+      <div className="container-page py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 font-semibold text-lg">
             <img src={freyraIcon} alt="Freyra" className="w-8 h-8 object-contain" />
@@ -25,9 +29,23 @@ export function Footer() {
         </div>
 
         <div>
+          <div className="text-sm font-semibold mb-3">Ydelser</div>
+          <ul className="space-y-2">
+            <li>
+              <Link to="/ydelser" className="text-sm text-muted-foreground hover:text-foreground">Alle ydelser</Link>
+            </li>
+            {YDELSER.map((y) => (
+              <li key={y.slug}>
+                <Link to="/ydelser/$slug" params={{ slug: y.slug }} className="text-sm text-muted-foreground hover:text-foreground">{y.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
           <div className="text-sm font-semibold mb-3">Sider</div>
           <ul className="space-y-2">
-            {LINKS.map((l) => (
+            {SIDER.map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="text-sm text-muted-foreground hover:text-foreground">{l.label}</Link>
               </li>

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as YdelserRouteImport } from './routes/ydelser'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SaadanArbejderViRouteImport } from './routes/saadan-arbejder-vi'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
 import { Route as ProblemerRouteImport } from './routes/problemer'
@@ -21,9 +22,12 @@ import { Route as PlatformenRouteImport } from './routes/platformen'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
+import { Route as LuftfotoRouteImport } from './routes/luftfoto'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as KommunerRouteImport } from './routes/kommuner'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
+import { Route as FondeOgLodsejereRouteImport } from './routes/fonde-og-lodsejere'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EnRouteImport } from './routes/en'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
 import { Route as DataRouteImport } from './routes/data'
@@ -57,6 +61,11 @@ const UseCasesRoute = UseCasesRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaadanArbejderViRoute = SaadanArbejderViRouteImport.update({
+  id: '/saadan-arbejder-vi',
+  path: '/saadan-arbejder-vi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -104,6 +113,11 @@ const OmRoute = OmRouteImport.update({
   path: '/om',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LuftfotoRoute = LuftfotoRouteImport.update({
+  id: '/luftfoto',
+  path: '/luftfoto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
@@ -117,6 +131,16 @@ const KommunerRoute = KommunerRouteImport.update({
 const IndsigterRoute = IndsigterRouteImport.update({
   id: '/indsigter',
   path: '/indsigter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FondeOgLodsejereRoute = FondeOgLodsejereRouteImport.update({
+  id: '/fonde-og-lodsejere',
+  path: '/fonde-og-lodsejere',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnRoute = EnRouteImport.update({
@@ -224,9 +248,12 @@ export interface FileRoutesByFullPath {
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/en': typeof EnRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
+  '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
@@ -236,6 +263,7 @@ export interface FileRoutesByFullPath {
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRouteWithChildren
@@ -260,9 +288,12 @@ export interface FileRoutesByTo {
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/en': typeof EnRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
+  '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
@@ -272,6 +303,7 @@ export interface FileRoutesByTo {
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRouteWithChildren
@@ -297,9 +329,12 @@ export interface FileRoutesById {
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
   '/en': typeof EnRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
   '/kommuner': typeof KommunerRoute
   '/kontakt': typeof KontaktRoute
+  '/luftfoto': typeof LuftfotoRoute
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
@@ -309,6 +344,7 @@ export interface FileRoutesById {
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
+  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRouteWithChildren
@@ -335,9 +371,12 @@ export interface FileRouteTypes {
     | '/data'
     | '/datakilder'
     | '/en'
+    | '/faq'
+    | '/fonde-og-lodsejere'
     | '/indsigter'
     | '/kommuner'
     | '/kontakt'
+    | '/luftfoto'
     | '/om'
     | '/ordbog'
     | '/platform'
@@ -347,6 +386,7 @@ export interface FileRouteTypes {
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
+    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
@@ -371,9 +411,12 @@ export interface FileRouteTypes {
     | '/data'
     | '/datakilder'
     | '/en'
+    | '/faq'
+    | '/fonde-og-lodsejere'
     | '/indsigter'
     | '/kommuner'
     | '/kontakt'
+    | '/luftfoto'
     | '/om'
     | '/ordbog'
     | '/platform'
@@ -383,6 +426,7 @@ export interface FileRouteTypes {
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
+    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
@@ -407,9 +451,12 @@ export interface FileRouteTypes {
     | '/data'
     | '/datakilder'
     | '/en'
+    | '/faq'
+    | '/fonde-og-lodsejere'
     | '/indsigter'
     | '/kommuner'
     | '/kontakt'
+    | '/luftfoto'
     | '/om'
     | '/ordbog'
     | '/platform'
@@ -419,6 +466,7 @@ export interface FileRouteTypes {
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
+    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
     | '/ydelser'
@@ -444,9 +492,12 @@ export interface RootRouteChildren {
   DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
   EnRoute: typeof EnRouteWithChildren
+  FaqRoute: typeof FaqRoute
+  FondeOgLodsejereRoute: typeof FondeOgLodsejereRoute
   IndsigterRoute: typeof IndsigterRouteWithChildren
   KommunerRoute: typeof KommunerRoute
   KontaktRoute: typeof KontaktRoute
+  LuftfotoRoute: typeof LuftfotoRoute
   OmRoute: typeof OmRoute
   OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
@@ -456,6 +507,7 @@ export interface RootRouteChildren {
   ProblemerRoute: typeof ProblemerRouteWithChildren
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SaadanArbejderViRoute: typeof SaadanArbejderViRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
   YdelserRoute: typeof YdelserRouteWithChildren
@@ -485,6 +537,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saadan-arbejder-vi': {
+      id: '/saadan-arbejder-vi'
+      path: '/saadan-arbejder-vi'
+      fullPath: '/saadan-arbejder-vi'
+      preLoaderRoute: typeof SaadanArbejderViRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -550,6 +609,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/luftfoto': {
+      id: '/luftfoto'
+      path: '/luftfoto'
+      fullPath: '/luftfoto'
+      preLoaderRoute: typeof LuftfotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kontakt': {
       id: '/kontakt'
       path: '/kontakt'
@@ -569,6 +635,20 @@ declare module '@tanstack/react-router' {
       path: '/indsigter'
       fullPath: '/indsigter'
       preLoaderRoute: typeof IndsigterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fonde-og-lodsejere': {
+      id: '/fonde-og-lodsejere'
+      path: '/fonde-og-lodsejere'
+      fullPath: '/fonde-og-lodsejere'
+      preLoaderRoute: typeof FondeOgLodsejereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en': {
@@ -817,9 +897,12 @@ const rootRouteChildren: RootRouteChildren = {
   DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
   EnRoute: EnRouteWithChildren,
+  FaqRoute: FaqRoute,
+  FondeOgLodsejereRoute: FondeOgLodsejereRoute,
   IndsigterRoute: IndsigterRouteWithChildren,
   KommunerRoute: KommunerRoute,
   KontaktRoute: KontaktRoute,
+  LuftfotoRoute: LuftfotoRoute,
   OmRoute: OmRoute,
   OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
@@ -829,6 +912,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProblemerRoute: ProblemerRouteWithChildren,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
+  SaadanArbejderViRoute: SaadanArbejderViRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
   YdelserRoute: YdelserRouteWithChildren,
