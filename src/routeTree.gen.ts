@@ -33,17 +33,22 @@ import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as UseCasesSlugRouteImport } from './routes/use-cases.$slug'
+import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
 import { Route as ProblemerSlugRouteImport } from './routes/problemer.$slug'
+import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
 import { Route as PlatformSmartconnectRouteImport } from './routes/platform.smartconnect'
 import { Route as PlatformImpactExchangeRouteImport } from './routes/platform.impact-exchange'
 import { Route as PlatformEsgLedgerRouteImport } from './routes/platform.esg-ledger'
 import { Route as PlatformDecisionsiqRouteImport } from './routes/platform.decisionsiq'
+import { Route as PlatformSplatRouteImport } from './routes/platform.$'
 import { Route as OrdbogTermRouteImport } from './routes/ordbog.$term'
+import { Route as OrdbogSplatRouteImport } from './routes/ordbog.$'
 import { Route as LoesningerNaturprojekterRouteImport } from './routes/loesninger.naturprojekter'
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerIndustriRouteImport } from './routes/loesninger.industri'
 import { Route as LoesningerEsgComplianceRouteImport } from './routes/loesninger.esg-compliance'
 import { Route as IndsigterSlugRouteImport } from './routes/indsigter.$slug'
+import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
 import { Route as EnPricingRouteImport } from './routes/en.pricing'
 import { Route as EnPlatformRouteImport } from './routes/en.platform'
 import { Route as EnDashboardRouteImport } from './routes/en.dashboard'
@@ -51,7 +56,9 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnBookDemoRouteImport } from './routes/en.book-demo'
 import { Route as EnAboutRouteImport } from './routes/en.about'
 import { Route as DataSlugRouteImport } from './routes/data.$slug'
+import { Route as DataSplatRouteImport } from './routes/data.$'
 import { Route as BrancherSlugRouteImport } from './routes/brancher.$slug'
+import { Route as BrancherSplatRouteImport } from './routes/brancher.$'
 import { Route as ApiAiEsgAnalyseRouteImport } from './routes/api/ai-esg-analyse'
 import { Route as EnPlatformSmartconnectRouteImport } from './routes/en.platform.smartconnect'
 import { Route as EnPlatformImpactExchangeRouteImport } from './routes/en.platform.impact-exchange'
@@ -179,9 +186,19 @@ const UseCasesSlugRoute = UseCasesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => UseCasesRoute,
 } as any)
+const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => UseCasesRoute,
+} as any)
 const ProblemerSlugRoute = ProblemerSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
+  getParentRoute: () => ProblemerRoute,
+} as any)
+const ProblemerSplatRoute = ProblemerSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => ProblemerRoute,
 } as any)
 const PlatformSmartconnectRoute = PlatformSmartconnectRouteImport.update({
@@ -204,9 +221,19 @@ const PlatformDecisionsiqRoute = PlatformDecisionsiqRouteImport.update({
   path: '/decisionsiq',
   getParentRoute: () => PlatformRoute,
 } as any)
+const PlatformSplatRoute = PlatformSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => PlatformRoute,
+} as any)
 const OrdbogTermRoute = OrdbogTermRouteImport.update({
   id: '/$term',
   path: '/$term',
+  getParentRoute: () => OrdbogRoute,
+} as any)
+const OrdbogSplatRoute = OrdbogSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => OrdbogRoute,
 } as any)
 const LoesningerNaturprojekterRoute =
@@ -233,6 +260,11 @@ const LoesningerEsgComplianceRoute = LoesningerEsgComplianceRouteImport.update({
 const IndsigterSlugRoute = IndsigterSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
+  getParentRoute: () => IndsigterRoute,
+} as any)
+const IndsigterSplatRoute = IndsigterSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => IndsigterRoute,
 } as any)
 const EnPricingRoute = EnPricingRouteImport.update({
@@ -270,9 +302,19 @@ const DataSlugRoute = DataSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => DataRoute,
 } as any)
+const DataSplatRoute = DataSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => DataRoute,
+} as any)
 const BrancherSlugRoute = BrancherSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
+  getParentRoute: () => BrancherRoute,
+} as any)
+const BrancherSplatRoute = BrancherSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => BrancherRoute,
 } as any)
 const ApiAiEsgAnalyseRoute = ApiAiEsgAnalyseRouteImport.update({
@@ -332,7 +374,9 @@ export interface FileRoutesByFullPath {
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
+  '/brancher/$': typeof BrancherSplatRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
@@ -340,17 +384,22 @@ export interface FileRoutesByFullPath {
   '/en/dashboard': typeof EnDashboardRoute
   '/en/platform': typeof EnPlatformRouteWithChildren
   '/en/pricing': typeof EnPricingRoute
+  '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$': typeof OrdbogSplatRoute
   '/ordbog/$term': typeof OrdbogTermRoute
+  '/platform/$': typeof PlatformSplatRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$': typeof ProblemerSplatRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
+  '/use-cases/$': typeof UseCasesSplatRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en/': typeof EnIndexRoute
   '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
@@ -382,7 +431,9 @@ export interface FileRoutesByTo {
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
+  '/brancher/$': typeof BrancherSplatRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
@@ -390,17 +441,22 @@ export interface FileRoutesByTo {
   '/en/dashboard': typeof EnDashboardRoute
   '/en/platform': typeof EnPlatformRouteWithChildren
   '/en/pricing': typeof EnPricingRoute
+  '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$': typeof OrdbogSplatRoute
   '/ordbog/$term': typeof OrdbogTermRoute
+  '/platform/$': typeof PlatformSplatRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$': typeof ProblemerSplatRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
+  '/use-cases/$': typeof UseCasesSplatRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en': typeof EnIndexRoute
   '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
@@ -434,7 +490,9 @@ export interface FileRoutesById {
   '/use-cases': typeof UseCasesRouteWithChildren
   '/ydelser': typeof YdelserRoute
   '/api/ai-esg-analyse': typeof ApiAiEsgAnalyseRoute
+  '/brancher/$': typeof BrancherSplatRoute
   '/brancher/$slug': typeof BrancherSlugRoute
+  '/data/$': typeof DataSplatRoute
   '/data/$slug': typeof DataSlugRoute
   '/en/about': typeof EnAboutRoute
   '/en/book-demo': typeof EnBookDemoRoute
@@ -442,17 +500,22 @@ export interface FileRoutesById {
   '/en/dashboard': typeof EnDashboardRoute
   '/en/platform': typeof EnPlatformRouteWithChildren
   '/en/pricing': typeof EnPricingRoute
+  '/indsigter/$': typeof IndsigterSplatRoute
   '/indsigter/$slug': typeof IndsigterSlugRoute
   '/loesninger/esg-compliance': typeof LoesningerEsgComplianceRoute
   '/loesninger/industri': typeof LoesningerIndustriRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
   '/loesninger/naturprojekter': typeof LoesningerNaturprojekterRoute
+  '/ordbog/$': typeof OrdbogSplatRoute
   '/ordbog/$term': typeof OrdbogTermRoute
+  '/platform/$': typeof PlatformSplatRoute
   '/platform/decisionsiq': typeof PlatformDecisionsiqRoute
   '/platform/esg-ledger': typeof PlatformEsgLedgerRoute
   '/platform/impact-exchange': typeof PlatformImpactExchangeRoute
   '/platform/smartconnect': typeof PlatformSmartconnectRoute
+  '/problemer/$': typeof ProblemerSplatRoute
   '/problemer/$slug': typeof ProblemerSlugRoute
+  '/use-cases/$': typeof UseCasesSplatRoute
   '/use-cases/$slug': typeof UseCasesSlugRoute
   '/en/': typeof EnIndexRoute
   '/en/platform/decisionsiq': typeof EnPlatformDecisionsiqRoute
@@ -487,7 +550,9 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/ydelser'
     | '/api/ai-esg-analyse'
+    | '/brancher/$'
     | '/brancher/$slug'
+    | '/data/$'
     | '/data/$slug'
     | '/en/about'
     | '/en/book-demo'
@@ -495,17 +560,22 @@ export interface FileRouteTypes {
     | '/en/dashboard'
     | '/en/platform'
     | '/en/pricing'
+    | '/indsigter/$'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$'
     | '/ordbog/$term'
+    | '/platform/$'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$'
     | '/problemer/$slug'
+    | '/use-cases/$'
     | '/use-cases/$slug'
     | '/en/'
     | '/en/platform/decisionsiq'
@@ -537,7 +607,9 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/ydelser'
     | '/api/ai-esg-analyse'
+    | '/brancher/$'
     | '/brancher/$slug'
+    | '/data/$'
     | '/data/$slug'
     | '/en/about'
     | '/en/book-demo'
@@ -545,17 +617,22 @@ export interface FileRouteTypes {
     | '/en/dashboard'
     | '/en/platform'
     | '/en/pricing'
+    | '/indsigter/$'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$'
     | '/ordbog/$term'
+    | '/platform/$'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$'
     | '/problemer/$slug'
+    | '/use-cases/$'
     | '/use-cases/$slug'
     | '/en'
     | '/en/platform/decisionsiq'
@@ -588,7 +665,9 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/ydelser'
     | '/api/ai-esg-analyse'
+    | '/brancher/$'
     | '/brancher/$slug'
+    | '/data/$'
     | '/data/$slug'
     | '/en/about'
     | '/en/book-demo'
@@ -596,17 +675,22 @@ export interface FileRouteTypes {
     | '/en/dashboard'
     | '/en/platform'
     | '/en/pricing'
+    | '/indsigter/$'
     | '/indsigter/$slug'
     | '/loesninger/esg-compliance'
     | '/loesninger/industri'
     | '/loesninger/kommuner'
     | '/loesninger/naturprojekter'
+    | '/ordbog/$'
     | '/ordbog/$term'
+    | '/platform/$'
     | '/platform/decisionsiq'
     | '/platform/esg-ledger'
     | '/platform/impact-exchange'
     | '/platform/smartconnect'
+    | '/problemer/$'
     | '/problemer/$slug'
+    | '/use-cases/$'
     | '/use-cases/$slug'
     | '/en/'
     | '/en/platform/decisionsiq'
@@ -817,11 +901,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesSlugRouteImport
       parentRoute: typeof UseCasesRoute
     }
+    '/use-cases/$': {
+      id: '/use-cases/$'
+      path: '/$'
+      fullPath: '/use-cases/$'
+      preLoaderRoute: typeof UseCasesSplatRouteImport
+      parentRoute: typeof UseCasesRoute
+    }
     '/problemer/$slug': {
       id: '/problemer/$slug'
       path: '/$slug'
       fullPath: '/problemer/$slug'
       preLoaderRoute: typeof ProblemerSlugRouteImport
+      parentRoute: typeof ProblemerRoute
+    }
+    '/problemer/$': {
+      id: '/problemer/$'
+      path: '/$'
+      fullPath: '/problemer/$'
+      preLoaderRoute: typeof ProblemerSplatRouteImport
       parentRoute: typeof ProblemerRoute
     }
     '/platform/smartconnect': {
@@ -852,11 +950,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformDecisionsiqRouteImport
       parentRoute: typeof PlatformRoute
     }
+    '/platform/$': {
+      id: '/platform/$'
+      path: '/$'
+      fullPath: '/platform/$'
+      preLoaderRoute: typeof PlatformSplatRouteImport
+      parentRoute: typeof PlatformRoute
+    }
     '/ordbog/$term': {
       id: '/ordbog/$term'
       path: '/$term'
       fullPath: '/ordbog/$term'
       preLoaderRoute: typeof OrdbogTermRouteImport
+      parentRoute: typeof OrdbogRoute
+    }
+    '/ordbog/$': {
+      id: '/ordbog/$'
+      path: '/$'
+      fullPath: '/ordbog/$'
+      preLoaderRoute: typeof OrdbogSplatRouteImport
       parentRoute: typeof OrdbogRoute
     }
     '/loesninger/naturprojekter': {
@@ -892,6 +1004,13 @@ declare module '@tanstack/react-router' {
       path: '/$slug'
       fullPath: '/indsigter/$slug'
       preLoaderRoute: typeof IndsigterSlugRouteImport
+      parentRoute: typeof IndsigterRoute
+    }
+    '/indsigter/$': {
+      id: '/indsigter/$'
+      path: '/$'
+      fullPath: '/indsigter/$'
+      preLoaderRoute: typeof IndsigterSplatRouteImport
       parentRoute: typeof IndsigterRoute
     }
     '/en/pricing': {
@@ -943,11 +1062,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DataSlugRouteImport
       parentRoute: typeof DataRoute
     }
+    '/data/$': {
+      id: '/data/$'
+      path: '/$'
+      fullPath: '/data/$'
+      preLoaderRoute: typeof DataSplatRouteImport
+      parentRoute: typeof DataRoute
+    }
     '/brancher/$slug': {
       id: '/brancher/$slug'
       path: '/$slug'
       fullPath: '/brancher/$slug'
       preLoaderRoute: typeof BrancherSlugRouteImport
+      parentRoute: typeof BrancherRoute
+    }
+    '/brancher/$': {
+      id: '/brancher/$'
+      path: '/$'
+      fullPath: '/brancher/$'
+      preLoaderRoute: typeof BrancherSplatRouteImport
       parentRoute: typeof BrancherRoute
     }
     '/api/ai-esg-analyse': {
@@ -996,10 +1129,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface BrancherRouteChildren {
+  BrancherSplatRoute: typeof BrancherSplatRoute
   BrancherSlugRoute: typeof BrancherSlugRoute
 }
 
 const BrancherRouteChildren: BrancherRouteChildren = {
+  BrancherSplatRoute: BrancherSplatRoute,
   BrancherSlugRoute: BrancherSlugRoute,
 }
 
@@ -1008,10 +1143,12 @@ const BrancherRouteWithChildren = BrancherRoute._addFileChildren(
 )
 
 interface DataRouteChildren {
+  DataSplatRoute: typeof DataSplatRoute
   DataSlugRoute: typeof DataSlugRoute
 }
 
 const DataRouteChildren: DataRouteChildren = {
+  DataSplatRoute: DataSplatRoute,
   DataSlugRoute: DataSlugRoute,
 }
 
@@ -1058,10 +1195,12 @@ const EnRouteChildren: EnRouteChildren = {
 const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 interface IndsigterRouteChildren {
+  IndsigterSplatRoute: typeof IndsigterSplatRoute
   IndsigterSlugRoute: typeof IndsigterSlugRoute
 }
 
 const IndsigterRouteChildren: IndsigterRouteChildren = {
+  IndsigterSplatRoute: IndsigterSplatRoute,
   IndsigterSlugRoute: IndsigterSlugRoute,
 }
 
@@ -1070,10 +1209,12 @@ const IndsigterRouteWithChildren = IndsigterRoute._addFileChildren(
 )
 
 interface OrdbogRouteChildren {
+  OrdbogSplatRoute: typeof OrdbogSplatRoute
   OrdbogTermRoute: typeof OrdbogTermRoute
 }
 
 const OrdbogRouteChildren: OrdbogRouteChildren = {
+  OrdbogSplatRoute: OrdbogSplatRoute,
   OrdbogTermRoute: OrdbogTermRoute,
 }
 
@@ -1081,6 +1222,7 @@ const OrdbogRouteWithChildren =
   OrdbogRoute._addFileChildren(OrdbogRouteChildren)
 
 interface PlatformRouteChildren {
+  PlatformSplatRoute: typeof PlatformSplatRoute
   PlatformDecisionsiqRoute: typeof PlatformDecisionsiqRoute
   PlatformEsgLedgerRoute: typeof PlatformEsgLedgerRoute
   PlatformImpactExchangeRoute: typeof PlatformImpactExchangeRoute
@@ -1088,6 +1230,7 @@ interface PlatformRouteChildren {
 }
 
 const PlatformRouteChildren: PlatformRouteChildren = {
+  PlatformSplatRoute: PlatformSplatRoute,
   PlatformDecisionsiqRoute: PlatformDecisionsiqRoute,
   PlatformEsgLedgerRoute: PlatformEsgLedgerRoute,
   PlatformImpactExchangeRoute: PlatformImpactExchangeRoute,
@@ -1099,10 +1242,12 @@ const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
 )
 
 interface ProblemerRouteChildren {
+  ProblemerSplatRoute: typeof ProblemerSplatRoute
   ProblemerSlugRoute: typeof ProblemerSlugRoute
 }
 
 const ProblemerRouteChildren: ProblemerRouteChildren = {
+  ProblemerSplatRoute: ProblemerSplatRoute,
   ProblemerSlugRoute: ProblemerSlugRoute,
 }
 
@@ -1111,10 +1256,12 @@ const ProblemerRouteWithChildren = ProblemerRoute._addFileChildren(
 )
 
 interface UseCasesRouteChildren {
+  UseCasesSplatRoute: typeof UseCasesSplatRoute
   UseCasesSlugRoute: typeof UseCasesSlugRoute
 }
 
 const UseCasesRouteChildren: UseCasesRouteChildren = {
+  UseCasesSplatRoute: UseCasesSplatRoute,
   UseCasesSlugRoute: UseCasesSlugRoute,
 }
 
