@@ -1603,7 +1603,7 @@ export const artikler: Artikel[] = [
   "cluster": "Lavbund og vådområder",
   "h1": "Restaurering af ådale og vandløb: formål og dokumentation",
   "metaTitle": "Restaurering af ådale: formål, tilskud og dokumentation",
-  "metaDescription": "Hvad restaurering af ådale er i VLP, hvad formålet er, og hvordan du dokumenterer vandløbets tilstand før og efter.",
+  "metaDescription": "Hvad restaurering af ådale er i tilskudsordningen VLP, hvad formålet er, og hvordan du dokumenterer vandløbets tilstand før og efter.",
   "intro": "Restaurering af ådale er en af de seks indsatser i ordningen Vådområder og lavbundsprojekter. Den handler om at genskabe sammenhængen mellem vandløbet og arealerne omkring det.",
   "sections": [
    {

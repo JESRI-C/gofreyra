@@ -6,7 +6,7 @@ export const ordbog: Term[] = [
   "slug": "groen-trepart",
   "term": "Grøn Trepart",
   "metaTitle": "Grøn Trepart: hvad betyder det?",
-  "metaDescription": "Grøn Trepart er betegnelsen for Aftale om et grønt Danmark fra 24. juni 2024 mellem regeringen og parterne i den grønne trepart.",
+  "metaDescription": "Grøn Trepart er betegnelsen for Aftale om et grønt Danmark fra 24. juni 2024 mellem regeringen og parterne i den grønne trepart. Kort forklaret med kilder.",
   "short": "Grøn Trepart er betegnelsen for Aftale om et grønt Danmark fra 24. juni 2024 mellem regeringen og parterne i den grønne trepart.",
   "body": [
    "Parterne er Landbrug & Fødevarer, Danmarks Naturfredningsforening, Fødevareforbundet NNF, Dansk Metal, Dansk Industri og KL. Aftalen omfatter blandt andet rejsning af 250.000 ha skov, udtagning af 140.000 ha kulstofholdige lavbundsjorde inklusive randarealer og en CO2e-afgift på husdyr.",
@@ -36,7 +36,7 @@ export const ordbog: Term[] = [
   "slug": "lokal-groen-trepart",
   "term": "Lokal grøn trepart",
   "metaTitle": "Lokal grøn trepart: hvad betyder det?",
-  "metaDescription": "En lokal grøn trepart er et samarbejdsorgan, der koordinerer arealomlægningen i et vandopland. Der er 23 af dem.",
+  "metaDescription": "En lokal grøn trepart er et samarbejdsorgan, der koordinerer arealomlægningen i et vandopland. Der er 23 af dem. Kort forklaret med kilder.",
   "short": "En lokal grøn trepart er et samarbejdsorgan, der koordinerer arealomlægningen i et vandopland. Der er 23 af dem.",
   "body": [
    "Hver lokal trepart består af repræsentanter for kommunerne i oplandet, lokale landbrugs- og naturorganisationer og Naturstyrelsen. Kommunerne udpeger en formands- og en sekretariatskommune.",
@@ -96,7 +96,7 @@ export const ordbog: Term[] = [
   "slug": "mars",
   "term": "MARS",
   "metaTitle": "MARS: hvad betyder det?",
-  "metaDescription": "MARS står for Multifunktionel Arealregistrering og er platformen for arealindsatserne i Grøn Trepart.",
+  "metaDescription": "MARS står for Multifunktionel Arealregistrering og er platformen for arealindsatserne i Grøn Trepart. Kort forklaret med kilder og relaterede begreber.",
   "short": "MARS står for Multifunktionel Arealregistrering og er platformen for arealindsatserne i Grøn Trepart.",
   "body": [
    "MARS er udviklet af Styrelsen for Grøn Arealomlægning og Vandmiljø med Danmarks Miljøportal som leverandør. Den har fire moduler: screening, planlægning, ansøgning og status. Screening og status kræver ikke login.",
@@ -126,7 +126,7 @@ export const ordbog: Term[] = [
   "slug": "danmarks-groenne-arealfond",
   "term": "Danmarks Grønne Arealfond",
   "metaTitle": "Danmarks Grønne Arealfond: hvad betyder det?",
-  "metaDescription": "Danmarks Grønne Arealfond er den fond, der etableres med Grøn Trepart for at drive omlægningen af landarealet.",
+  "metaDescription": "Danmarks Grønne Arealfond er den fond, der etableres med Grøn Trepart for at drive omlægningen af landarealet. Kort forklaret med kilder.",
   "short": "Danmarks Grønne Arealfond er den fond, der etableres med Grøn Trepart for at drive omlægningen af landarealet.",
   "body": [
    "Ifølge regeringen skal fonden omfatte indsatser som skovrejsning, udtagning af lavbundsjorde og strategisk jordopkøb, herunder med henblik på kvælstofreduktioner. Aktiviteterne udgør omtrent 40 mia. kr."
@@ -150,7 +150,7 @@ export const ordbog: Term[] = [
   "slug": "udtagningskonsulent",
   "term": "Udtagningskonsulent",
   "metaTitle": "Udtagningskonsulent: hvad betyder det?",
-  "metaDescription": "En udtagningskonsulent hjælper lodsejere og projektejere med at realisere arealomlægningsprojekter.",
+  "metaDescription": "En udtagningskonsulent hjælper lodsejere og projektejere med at realisere arealomlægningsprojekter. Kort forklaret med kilder og relaterede begreber.",
   "short": "En udtagningskonsulent hjælper lodsejere og projektejere med at realisere arealomlægningsprojekter.",
   "body": [
    "Ifølge SGAV har udtagningskonsulenterne to roller: de er lodsejernes primære kontakt i projekter, som lodsejerne selv kan søge tilskud til, og de bidrager til at facilitere større projekter, hvor en kommune eller Naturstyrelsen er projektejer. De arbejder tæt sammen med de lokale treparter."
@@ -174,7 +174,7 @@ export const ordbog: Term[] = [
   "slug": "kystvandraad",
   "term": "Kystvandråd",
   "metaTitle": "Kystvandråd: hvad betyder det?",
-  "metaDescription": "Et kystvandråd er et rådgivende partnerskab, der arbejder for sundere kystvand i et eller flere vandoplande.",
+  "metaDescription": "Et kystvandråd er et rådgivende partnerskab, der arbejder for sundere kystvand i et eller flere vandoplande. Kort forklaret med kilder.",
   "short": "Et kystvandråd er et rådgivende partnerskab, der arbejder for sundere kystvand i et eller flere vandoplande.",
   "body": [
    "Der er 17 kystvandråd i områder med stort kvælstofindsatsbehov. Kommunerne har ansvaret for rådene. De bidrager med lokal viden om virkemidler og kan rådgive de lokale treparter."
@@ -198,7 +198,7 @@ export const ordbog: Term[] = [
   "slug": "naturstyrelsen",
   "term": "Naturstyrelsen",
   "metaTitle": "Naturstyrelsen: hvad betyder det?",
-  "metaDescription": "Naturstyrelsen er statens forvalter af skov- og naturarealer og en central projektejer i arealomlægningen.",
+  "metaDescription": "Naturstyrelsen er statens forvalter af skov- og naturarealer og en central projektejer i arealomlægningen. Kort forklaret med kilder.",
   "short": "Naturstyrelsen er statens forvalter af skov- og naturarealer og en central projektejer i arealomlægningen.",
   "body": [
    "Naturstyrelsen har en repræsentant i hver lokal grøn trepart og er projektejer på mange arealomlægningsprojekter. I ordningen for vådområder og lavbundsprojekter kan Naturstyrelsen søge til tre VKP-indsatser. Naturstyrelsen kan ikke søge tilskudsordningen til skovrejsning."
@@ -230,7 +230,7 @@ export const ordbog: Term[] = [
   "slug": "kystvandsgruppe",
   "term": "Hydrologisk kystvandsgruppe",
   "metaTitle": "Hydrologisk kystvandsgruppe: hvad betyder det?",
-  "metaDescription": "En hydrologisk kystvandsgruppe er en gruppe af delvandoplande, som kvælstofeffekten af omlægningsplanerne opgøres i.",
+  "metaDescription": "En hydrologisk kystvandsgruppe er en gruppe af delvandoplande, som kvælstofeffekten af omlægningsplanerne opgøres i. Kort forklaret med kilder.",
   "short": "En hydrologisk kystvandsgruppe er en gruppe af delvandoplande, som kvælstofeffekten af omlægningsplanerne opgøres i.",
   "body": [
    "Ifølge SGAV er kvælstofindsatsbehovet fra Vandplan 3-II fordelt på 108 delvandoplande, der er grupperet i 37 hydrologiske kystvandsgrupper. MARS opgør effekten af de 23 omlægningsplaner i disse grupper."
@@ -254,7 +254,7 @@ export const ordbog: Term[] = [
   "slug": "ekstensivering",
   "term": "Ekstensivering",
   "metaTitle": "Ekstensivering: hvad betyder det?",
-  "metaDescription": "Ekstensivering betyder, at et areal drives mindre intensivt, fx med mindre gødning eller som vedvarende græs.",
+  "metaDescription": "Ekstensivering betyder, at et areal drives mindre intensivt, fx med mindre gødning eller som vedvarende græs. Kort forklaret med kilder.",
   "short": "Ekstensivering betyder, at et areal drives mindre intensivt, fx med mindre gødning eller som vedvarende græs.",
   "body": [
    "Ekstensivering er en af de arealbaserede indsatser i omlægningsplanerne. SGAV nævner, at målopfyldelse sker ved arealomlægning i samspil med markregulering, herunder fx ved ekstensivering, så behovet for markregulering begrænses."
@@ -305,7 +305,7 @@ export const ordbog: Term[] = [
   "slug": "sgav",
   "term": "SGAV",
   "metaTitle": "SGAV: hvad betyder det?",
-  "metaDescription": "SGAV er Styrelsen for Grøn Arealomlægning og Vandmiljø, som administrerer store dele af arealindsatsen i Grøn Trepart.",
+  "metaDescription": "SGAV er Styrelsen for Grøn Arealomlægning og Vandmiljø, som administrerer store dele af arealindsatsen i Grøn Trepart. Kort forklaret med kilder.",
   "short": "SGAV er Styrelsen for Grøn Arealomlægning og Vandmiljø, som administrerer store dele af arealindsatsen i Grøn Trepart.",
   "body": [
    "SGAV står bag MARS og administrerer blandt andet tilskud til vådområder og lavbundsprojekter og til skovrejsning. Styrelsen er påtaleberettiget i de servitutter, der tinglyses i VLP-projekter."
@@ -338,7 +338,7 @@ export const ordbog: Term[] = [
   "slug": "wfs",
   "term": "WFS",
   "metaTitle": "WFS: hvad betyder det?",
-  "metaDescription": "WFS (Web Feature Service) er en standard for at hente geografiske vektordata over nettet, fx til QGIS eller ArcGIS.",
+  "metaDescription": "WFS (Web Feature Service) er en standard for at hente geografiske vektordata over nettet, fx til QGIS eller ArcGIS. Kort forklaret med kilder.",
   "short": "WFS (Web Feature Service) er en standard for at hente geografiske vektordata over nettet, fx til QGIS eller ArcGIS.",
   "body": [
    "Ifølge SGAV udstilles størstedelen af data i MARS via en offentlig WFS-service, så lagene kan bruges i eget GIS."
@@ -396,7 +396,7 @@ export const ordbog: Term[] = [
   "slug": "vlp",
   "term": "VLP (Vådområder og lavbundsprojekter)",
   "metaTitle": "VLP (Vådområder og lavbundsprojekter): hvad betyder det?",
-  "metaDescription": "VLP er den fælles tilskudsordning for vådområder og lavbundsprojekter, der viderefører VKP og KLA.",
+  "metaDescription": "VLP er den fælles tilskudsordning for vådområder og lavbundsprojekter, der viderefører VKP og KLA. Kort forklaret med kilder og relaterede begreber.",
   "short": "VLP er den fælles tilskudsordning for vådområder og lavbundsprojekter, der viderefører VKP og KLA.",
   "body": [
    "Ordningen har seks indsatser: VKP-kvælstofvådområder, VKP-lavbund, VKP-fosforvådområder, VKP-restaurering af ådale, KLA-kvælstofvådområder og KLA-lavbund. Der kan gives tilskud til forundersøgelser og etablering, op til 100 pct. af de tilskudsberettigede udgifter."
@@ -421,7 +421,7 @@ export const ordbog: Term[] = [
   "slug": "vaadomraade",
   "term": "Vådområde",
   "metaTitle": "Vådområde: hvad betyder det?",
-  "metaDescription": "Et vådområde er et areal, hvor vandstanden er hævet, så jorden er våd det meste af året.",
+  "metaDescription": "Et vådområde er et areal, hvor vandstanden er hævet, så jorden er våd det meste af året. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et vådområde er et areal, hvor vandstanden er hævet, så jorden er våd det meste af året.",
   "body": [
    "I Grøn Trepart bruges vådområder især til at fjerne kvælstof, før det når fjorde og kystvande, og til at reducere udledningen af drivhusgasser fra lavbundsjord. Vådgøring kan også øge arealets bufferkapacitet ved store vandmængder."
@@ -446,7 +446,7 @@ export const ordbog: Term[] = [
   "slug": "kvaelstofvaadomraade",
   "term": "Kvælstofvådområde",
   "metaTitle": "Kvælstofvådområde: hvad betyder det?",
-  "metaDescription": "Et kvælstofvådområde er et vådområde, der skal reducere udledningen af kvælstof til fjorde og kystvande.",
+  "metaDescription": "Et kvælstofvådområde er et vådområde, der skal reducere udledningen af kvælstof til fjorde og kystvande. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et kvælstofvådområde er et vådområde, der skal reducere udledningen af kvælstof til fjorde og kystvande.",
   "body": [
    "Ifølge Landbrugsstyrelsen er kvælstofvådområder typisk placeret kystnært og skal ligge i et delopland med et kvælstofindsatsbehov."
@@ -471,7 +471,7 @@ export const ordbog: Term[] = [
   "slug": "fosforvaadomraade",
   "term": "Fosforvådområde",
   "metaTitle": "Fosforvådområde: hvad betyder det?",
-  "metaDescription": "Et fosforvådområde skal reducere udledningen af fosfor til søer.",
+  "metaDescription": "Et fosforvådområde skal reducere udledningen af fosfor til søer. Se forklaring, officielle kilder og relaterede begreber i Freyras ordbog.",
   "short": "Et fosforvådområde skal reducere udledningen af fosfor til søer.",
   "body": [
    "Ifølge Landbrugsstyrelsen placeres fosforvådområder opstrøms søer med et fosforindsatsbehov. Indsatsen hører under VKP i spor 1."
@@ -495,7 +495,7 @@ export const ordbog: Term[] = [
   "slug": "forundersoegelse",
   "term": "Forundersøgelse",
   "metaTitle": "Forundersøgelse: hvad betyder det?",
-  "metaDescription": "En forundersøgelse afklarer, om et vådområde- eller lavbundsprojekt kan gennemføres, før der søges om etablering.",
+  "metaDescription": "En forundersøgelse afklarer, om et vådområde- eller lavbundsprojekt kan gennemføres, før der søges om etablering. Kort forklaret med kilder.",
   "short": "En forundersøgelse afklarer, om et vådområde- eller lavbundsprojekt kan gennemføres, før der søges om etablering.",
   "body": [
    "Forundersøgelsen skal afdække realiseringspotentialet, blandt andet lodsejertilslutning, effekter og mulige konsekvenser. Den resulterer i en ejendomsmæssig og en teknisk forundersøgelsesrapport. I VLP 2026 kan der søges løbende efter først-til-mølle-princippet."
@@ -520,7 +520,7 @@ export const ordbog: Term[] = [
   "slug": "etableringsprojekt",
   "term": "Etableringsprojekt",
   "metaTitle": "Etableringsprojekt: hvad betyder det?",
-  "metaDescription": "Et etableringsprojekt er den del af et vådområde- eller lavbundsprojekt, hvor projektet faktisk anlægges.",
+  "metaDescription": "Et etableringsprojekt er den del af et vådområde- eller lavbundsprojekt, hvor projektet faktisk anlægges. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et etableringsprojekt er den del af et vådområde- eller lavbundsprojekt, hvor projektet faktisk anlægges.",
   "body": [
    "I VLP sker etablering i spor 1 (EU-finansierede VKP-projekter med ansøgningsrunder) eller spor 2 (nationalt finansierede KLA-projekter med løbende tilsagn). Resultatet af forundersøgelsen afgør, hvilket spor der er relevant."
@@ -545,7 +545,7 @@ export const ordbog: Term[] = [
   "slug": "engangskompensation",
   "term": "Engangskompensation",
   "metaTitle": "Engangskompensation: hvad betyder det?",
-  "metaDescription": "Engangskompensation er en kompensation til lodsejere, der beholder deres arealer i et vådområde- eller lavbundsprojekt.",
+  "metaDescription": "Engangskompensation er en kompensation til lodsejere, der beholder deres arealer i et vådområde- eller lavbundsprojekt. Kort forklaret med kilder.",
   "short": "Engangskompensation er en kompensation til lodsejere, der beholder deres arealer i et vådområde- eller lavbundsprojekt.",
   "body": [
    "I spor 2 kompenseres lodsejere via engangskompensation efter faste satser i bekendtgørelsen. I spor 1 kan der også kompenseres via jordfordeling, opkøb eller værditabskompensation."
@@ -594,7 +594,7 @@ export const ordbog: Term[] = [
   "slug": "aadalsrestaurering",
   "term": "Restaurering af ådale",
   "metaTitle": "Restaurering af ådale: hvad betyder det?",
-  "metaDescription": "Restaurering af ådale genskaber sammenhængen mellem et vandløb og de vandløbsnære arealer.",
+  "metaDescription": "Restaurering af ådale genskaber sammenhængen mellem et vandløb og de vandløbsnære arealer. Kort forklaret med kilder og relaterede begreber.",
   "short": "Restaurering af ådale genskaber sammenhængen mellem et vandløb og de vandløbsnære arealer.",
   "body": [
    "Formålet er at forbedre de fysiske forhold og bidrage til miljømålene for udvalgte vandløbsstrækninger. Indsatsen kan også fjerne kvælstof og reducere drivhusgasudledning. Den er en af VKP-indsatserne i VLP."
@@ -618,7 +618,7 @@ export const ordbog: Term[] = [
   "slug": "paragraf-3-natur",
   "term": "§ 3-natur",
   "metaTitle": "§ 3-natur: hvad betyder det?",
-  "metaDescription": "§ 3-natur er naturtyper, der er beskyttet efter naturbeskyttelseslovens § 3, så deres tilstand ikke må ændres uden dispensation.",
+  "metaDescription": "§ 3-natur er naturtyper, der er beskyttet efter naturbeskyttelseslovens § 3, så deres tilstand ikke må ændres uden dispensation. Kort forklaret med kilder.",
   "short": "§ 3-natur er naturtyper, der er beskyttet efter naturbeskyttelseslovens § 3, så deres tilstand ikke må ændres uden dispensation.",
   "body": [
    "Beskyttelsen omfatter naturlige søer over 100 m², udpegede vandløb samt heder, moser, strandenge, strandsumpe, ferske enge og biologiske overdrev over 2.500 m² i sammenhængende areal. Moser under 2.500 m² er beskyttet, når de ligger i forbindelse med en beskyttet sø eller et beskyttet vandløb.",
@@ -670,7 +670,7 @@ export const ordbog: Term[] = [
   "slug": "skovrejsning",
   "term": "Skovrejsning",
   "metaTitle": "Skovrejsning: hvad betyder det?",
-  "metaDescription": "Skovrejsning er etablering af ny skov på arealer, der ikke tidligere var skov, typisk landbrugsjord.",
+  "metaDescription": "Skovrejsning er etablering af ny skov på arealer, der ikke tidligere var skov, typisk landbrugsjord. Kort forklaret med kilder og relaterede begreber.",
   "short": "Skovrejsning er etablering af ny skov på arealer, der ikke tidligere var skov, typisk landbrugsjord.",
   "body": [
    "Grøn Trepart indeholder rejsning af 250.000 ha skov frem mod 2045. Tilskud søges via MARS, og arealet skal pålægges fredskovspligt. Ifølge SGAV må arealet ikke være § 3-natur og som udgangspunkt ikke lavbundsjord med over 6 pct. organisk kulstof."
@@ -699,7 +699,7 @@ export const ordbog: Term[] = [
   "slug": "uroert-skov",
   "term": "Urørt skov",
   "metaTitle": "Urørt skov: hvad betyder det?",
-  "metaDescription": "Urørt skov er skov, der overlades til naturlig udvikling uden almindelig skovdrift.",
+  "metaDescription": "Urørt skov er skov, der overlades til naturlig udvikling uden almindelig skovdrift. Kort forklaret med kilder og relaterede begreber.",
   "short": "Urørt skov er skov, der overlades til naturlig udvikling uden almindelig skovdrift.",
   "body": [
    "Ifølge Miljøministeriet skal 80.000 ha af den nye skov i Grøn Trepart være privat urørt skov og 20.000 ha statslig urørt skov. SGAV angiver en højere forventet tilskudssats for skovrejsning, der udlægges som urørt skov."
@@ -727,7 +727,7 @@ export const ordbog: Term[] = [
   "slug": "fredskovspligt",
   "term": "Fredskovspligt",
   "metaTitle": "Fredskovspligt: hvad betyder det?",
-  "metaDescription": "Fredskovspligt er en binding efter skovloven, der betyder, at et areal skal forblive skov.",
+  "metaDescription": "Fredskovspligt er en binding efter skovloven, der betyder, at et areal skal forblive skov. Kort forklaret med kilder og relaterede begreber.",
   "short": "Fredskovspligt er en binding efter skovloven, der betyder, at et areal skal forblive skov.",
   "body": [
    "Det er et krav i SGAV's tilskudsordning til skovrejsning, at arealet pålægges fredskovspligt."
@@ -751,7 +751,7 @@ export const ordbog: Term[] = [
   "slug": "bufferzone-vandloeb",
   "term": "Bufferzone langs vandløb",
   "metaTitle": "Bufferzone langs vandløb: hvad betyder det?",
-  "metaDescription": "En bufferzone er et bælte langs et vandløb, hvor arealanvendelsen vurderes særskilt, fx til beplantning eller ekstensiv drift.",
+  "metaDescription": "En bufferzone er et bælte langs et vandløb, hvor arealanvendelsen vurderes særskilt, fx til beplantning eller ekstensiv drift. Kort forklaret med kilder.",
   "short": "En bufferzone er et bælte langs et vandløb, hvor arealanvendelsen vurderes særskilt, fx til beplantning eller ekstensiv drift.",
   "body": [
    "I Freyras beplantningsanalyse bruges zoner på 10 og 20 m langs den officielle vandløbslinje som udgangspunkt for at screene, hvor træer kan give skygge og stabile brinker. Det er en screening, ikke en juridisk zone."
@@ -770,7 +770,7 @@ export const ordbog: Term[] = [
   "slug": "baseline",
   "term": "Baseline",
   "metaTitle": "Baseline: hvad betyder det?",
-  "metaDescription": "En baseline er en dateret registrering af et areals tilstand, som senere ændringer sammenlignes med.",
+  "metaDescription": "En baseline er en dateret registrering af et areals tilstand, som senere ændringer sammenlignes med. Kort forklaret med kilder og relaterede begreber.",
   "short": "En baseline er en dateret registrering af et areals tilstand, som senere ændringer sammenlignes med.",
   "body": [
    "I natur- og lavbundsprojekter laves baseline helst før arealet ændres. Den bør have positioner, dato, kilder med hentedato og en faglig vurdering. Freyra låser baseline i en versioneret rapport med SHA-256."
@@ -790,7 +790,7 @@ export const ordbog: Term[] = [
   "slug": "gentagelsespunkt",
   "term": "Gentagelsespunkt",
   "metaTitle": "Gentagelsespunkt: hvad betyder det?",
-  "metaDescription": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid.",
+  "metaDescription": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et gentagelsespunkt er en fast position, der fotograferes ved hver flyvning, så billederne kan sammenlignes over tid.",
   "body": [
    "Punkterne vælges ved baseline og dækker de vigtigste dele af projektområdet. Samme position, retning og helst samme årstid gør før/efter-billeder sammenlignelige."
@@ -810,7 +810,7 @@ export const ordbog: Term[] = [
   "slug": "efterflyvning",
   "term": "Efterflyvning",
   "metaTitle": "Efterflyvning: hvad betyder det?",
-  "metaDescription": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen.",
+  "metaDescription": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen. Kort forklaret med kilder og relaterede begreber.",
   "short": "En efterflyvning er en ny droneflyvning over et projektområde efter baseline, hvor de samme punkter fotograferes igen.",
   "body": [
    "Efterflyvninger bruges til at dokumentere udviklingen, fx efter anlæg af et vådområde eller beplantning."
@@ -829,7 +829,7 @@ export const ordbog: Term[] = [
   "slug": "mrv",
   "term": "MRV",
   "metaTitle": "MRV: hvad betyder det?",
-  "metaDescription": "MRV står for Measurement, Reporting and Verification, altså måling, rapportering og verifikation af effekter.",
+  "metaDescription": "MRV står for Measurement, Reporting and Verification, altså måling, rapportering og verifikation af effekter. Kort forklaret med kilder.",
   "short": "MRV står for Measurement, Reporting and Verification, altså måling, rapportering og verifikation af effekter.",
   "body": [
    "Begrebet bruges mest om klimaeffekter. I naturprojekter handler det om at kunne vise, hvad der er gjort, og hvad der er sket. Freyra beregner ikke effekter, men dokumenterer udgangspunkt og udvikling."
@@ -868,7 +868,7 @@ export const ordbog: Term[] = [
   "slug": "sha-256",
   "term": "SHA-256",
   "metaTitle": "SHA-256: hvad betyder det?",
-  "metaDescription": "SHA-256 er en kryptografisk hashfunktion, der laver et unikt fingeraftryk af en fil.",
+  "metaDescription": "SHA-256 er en kryptografisk hashfunktion, der laver et unikt fingeraftryk af en fil. Kort forklaret med kilder og relaterede begreber.",
   "short": "SHA-256 er en kryptografisk hashfunktion, der laver et unikt fingeraftryk af en fil.",
   "body": [
    "Funktionen er standardiseret af NIST i FIPS 180-4. Ændres filen, ændres fingeraftrykket. Det gør det muligt at kontrollere, at en rapport er uændret."
@@ -892,7 +892,7 @@ export const ordbog: Term[] = [
   "slug": "revisionsspor",
   "term": "Revisionsspor",
   "metaTitle": "Revisionsspor: hvad betyder det?",
-  "metaDescription": "Et revisionsspor er en log over, hvem der har gjort hvad og hvornår i en sag.",
+  "metaDescription": "Et revisionsspor er en log over, hvem der har gjort hvad og hvornår i en sag. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et revisionsspor er en log over, hvem der har gjort hvad og hvornår i en sag.",
   "body": [
    "I Freyra logges fx uploads, faglige bekræftelser og afvisninger og nye rapportversioner, så forløbet kan efterprøves."
@@ -911,7 +911,7 @@ export const ordbog: Term[] = [
   "slug": "ortofoto",
   "term": "Ortofoto",
   "metaTitle": "Ortofoto: hvad betyder det?",
-  "metaDescription": "Et ortofoto er et luftfoto, der er rettet op geometrisk, så det kan bruges som et målfast kort.",
+  "metaDescription": "Et ortofoto er et luftfoto, der er rettet op geometrisk, så det kan bruges som et målfast kort. Kort forklaret med kilder og relaterede begreber.",
   "short": "Et ortofoto er et luftfoto, der er rettet op geometrisk, så det kan bruges som et målfast kort.",
   "body": [
    "GeoDanmark Ortofoto er landsdækkende og udstilles via Datafordeleren. Ortofotos er et godt referencelag for dronefotos, men viser tilstanden på optagelsesdagen."
@@ -935,7 +935,7 @@ export const ordbog: Term[] = [
   "slug": "dhm",
   "term": "Danmarks Højdemodel (DHM)",
   "metaTitle": "Danmarks Højdemodel (DHM): hvad betyder det?",
-  "metaDescription": "Danmarks Højdemodel er den landsdækkende model af terræn og overflade, som kan hentes gratis via Dataforsyningen.",
+  "metaDescription": "Danmarks Højdemodel er den landsdækkende model af terræn og overflade, som kan hentes gratis via Dataforsyningen. Kort forklaret med kilder.",
   "short": "Danmarks Højdemodel er den landsdækkende model af terræn og overflade, som kan hentes gratis via Dataforsyningen.",
   "body": [
    "Terrænmodellen bruges i naturprojekter til at forstå lavninger, fald og hvor vand vil samle sig."
@@ -959,7 +959,7 @@ export const ordbog: Term[] = [
   "slug": "sentinel-2",
   "term": "Sentinel-2",
   "metaTitle": "Sentinel-2: hvad betyder det?",
-  "metaDescription": "Sentinel-2 er EU's Copernicus-satellitter, der leverer gratis optiske billeder af hele jorden.",
+  "metaDescription": "Sentinel-2 er EU's Copernicus-satellitter, der leverer gratis optiske billeder af hele jorden. Kort forklaret med kilder og relaterede begreber.",
   "short": "Sentinel-2 er EU's Copernicus-satellitter, der leverer gratis optiske billeder af hele jorden.",
   "body": [
    "Sentinel-2 har fire bånd med 10 m opløsning, seks med 20 m og tre med 60 m. Data bruges til at følge vegetation over tid, fx med NDVI."
@@ -983,7 +983,7 @@ export const ordbog: Term[] = [
   "slug": "ndvi",
   "term": "NDVI",
   "metaTitle": "NDVI: hvad betyder det?",
-  "metaDescription": "NDVI (Normalized Difference Vegetation Index) er et indeks for grøn vegetation beregnet ud fra nær-infrarødt og rødt lys.",
+  "metaDescription": "NDVI (Normalized Difference Vegetation Index) er et indeks for grøn vegetation beregnet ud fra nær-infrarødt og rødt lys. Kort forklaret med kilder.",
   "short": "NDVI (Normalized Difference Vegetation Index) er et indeks for grøn vegetation beregnet ud fra nær-infrarødt og rødt lys.",
   "body": [
    "Formlen er (NIR minus rød) divideret med (NIR plus rød). Høje værdier tyder på grøn, aktiv vegetation. NDVI er en indikator og ikke en måling af biodiversitet."
@@ -1006,7 +1006,7 @@ export const ordbog: Term[] = [
   "slug": "exif",
   "term": "EXIF",
   "metaTitle": "EXIF: hvad betyder det?",
-  "metaDescription": "EXIF er en standard for metadata i billedfiler, fx tidspunkt, kamera og GPS-position.",
+  "metaDescription": "EXIF er en standard for metadata i billedfiler, fx tidspunkt, kamera og GPS-position. Kort forklaret med kilder og relaterede begreber.",
   "short": "EXIF er en standard for metadata i billedfiler, fx tidspunkt, kamera og GPS-position.",
   "body": [
    "Droner gemmer typisk position i EXIF og ekstra oplysninger i XMP. Metadata går ofte tabt, når billeder skaleres ned eller sendes via beskedtjenester."
@@ -1025,7 +1025,7 @@ export const ordbog: Term[] = [
   "slug": "danmarks-arealinformation",
   "term": "Danmarks Arealinformation",
   "metaTitle": "Danmarks Arealinformation: hvad betyder det?",
-  "metaDescription": "Danmarks Arealinformation er Danmarks Miljøportals kortløsning med data om arealanvendelse, naturbeskyttelse og reguleringer.",
+  "metaDescription": "Danmarks Arealinformation er Danmarks Miljøportals kortløsning med data om arealanvendelse, naturbeskyttelse og reguleringer. Kort forklaret med kilder.",
   "short": "Danmarks Arealinformation er Danmarks Miljøportals kortløsning med data om arealanvendelse, naturbeskyttelse og reguleringer.",
   "body": [
    "Her kan man fx tilføje kortlaget over beskyttede naturtyper og se detaljer for et areal."
@@ -1053,7 +1053,7 @@ export const ordbog: Term[] = [
   "slug": "matrikel",
   "term": "Matrikel",
   "metaTitle": "Matrikel: hvad betyder det?",
-  "metaDescription": "En matrikel er et registreret jordstykke i matriklen, det officielle register over fast ejendom i Danmark.",
+  "metaDescription": "En matrikel er et registreret jordstykke i matriklen, det officielle register over fast ejendom i Danmark. Kort forklaret med kilder.",
   "short": "En matrikel er et registreret jordstykke i matriklen, det officielle register over fast ejendom i Danmark.",
   "body": [
    "I naturprojekter bruges matrikelkortet til at se, hvilke ejendomme og lodsejere et projektområde berører. VLP kræver fx en oversigt med lodsejere og matrikler ved ansøgning om forundersøgelse."
