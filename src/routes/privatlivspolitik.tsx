@@ -37,7 +37,7 @@ function PrivacyPage() {
           <p>
             Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring, er dataansvarlig for behandlingen af personoplysninger på gofreyra.com og i Freyra Evidence Workspace. Gofreyra ApS er ejet af Freyra Group ApS.
           </p>
-          {/* TODO: Tilføj kontakt-email til persondatahenvendelser, når den er klar fra kunden. */}
+          <p>Henvendelser om persondata sendes via kontaktformularen på gofreyra.com/kontakt.</p>
         </Section>
 
         <Section title="2. Hvilke oplysninger indsamler vi?">

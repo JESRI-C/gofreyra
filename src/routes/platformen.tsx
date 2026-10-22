@@ -6,6 +6,10 @@ import { CTASection } from "@/components/site/CTASection";
 import { EvidenceChain } from "@/components/site/EvidenceChain";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
 import { FaqSection, GreenCTA, SectionHeader } from "@/components/site/sections";
+import s1 from "@/assets/drone-vandloeb-08.jpg.asset.json";
+import s2 from "@/assets/drone-vandloeb-09.jpg.asset.json";
+import s3 from "@/assets/drone-vandloeb-10.jpg.asset.json";
+import s4 from "@/assets/freyra-luftfoto-08.jpg.asset.json";
 
 const KILDER = [
   { t: "Dataforsyningen", d: "Ortofoto, matrikel og dansk højdemodel (DHM)." },
@@ -15,12 +19,11 @@ const KILDER = [
   { t: "Copernicus Sentinel-2", d: "Satellitbilleder til vegetation og arealdække." },
 ];
 
-// TODO: Erstat pladsholderne i public/images/screens/ med rigtige skærmbilleder fra systemet.
 const SCREENS = [
-  { src: "/images/screens/screen-kort-fotopunkter.png", alt: "Kort med dronefotos placeret ud fra GPS", caption: "Kort med dronefotos placeret ud fra GPS." },
-  { src: "/images/screens/screen-offentlige-data.png", alt: "Kildeoversigt med status pr. datalag", caption: "Kildeoversigt med status pr. datalag." },
-  { src: "/images/screens/screen-verifikation.png", alt: "Dronefoto og ortofoto side om side med vurdering", caption: "Dronefoto og ortofoto side om side med vurdering." },
-  { src: "/images/screens/screen-baselinerapport.png", alt: "Versioneret baselinerapport med SHA-256 fingeraftryk", caption: "Versioneret baselinerapport med SHA-256 fingeraftryk." },
+  { src: s1.url, alt: "Vandløb med åbne vandflader og bevoksning, set fra drone", caption: "Fotopunkter placeres ud fra billedets GPS." },
+  { src: s2.url, alt: "Vandløb gennem græs og bevoksning, set fra drone", caption: "Offentlige data hentes for området." },
+  { src: s3.url, alt: "Vandløbskorridor mellem marker, set fra drone", caption: "Dronefoto og offentlige data sammenlignes og vurderes fagligt." },
+  { src: s4.url, alt: "Vandløb mellem eng og bevoksning, set fra drone", caption: "Baseline samles i en versioneret rapport." },
 ];
 
 const FAQ = [
@@ -89,12 +92,11 @@ function PlatformPage() {
         </div>
       </section>
 
-      {/* SKÆRMBILLEDER (pladsholdere) */}
       <section className="container-page py-20 md:py-24">
         <SectionHeader
-          eyebrow="Sådan ser det ud"
-          title="Fire vigtige skærme i arbejdet med et projekt."
-          body="Skærmbillederne viser arbejdsgangen fra kort til færdig baselinerapport."
+          eyebrow="Arbejdsgangen"
+          title="Fra dronefoto til baseline i fire trin."
+          body="Billederne er egne dronefotos."
         />
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {SCREENS.map((s) => (
