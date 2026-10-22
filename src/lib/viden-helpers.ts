@@ -1,15 +1,16 @@
-import { artikler, type Artikel } from "@/data/viden";
-import { ordbog, type Term } from "@/data/ordbog";
+import type { Artikel } from "@/data/viden";
+import type { Term } from "@/data/ordbog";
+import { alleArtikler, alleTermer } from "@/data/content";
 import { YDELSER } from "@/data/ydelser";
 import { PHOTO_VARIANTS } from "@/lib/photo-variants";
 
 export const SITE = "https://gofreyra.com";
 
 export function getArtikel(slug: string): Artikel | undefined {
-  return artikler.find((a) => a.slug === slug);
+  return alleArtikler.find((a) => a.slug === slug);
 }
 export function getTerm(slug: string): Term | undefined {
-  return ordbog.find((t) => t.slug === slug);
+  return alleTermer.find((t) => t.slug === slug);
 }
 export function getService(slug: string) {
   return YDELSER.find((y) => y.slug === slug);
@@ -37,10 +38,10 @@ export function shorten(text: string, max = 160): string {
 /** Clusters in first-seen order, pillars first within each cluster. */
 export function clusters(): { name: string; items: Artikel[] }[] {
   const order: string[] = [];
-  for (const a of artikler) if (!order.includes(a.cluster)) order.push(a.cluster);
+  for (const a of alleArtikler) if (!order.includes(a.cluster)) order.push(a.cluster);
   return order.map((name) => ({
     name,
-    items: artikler
+    items: alleArtikler
       .filter((a) => a.cluster === name)
       .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "pillar" ? -1 : 1)),
   }));
@@ -48,7 +49,8 @@ export function clusters(): { name: string; items: Artikel[] }[] {
 
 /** Articles whose services include the given service slug, pillars first. */
 export function articlesForService(serviceSlug: string, max = 4): Artikel[] {
-  return artikler
+  if (!getService(serviceSlug)) return [];
+  return alleArtikler
     .filter((a) => a.services.includes(serviceSlug))
     .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "pillar" ? -1 : 1))
     .slice(0, max);
@@ -82,5 +84,5 @@ export function heroFor(slug: string) {
   for (const c of slug) h = (h * 31 + c.charCodeAt(0)) >>> 0;
   const p = HERO_PHOTOS[h % HERO_PHOTOS.length];
   const v = PHOTO_VARIANTS[p.key];
-  return { ...v, alt: p.alt, ogAbs: `${SITE}${v.og}`, srcAbs: `${SITE}${v.src}` };
+  return { ...v, alt: p.alt, ogAbs: `${SITE}${v.og}`, srcAbs: `${SITE}${v.w1400}` };
 }

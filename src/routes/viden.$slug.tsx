@@ -3,7 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/components/site/SEO";
-import { artikler } from "@/data/viden";
+import { alleArtikler } from "@/data/content";
+import { photoProps } from "@/lib/photo-variants";
 import {
   brandTitle,
   formatDate,
@@ -87,7 +88,7 @@ function ArticlePage() {
   const terms = a.terms.map(getTerm).filter((t) => !!t);
   const related = a.related.map(getArtikel).filter((r) => !!r);
   const services = a.services.map(getService).filter((s) => !!s);
-  const inCluster = a.kind === "pillar" ? artikler.filter((x) => x.cluster === a.cluster && x.slug !== a.slug) : [];
+  const inCluster = a.kind === "pillar" ? alleArtikler.filter((x) => x.cluster === a.cluster && x.slug !== a.slug) : [];
 
   return (
     <PageLayout>
@@ -108,11 +109,8 @@ function ArticlePage() {
         <figure className="container-page mt-10">
           <div className="card-soft overflow-hidden p-0 bg-card">
             <img
-              src={hero.w1400}
-              srcSet={`${hero.w800} 800w, ${hero.w1400} 1400w, ${hero.src} 2000w`}
-              sizes="100vw"
-              width={hero.width}
-              height={hero.height}
+              {...photoProps(hero.src, "100vw")}
+              loading="lazy"
               alt={hero.alt}
               decoding="async"
               className="w-full aspect-[21/9] object-cover"

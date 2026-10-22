@@ -153,7 +153,7 @@ function GalleryPage() {
             <ChevronRight className="w-7 h-7" />
           </button>
           <img
-            src={current.url}
+            {...photoProps(current.url, "100vw")}
             alt={current.alt}
             className="max-h-[78vh] max-w-full object-contain rounded-md"
             onClick={(e) => e.stopPropagation()}

@@ -1,2 +1,3 @@
 - Own drone photos render via `photoProps()` from src/lib/photo-variants.ts (pre-generated 800/1400 px WebP and 1200x630 share JPEG on the asset CDN); new photos need variants uploaded and added there, because the asset pipeline does not resize at build time.
-- Viden and Ordbog pages are generated from src/data/viden.ts and src/data/ordbog.ts; never edit those data files' text from code changes, since they are fact-checked content supplied by the client.
+- Viden and Ordbog consumers use the aggregate lists in src/data/content.ts; add future batches only there so hubs, links and sitemap stay synchronized. Fact-checked data text must remain unchanged except for explicit client-supplied corrections.
+- Sitemap content entries use their own updated field; static pages omit lastmod without an authoritative page-specific timestamp.
