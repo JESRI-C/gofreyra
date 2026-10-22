@@ -82,8 +82,14 @@ function ContactPage() {
             <div className="flex items-center gap-2 text-sm font-semibold"><MapPin className="w-4 h-4 text-primary" /> Adresse</div>
             <p className="mt-2 text-sm text-muted-foreground">Bøgevej 4, 7160 Tørring</p>
           </div>
-          {/* TODO: Tilføj direkte email og telefon, når de er klar fra kunden. */}
-          {/* TODO: Beskeder gemmes i backend-databasen (contact_messages). Opsæt email-notifikation, så nye henvendelser ikke skal tjekkes manuelt. */}
+          <div className="card-soft p-6">
+            <div className="text-sm font-semibold">Kontaktperson</div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Dan Sommer<br />
+              Co-Founder, Director of Business Development<br />
+              Skriv via formularen, så vender Dan tilbage.
+            </p>
+          </div>
           <div className="card-soft p-6">
             <div className="text-sm font-semibold">Hvad sker der bagefter?</div>
             <p className="mt-2 text-sm text-muted-foreground">

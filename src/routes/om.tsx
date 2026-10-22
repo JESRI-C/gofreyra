@@ -56,7 +56,6 @@ function AboutPage() {
           <h2 className="text-2xl md:text-3xl">Holdet</h2>
           <div className="mt-5 space-y-4">
             {[
-              { t: "Jesper Brøchner Riel", r: "Founder", d: "Står for produkt, metode og den faglige kvalitet i evidenskæden." },
               { t: "Dan Sommer", r: "Co-Founder, Director of Business Development", d: "Står for samarbejder med kommuner, treparter og partnere." },
             ].map((c) => (
               <div key={c.t} className="card-soft p-5 bg-card">
