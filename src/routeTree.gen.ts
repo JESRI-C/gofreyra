@@ -15,7 +15,9 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
 import { Route as ProblemerRouteImport } from './routes/problemer'
+import { Route as PrivatlivspolitikRouteImport } from './routes/privatlivspolitik'
 import { Route as PriserRouteImport } from './routes/priser'
+import { Route as PlatformenRouteImport } from './routes/platformen'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as OrdbogRouteImport } from './routes/ordbog'
 import { Route as OmRouteImport } from './routes/om'
@@ -87,9 +89,19 @@ const ProblemerRoute = ProblemerRouteImport.update({
   path: '/problemer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivatlivspolitikRoute = PrivatlivspolitikRouteImport.update({
+  id: '/privatlivspolitik',
+  path: '/privatlivspolitik',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PriserRoute = PriserRouteImport.update({
   id: '/priser',
   path: '/priser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformenRoute = PlatformenRouteImport.update({
+  id: '/platformen',
+  path: '/platformen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -310,7 +322,9 @@ export interface FileRoutesByFullPath {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
+  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -358,7 +372,9 @@ export interface FileRoutesByTo {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
+  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -408,7 +424,9 @@ export interface FileRoutesById {
   '/om': typeof OmRoute
   '/ordbog': typeof OrdbogRouteWithChildren
   '/platform': typeof PlatformRouteWithChildren
+  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
+  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -459,7 +477,9 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/platformen'
     | '/priser'
+    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
@@ -507,7 +527,9 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/platformen'
     | '/priser'
+    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
@@ -556,7 +578,9 @@ export interface FileRouteTypes {
     | '/om'
     | '/ordbog'
     | '/platform'
+    | '/platformen'
     | '/priser'
+    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
@@ -606,7 +630,9 @@ export interface RootRouteChildren {
   OmRoute: typeof OmRoute
   OrdbogRoute: typeof OrdbogRouteWithChildren
   PlatformRoute: typeof PlatformRouteWithChildren
+  PlatformenRoute: typeof PlatformenRoute
   PriserRoute: typeof PriserRoute
+  PrivatlivspolitikRoute: typeof PrivatlivspolitikRoute
   ProblemerRoute: typeof ProblemerRouteWithChildren
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
@@ -665,11 +691,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProblemerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privatlivspolitik': {
+      id: '/privatlivspolitik'
+      path: '/privatlivspolitik'
+      fullPath: '/privatlivspolitik'
+      preLoaderRoute: typeof PrivatlivspolitikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/priser': {
       id: '/priser'
       path: '/priser'
       fullPath: '/priser'
       preLoaderRoute: typeof PriserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platformen': {
+      id: '/platformen'
+      path: '/platformen'
+      fullPath: '/platformen'
+      preLoaderRoute: typeof PlatformenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -1096,7 +1136,9 @@ const rootRouteChildren: RootRouteChildren = {
   OmRoute: OmRoute,
   OrdbogRoute: OrdbogRouteWithChildren,
   PlatformRoute: PlatformRouteWithChildren,
+  PlatformenRoute: PlatformenRoute,
   PriserRoute: PriserRoute,
+  PrivatlivspolitikRoute: PrivatlivspolitikRoute,
   ProblemerRoute: ProblemerRouteWithChildren,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
