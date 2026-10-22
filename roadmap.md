@@ -1,13 +1,18 @@
-# Roadmap: Omlægning til Freyra Evidence Workspace
+# Roadmap: Freyra Evidence Workspace
 
-- [x] Nye delte komponenter: SEO (uden i18n/alternates), Header (ny nav, uden sprogskifter/login), Footer (Gofreyra ApS, CVR, adresse, Freyra Group, privatlivspolitik), sections.tsx (fjern i18n), CTASection, __root (ny titel/OG, fjern LocaleProvider og og-default)
-- [x] Nye sider: / (forside), /ydelser, /kommuner, /platformen, /om, /kontakt (behold formular, TODO email/telefon), /privatlivspolitik
-- [x] Redirects fra gamle ruter til nærmeste nye side
-- [x] Slet gamle ruter, data-filer, i18n, ubrugte komponenter
-- [x] Sitemap, robots, llms.txt opdateret til 7 sider
-- [x] Skjul Lovable-badge
-- [x] Verificér build + browser-test (forside, nav, redirects, 404)
+## Runde 1 (færdig)
+- [x] Syv danske sider, redirects fra gamle ruter, footer med selskabsfakta, badge skjult
+
+## Runde 2 (færdig)
+- [x] 6 egne dronefotos uploadet til CDN (drone-vandloeb-01..06) og indsat med danske alt-tekster
+- [x] Forside: fuldbredde dronefoto-hero med mørk gradient, billedgalleri i leverance-sektionen
+- [x] Design løftet: serif-overskrifter (Source Serif 4), off-white baggrund, mørk skovgrøn accent, rektangulære knapper, ingen gradienter/glow/piller
+- [x] Troværdighed: "Bygget på offentlige data"-bånd + "Sådan arbejder vi" med fire principper
+- [x] Platformen: 4 skærmbillede-pladsholdere i public/images/screens/ med TODO
+- [x] Tekst-sweep: ingen tankestreger i synlig tekst, danske ord, ingen floskler
+- [x] Verificeret i browser: ingen ødelagte billeder, build OK
 
 Åbent (afventer kunden):
+- Rigtige skærmbilleder til public/images/screens/ (erstat pladsholdere)
 - Direkte email og telefon til /kontakt og privatlivspolitik (TODO i koden)
 - Publicering: sker først når kunden siger til
