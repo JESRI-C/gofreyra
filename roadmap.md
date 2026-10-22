@@ -28,3 +28,8 @@
 - Direkte email og telefon til /kontakt og privatlivspolitik (TODO i koden)
 - Email-notifikation ved nye kontaktbeskeder (TODO i koden)
 - Publicering: sker først når kunden siger til
+
+## Runde 2, del 2
+- [ ] Integrér de præcise batches, ret kun de to godkendte metaDescriptions og kontrollér links/sitemap
+- [ ] Brug kun mindre dronevarianter og kontrollér sider og billedstørrelser
+- [ ] Kontrollér tests og automatisk build/typecheck; publicér ikke
