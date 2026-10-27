@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { z } from "zod";
+import { contactSchema, type ContactErrorKey } from "@/i18n/contact-schema";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { supabase } from "@/integrations/supabase/client";
@@ -30,25 +30,21 @@ export const Route = createFileRoute("/{-$locale}/kontakt")({
 
 function ContactPage() {
   const t = useCopy(COPY);
-  const schema = z.object({
-    name: z.string().trim().min(1).max(120),
-    email: z.string().trim().email().max(200),
-    company: z.string().trim().max(160).optional().or(z.literal("")),
-    subject: z.string().trim().max(200).optional().or(z.literal("")),
-    message: z.string().trim().min(1, t.messageRequired).max(2000),
-  });
+
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // Errors are stored as keys and rendered from the active locale's copy.
+  const [error, setError] = useState<ContactErrorKey | "checkFields" | "submissionError" | null>(null);
+  const errorText = error === null ? null : error === "checkFields" || error === "submissionError" ? t[error] : t.validation[error];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     const fd = new FormData(e.currentTarget);
     const raw = Object.fromEntries(fd.entries()) as Record<string, string>;
-    const parsed = schema.safeParse(raw);
+    const parsed = contactSchema.safeParse(raw);
     if (!parsed.success) {
-      setError(parsed.error.issues[0]?.message ?? t.checkFields);
+      setError((parsed.error.issues[0]?.message as ContactErrorKey | undefined) ?? "checkFields");
       return;
     }
     setLoading(true);
@@ -60,7 +56,7 @@ function ContactPage() {
       message: parsed.data.message,
     });
     setLoading(false);
-    if (dbErr) { setError(t.submissionError); return; }
+    if (dbErr) { setError("submissionError"); return; }
     setDone(true);
   }
 

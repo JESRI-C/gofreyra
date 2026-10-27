@@ -1,6 +1,16 @@
 import type { Locale } from "@/i18n/locale";
 
 const da = {
+  validation: {
+    nameRequired: "Skriv dit navn",
+    nameTooLong: "Navnet må højst være 120 tegn",
+    emailInvalid: "Skriv en gyldig e-mailadresse",
+    emailTooLong: "E-mailadressen må højst være 200 tegn",
+    companyTooLong: "Virksomhed eller kommune må højst være 160 tegn",
+    subjectTooLong: "Emnet må højst være 200 tegn",
+    messageRequired: "Skriv en besked",
+    messageTooLong: "Beskeden må højst være 2000 tegn",
+  },
   metaTitle: "Kontakt | Freyra Evidence Workspace",
   metaDescription: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde om natur- og arealprojekter. Skriv via formularen, så vender vi tilbage.",
   breadcrumbHome: "Forside",
@@ -38,6 +48,16 @@ const da = {
 export type Copy = typeof da;
 
 const en: Copy = {
+  validation: {
+    nameRequired: "Please enter your name",
+    nameTooLong: "Name can be at most 120 characters",
+    emailInvalid: "Please enter a valid email address",
+    emailTooLong: "Email address can be at most 200 characters",
+    companyTooLong: "Company or municipality can be at most 160 characters",
+    subjectTooLong: "Subject can be at most 200 characters",
+    messageRequired: "Please write a message",
+    messageTooLong: "Message can be at most 2000 characters",
+  },
   metaTitle: "Contact | Freyra Evidence Workspace",
   metaDescription: "Contact Freyra about a pilot, a baseline survey or collaboration on nature and land projects. Send us a message via the form and we will get back to you.",
   breadcrumbHome: "Home",
@@ -73,6 +93,16 @@ const en: Copy = {
 };
 
 const de: Copy = {
+  validation: {
+    nameRequired: "Bitte geben Sie Ihren Namen ein",
+    nameTooLong: "Der Name darf höchstens 120 Zeichen lang sein",
+    emailInvalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    emailTooLong: "Die E-Mail-Adresse darf höchstens 200 Zeichen lang sein",
+    companyTooLong: "Unternehmen oder Kommune darf höchstens 160 Zeichen lang sein",
+    subjectTooLong: "Der Betreff darf höchstens 200 Zeichen lang sein",
+    messageRequired: "Bitte schreiben Sie eine Nachricht",
+    messageTooLong: "Die Nachricht darf höchstens 2000 Zeichen lang sein",
+  },
   metaTitle: "Kontakt | Freyra Evidence Workspace",
   metaDescription: "Kontaktieren Sie Freyra zu Pilotprojekten, Ausgangserfassungen oder zur Zusammenarbeit bei Natur- und Flächenprojekten. Schreiben Sie uns im Formular.",
   breadcrumbHome: "Startseite",
