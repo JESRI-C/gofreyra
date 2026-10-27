@@ -112,7 +112,7 @@ function ContactPage() {
               <p className="mt-2 text-muted-foreground">{t.successDescription}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div><Label htmlFor="name">{t.nameLabel}</Label><Input id="name" name="name" required className="mt-1.5" /></div>
                 <div><Label htmlFor="email">{t.emailLabel}</Label><Input id="email" name="email" type="email" required className="mt-1.5" /></div>
