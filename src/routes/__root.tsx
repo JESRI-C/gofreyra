@@ -108,9 +108,8 @@ function RootComponent() {
     }
     if (saved === "en" || saved === "de") {
       const href = `${localizePath("/", saved)}${window.location.search}${window.location.hash}`;
-      // Wait until hydration has settled before switching route.
-      const id = window.setTimeout(() => router.navigate({ href, replace: true }), 0);
-      return () => window.clearTimeout(id);
+      // Full replace avoids racing the router while the Danish home page is hydrating.
+      window.location.replace(href);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
