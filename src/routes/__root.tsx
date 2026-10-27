@@ -48,9 +48,11 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 /** Localized 404 metadata (with noindex) whenever any match is not found; later entries override the Danish defaults. */
-function notFoundMeta(matches: { status: string; pathname: string; globalNotFound?: boolean }[]) {
-  console.log("HEADDBG", JSON.stringify(matches.map((m: any) => [m.routeId, m.status, m.globalNotFound, m.pathname, !!m.error])));
-  if (!matches.some((m) => m.status === "notFound" || m.globalNotFound)) return [];
+function notFoundMeta(matches: { routeId: string; status: string; pathname: string; globalNotFound?: boolean }[]) {
+  // Unmatched URLs end on the root or the locale layout without a page below it.
+  const last = matches[matches.length - 1];
+  const unmatched = !last || last.routeId === "__root__" || last.routeId === "/{-$locale}";
+  if (!unmatched && !matches.some((m) => m.status === "notFound" || m.globalNotFound)) return [];
   const locale = splitLocale(matches[matches.length - 1]?.pathname ?? "/").locale;
   const t = CHROME_COPY[locale].notFound;
   const title = `${t.title} | Freyra`;
