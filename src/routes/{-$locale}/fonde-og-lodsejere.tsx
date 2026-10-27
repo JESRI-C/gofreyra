@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { ArrowRight } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -22,7 +23,7 @@ const PAKKE = [
   "Versionering og SHA-256 fingeraftryk, så pakken kan dokumenteres uændret",
 ];
 
-export const Route = createFileRoute("/fonde-og-lodsejere")({
+export const Route = createFileRoute("/{-$locale}/fonde-og-lodsejere")({
   head: () =>
     buildHead({
       title: "Til naturfonde og lodsejere | Freyra Evidence Workspace",
@@ -103,10 +104,10 @@ function FondePage() {
             { slug: "monitorering", t: "Gentagen monitorering (før/efter)", d: "Efterflyvning fra de samme punkter, så udviklingen kan vises." },
             { slug: "evidenspakke", t: "Evidenspakke til fonde og trepart", d: "Den samlede pakke til ansøgninger og lokal trepart." },
           ].map((y) => (
-            <Link key={y.slug} to="/ydelser/$slug" params={{ slug: y.slug }} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
+            <LLink key={y.slug} to="/ydelser/$slug" params={{ slug: y.slug }} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
-            </Link>
+            </LLink>
           ))}
         </div>
       </section>
@@ -122,9 +123,9 @@ function FondePage() {
         <ul className="mt-5 grid md:grid-cols-2 gap-3">
           {LAES_MERE.map((a) => (
             <li key={a.slug}>
-              <Link to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
+              <LLink to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
                 <ArrowRight className="w-4 h-4 shrink-0" /> <span>{a.h1}</span>
-              </Link>
+              </LLink>
             </li>
           ))}
         </ul>

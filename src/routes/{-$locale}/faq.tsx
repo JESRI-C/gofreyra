@@ -64,7 +64,7 @@ const ORDLISTE = [
 
 const ALL_FAQ = GRUPPER.flatMap((g) => g.items);
 
-export const Route = createFileRoute("/faq")({
+export const Route = createFileRoute("/{-$locale}/faq")({
   head: () =>
     buildHead({
       title: "Ressourcer og FAQ | Freyra Evidence Workspace",

@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -35,7 +36,7 @@ const FAQ = [
   { q: "Hvem har adgang?", a: "Kommunen eller projektejeren får login og styrer selv, hvem der skal have adgang. Vi giver ikke andre adgang til jeres data." },
 ];
 
-export const Route = createFileRoute("/platformen")({
+export const Route = createFileRoute("/{-$locale}/platformen")({
   head: () =>
     buildHead({
       title: "Platformen | Freyra Evidence Workspace",
@@ -62,8 +63,8 @@ function PlatformPage() {
             Platformen samler feltdata, offentlige data og faglig verifikation, så hver konklusion kan spores tilbage til sin kilde. Ikke et dashboard med flotte tal. Et arbejdsredskab med sporbarhed.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><Link to="/ydelser">Se ydelserne</Link></Button>
+            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">Se ydelserne</LLink></Button>
           </div>
         </div>
         <EvidenceChain />

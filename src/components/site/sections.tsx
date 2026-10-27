@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -65,8 +66,8 @@ export function GreenCTA({ title, subtitle, primary, secondary }: { title: strin
           {subtitle && <p className="mt-2 text-white/80 max-w-xl">{subtitle}</p>}
         </div>
         <div className="flex gap-3 flex-wrap">
-          <Button asChild className="rounded-md h-11 px-5 bg-white text-brand-deep hover:bg-white/90"><Link to={p.to}>{p.label} <ArrowRight className="ml-1 w-4 h-4" /></Link></Button>
-          {secondary && <Button asChild variant="outline" className="rounded-md h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10"><Link to={secondary.to}>{secondary.label}</Link></Button>}
+          <Button asChild className="rounded-md h-11 px-5 bg-white text-brand-deep hover:bg-white/90"><LLink to={p.to}>{p.label} <ArrowRight className="ml-1 w-4 h-4" /></LLink></Button>
+          {secondary && <Button asChild variant="outline" className="rounded-md h-11 px-5 bg-transparent border-white/40 text-white hover:bg-white/10"><LLink to={secondary.to}>{secondary.label}</LLink></Button>}
         </div>
       </div>
     </section>

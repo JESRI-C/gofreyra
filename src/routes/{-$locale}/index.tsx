@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -37,7 +38,7 @@ const GALLERY = [
   { img: g2.url, alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning" },
 ];
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/{-$locale}/")({
   head: () =>
     buildHead({
       title: "Freyra: dokumentation af natur- og arealprojekter",
@@ -79,8 +80,8 @@ function HomePage() {
               Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde. Fra første flyvning til en baseline, der kan bruges i Grøn Trepart.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><Link to="/ydelser">Se ydelserne</Link></Button>
+              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><LLink to="/ydelser">Se ydelserne</LLink></Button>
             </div>
             <p className="mt-6 text-xs text-white/60">Eget dronefoto, september 2024.</p>
           </div>
@@ -130,11 +131,11 @@ function HomePage() {
         <SectionHeader eyebrow="Ydelser" title="Seks ydelser. Én evidenskæde." />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {YDELSER.map((y) => (
-            <Link key={y.anchor} to="/ydelser" hash={y.anchor} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
+            <LLink key={y.anchor} to="/ydelser" hash={y.anchor} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
               <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">Læs mere <ArrowRight className="ml-1 w-4 h-4" /></span>
-            </Link>
+            </LLink>
           ))}
         </div>
       </section>

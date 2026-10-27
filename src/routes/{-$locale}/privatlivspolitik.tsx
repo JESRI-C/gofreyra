@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 
-export const Route = createFileRoute("/privatlivspolitik")({
+export const Route = createFileRoute("/{-$locale}/privatlivspolitik")({
   head: () => buildHead({
     title: "Privatlivspolitik | Gofreyra ApS",
     description: "Sådan behandler Gofreyra ApS personoplysninger på gofreyra.com og i Freyra Evidence Workspace. Læs hvem der er dataansvarlig, og hvordan du kontakter os.",

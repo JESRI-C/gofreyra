@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -24,7 +25,7 @@ const FAQ = [
   { q: "Hvem ejer data?", a: "Kommunen ejer sine egne data og evidenspakker. Vi opbevarer dem sikkert og gør dem tilgængelige via jeres login." },
 ];
 
-export const Route = createFileRoute("/kommuner")({
+export const Route = createFileRoute("/{-$locale}/kommuner")({
   head: () =>
     buildHead({
       title: "Til kommuner og treparter | Freyra Evidence Workspace",
@@ -52,8 +53,8 @@ function MunicipalitiesPage() {
             I Grøn Trepart skal kommunen kunne vise, hvad der er besluttet, hvorfor, og hvad det har flyttet. Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><Link to="/ydelser">Se ydelserne</Link></Button>
+            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">Se ydelserne</LLink></Button>
           </div>
         </div>
         <figure className="card-soft overflow-hidden p-0 bg-card">
@@ -185,9 +186,9 @@ function MunicipalitiesPage() {
         <ul className="mt-5 grid md:grid-cols-2 gap-3">
           {LAES_MERE.map((a) => (
             <li key={a.slug}>
-              <Link to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
+              <LLink to="/viden/$slug" params={{ slug: a.slug }} className="card-soft p-4 bg-card flex items-center gap-2 text-brand-deep hover:border-primary/40 transition">
                 <ArrowRight className="w-4 h-4 shrink-0" /> <span>{a.h1}</span>
-              </Link>
+              </LLink>
             </li>
           ))}
         </ul>

@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
@@ -20,7 +21,7 @@ for (const t of sorted) {
   else groups.push({ letter: l, items: [t] });
 }
 
-export const Route = createFileRoute("/ordbog/")({
+export const Route = createFileRoute("/{-$locale}/ordbog/")({
   head: () =>
     buildHead({
       title: "Ordbog: Grøn Trepart, lavbund og natur | Freyra",
@@ -57,7 +58,7 @@ function OrdbogPage() {
     <PageLayout>
       <section className="container-page py-12 md:py-16 max-w-3xl">
         <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-foreground">Forside</Link> <span aria-hidden>/</span> <span>Ordbog</span>
+          <LLink to="/" className="hover:text-foreground">Forside</LLink> <span aria-hidden>/</span> <span>Ordbog</span>
         </nav>
         <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">Ordbog: begreber i natur- og arealprojekter</h1>
         <p className="mt-6 text-lg text-muted-foreground">
@@ -78,7 +79,7 @@ function OrdbogPage() {
               {g.items.map((t) => (
                 <div key={t.slug} className="py-4">
                   <dt className="font-semibold">
-                    <Link to="/ordbog/$slug" params={{ slug: t.slug }} className="hover:text-brand-deep transition">{t.term}</Link>
+                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="hover:text-brand-deep transition">{t.term}</LLink>
                   </dt>
                   <dd className="mt-1 text-sm text-muted-foreground">{t.short}</dd>
                 </div>
@@ -87,7 +88,7 @@ function OrdbogPage() {
           </div>
         ))}
         <p className="mt-10 text-sm">
-          <Link to="/viden" className="text-brand-deep font-medium hover:text-foreground">Læs artiklerne på Viden</Link>
+          <LLink to="/viden" className="text-brand-deep font-medium hover:text-foreground">Læs artiklerne på Viden</LLink>
         </p>
       </section>
 

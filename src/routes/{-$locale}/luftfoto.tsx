@@ -55,7 +55,7 @@ const FOTOS: Foto[] = [
   { url: f02.url, alt: "Åbent vandløb mellem træer og eng, set fra drone", caption: "Åbent vandløb mellem træer og eng", month: "August 2022", h: 1500 },
 ];
 
-export const Route = createFileRoute("/luftfoto")({
+export const Route = createFileRoute("/{-$locale}/luftfoto")({
   head: () =>
     buildHead({
       title: "Luftfoto | Freyra Evidence Workspace",

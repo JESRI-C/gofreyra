@@ -6,7 +6,7 @@ import { GreenCTA, MicroStrip, CardGrid } from "@/components/site/sections";
 import moodPhoto from "@/assets/freyra-luftfoto-05.jpg.asset.json";
 import { photoProps } from "@/lib/photo-variants";
 
-export const Route = createFileRoute("/om")({
+export const Route = createFileRoute("/{-$locale}/om")({
   head: () =>
     buildHead({
       title: "Om Freyra | Gofreyra ApS",
