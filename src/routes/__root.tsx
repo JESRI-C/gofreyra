@@ -49,6 +49,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 /** Localized 404 metadata (with noindex) whenever any match is not found; later entries override the Danish defaults. */
 function notFoundMeta(matches: { status: string; pathname: string; globalNotFound?: boolean }[]) {
+  console.log("HEADDBG", JSON.stringify(matches.map((m: any) => [m.routeId, m.status, m.globalNotFound, m.pathname, !!m.error])));
   if (!matches.some((m) => m.status === "notFound" || m.globalNotFound)) return [];
   const locale = splitLocale(matches[matches.length - 1]?.pathname ?? "/").locale;
   const t = CHROME_COPY[locale].notFound;
