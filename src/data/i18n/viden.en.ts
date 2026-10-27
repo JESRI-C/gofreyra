@@ -486,7 +486,7 @@ export const artiklerEn: Artikel[] = [
    {
     "h2": "Grant rate and funding",
     "paragraphs": [
-     "SGAV (Danish Agency for Green Transition and Aquatic Environment) may award grants covering 100% of eligible expenditure. VKP low-lying land projects in track 1 are funded entirely by the EU through ELFUL (European Agricultural Fund for Rural Development). The other VKP measures receive 80% EU funding and 20% national funding. Feasibility studies and track 2 are nationally funded."
+     "SGAV (Danish Agency for Green Transition and Aquatic Environment) may award grants covering 100% of eligible expenditure. VKP low-lying land projects in track 1 are 100% funded by the EU through ELFUL (European Agricultural Fund for Rural Development). The other VKP measures receive 80% EU funding and 20% national funding. Feasibility studies and track 2 are nationally funded."
     ],
     "bullets": []
    },
