@@ -1,4 +1,5 @@
-import { alleArtikler, alleTermer } from "@/data/content";
+import { alleArtikler, alleTermer, artiklerFor, termerFor } from "@/data/content";
+import { LOCALES, localizePath } from "@/i18n/locale";
 import type { Artikel } from "@/data/viden";
 import type { Term } from "@/data/ordbog";
 
@@ -24,12 +25,31 @@ export function sitemapEntries(articles: Pick<Artikel, "slug" | "updated">[] = a
   return entries;
 }
 
+/** Danish base paths that have a real en/de translation (articles/terms must exist in every locale). */
+export function translatedBasePaths() {
+  const all = sitemapEntries();
+  return all.filter(({ path }) => {
+    const m = path.match(/^\/(viden|ordbog)\/(.+)$/);
+    if (!m) return true;
+    const list = m[1] === "viden" ? (["en", "de"] as const).map((l) => artiklerFor(l)) : (["en", "de"] as const).map((l) => termerFor(l));
+    return list.every((arr) => arr.some((x) => x.slug === m[2]));
+  });
+}
+
 export function sitemapXml() {
-  const urls = sitemapEntries().map(({ path, updated }) =>
-    `  <url><loc>https://gofreyra.com${path}</loc>${updated ? `<lastmod>${updated}</lastmod>` : ""}</url>`,
-  ).join("\n");
+  const translated = new Set(translatedBasePaths().map((e) => e.path));
+  const urls = sitemapEntries().flatMap(({ path, updated }) => {
+    const locales = translated.has(path) ? LOCALES : (["da"] as const);
+    const alts = translated.has(path)
+      ? [...LOCALES.map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="https://gofreyra.com${localizePath(path, l)}"/>`),
+         `<xhtml:link rel="alternate" hreflang="x-default" href="https://gofreyra.com${path}"/>`].join("")
+      : "";
+    return locales.map((l) =>
+      `  <url><loc>https://gofreyra.com${localizePath(path, l)}</loc>${updated ? `<lastmod>${updated}</lastmod>` : ""}${alts}</url>`,
+    );
+  }).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>`;
 }
