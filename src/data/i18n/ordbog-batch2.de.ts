@@ -568,7 +568,7 @@ export const ordbogBatch2De: Term[] = [
   "slug": "gsd",
   "term": "GSD (Ground Sample Distance)",
   "metaTitle": "GSD (Ground Sample Distance): Was bedeutet das?",
-  "metaDescription": "GSD gibt an, wie gross die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt. Kurz erklärt mit Quellen und verwandten Begriffen.",
+  "metaDescription": "GSD gibt an, wie groß die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt. Kurz erklärt mit Quellen und verwandten Begriffen.",
   "short": "GSD gibt an, wie groß die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt.",
   "body": [
    "GeoDanmark-Orthofotos werden standardmäßig mit 15 cm GSD aufgenommen und auf 12,5 cm große Pixel resampelt. 10 cm GSD bedeutet, dass jedes Pixel 10 x 10 cm abdeckt."

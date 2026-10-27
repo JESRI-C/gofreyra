@@ -60,7 +60,7 @@ const en: Copy = {
   controller: {
     title: "1. Data controller",
     description: "Gofreyra ApS, CVR 45384489 (Danish business registration number), Bøgevej 4, 7160 Tørring, is the data controller for the processing of personal data on gofreyra.com and in Freyra Evidence Workspace. Gofreyra ApS is owned by Freyra Group ApS.",
-    contact: "Enquiries about personal data should be sent via the contact form at gofreyra.com/kontakt.",
+    contact: "Enquiries about personal data should be sent via the contact form at gofreyra.com/en/kontakt.",
   },
   collection: {
     title: "2. What information do we collect?",
@@ -106,7 +106,7 @@ const de: Copy = {
   controller: {
     title: "1. Verantwortlicher",
     description: "Gofreyra ApS, CVR 45384489 (dänische Unternehmensregisternummer), Bøgevej 4, 7160 Tørring, ist für die Verarbeitung personenbezogener Daten auf gofreyra.com und im Freyra Evidence Workspace verantwortlich. Gofreyra ApS gehört Freyra Group ApS.",
-    contact: "Anfragen zu personenbezogenen Daten richten Sie bitte über das Kontaktformular auf gofreyra.com/kontakt an uns.",
+    contact: "Anfragen zu personenbezogenen Daten richten Sie bitte über das Kontaktformular auf gofreyra.com/de/kontakt an uns.",
   },
   collection: {
     title: "2. Welche Daten erheben wir?",
