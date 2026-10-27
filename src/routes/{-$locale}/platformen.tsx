@@ -1,5 +1,5 @@
 import { LLink } from "@/components/site/LLink";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -12,59 +12,51 @@ import s2 from "@/assets/drone-vandloeb-09.jpg.asset.json";
 import s3 from "@/assets/drone-vandloeb-10.jpg.asset.json";
 import s4 from "@/assets/freyra-luftfoto-08.jpg.asset.json";
 import { photoProps } from "@/lib/photo-variants";
-
-const KILDER = [
-  { t: "Dataforsyningen", d: "Ortofoto, matrikel og dansk højdemodel (DHM)." },
-  { t: "Danmarks Arealinformation", d: "§3-registrerede natur- og beskyttede områder." },
-  { t: "GEUS", d: "Jordart og lavbundskort." },
-  { t: "DMI", d: "Vejrdata til kontekst for feltobservationer." },
-  { t: "Copernicus Sentinel-2", d: "Satellitbilleder til vegetation og arealdække." },
-];
-
-const SCREENS = [
-  { src: s1.url, alt: "Vandløb med åbne vandflader og bevoksning, set fra drone", caption: "Fotopunkter placeres ud fra billedets GPS." },
-  { src: s2.url, alt: "Vandløb gennem græs og bevoksning, set fra drone", caption: "Offentlige data hentes for området." },
-  { src: s3.url, alt: "Vandløbskorridor mellem marker, set fra drone", caption: "Dronefoto og offentlige data sammenlignes og vurderes fagligt." },
-  { src: s4.url, alt: "Vandløb mellem eng og bevoksning, set fra drone", caption: "Baseline samles i en versioneret rapport." },
-];
-
-const FAQ = [
-  { q: "Hvad er Freyra Evidence Workspace?", a: "Det er den platform, hvor jeres projekter, baseliner og evidenspakker ligger. Her samler vi dronefotos, offentlige data og faglig verifikation i én evidenskæde pr. projekt." },
-  { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
-  { q: "Hvad betyder versionering?", a: "Hver ændring i et projekt gemmes som en ny version. I kan se, hvad der er ændret, hvornår og af hvem, og I kan gå tilbage til en tidligere version." },
-  { q: "Hvad er et SHA-256 fingeraftryk?", a: "Det er en digital kontrolsum på en fil eller en evidenspakke. Hvis indholdet ændres, ændres fingeraftrykket. Det gør det muligt at dokumentere, at en pakke er uændret siden den blev lavet." },
-  { q: "Hvem har adgang?", a: "Kommunen eller projektejeren får login og styrer selv, hvem der skal have adgang. Vi giver ikke andre adgang til jeres data." },
-];
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/platformen";
 
 export const Route = createFileRoute("/{-$locale}/platformen")({
-  head: () =>
-    buildHead({
-      title: "Platformen | Freyra Evidence Workspace",
-      description: "Sådan virker Freyra Evidence Workspace: evidenskæde, offentlige datakilder, versionering, SHA-256 fingeraftryk og beplantningsegnethed.",
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
       path: "/platformen",
+      locale,
       jsonLd: [
-        breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Platformen", path: "/platformen" }]),
-        faqJsonLd(FAQ),
+        breadcrumbJsonLd([{ name: t.home, path: localizePath("/", locale) }, { name: t.platform, path: localizePath("/platformen", locale) }]),
+        faqJsonLd(t.faq),
       ],
-    }),
+    });
+  },
   component: PlatformPage,
 });
 
 function PlatformPage() {
+  const t = useCopy(COPY);
+  const KILDER = t.sources.items;
+  const SCREENS = [s1, s2, s3, s4].map((image, index) => ({
+    src: image.url,
+    ...t.screens[index],
+  }));
+  const FAQ = t.faq;
+
   return (
     <PageLayout>
       <section className="container-page py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <div>
-          <span className="eyebrow">Platformen</span>
+          <span className="eyebrow">{t.platform}</span>
           <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">
-            Freyra Evidence Workspace. Én evidenskæde pr. projekt.
+            {t.heroTitle}
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-            Platformen samler feltdata, offentlige data og faglig verifikation, så hver konklusion kan spores tilbage til sin kilde. Ikke et dashboard med flotte tal. Et arbejdsredskab med sporbarhed.
+            {t.heroBody}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">Se ydelserne</LLink></Button>
+            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">{t.book} <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">{t.services}</LLink></Button>
           </div>
         </div>
         <EvidenceChain />
@@ -74,17 +66,12 @@ function PlatformPage() {
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24">
           <SectionHeader
-            eyebrow="Evidenskæden"
-            title="Hver påstand kan spores tilbage til kilden."
-            body="En evidenskæde binder feltdata, offentlige data, beregninger og faglige vurderinger sammen. Når nogen spørger hvorfor, kan I vise det."
+            eyebrow={t.evidence.eyebrow}
+            title={t.evidence.title}
+            body={t.evidence.body}
           />
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { t: "Feltdata med GPS", d: "Dronefotos og referencefotos med position og tidspunkt fra EXIF-data." },
-              { t: "Offentlige data", d: "Hentes automatisk fra danske datakilder og kobles på det konkrete areal." },
-              { t: "Versionering", d: "Hver ændring gemmes som en ny version med tidspunkt og ansvarlig." },
-              { t: "SHA-256 fingeraftryk", d: "Evidenspakker får en digital kontrolsum, så det kan dokumenteres, at de er uændrede." },
-            ].map((c) => (
+            {t.evidence.cards.map((c) => (
               <div key={c.t} className="card-soft p-6 bg-card">
                 <div className="font-semibold">{c.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
@@ -96,9 +83,9 @@ function PlatformPage() {
 
       <section className="container-page py-20 md:py-24">
         <SectionHeader
-          eyebrow="Arbejdsgangen"
-          title="Fra dronefoto til baseline i fire trin."
-          body="Billederne er egne dronefotos."
+          eyebrow={t.workflow.eyebrow}
+          title={t.workflow.title}
+          body={t.workflow.body}
         />
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {SCREENS.map((s) => (
@@ -114,9 +101,9 @@ function PlatformPage() {
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24">
           <SectionHeader
-            eyebrow="Datakilder"
-            title="Bygget på offentlige danske data."
-            body="Vi henter data fra etablerede kilder, så grundlaget er det samme, som myndigheder og rådgivere bruger."
+            eyebrow={t.sources.eyebrow}
+            title={t.sources.title}
+            body={t.sources.body}
           />
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {KILDER.map((k) => (
@@ -132,17 +119,13 @@ function PlatformPage() {
       {/* VERIFIKATION */}
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="eyebrow">Verifikation</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">AI assisterer. Mennesker vurderer.</h2>
+          <span className="eyebrow">{t.verification.eyebrow}</span>
+          <h2 className="mt-4 text-3xl md:text-4xl">{t.verification.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Materialet gennemgås først maskinelt for at finde det, der kræver opmærksomhed. Derefter vurderer en fagperson resultatet, før det bliver en del af baselinen. Ingen konklusion står uden en faglig vurdering bag.
+            {t.verification.body}
           </p>
           <ul className="mt-6 space-y-2.5 text-sm">
-            {[
-              "Maskinel gennemgang markerer afvigelser og områder, der kræver et nærmere kig",
-              "Faglig vurdering af hvert punkt, før det indgår i baselinen",
-              "Revisionsspor viser, hvad der er vurderet, af hvem og hvornår",
-            ].map((b) => (
+            {t.verification.bullets.map((b) => (
               <li key={b} className="flex gap-2 items-start">
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" /><span>{b}</span>
               </li>
@@ -150,13 +133,13 @@ function PlatformPage() {
           </ul>
         </div>
         <div className="card-soft p-6 bg-card">
-          <div className="font-semibold text-brand-deep">Gentagelsespunkter</div>
+          <div className="font-semibold text-brand-deep">{t.verification.repeatTitle}</div>
           <p className="mt-2 text-sm text-muted-foreground">
-            Ved førregistreringen etablerer vi faste positioner med GPS. Ved genbesøg fotograferes fra de samme punkter, så før/efter-materialet kan sammenlignes direkte.
+            {t.verification.repeatBody}
           </p>
-          <div className="mt-5 pt-4 border-t border-border font-semibold text-brand-deep">Revisionsspor</div>
+          <div className="mt-5 pt-4 border-t border-border font-semibold text-brand-deep">{t.verification.auditTitle}</div>
           <p className="mt-2 text-sm text-muted-foreground">
-            Hvert datapunkt, hver beregning og hver vurdering i en evidenspakke har kilde, tidspunkt og ansvarlig. Det er det, der gør pakken efterprøvelig.
+            {t.verification.auditBody}
           </p>
         </div>
       </section>
@@ -165,21 +148,17 @@ function PlatformPage() {
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
           <div>
-            <span className="eyebrow">Beplantningsegnethed</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Egnet, betinget eller uegnet. Med begrundelse.</h2>
+            <span className="eyebrow">{t.planting.eyebrow}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl">{t.planting.title}</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Beplantningsanalysen er regelbaseret og bygger på jord, vand, beskyttede områder og eksisterende natur. Hvert areal får en vurdering i hektar med begrundelse og kildehenvisning.
+              {t.planting.body}
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
-              Effekter vises som intervaller fra forskningslitteraturen, ikke som løfter. Det gør vurderingen egnet til dialog med lodsejere, rådgivere og treparten.
+              {t.planting.effects}
             </p>
           </div>
           <div className="space-y-3">
-            {[
-              { t: "Egnet", d: "Forholdene understøtter beplantning uden særlige forbehold." },
-              { t: "Betinget egnet", d: "Beplantning er mulig under konkrete forudsætninger, som beskrives." },
-              { t: "Uegnet", d: "Forholdene taler imod beplantning, fx beskyttet natur eller lavbund." },
-            ].map((c) => (
+            {t.planting.cards.map((c) => (
               <div key={c.t} className="card-soft p-5 bg-card">
                 <div className="font-semibold text-sm">{c.t}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
@@ -192,16 +171,16 @@ function PlatformPage() {
       {/* ADGANG */}
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
         <div>
-          <span className="eyebrow">Adgang</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">Login for kommunen.</h2>
+          <span className="eyebrow">{t.access.eyebrow}</span>
+          <h2 className="mt-4 text-3xl md:text-4xl">{t.access.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Jeres team får login til egne projekter med versioneret historik og deling af evidenspakker. Materialet ligger hos jer, ikke i en mailboks.
+            {t.access.body}
           </p>
         </div>
         <div className="card-soft p-6 bg-card">
-          <div className="font-semibold">Kontrolleret adgang</div>
+          <div className="font-semibold">{t.access.controlTitle}</div>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            Kommunen eller projektejeren styrer, hvem der har adgang. Data deles ikke med andre uden jeres accept.
+            {t.access.controlBody}
           </p>
         </div>
       </section>
@@ -209,10 +188,10 @@ function PlatformPage() {
       <FaqSection items={FAQ} />
 
       <GreenCTA
-        title="Vil I se platformen med jeres eget område?"
-        subtitle="Et pilotprojekt starter fra 125.000 kr. og viser hele evidenskæden i praksis."
-        primary={{ to: "/kontakt", label: "Book en snak" }}
-        secondary={{ to: "/ydelser", label: "Se ydelserne" }}
+        title={t.ctaTitle}
+        subtitle={t.ctaSubtitle}
+        primary={{ to: "/kontakt", label: t.book }}
+        secondary={{ to: "/ydelser", label: t.services }}
       />
 
       <CTASection />

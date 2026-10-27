@@ -5,60 +5,67 @@ import { buildHead, organizationJsonLd, breadcrumbJsonLd } from "@/components/si
 import { GreenCTA, MicroStrip, CardGrid } from "@/components/site/sections";
 import moodPhoto from "@/assets/freyra-luftfoto-05.jpg.asset.json";
 import { photoProps } from "@/lib/photo-variants";
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/om";
 
 export const Route = createFileRoute("/{-$locale}/om")({
-  head: () =>
-    buildHead({
-      title: "Om Freyra | Gofreyra ApS",
-      description: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder med dokumentation af naturprojekter.",
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
       path: "/om",
+      locale,
       jsonLd: [
         organizationJsonLd(),
-        breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Om", path: "/om" }]),
+        breadcrumbJsonLd([{ name: t.breadcrumbHome, path: localizePath("/", locale) }, { name: t.breadcrumbAbout, path: localizePath("/om", locale) }]),
       ],
-    }),
+    });
+  },
   component: AboutPage,
 });
 
 function AboutPage() {
+  const t = useCopy(COPY);
+
   return (
     <PageLayout>
       <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">Om Freyra</span>
-        <h1 className="mt-4 text-4xl md:text-5xl leading-[1.1]">Vi bygger dokumentation, der kan efterprøves.</h1>
+        <span className="eyebrow">{t.eyebrow}</span>
+        <h1 className="mt-4 text-4xl md:text-5xl leading-[1.1]">{t.heading}</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Freyra Evidence Workspace er udviklet af Gofreyra ApS. Vi hjælper kommuner, treparter og projektejere med at dokumentere natur- og arealprojekter, så hver konklusion kan spores tilbage til sin kilde.
+          {t.introduction}
         </p>
       </section>
 
       <section className="container-page pb-12">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img {...photoProps(moodPhoto.url, "100vw")} alt="Landskab i solnedgang, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
-          <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, august 2023.</figcaption>
+          <img {...photoProps(moodPhoto.url, "100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <figcaption className="p-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
         </figure>
       </section>
 
-      <MicroStrip items={["Dansk virksomhed", "Bygget til Grøn Trepart", "Offentlige datakilder", "Faglig verifikation"]} />
+      <MicroStrip items={t.microItems} />
 
       <section className="container-page py-16 md:py-20 grid lg:grid-cols-2 gap-10">
         <div className="space-y-5 text-foreground/85">
-          <h2 className="text-2xl md:text-3xl">Hvorfor Freyra findes</h2>
+          <h2 className="text-2xl md:text-3xl">{t.whyHeading}</h2>
           <p>
-            Natur- og arealprojekter dokumenteres ofte med fotos i mapper, regneark og rapporter, der er svære at efterprøve. Når en fond, en trepart eller en borger spørger til grundlaget, skal svaret kunne findes.
+            {t.whyDocumentation}
           </p>
           <p>
-            Vi bygger Freyra som en evidenskæde: dronefotos, offentlige data, beregninger og faglige vurderinger hænger sammen og er versionerede. Platformen er et lag oven på de systemer, kommunen allerede bruger, som MARS, GATE og Miljøportalen.
+            {t.whyEvidence}
           </p>
           <p>
-            Vi siger ikke mere, end data understøtter. Effekter vises som intervaller fra forskningslitteraturen, og enhver konklusion har en faglig vurdering bag sig.
+            {t.whyClaims}
           </p>
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl">Holdet</h2>
+          <h2 className="text-2xl md:text-3xl">{t.teamHeading}</h2>
           <div className="mt-5 space-y-4">
-            {[
-              { t: "Dan Sommer", r: "Co-Founder, Director of Business Development", d: "Står for samarbejder med kommuner, treparter og partnere." },
-            ].map((c) => (
+            {t.team.map((c) => (
               <div key={c.t} className="card-soft p-5 bg-card">
                 <div className="font-semibold">{c.t}</div>
                 <div className="text-xs font-medium text-brand-deep mt-0.5">{c.r}</div>
@@ -67,9 +74,9 @@ function AboutPage() {
             ))}
           </div>
           <div className="card-soft p-5 bg-card mt-4">
-            <div className="font-semibold">Gofreyra ApS</div>
+            <div className="font-semibold">{t.companyName}</div>
             <p className="mt-1.5 text-sm text-muted-foreground">
-              CVR 45384489 · Bøgevej 4, 7160 Tørring · Ejet af Freyra Group ApS
+              {t.companyDetails}
             </p>
           </div>
         </div>
@@ -77,21 +84,16 @@ function AboutPage() {
 
       <CardGrid
         beige
-        eyebrow="Vores principper"
-        title="Sådan arbejder vi."
+        eyebrow={t.principlesEyebrow}
+        title={t.principlesHeading}
         cols={4}
-        cards={[
-          { t: "Alt kan spores til kilde", d: "Hver påstand skal kunne spores tilbage til kilde, metode og vurdering." },
-          { t: "Ingen tal uden belæg", d: "Vi viser effekter som litteraturintervaller, ikke som løfter." },
-          { t: "Fagperson godkender", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
-          { t: "Versioneret og reproducerbart", d: "Hver ændring gemmes. En evidenspakke kan genskabes og efterprøves." },
-        ]}
+        cards={t.principles}
       />
 
       <GreenCTA
-        title="Vil I høre mere om, hvordan vi arbejder?"
-        subtitle="Book en uforpligtende snak om jeres projekt og vores tilgang."
-        primary={{ to: "/kontakt", label: "Book en snak" }}
+        title={t.ctaTitle}
+        subtitle={t.ctaSubtitle}
+        primary={{ to: "/kontakt", label: t.ctaLabel }}
       />
 
       <CTASection />

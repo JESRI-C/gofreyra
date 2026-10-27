@@ -1,5 +1,5 @@
 import { LLink } from "@/components/site/LLink";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -9,81 +9,81 @@ import { FaqSection, GreenCTA, MicroStrip, SectionHeader } from "@/components/si
 import heroPhoto from "@/assets/drone-vandloeb-06.jpg.asset.json";
 import { photoProps, ogImageFor } from "@/lib/photo-variants";
 import { getArtikel } from "@/lib/viden-helpers";
-
-const LAES_MERE = [
-  "groen-trepart",
-  "lokale-groenne-treparter",
-  "lavbundsprojekter",
-  "dokumentation-af-naturprojekter",
-].map((s) => getArtikel(s)).filter((a) => !!a);
-
-const FAQ = [
-  { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
-  { q: "Kan kommunen selv tilgå materialet?", a: "Ja. Kommunen får login til Freyra Evidence Workspace og kan selv finde sine projekter, baseliner og evidenspakker." },
-  { q: "Kan evidenspakkerne bruges til fondsansøgninger?", a: "Ja. Evidenspakkerne er bygget til at kunne deles med fonde, treparter og samarbejdspartnere. Hver påstand kan spores tilbage til sin kilde." },
-  { q: "Hvad koster det for en kommune?", a: "Et pilotprojekt starter fra 125.000 kr. Et fast kommunalt setup prissættes efter aftale, afhængigt af antal projekter og omfang." },
-  { q: "Hvem ejer data?", a: "Kommunen ejer sine egne data og evidenspakker. Vi opbevarer dem sikkert og gør dem tilgængelige via jeres login." },
-];
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy, useLocale } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/kommuner";
 
 export const Route = createFileRoute("/{-$locale}/kommuner")({
-  head: () =>
-    buildHead({
-      title: "Til kommuner og treparter | Freyra Evidence Workspace",
-      description: "Dokumentation af natur- og arealprojekter i Grøn Trepart, som kommunen kan stå på mål for. Login, evidenspakker og versionerede baseliner.",
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
       path: "/kommuner",
+      locale,
       ogImage: ogImageFor(heroPhoto.url),
       jsonLd: [
-        breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Til kommuner", path: "/kommuner" }]),
-        faqJsonLd(FAQ),
+        breadcrumbJsonLd([
+          { name: t.breadcrumbs.home, path: localizePath("/", locale) },
+          { name: t.breadcrumbs.municipalities, path: localizePath("/kommuner", locale) },
+        ]),
+        faqJsonLd(t.faq),
       ],
-    }),
+    });
+  },
   component: MunicipalitiesPage,
 });
 
 function MunicipalitiesPage() {
+  const locale = useLocale();
+  const t = useCopy(COPY);
+  const LAES_MERE = [
+    "groen-trepart",
+    "lokale-groenne-treparter",
+    "lavbundsprojekter",
+    "dokumentation-af-naturprojekter",
+  ].map((slug) => getArtikel(slug, locale)).filter((a) => !!a);
+
   return (
     <PageLayout>
       <section className="container-page py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
         <div>
-          <span className="eyebrow">Til kommuner og treparter</span>
+          <span className="eyebrow">{t.hero.eyebrow}</span>
           <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">
-            Naturprojekter med dokumentation, der holder til gennemsyn.
+            {t.hero.title}
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-            I Grøn Trepart skal kommunen kunne vise, hvad der er besluttet, hvorfor, og hvad det har flyttet. Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde.
+            {t.hero.body}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">Se ydelserne</LLink></Button>
+            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">{t.hero.primary}{" "}<ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">{t.hero.secondary}</LLink></Button>
           </div>
         </div>
         <figure className="card-soft overflow-hidden p-0 bg-card">
           <img
             {...photoProps(heroPhoto.url, "100vw")}
-            alt="Landbrugslandskab med vandløb og markarealer set fra drone"
+            alt={t.hero.imageAlt}
             width={2000}
             height={1333}
             className="w-full aspect-[4/3] object-cover"
           />
-          <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, august 2026.</figcaption>
+          <figcaption className="p-3 text-xs text-muted-foreground">{t.hero.caption}</figcaption>
         </figure>
       </section>
 
-      <MicroStrip items={["Login for kommunen", "Evidenspakker til fonde og trepart", "Lag oven på MARS, GATE og Miljøportalen"]} />
+      <MicroStrip items={t.microStrip} />
 
       {/* HVORFOR */}
       <section className="container-page py-20 md:py-24">
         <SectionHeader
-          eyebrow="Hvorfor det er vigtigt"
-          title="Kommunen skal kunne stå på mål for tallene."
-          body="Natur- og arealprojekter møder krav fra fonde, borgere, politikere og samarbejdspartnere. Når grundlaget er spredt, bliver hvert spørgsmål en opgave i sig selv."
+          eyebrow={t.why.eyebrow}
+          title={t.why.title}
+          body={t.why.body}
         />
         <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {[
-            { t: "Krav om dokumentation", d: "Fonde og tilskudsordninger kræver et efterprøveligt grundlag, før og efter projektet." },
-            { t: "Dialog i treparten", d: "Lodsejere, rådgivere og interessenter skal kunne se det samme faktagrundlag." },
-            { t: "Spredt materiale", d: "Fotos, kort og rapporter ligger i mapper og mails og er svære at finde igen om to år." },
-          ].map((p) => (
+          {t.why.cards.map((p) => (
             <div key={p.t} className="card-soft p-6">
               <div className="font-semibold">{p.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
@@ -95,14 +95,9 @@ function MunicipalitiesPage() {
       {/* HVAD I FÅR */}
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24">
-          <SectionHeader eyebrow="Hvad I får" title="Et fælles, efterprøveligt grundlag." />
+          <SectionHeader eyebrow={t.deliverables.eyebrow} title={t.deliverables.title} />
           <div className="mt-10 grid md:grid-cols-2 gap-5">
-            {[
-              { t: "Versioneret baseline", d: "En baselinerapport pr. område med dronefotos, offentlige data og faglig verifikation. Den har samme struktur fra område til område." },
-              { t: "Evidenspakker til deling", d: "Pakker til fondsansøgninger, trepartsmøder og politisk behandling. Hver påstand har en kilde." },
-              { t: "Gentagelsespunkter", d: "Faste positioner til før/efter-dokumentation, så udviklingen kan følges over tid." },
-              { t: "Login for kommunen", d: "Adgang til egne projekter i Freyra Evidence Workspace. Materialet forsvinder ikke, når en medarbejder skifter job." },
-            ].map((c) => (
+            {t.deliverables.cards.map((c) => (
               <div key={c.t} className="card-soft p-6 bg-card">
                 <div className="font-semibold">{c.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
@@ -116,18 +111,13 @@ function MunicipalitiesPage() {
       <section className="container-page py-20 md:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="eyebrow">Eksempel</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Førregistrering af et vandløb i Sønderjylland.</h2>
+            <span className="eyebrow">{t.example.eyebrow}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl">{t.example.title}</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Sådan så en faktisk leverance ud. Området er anonymiseret.
+              {t.example.body}
             </p>
             <ul className="mt-6 space-y-3 text-sm">
-              {[
-                "Droneflyvning gennemført 24.08.2026",
-                "5 delstrækninger registreret langs vandløbet",
-                "6 gentagelsespunkter til før/efter-dokumentation",
-                "21 referencefotos med GPS, klar til genbesøg",
-              ].map((b) => (
+              {t.example.items.map((b) => (
                 <li key={b} className="flex gap-3 items-start">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
                   <span className="font-medium">{b}</span>
@@ -136,14 +126,9 @@ function MunicipalitiesPage() {
             </ul>
           </div>
           <div className="card-soft p-6 bg-card">
-            <div className="text-sm font-semibold text-brand-deep">Det kan kommunen bruge det til</div>
+            <div className="text-sm font-semibold text-brand-deep">{t.example.usesTitle}</div>
             <ul className="mt-4 space-y-2.5">
-              {[
-                "Grundlag til den lokale trepart",
-                "Bilag til fondsansøgninger",
-                "Fast udgangspunkt for opfølgning om et år",
-                "Svar til borgere og politikere med kildehenvisning",
-              ].map((b) => (
+              {t.example.uses.map((b) => (
                 <li key={b} className="flex gap-2 items-start text-sm">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" /><span>{b}</span>
                 </li>
@@ -157,32 +142,32 @@ function MunicipalitiesPage() {
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
           <div>
-            <span className="eyebrow">Adgang</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Kommunen har adgang til sit eget materiale.</h2>
+            <span className="eyebrow">{t.access.eyebrow}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl">{t.access.title}</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Med login til Freyra Evidence Workspace kan jeres team finde projekter, baseliner og evidenspakker ét sted. Uden at skulle spørge os først.
+              {t.access.body}
             </p>
           </div>
           <div className="card-soft p-6 bg-card">
-            <div className="font-semibold">Login for kommunen</div>
+            <div className="font-semibold">{t.access.cardTitle}</div>
             <p className="mt-1.5 text-sm text-muted-foreground">
-              Adgang til egne projekter, versioneret historik og deling af evidenspakker med fonde og samarbejdspartnere. Kommunen styrer selv, hvem der har adgang.
+              {t.access.cardBody}
             </p>
           </div>
         </div>
       </section>
 
-      <FaqSection items={FAQ} />
+      <FaqSection items={t.faq} />
 
       <GreenCTA
-        title="Skal vi se på et af jeres områder?"
-        subtitle="Et pilotprojekt starter fra 125.000 kr. og giver jer en komplet evidenskæde at vurdere værdien på."
-        primary={{ to: "/kontakt", label: "Book en snak" }}
-        secondary={{ to: "/platformen", label: "Se platformen" }}
+        title={t.greenCta.title}
+        subtitle={t.greenCta.subtitle}
+        primary={{ to: "/kontakt", label: t.greenCta.primary }}
+        secondary={{ to: "/platformen", label: t.greenCta.secondary }}
       />
 
       <section className="container-page py-12">
-        <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+        <h2 className="text-2xl md:text-3xl">{t.readMore}</h2>
         <ul className="mt-5 grid md:grid-cols-2 gap-3">
           {LAES_MERE.map((a) => (
             <li key={a.slug}>

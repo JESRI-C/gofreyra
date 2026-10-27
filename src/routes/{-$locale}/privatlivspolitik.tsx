@@ -1,14 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/privatliv";
 
 export const Route = createFileRoute("/{-$locale}/privatlivspolitik")({
-  head: () => buildHead({
-    title: "Privatlivspolitik | Gofreyra ApS",
-    description: "Sådan behandler Gofreyra ApS personoplysninger på gofreyra.com og i Freyra Evidence Workspace. Læs hvem der er dataansvarlig, og hvordan du kontakter os.",
-    path: "/privatlivspolitik",
-    jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Privatlivspolitik", path: "/privatlivspolitik" }]),
-  }),
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
+      path: "/privatlivspolitik",
+      locale,
+      jsonLd: breadcrumbJsonLd([
+        { name: t.breadcrumbHome, path: localizePath("/", locale) },
+        { name: t.breadcrumbPrivacy, path: localizePath("/privatlivspolitik", locale) },
+      ]),
+    });
+  },
   component: PrivacyPage,
 });
 
@@ -22,69 +33,72 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 function PrivacyPage() {
+  const t = useCopy(COPY);
+
   return (
     <PageLayout>
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
-          <span className="eyebrow">Privatlivspolitik</span>
-          <h1 className="mt-4 text-4xl md:text-5xl ">Sådan behandler vi jeres oplysninger.</h1>
-          <p className="mt-4 text-lg text-muted-foreground">Senest opdateret: oktober 2026</p>
+          <span className="eyebrow">{t.eyebrow}</span>
+          <h1 className="mt-4 text-4xl md:text-5xl ">{t.heading}</h1>
+          <p className="mt-4 text-lg text-muted-foreground">{t.updated}</p>
+          {t.translationNotice ? <p>{t.translationNotice}</p> : null}
         </div>
       </section>
 
       <div className="container-page py-14 max-w-3xl">
-        <Section title="1. Dataansvarlig">
+        <Section title={t.controller.title}>
           <p>
-            Gofreyra ApS, CVR 45384489, Bøgevej 4, 7160 Tørring, er dataansvarlig for behandlingen af personoplysninger på gofreyra.com og i Freyra Evidence Workspace. Gofreyra ApS er ejet af Freyra Group ApS.
+            {t.controller.description}
           </p>
-          <p>Henvendelser om persondata sendes via kontaktformularen på gofreyra.com/kontakt.</p>
+          <p>{t.controller.contact}</p>
         </Section>
 
-        <Section title="2. Hvilke oplysninger indsamler vi?">
+        <Section title={t.collection.title}>
           <p>
-            Når I bruger kontaktformularen, indsamler vi navn, email, virksomhed eller kommune, emne og selve beskeden. Vi indsamler kun de oplysninger, I selv indtaster.
+            {t.collection.contactForm}
           </p>
           <p>
-            For kunder med login til Freyra Evidence Workspace behandler vi navn, email og arbejdsrelaterede oplysninger, der er nødvendige for at give adgang til jeres projekter.
-          </p>
-        </Section>
-
-        <Section title="3. Formål og hjemmel">
-          <p>
-            Vi bruger oplysningerne til at svare på henvendelser, opfølge på aftaler og levere de ydelser, I har bedt om. Behandlingen sker på baggrund af vores legitime interesse i at besvare henvendelser og, for kunder, for at opfylde vores aftale med jer.
+            {t.collection.workspace}
           </p>
         </Section>
 
-        <Section title="4. Opbevaring">
+        <Section title={t.purpose.title}>
           <p>
-            Henvendelser via kontaktformularen opbevares, så længe det er nødvendigt for at behandle henvendelsen og eventuel opfølgning. Kundedata opbevares, så længe samarbejdet står på, og derefter i den periode, lovgivningen kræver.
+            {t.purpose.description}
           </p>
         </Section>
 
-        <Section title="5. Videregivelse">
+        <Section title={t.retention.title}>
           <p>
-            Vi videregiver ikke jeres personoplysninger til tredjepart medmindre det er nødvendigt for at levere den aftalte ydelse, eller vi er forpligtet til det ved lov. Vi bruger databehandlere inden for EU.
+            {t.retention.description}
           </p>
         </Section>
 
-        <Section title="6. Cookies">
+        <Section title={t.disclosure.title}>
           <p>
-            Siden bruger kun teknisk nødvendige cookies. Vi bruger ikke cookies til markedsføring eller sporing på tværs af sider.
+            {t.disclosure.description}
           </p>
         </Section>
 
-        <Section title="7. Jeres rettigheder">
+        <Section title={t.cookies.title}>
           <p>
-            I har ret til at få indsigt i de oplysninger, vi behandler om jer, og til at få dem rettet eller slettet. I kan også gøre indsigelse mod behandlingen og anmode om begrænsning eller dataportabilitet.
-          </p>
-          <p>
-            I kan klage over vores behandling af personoplysninger til Datatilsynet, Borgergade 28, 5., 1300 København K.
+            {t.cookies.description}
           </p>
         </Section>
 
-        <Section title="8. Ændringer">
+        <Section title={t.rights.title}>
           <p>
-            Vi opdaterer denne privatlivspolitik, når vores behandling ændrer sig. Den gældende version findes på denne side.
+            {t.rights.description}
+          </p>
+          <p>
+            {t.rights.complaint}
+          </p>
+        </Section>
+
+        <Section title={t.changes.title}>
+          <p>
+            {t.changes.description}
           </p>
         </Section>
       </div>

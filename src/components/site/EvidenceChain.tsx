@@ -1,21 +1,24 @@
 import { Plane, Database, ShieldCheck, FileText, TreePine } from "lucide-react";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/evidence-chain";
 
 /**
  * Skematisk illustration af evidenskæden.
  * Rent diagram uden opfundne tal eller dashboard-data.
  */
 export function EvidenceChain({ compact = false }: { compact?: boolean }) {
+  const t = useCopy(COPY);
   const steps = [
-    { icon: <Plane className="w-5 h-5" />, t: "Dronefoto", d: "Felt- og dronedata med GPS" },
-    { icon: <Database className="w-5 h-5" />, t: "Offentlige data", d: "Kort, jord, vejr og satellit" },
-    { icon: <ShieldCheck className="w-5 h-5" />, t: "Verifikation", d: "AI-assisteret og faglig vurdering" },
-    { icon: <FileText className="w-5 h-5" />, t: "Baseline", d: "Versioneret rapport og evidenspakke" },
-    { icon: <TreePine className="w-5 h-5" />, t: "Beplantning", d: "Egnethed pr. areal og opfølgning" },
+    { icon: <Plane className="w-5 h-5" />, t: t.droneTitle, d: t.droneDescription },
+    { icon: <Database className="w-5 h-5" />, t: t.publicDataTitle, d: t.publicDataDescription },
+    { icon: <ShieldCheck className="w-5 h-5" />, t: t.verificationTitle, d: t.verificationDescription },
+    { icon: <FileText className="w-5 h-5" />, t: t.baselineTitle, d: t.baselineDescription },
+    { icon: <TreePine className="w-5 h-5" />, t: t.plantingTitle, d: t.plantingDescription },
   ];
 
   return (
     <div className={`card-soft bg-card ${compact ? "p-5" : "p-6 md:p-8"}`}>
-      <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Evidenskæden</div>
+      <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.heading}</div>
       <div className="mt-5 grid gap-3">
         {steps.map((s, i) => (
           <div key={s.t} className="flex items-start gap-3">
@@ -31,7 +34,7 @@ export function EvidenceChain({ compact = false }: { compact?: boolean }) {
         ))}
       </div>
       <div className="mt-5 pt-4 border-t border-border text-xs text-muted-foreground">
-        Hvert trin er versioneret og kan spores tilbage til kilden.
+        {t.footer}
       </div>
     </div>
   );

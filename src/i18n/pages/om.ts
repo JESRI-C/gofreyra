@@ -1,0 +1,107 @@
+import type { Locale } from "@/i18n/locale";
+
+const da = {
+  metaTitle: "Om Freyra | Gofreyra ApS",
+  metaDescription: "Freyra er bygget af Gofreyra ApS i Tørring. Mød holdet bag Freyra Evidence Workspace og læs, hvordan vi arbejder med dokumentation af naturprojekter.",
+  breadcrumbHome: "Forside",
+  breadcrumbAbout: "Om",
+  eyebrow: "Om Freyra",
+  heading: "Vi bygger dokumentation, der kan efterprøves.",
+  introduction: "Freyra Evidence Workspace er udviklet af Gofreyra ApS. Vi hjælper kommuner, treparter og projektejere med at dokumentere natur- og arealprojekter, så hver konklusion kan spores tilbage til sin kilde.",
+  photoAlt: "Landskab i solnedgang, set fra drone",
+  photoCaption: "Eget dronefoto, august 2023.",
+  microItems: ["Dansk virksomhed", "Bygget til Grøn Trepart", "Offentlige datakilder", "Faglig verifikation"],
+  whyHeading: "Hvorfor Freyra findes",
+  whyDocumentation: "Natur- og arealprojekter dokumenteres ofte med fotos i mapper, regneark og rapporter, der er svære at efterprøve. Når en fond, en trepart eller en borger spørger til grundlaget, skal svaret kunne findes.",
+  whyEvidence: "Vi bygger Freyra som en evidenskæde: dronefotos, offentlige data, beregninger og faglige vurderinger hænger sammen og er versionerede. Platformen er et lag oven på de systemer, kommunen allerede bruger, som MARS, GATE og Miljøportalen.",
+  whyClaims: "Vi siger ikke mere, end data understøtter. Effekter vises som intervaller fra forskningslitteraturen, og enhver konklusion har en faglig vurdering bag sig.",
+  teamHeading: "Holdet",
+  team: [
+    { t: "Dan Sommer", r: "Co-Founder, Director of Business Development", d: "Står for samarbejder med kommuner, treparter og partnere." },
+  ],
+  companyName: "Gofreyra ApS",
+  companyDetails: "CVR 45384489 · Bøgevej 4, 7160 Tørring · Ejet af Freyra Group ApS",
+  principlesEyebrow: "Vores principper",
+  principlesHeading: "Sådan arbejder vi.",
+  principles: [
+    { t: "Alt kan spores til kilde", d: "Hver påstand skal kunne spores tilbage til kilde, metode og vurdering." },
+    { t: "Ingen tal uden belæg", d: "Vi viser effekter som litteraturintervaller, ikke som løfter." },
+    { t: "Fagperson godkender", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
+    { t: "Versioneret og reproducerbart", d: "Hver ændring gemmes. En evidenspakke kan genskabes og efterprøves." },
+  ],
+  ctaTitle: "Vil I høre mere om, hvordan vi arbejder?",
+  ctaSubtitle: "Book en uforpligtende snak om jeres projekt og vores tilgang.",
+  ctaLabel: "Book en snak",
+};
+
+export type Copy = typeof da;
+
+const en: Copy = {
+  metaTitle: "About Freyra | Gofreyra ApS",
+  metaDescription: "Freyra is built by Gofreyra ApS in Tørring. Meet the team behind Freyra Evidence Workspace and learn how we document nature projects.",
+  breadcrumbHome: "Home",
+  breadcrumbAbout: "About",
+  eyebrow: "About Freyra",
+  heading: "We build documentation that can be verified.",
+  introduction: "Freyra Evidence Workspace is developed by Gofreyra ApS. We help municipalities, tripartite partnerships and project owners document nature and land-use projects so that every conclusion can be traced back to its source.",
+  photoAlt: "Landscape at sunset, seen from a drone",
+  photoCaption: "Our own drone photograph, August 2023.",
+  microItems: ["Danish company", "Built for the Green Tripartite (Grøn Trepart)", "Public data sources", "Expert verification"],
+  whyHeading: "Why Freyra exists",
+  whyDocumentation: "Nature and land-use projects are often documented with photographs in folders, spreadsheets and reports that are difficult to verify. When a foundation, a tripartite partnership or a citizen asks about the underlying evidence, the answer must be available.",
+  whyEvidence: "We are building Freyra as an evidence chain: drone photographs, public data, calculations and expert assessments are linked and versioned. The platform is a layer on top of the systems the municipality already uses, such as MARS, GATE and Miljøportalen (Denmark's environmental data portal).",
+  whyClaims: "We say no more than the data supports. Effects are shown as ranges from the research literature, and every conclusion is backed by an expert assessment.",
+  teamHeading: "The team",
+  team: [
+    { t: "Dan Sommer", r: "Co-Founder, Director of Business Development", d: "Responsible for collaboration with municipalities, tripartite partnerships and partners." },
+  ],
+  companyName: "Gofreyra ApS",
+  companyDetails: "CVR 45384489 · Bøgevej 4, 7160 Tørring · Owned by Freyra Group ApS",
+  principlesEyebrow: "Our principles",
+  principlesHeading: "How we work.",
+  principles: [
+    { t: "Everything is traceable to its source", d: "Every claim must be traceable to its source, method and assessment." },
+    { t: "No figures without evidence", d: "We show effects as ranges from the literature, not as promises." },
+    { t: "Approved by a specialist", d: "AI assists the review. A specialist stands behind every conclusion." },
+    { t: "Versioned and reproducible", d: "Every change is saved. An evidence package can be recreated and verified." },
+  ],
+  ctaTitle: "Would you like to learn more about how we work?",
+  ctaSubtitle: "Book a no-obligation conversation about your project and our approach.",
+  ctaLabel: "Book a conversation",
+};
+
+const de: Copy = {
+  metaTitle: "Über Freyra | Gofreyra ApS",
+  metaDescription: "Freyra wird von Gofreyra ApS in Tørring entwickelt. Lernen Sie das Team hinter Freyra Evidence Workspace und unsere Naturprojektdokumentation kennen.",
+  breadcrumbHome: "Startseite",
+  breadcrumbAbout: "Über uns",
+  eyebrow: "Über Freyra",
+  heading: "Wir erstellen Dokumentation, die sich überprüfen lässt.",
+  introduction: "Freyra Evidence Workspace wird von Gofreyra ApS entwickelt. Wir unterstützen Kommunen, Dreiparteienpartnerschaften und Projektverantwortliche dabei, Natur- und Flächenprojekte zu dokumentieren, sodass jede Schlussfolgerung bis zu ihrer Quelle zurückverfolgt werden kann.",
+  photoAlt: "Landschaft bei Sonnenuntergang, aus einer Drohne gesehen",
+  photoCaption: "Eigene Drohnenaufnahme, August 2023.",
+  microItems: ["Dänisches Unternehmen", "Für die Grüne Dreiparteienvereinbarung (Grøn Trepart) entwickelt", "Öffentliche Datenquellen", "Fachliche Überprüfung"],
+  whyHeading: "Warum es Freyra gibt",
+  whyDocumentation: "Natur- und Flächenprojekte werden oft mit Fotos in Ordnern, Tabellen und Berichten dokumentiert, die sich nur schwer überprüfen lassen. Wenn eine Stiftung, eine Dreiparteienpartnerschaft oder ein Bürger nach der Grundlage fragt, muss die Antwort auffindbar sein.",
+  whyEvidence: "Wir entwickeln Freyra als Nachweiskette: Drohnenfotos, öffentliche Daten, Berechnungen und fachliche Bewertungen sind miteinander verknüpft und versioniert. Die Plattform bildet eine zusätzliche Ebene über den Systemen, die die Kommune bereits nutzt, wie MARS, GATE und Miljøportalen (Dänemarks Umweltdatenportal).",
+  whyClaims: "Wir sagen nicht mehr aus, als die Daten belegen. Wirkungen werden als Bandbreiten aus der Forschungsliteratur dargestellt, und hinter jeder Schlussfolgerung steht eine fachliche Bewertung.",
+  teamHeading: "Das Team",
+  team: [
+    { t: "Dan Sommer", r: "Mitgründer, Leiter Geschäftsentwicklung", d: "Verantwortlich für die Zusammenarbeit mit Kommunen, Dreiparteienpartnerschaften und Partnern." },
+  ],
+  companyName: "Gofreyra ApS",
+  companyDetails: "CVR 45384489 · Bøgevej 4, 7160 Tørring · Im Eigentum von Freyra Group ApS",
+  principlesEyebrow: "Unsere Grundsätze",
+  principlesHeading: "So arbeiten wir.",
+  principles: [
+    { t: "Alles ist bis zur Quelle rückverfolgbar", d: "Jede Aussage muss auf Quelle, Methode und Bewertung zurückgeführt werden können." },
+    { t: "Keine Zahlen ohne Belege", d: "Wir zeigen Wirkungen als Bandbreiten aus der Fachliteratur, nicht als Versprechen." },
+    { t: "Freigabe durch eine Fachperson", d: "KI unterstützt die Prüfung. Hinter jeder Schlussfolgerung steht eine Fachperson." },
+    { t: "Versioniert und reproduzierbar", d: "Jede Änderung wird gespeichert. Ein Nachweispaket lässt sich wiederherstellen und überprüfen." },
+  ],
+  ctaTitle: "Möchten Sie mehr darüber erfahren, wie wir arbeiten?",
+  ctaSubtitle: "Buchen Sie ein unverbindliches Gespräch über Ihr Projekt und unseren Ansatz.",
+  ctaLabel: "Gespräch buchen",
+};
+
+export const COPY: Record<Locale, Copy> = { da, en, de };

@@ -1,6 +1,6 @@
 import { LLink } from "@/components/site/LLink";
 import { ArrowRight } from "lucide-react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
@@ -8,63 +8,65 @@ import { GreenCTA } from "@/components/site/sections";
 import sectionPhoto from "@/assets/freyra-luftfoto-06.jpg.asset.json";
 import { photoProps, ogImageFor } from "@/lib/photo-variants";
 import { getArtikel } from "@/lib/viden-helpers";
-
-const LAES_MERE = [
-  "evidenspakke-til-fonde",
-  "tilskud-vaadomraader-lavbundsprojekter",
-  "skovrejsning-groen-trepart",
-  "baseline-foer-projektstart",
-].map((s) => getArtikel(s)).filter((a) => !!a);
-
-const PAKKE = [
-  "Dronefotos med GPS og tidspunkt fra før og efter indsatsen",
-  "Kortdata fra offentlige kilder med kilde og hentedato",
-  "Faglige vurderinger med log over, hvem der har vurderet hvad",
-  "Versionering og SHA-256 fingeraftryk, så pakken kan dokumenteres uændret",
-];
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy, useLocale } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/fonde";
 
 export const Route = createFileRoute("/{-$locale}/fonde-og-lodsejere")({
-  head: () =>
-    buildHead({
-      title: "Til naturfonde og lodsejere | Freyra Evidence Workspace",
-      description: "Dokumentation før og efter indsatsen. Evidenspakker til ansøgninger og lokal trepart for naturfonde og større lodsejere.",
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
       path: "/fonde-og-lodsejere",
+      locale,
       ogImage: ogImageFor(sectionPhoto.url),
-      jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Til naturfonde og lodsejere", path: "/fonde-og-lodsejere" }]),
-    }),
+      jsonLd: breadcrumbJsonLd([{ name: t.home, path: localizePath("/", locale) }, { name: t.audience, path: localizePath("/fonde-og-lodsejere", locale) }]),
+    });
+  },
   component: FondePage,
 });
 
 function FondePage() {
+  const locale = useLocale();
+  const t = useCopy(COPY);
+  const LAES_MERE = [
+    "evidenspakke-til-fonde",
+    "tilskud-vaadomraader-lavbundsprojekter",
+    "skovrejsning-groen-trepart",
+    "baseline-foer-projektstart",
+  ].map((s) => getArtikel(s, locale)).filter((a) => !!a);
+
   return (
     <PageLayout>
       <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">Til naturfonde og lodsejere</span>
-        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">Dokumentation, der kan følge pengene.</h1>
+        <span className="eyebrow">{t.audience}</span>
+        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">{t.heading}</h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-          Når en fond støtter et naturprojekt, eller en lodsejer investerer i egne arealer, opstår det samme spørgsmål: hvad er der sket, og hvordan kan det efterprøves? Det svarer vi på.
+          {t.intro}
         </p>
       </section>
 
       <section className="container-page pb-4">
         <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img {...photoProps(sectionPhoto.url, "100vw")} alt="Sø med skov i efterårsfarver, set fra drone" width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
-          <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto, oktober 2024.</figcaption>
+          <img {...photoProps(sectionPhoto.url, "100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
+          <figcaption className="p-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
         </figure>
       </section>
 
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12">
         <div>
-          <span className="eyebrow">Hvorfor før og efter</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">Uden en baseline kan man ikke vise forandring.</h2>
+          <span className="eyebrow">{t.baselineEyebrow}</span>
+          <h2 className="mt-4 text-3xl md:text-4xl">{t.baselineHeading}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Hvis området ikke er dokumenteret, før indsatsen går i gang, kan man bagefter kun beskrive, hvordan det ser ud nu. Med en versioneret baseline og efterflyvning fra de samme punkter kan I vise, hvad midlerne har flyttet.
+            {t.baselineText}
           </p>
         </div>
         <div className="card-soft p-6 bg-card">
-          <div className="text-xs font-medium uppercase tracking-wider text-foreground/70 mb-3">Hvad en evidenspakke indeholder</div>
+          <div className="text-xs font-medium uppercase tracking-wider text-foreground/70 mb-3">{t.packageHeading}</div>
           <ul className="space-y-2">
-            {PAKKE.map((p) => (
+            {t.packageItems.map((p) => (
               <li key={p} className="flex gap-2 items-start text-sm">
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
                 <span>{p}</span>
@@ -77,17 +79,17 @@ function FondePage() {
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12">
           <div>
-            <span className="eyebrow">Ansøgninger</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Et grundlag, der kan efterprøves.</h2>
+            <span className="eyebrow">{t.applicationsEyebrow}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl">{t.applicationsHeading}</h2>
             <p className="mt-4 text-muted-foreground">
-              En ansøgning bliver stærkere, når grundlaget kan kontrolleres. Evidenspakken samler fotos, kortdata og vurderinger med kildehenvisning på hver påstand, så den kan deles direkte med fonden.
+              {t.applicationsText}
             </p>
           </div>
           <div>
-            <span className="eyebrow">Lokal trepart</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Det samme billede for alle parter.</h2>
+            <span className="eyebrow">{t.tripartiteEyebrow}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl">{t.tripartiteHeading}</h2>
             <p className="mt-4 text-muted-foreground">
-              Når kommune, lodsejere og organisationer skal enes, hjælper det at se på det samme materiale. Evidenspakken giver treparten et fælles, efterprøveligt grundlag for dialog og beslutninger.
+              {t.tripartiteText}
             </p>
           </div>
         </div>
@@ -95,15 +97,11 @@ function FondePage() {
 
       <section className="container-page py-20 md:py-24">
         <div className="max-w-3xl">
-          <span className="eyebrow">Relevante ydelser</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">Her starter de fleste.</h2>
+          <span className="eyebrow">{t.servicesEyebrow}</span>
+          <h2 className="mt-4 text-3xl md:text-4xl">{t.servicesHeading}</h2>
         </div>
         <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {[
-            { slug: "dronefoerregistrering", t: "Droneførregistrering og baseline", d: "Det dokumenterede udgangspunkt, som alt andet bygger på." },
-            { slug: "monitorering", t: "Gentagen monitorering (før/efter)", d: "Efterflyvning fra de samme punkter, så udviklingen kan vises." },
-            { slug: "evidenspakke", t: "Evidenspakke til fonde og trepart", d: "Den samlede pakke til ansøgninger og lokal trepart." },
-          ].map((y) => (
+          {t.services.map((y) => (
             <LLink key={y.slug} to="/ydelser/$slug" params={{ slug: y.slug }} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
@@ -113,13 +111,13 @@ function FondePage() {
       </section>
 
       <GreenCTA
-        title="Fortæl os om projektet."
-        subtitle="Så vender vi tilbage med en konkret vurdering af, hvad der kan dokumenteres, og hvad det kræver."
-        primary={{ to: "/kontakt", label: "Book en snak" }}
+        title={t.ctaTitle}
+        subtitle={t.ctaSubtitle}
+        primary={{ to: "/kontakt", label: t.ctaLabel }}
       />
 
       <section className="container-page py-12">
-        <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+        <h2 className="text-2xl md:text-3xl">{t.readMore}</h2>
         <ul className="mt-5 grid md:grid-cols-2 gap-3">
           {LAES_MERE.map((a) => (
             <li key={a.slug}>
