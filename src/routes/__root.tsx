@@ -51,6 +51,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 function notFoundMeta(matches: { routeId: string; status: string; pathname: string; globalNotFound?: boolean }[]) {
   // Unmatched URLs end on the root or the locale layout without a page below it.
   const last = matches[matches.length - 1];
+  console.log("HEADDBG", JSON.stringify(matches.map((m) => [m.routeId, m.status, m.pathname])));
   const unmatched = !last || last.routeId === "__root__" || last.routeId === "/{-$locale}";
   if (!unmatched && !matches.some((m) => m.status === "notFound" || m.globalNotFound)) return [];
   const locale = splitLocale(matches[matches.length - 1]?.pathname ?? "/").locale;
