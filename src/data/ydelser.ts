@@ -192,5 +192,5 @@ import type { Locale } from "@/i18n/locale";
 
 /** Services in the given language (Danish original or local translation). */
 export function ydelserFor(locale: Locale): Ydelse[] {
-  return locale === "en" ? YDELSER_EN : locale === "de" ? YDELSER_DE : YDELSER;
+  return locale === "en" ? YDELSER_EN : locale === "de" ? YDELSER_DE : YDELSER; // any other value (e.g. a .map index) falls back to Danish
 }
