@@ -14,7 +14,7 @@ const LAES_MERE = [
   "tilskud-vaadomraader-lavbundsprojekter",
   "skovrejsning-groen-trepart",
   "baseline-foer-projektstart",
-].map(getArtikel).filter((a) => !!a);
+].map((s) => getArtikel(s)).filter((a) => !!a);
 
 const PAKKE = [
   "Dronefotos med GPS og tidspunkt fra før og efter indsatsen",

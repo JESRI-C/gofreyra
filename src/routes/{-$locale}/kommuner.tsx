@@ -15,7 +15,7 @@ const LAES_MERE = [
   "lokale-groenne-treparter",
   "lavbundsprojekter",
   "dokumentation-af-naturprojekter",
-].map(getArtikel).filter((a) => !!a);
+].map((s) => getArtikel(s)).filter((a) => !!a);
 
 const FAQ = [
   { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
