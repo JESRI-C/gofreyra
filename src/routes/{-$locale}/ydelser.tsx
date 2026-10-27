@@ -90,7 +90,7 @@ const FAQ = [
   { q: "Kan I arbejde sammen med vores rådgiver?", a: "Ja. Vi leverer datagrundlag og evidenspakker, som jeres rådgiver kan bygge videre på. Egnethedsanalyser leveres som skitser til faglig validering hos jeres rådgiver." },
 ];
 
-export const Route = createFileRoute("/ydelser")({
+export const Route = createFileRoute("/{-$locale}/ydelser")({
   head: () =>
     buildHead({
       title: "Ydelser | Freyra Evidence Workspace",

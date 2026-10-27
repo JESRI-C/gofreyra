@@ -14,7 +14,7 @@ import {
   heroFor,
 } from "@/lib/viden-helpers";
 
-export const Route = createFileRoute("/viden/$slug")({
+export const Route = createFileRoute("/{-$locale}/viden/$slug")({
   beforeLoad: ({ params }) => {
     if (!getArtikel(params.slug)) throw notFound();
   },

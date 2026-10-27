@@ -35,7 +35,7 @@ const FAQ = [
   { q: "Hvem har adgang?", a: "Kommunen eller projektejeren får login og styrer selv, hvem der skal have adgang. Vi giver ikke andre adgang til jeres data." },
 ];
 
-export const Route = createFileRoute("/platformen")({
+export const Route = createFileRoute("/{-$locale}/platformen")({
   head: () =>
     buildHead({
       title: "Platformen | Freyra Evidence Workspace",

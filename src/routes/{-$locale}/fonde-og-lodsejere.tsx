@@ -22,7 +22,7 @@ const PAKKE = [
   "Versionering og SHA-256 fingeraftryk, så pakken kan dokumenteres uændret",
 ];
 
-export const Route = createFileRoute("/fonde-og-lodsejere")({
+export const Route = createFileRoute("/{-$locale}/fonde-og-lodsejere")({
   head: () =>
     buildHead({
       title: "Til naturfonde og lodsejere | Freyra Evidence Workspace",

@@ -4,7 +4,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
 import { brandTitle, getArtikel, getTerm, heroFor } from "@/lib/viden-helpers";
 
-export const Route = createFileRoute("/ordbog/$slug")({
+export const Route = createFileRoute("/{-$locale}/ordbog/$slug")({
   beforeLoad: ({ params }) => {
     if (!getTerm(params.slug)) throw notFound();
   },

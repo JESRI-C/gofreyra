@@ -20,7 +20,7 @@ for (const t of sorted) {
   else groups.push({ letter: l, items: [t] });
 }
 
-export const Route = createFileRoute("/ordbog/")({
+export const Route = createFileRoute("/{-$locale}/ordbog/")({
   head: () =>
     buildHead({
       title: "Ordbog: Grøn Trepart, lavbund og natur | Freyra",

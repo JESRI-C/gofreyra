@@ -24,7 +24,7 @@ const FAQ = [
   { q: "Hvem ejer data?", a: "Kommunen ejer sine egne data og evidenspakker. Vi opbevarer dem sikkert og gør dem tilgængelige via jeres login." },
 ];
 
-export const Route = createFileRoute("/kommuner")({
+export const Route = createFileRoute("/{-$locale}/kommuner")({
   head: () =>
     buildHead({
       title: "Til kommuner og treparter | Freyra Evidence Workspace",

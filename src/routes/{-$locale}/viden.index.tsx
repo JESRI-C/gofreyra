@@ -6,7 +6,7 @@ import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { clusters, shorten } from "@/lib/viden-helpers";
 import { DEFAULT_OG_IMAGE } from "@/lib/photo-variants";
 
-export const Route = createFileRoute("/viden/")({
+export const Route = createFileRoute("/{-$locale}/viden/")({
   head: () =>
     buildHead({
       title: "Viden om Grøn Trepart og naturprojekter | Freyra",

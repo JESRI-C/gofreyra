@@ -37,7 +37,7 @@ const GALLERY = [
   { img: g2.url, alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning" },
 ];
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/{-$locale}/{-$locale}/")({
   head: () =>
     buildHead({
       title: "Freyra: dokumentation af natur- og arealprojekter",

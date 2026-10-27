@@ -76,7 +76,7 @@ const SEO_TEXT: Record<string, { title: string; description: string }> = {
   },
 };
 
-export const Route = createFileRoute("/ydelser_/$slug")({
+export const Route = createFileRoute("/{-$locale}/ydelser_/$slug")({
   beforeLoad: ({ params }) => {
     if (!getYdelse(params.slug)) throw notFound();
   },

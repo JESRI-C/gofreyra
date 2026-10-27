@@ -24,7 +24,7 @@ const KVALITET = [
   { t: "Et lag oven på", d: "Freyra er et lag oven på MARS, GATE og Miljøportalen, ikke en erstatning." },
 ];
 
-export const Route = createFileRoute("/saadan-arbejder-vi")({
+export const Route = createFileRoute("/{-$locale}/saadan-arbejder-vi")({
   head: () =>
     buildHead({
       title: "Sådan arbejder vi | Freyra Evidence Workspace",

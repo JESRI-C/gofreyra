@@ -18,7 +18,7 @@ const schema = z.object({
   message: z.string().trim().min(1, "Skriv en besked").max(2000),
 });
 
-export const Route = createFileRoute("/kontakt")({
+export const Route = createFileRoute("/{-$locale}/kontakt")({
   head: () => buildHead({
     title: "Kontakt | Freyra Evidence Workspace",
     description: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde om natur- og arealprojekter. Skriv via formularen, så vender vi tilbage.",
