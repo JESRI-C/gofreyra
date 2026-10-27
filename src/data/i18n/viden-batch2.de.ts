@@ -28,7 +28,7 @@ export const artiklerBatch2De: Artikel[] = [
    {
     "h2": "1.2 Limfjorden",
     "paragraphs": [
-     "Kommune für Vorsitz und Sekretariat: Limfjordsrådet und Limfjordssekretariatet (Rat und Sekretariat für den Limfjord, bei der Kommune Aalborg angesiedelt); der Vorsitz wechselt turnusmässig.",
+     "Kommune für Vorsitz und Sekretariat: Limfjordsrådet und Limfjordssekretariatet (Rat und Sekretariat für den Limfjord, bei der Kommune Aalborg angesiedelt); der Vorsitz wechselt turnusmäßig.",
      "Kommunen im Dreiparteiengremium: Aalborg, Brønderslev, Herning, Hjørring, Holstebro, Ikast-Brande, Jammerbugt, Lemvig, Mariagerfjord, Morsø, Randers, Rebild, Silkeborg, Skive, Struer, Thisted, Vesthimmerlands, Viborg."
     ],
     "bullets": []
@@ -423,7 +423,7 @@ export const artiklerBatch2De: Artikel[] = [
   "h1": "Stickstoffminderung in der Grünen Dreiparteienvereinbarung: Wasserplan, Teileinzugsgebiete und Umweltgarantie",
   "metaTitle": "Stickstoff: Wasserplan, Teileinzugsgebiete und Umweltgarantie",
   "metaDescription": "Das Stickstoffziel der Grünen Dreiparteienvereinbarung: 108 Teileinzugsgebiete, 37 Küstengewässergruppen und verschärfte Umweltgarantie ab 2027.",
-  "intro": "Stickstoff ist einer der Hauptgründe für die Flächenumwandlung. Ziel ist es, die Gewässer gemäss der EU-Wasserrahmenrichtlinie in einen guten Zustand zu versetzen. Hier erfahren Sie, wie die Maßnahmen aufgebaut sind.",
+  "intro": "Stickstoff ist einer der Hauptgründe für die Flächenumwandlung. Ziel ist es, die Gewässer gemäß der EU-Wasserrahmenrichtlinie in einen guten Zustand zu versetzen. Hier erfahren Sie, wie die Maßnahmen aufgebaut sind.",
   "sections": [
    {
     "h2": "Das Ziel",
@@ -817,7 +817,7 @@ export const artiklerBatch2De: Artikel[] = [
     "h2": "Was muss sie enthalten?",
     "paragraphs": [],
     "bullets": [
-     "Die Zustimmung der Grundeigentümer zum Projekt, einschliesslich ihrer Wünsche hinsichtlich Flurneuordnung, Flächenankauf, Entschädigung für Wertverluste, Ersatzflächen oder Einmalentschädigung.",
+     "Die Zustimmung der Grundeigentümer zum Projekt, einschließlich ihrer Wünsche hinsichtlich Flurneuordnung, Flächenankauf, Entschädigung für Wertverluste, Ersatzflächen oder Einmalentschädigung.",
      "Eine Karte der Eigentumsverhältnisse mit den einbezogenen Liegenschaften und Flächen.",
      "Angaben zu den Wünschen und Anforderungen der Grundeigentümer."
     ]
@@ -1126,7 +1126,7 @@ export const artiklerBatch2De: Artikel[] = [
    {
     "h2": "Was erfordert eine Genehmigung?",
     "paragraphs": [
-     "Zum Beispiel Fristverlängerungen, Budgetänderungen, Änderungen des Projektgebiets und die Übertragung von Förderzusagen. Laut Landbrugsstyrelsen (dänische Landwirtschaftsbehörde) ist diese Liste nicht abschliessend."
+     "Zum Beispiel Fristverlängerungen, Budgetänderungen, Änderungen des Projektgebiets und die Übertragung von Förderzusagen. Laut Landbrugsstyrelsen (dänische Landwirtschaftsbehörde) ist diese Liste nicht abschließend."
     ],
     "bullets": []
    },
@@ -1149,7 +1149,7 @@ export const artiklerBatch2De: Artikel[] = [
    {
     "h2": "Geändertes Projektgebiet",
     "paragraphs": [
-     "Wird das Projektgebiet geändert, muss die Änderung in MARS (dänisches Flächenplanungssystem) eingezeichnet und anschliessend in F2-Tilskud oder Tast selv eingetragen werden."
+     "Wird das Projektgebiet geändert, muss die Änderung in MARS (dänisches Flächenplanungssystem) eingezeichnet und anschließend in F2-Tilskud oder Tast selv eingetragen werden."
     ],
     "bullets": []
    },
@@ -1781,7 +1781,7 @@ export const artiklerBatch2De: Artikel[] = [
    {
     "h2": "Bandbreiten aus der Literatur",
     "paragraphs": [
-     "Für den Dialog in einer frühen Phase können Bandbreiten aus der Fachliteratur eine Vorstellung von der Grössenordnung vermitteln, etwa zur Beschattung durch Bäume entlang von Fliessgewässern. Geben Sie stets die Quelle an und weisen Sie darauf hin, dass es sich um eine Bandbreite handelt."
+     "Für den Dialog in einer frühen Phase können Bandbreiten aus der Fachliteratur eine Vorstellung von der Größenordnung vermitteln, etwa zur Beschattung durch Bäume entlang von Fließgewässern. Geben Sie stets die Quelle an und weisen Sie darauf hin, dass es sich um eine Bandbreite handelt."
     ],
     "bullets": []
    },
@@ -1797,7 +1797,7 @@ export const artiklerBatch2De: Artikel[] = [
    {
     "h2": "Freyras Grundsatz",
     "paragraphs": [
-     "Freyra stellt Wirkungen ausschliesslich als Bandbreiten mit Quellenangabe dar, niemals als selbst berechnete Zahlen. Die Bepflanzungsanalyse ist als Skizze gekennzeichnet, die einer fachlichen Validierung bedarf."
+     "Freyra stellt Wirkungen ausschließlich als Bandbreiten mit Quellenangabe dar, niemals als selbst berechnete Zahlen. Die Bepflanzungsanalyse ist als Skizze gekennzeichnet, die einer fachlichen Validierung bedarf."
     ],
     "bullets": []
    }
@@ -1855,7 +1855,7 @@ export const artiklerBatch2De: Artikel[] = [
     "bullets": [
      "Vereinbaren Sie den Zugang mit den Grundeigentümern.",
      "Legen Sie feste Aufnahmepunkte und Blickrichtungen für wiederholte Aufnahmen fest.",
-     "Prüfen Sie das Wetter und wählen Sie einen Tag mit gleichmässigen Lichtverhältnissen.",
+     "Prüfen Sie das Wetter und wählen Sie einen Tag mit gleichmäßigen Lichtverhältnissen.",
      "Planen Sie die Route so, dass Häuser und Personen gemieden werden."
     ]
    },

@@ -220,7 +220,7 @@ const de: Copy = {
   verification: {
     eyebrow: "Verifizierung",
     title: "KI unterstützt. Menschen bewerten.",
-    body: "Das Material wird zunächst maschinell geprüft, um festzustellen, was Aufmerksamkeit erfordert. Anschliessend bewertet eine Fachperson das Ergebnis, bevor es Teil der Baseline wird. Jede Schlussfolgerung beruht auf einer fachlichen Bewertung.",
+    body: "Das Material wird zunächst maschinell geprüft, um festzustellen, was Aufmerksamkeit erfordert. Anschließend bewertet eine Fachperson das Ergebnis, bevor es Teil der Baseline wird. Jede Schlussfolgerung beruht auf einer fachlichen Bewertung.",
     bullets: [
       "Die maschinelle Prüfung markiert Abweichungen und Bereiche, die genauer betrachtet werden müssen",
       "Fachliche Bewertung jedes Punktes, bevor er in die Baseline aufgenommen wird",

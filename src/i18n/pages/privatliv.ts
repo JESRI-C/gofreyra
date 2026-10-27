@@ -119,7 +119,7 @@ const de: Copy = {
   },
   retention: {
     title: "4. Aufbewahrung",
-    description: "Anfragen über das Kontaktformular werden so lange aufbewahrt, wie es für die Bearbeitung der Anfrage und eine etwaige Nachbearbeitung erforderlich ist. Kundendaten werden für die Dauer der Zusammenarbeit und anschliessend für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.",
+    description: "Anfragen über das Kontaktformular werden so lange aufbewahrt, wie es für die Bearbeitung der Anfrage und eine etwaige Nachbearbeitung erforderlich ist. Kundendaten werden für die Dauer der Zusammenarbeit und anschließend für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.",
   },
   disclosure: {
     title: "5. Weitergabe",
@@ -127,7 +127,7 @@ const de: Copy = {
   },
   cookies: {
     title: "6. Cookies",
-    description: "Die Website verwendet ausschliesslich technisch notwendige Cookies. Wir verwenden keine Cookies für Marketing oder websiteübergreifendes Tracking.",
+    description: "Die Website verwendet ausschließlich technisch notwendige Cookies. Wir verwenden keine Cookies für Marketing oder websiteübergreifendes Tracking.",
   },
   rights: {
     title: "7. Ihre Rechte",

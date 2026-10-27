@@ -96,7 +96,7 @@ export const ordbogDe: Term[] = [
   "term": "Multifunktionale Flächenerfassung (MARS)",
   "metaTitle": "MARS: Was bedeutet das?",
   "metaDescription": "MARS: Multifunktionale Flächenerfassung, Plattform der Grünen Dreiparteienvereinbarung (Grøn Trepart). Kurz erklärt, mit Quellen und verwandten Begriffen.",
-  "short": "MARS steht für Multifunktionel Arealregistrering (multifunktionale Flächenerfassung) und ist die Plattform für die flächenbezogenen Massnahmen der Grünen Dreiparteienvereinbarung (Grøn Trepart).",
+  "short": "MARS steht für Multifunktionel Arealregistrering (multifunktionale Flächenerfassung) und ist die Plattform für die flächenbezogenen Maßnahmen der Grünen Dreiparteienvereinbarung (Grøn Trepart).",
   "body": [
    "MARS wurde von Styrelsen for Grøn Arealomlægning og Vandmiljø (dänische Behörde für grüne Flächenumgestaltung und Gewässerumwelt) mit Danmarks Miljøportal (dänisches Umweltportal) als Dienstleister entwickelt. Die Plattform umfasst vier Module: Screening, Planung, Antragstellung und Status. Für Screening und Status ist keine Anmeldung erforderlich.",
    "Viele Förderanträge, etwa für Feuchtgebiete, kohlenstoffreiche Niederungsflächen und Aufforstung, beginnen damit, dass das Projektgebiet in MARS eingezeichnet wird."
@@ -256,7 +256,7 @@ export const ordbogDe: Term[] = [
   "metaDescription": "Extensivierung bedeutet, eine Fläche weniger intensiv zu bewirtschaften, etwa mit weniger Dünger oder als Dauergrünland. Kurz erklärt mit Quellen.",
   "short": "Extensivierung bedeutet, dass eine Fläche weniger intensiv bewirtschaftet wird, etwa mit weniger Dünger oder als Dauergrünland.",
   "body": [
-   "Extensivierung ist eine der flächenbezogenen Massnahmen in den Flächenumstellungsplänen. SGAV (dänische Behörde für grüne Flächenumstellung und Wasserumwelt) führt aus, dass die Ziele durch Flächenumstellung im Zusammenspiel mit Bewirtschaftungsauflagen für landwirtschaftliche Flächen erreicht werden, unter anderem etwa durch Extensivierung, sodass der Bedarf an solchen Auflagen begrenzt wird."
+   "Extensivierung ist eine der flächenbezogenen Maßnahmen in den Flächenumstellungsplänen. SGAV (dänische Behörde für grüne Flächenumstellung und Wasserumwelt) führt aus, dass die Ziele durch Flächenumstellung im Zusammenspiel mit Bewirtschaftungsauflagen für landwirtschaftliche Flächen erreicht werden, unter anderem etwa durch Extensivierung, sodass der Bedarf an solchen Auflagen begrenzt wird."
   ],
   "sources": [
    {
