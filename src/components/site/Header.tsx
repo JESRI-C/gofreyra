@@ -53,7 +53,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1.5 shrink-0">
-          <Button asChild className="hidden min-[1720px]:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-md">
+          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : ""}  bg-primary hover:bg-primary/90 text-primary-foreground rounded-md`}>
             <LLink to="/kontakt">{t.cta}</LLink>
           </Button>
           <LanguageSwitcher />
