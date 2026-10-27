@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="container-page flex h-16 items-center justify-between gap-3">
+      <div className="container-page min-[1440px]:max-w-[1400px] flex h-16 items-center justify-between gap-3">
         <LLink to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight shrink-0" aria-label={t.home}>
           <img src={freyraIcon} alt="" className="w-9 h-9 object-contain" />
           <span className="text-brand-deep">Freyra</span>
@@ -53,7 +53,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1.5 shrink-0">
-          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : ""}  bg-primary hover:bg-primary/90 text-primary-foreground rounded-md`}>
+          {/* Shown as soon as the longer EN/DE menus leave room; always in the mobile menu. */}
+          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} bg-primary hover:bg-primary/90 text-primary-foreground rounded-md`}>
             <LLink to="/kontakt">{t.cta}</LLink>
           </Button>
           <LanguageSwitcher />
