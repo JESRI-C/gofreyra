@@ -1,19 +1,20 @@
 import type { Artikel } from "@/data/viden";
 import type { Term } from "@/data/ordbog";
-import { alleArtikler, alleTermer } from "@/data/content";
-import { YDELSER } from "@/data/ydelser";
+import { artiklerFor, termerFor } from "@/data/content";
+import { ydelserFor } from "@/data/ydelser";
+import { DATE_LOCALE, type Locale } from "@/i18n/locale";
 import { PHOTO_VARIANTS } from "@/lib/photo-variants";
 
 export const SITE = "https://gofreyra.com";
 
-export function getArtikel(slug: string): Artikel | undefined {
-  return alleArtikler.find((a) => a.slug === slug);
+export function getArtikel(slug: string, locale: Locale = "da"): Artikel | undefined {
+  return artiklerFor(locale).find((a) => a.slug === slug);
 }
-export function getTerm(slug: string): Term | undefined {
-  return alleTermer.find((t) => t.slug === slug);
+export function getTerm(slug: string, locale: Locale = "da"): Term | undefined {
+  return termerFor(locale).find((t) => t.slug === slug);
 }
-export function getService(slug: string) {
-  return YDELSER.find((y) => y.slug === slug);
+export function getService(slug: string, locale: Locale = "da") {
+  return ydelserFor(locale).find((y) => y.slug === slug);
 }
 
 /** Append " | Freyra" only when the full title stays within 60 characters. */
@@ -22,9 +23,12 @@ export function brandTitle(metaTitle: string): string {
   return t.length <= 60 ? t : metaTitle;
 }
 
-/** "2026-10-22" -> "22.10.2026" */
-export function formatDate(iso: string): string {
+/** "2026-10-22" -> "22.10.2026" (da/de) or "22 October 2026" (en) */
+export function formatDate(iso: string, locale: Locale = "da"): string {
   const [y, m, d] = iso.split("-");
+  if (locale === "en") {
+    return new Date(Date.UTC(+y, +m - 1, +d)).toLocaleDateString(DATE_LOCALE.en, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  }
   return `${d}.${m}.${y}`;
 }
 
@@ -36,21 +40,22 @@ export function shorten(text: string, max = 160): string {
 }
 
 /** Clusters in first-seen order, pillars first within each cluster. */
-export function clusters(): { name: string; items: Artikel[] }[] {
+export function clusters(locale: Locale = "da"): { name: string; items: Artikel[] }[] {
+  const list = artiklerFor(locale);
   const order: string[] = [];
-  for (const a of alleArtikler) if (!order.includes(a.cluster)) order.push(a.cluster);
+  for (const a of list) if (!order.includes(a.cluster)) order.push(a.cluster);
   return order.map((name) => ({
     name,
-    items: alleArtikler
+    items: list
       .filter((a) => a.cluster === name)
       .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "pillar" ? -1 : 1)),
   }));
 }
 
 /** Articles whose services include the given service slug, pillars first. */
-export function articlesForService(serviceSlug: string, max = 4): Artikel[] {
+export function articlesForService(serviceSlug: string, max = 4, locale: Locale = "da"): Artikel[] {
   if (!getService(serviceSlug)) return [];
-  return alleArtikler
+  return artiklerFor(locale)
     .filter((a) => a.services.includes(serviceSlug))
     .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "pillar" ? -1 : 1))
     .slice(0, max);
