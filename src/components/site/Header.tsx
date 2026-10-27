@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -24,41 +25,41 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight">
+        <LLink to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight">
           <img src={freyraIcon} alt="Freyra" className="w-9 h-9 object-contain" />
           <span className="text-brand-deep">Freyra</span>
-        </Link>
+        </LLink>
 
         <nav className="hidden lg:flex items-center gap-1">
           <div className="relative group">
-            <Link to="/ydelser" className={`${linkCls} inline-flex items-center gap-1`}>
+            <LLink to="/ydelser" className={`${linkCls} inline-flex items-center gap-1`}>
               Ydelser <ChevronDown className="w-3.5 h-3.5" />
-            </Link>
+            </LLink>
             <div className="absolute left-0 top-full pt-1 hidden group-hover:block">
               <div className="w-80 rounded-md border border-border bg-background shadow-lg p-2">
                 {YDELSER.map((y) => (
-                  <Link
+                  <LLink
                     key={y.slug}
                     to="/ydelser/$slug"
                     params={{ slug: y.slug }}
                     className="block rounded-md px-3 py-2 text-sm text-foreground/80 hover:bg-secondary hover:text-foreground"
                   >
                     {y.title}
-                  </Link>
+                  </LLink>
                 ))}
               </div>
             </div>
           </div>
           {NAV.map((item) => (
-            <Link key={item.to} to={item.to} className={linkCls}>
+            <LLink key={item.to} to={item.to} className={linkCls}>
               {item.label}
-            </Link>
+            </LLink>
           ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
           <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md">
-            <Link to="/kontakt">Book en snak</Link>
+            <LLink to="/kontakt">Book en snak</LLink>
           </Button>
         </div>
 
@@ -79,11 +80,11 @@ export function Header() {
             </button>
             {servicesOpen && (
               <div className="pl-3 space-y-1 border-l border-border">
-                <Link to="/ydelser" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">
+                <LLink to="/ydelser" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">
                   Alle ydelser
-                </Link>
+                </LLink>
                 {YDELSER.map((y) => (
-                  <Link
+                  <LLink
                     key={y.slug}
                     to="/ydelser/$slug"
                     params={{ slug: y.slug }}
@@ -91,23 +92,23 @@ export function Header() {
                     className="block py-2 text-sm text-muted-foreground"
                   >
                     {y.title}
-                  </Link>
+                  </LLink>
                 ))}
               </div>
             )}
             {NAV.map((item) => (
-              <Link
+              <LLink
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
                 className="block py-2 text-sm font-medium"
               >
                 {item.label}
-              </Link>
+              </LLink>
             ))}
             <div className="pt-2">
               <Button asChild className="w-full rounded-md">
-                <Link to="/kontakt" onClick={() => setOpen(false)}>Book en snak</Link>
+                <LLink to="/kontakt" onClick={() => setOpen(false)}>Book en snak</LLink>
               </Button>
             </div>
           </div>

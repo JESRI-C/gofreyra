@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -116,7 +117,7 @@ function ServicesPage() {
           Fra første droneflyvning til løbende opfølgning. Alle ydelser ender i det samme: dokumentation, der kan efterprøves.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild className="rounded-md h-12 px-6 text-base"><Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link></Button>
+          <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
         </div>
       </section>
 
@@ -140,7 +141,7 @@ function ServicesPage() {
           {SERVICES.map((s) => (
             <div key={s.anchor} id={s.anchor} className="card-soft p-6 md:p-8 bg-card flex flex-col scroll-mt-24">
               <h2 className="text-xl font-semibold">
-                <Link to="/ydelser/$slug" params={{ slug: s.anchor }} className="hover:text-brand-deep transition">{s.name}</Link>
+                <LLink to="/ydelser/$slug" params={{ slug: s.anchor }} className="hover:text-brand-deep transition">{s.name}</LLink>
               </h2>
               <div className="mt-5">
                 <div className="text-xs font-medium uppercase tracking-wider text-foreground/70 mb-2">Hvad du får</div>
@@ -160,7 +161,7 @@ function ServicesPage() {
               <div className="mt-6 pt-5 border-t border-border flex items-center justify-between gap-4 mt-auto">
                 <span className="text-sm font-semibold text-brand-deep">{s.price}</span>
                 <Button asChild variant="outline" className="rounded-md">
-                  <Link to="/ydelser/$slug" params={{ slug: s.anchor }}>Læs mere <ArrowRight className="ml-1 w-4 h-4" /></Link>
+                  <LLink to="/ydelser/$slug" params={{ slug: s.anchor }}>Læs mere <ArrowRight className="ml-1 w-4 h-4" /></LLink>
                 </Button>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { Link } from "@tanstack/react-router";
 import freyraIcon from "@/assets/freyra-icon.png";
 import { YDELSER } from "@/data/ydelser";
@@ -32,11 +33,11 @@ export function Footer() {
           <div className="text-sm font-semibold mb-3">Ydelser</div>
           <ul className="space-y-2">
             <li>
-              <Link to="/ydelser" className="text-sm text-muted-foreground hover:text-foreground">Alle ydelser</Link>
+              <LLink to="/ydelser" className="text-sm text-muted-foreground hover:text-foreground">Alle ydelser</LLink>
             </li>
             {YDELSER.map((y) => (
               <li key={y.slug}>
-                <Link to="/ydelser/$slug" params={{ slug: y.slug }} className="text-sm text-muted-foreground hover:text-foreground">{y.title}</Link>
+                <LLink to="/ydelser/$slug" params={{ slug: y.slug }} className="text-sm text-muted-foreground hover:text-foreground">{y.title}</LLink>
               </li>
             ))}
           </ul>
@@ -47,7 +48,7 @@ export function Footer() {
           <ul className="space-y-2">
             {SIDER.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-sm text-muted-foreground hover:text-foreground">{l.label}</Link>
+                <LLink to={l.to} className="text-sm text-muted-foreground hover:text-foreground">{l.label}</LLink>
               </li>
             ))}
           </ul>
@@ -56,8 +57,8 @@ export function Footer() {
         <div>
           <div className="text-sm font-semibold mb-3">Viden</div>
           <ul className="space-y-2">
-            <li><Link to="/viden" className="text-sm text-muted-foreground hover:text-foreground">Viden</Link></li>
-            <li><Link to="/ordbog" className="text-sm text-muted-foreground hover:text-foreground">Ordbog</Link></li>
+            <li><LLink to="/viden" className="text-sm text-muted-foreground hover:text-foreground">Viden</LLink></li>
+            <li><LLink to="/ordbog" className="text-sm text-muted-foreground hover:text-foreground">Ordbog</LLink></li>
           </ul>
         </div>
 
@@ -74,7 +75,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container-page py-6 flex flex-wrap justify-between gap-2 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} Gofreyra ApS. Alle rettigheder forbeholdes.</div>
-          <Link to="/privatlivspolitik" className="hover:text-foreground">Privatlivspolitik</Link>
+          <LLink to="/privatlivspolitik" className="hover:text-foreground">Privatlivspolitik</LLink>
         </div>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -65,7 +66,7 @@ export const Route = createFileRoute("/{-$locale}/viden/$slug")({
       <section className="container-page py-24 max-w-2xl">
         <h1 className="text-3xl md:text-4xl">Artiklen findes ikke</h1>
         <p className="mt-4 text-muted-foreground">Se alle artikler på vidensiden.</p>
-        <Link to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til Viden <ArrowRight className="ml-1 w-4 h-4" /></Link>
+        <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til Viden <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
   ),
@@ -95,8 +96,8 @@ function ArticlePage() {
       <article>
         <header className="container-page pt-12 md:pt-16 max-w-3xl">
           <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-foreground">Forside</Link> <span aria-hidden>/</span>{" "}
-            <Link to="/viden" className="hover:text-foreground">Viden</Link> <span aria-hidden>/</span>{" "}
+            <LLink to="/" className="hover:text-foreground">Forside</LLink> <span aria-hidden>/</span>{" "}
+            <LLink to="/viden" className="hover:text-foreground">Viden</LLink> <span aria-hidden>/</span>{" "}
             <span className="text-foreground/80">{a.h1}</span>
           </nav>
           <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{a.h1}</h1>
@@ -170,7 +171,7 @@ function ArticlePage() {
               <ul className="mt-5 flex flex-wrap gap-2">
                 {terms.map((t) => (
                   <li key={t.slug}>
-                    <Link to="/ordbog/$slug" params={{ slug: t.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{t.term}</Link>
+                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{t.term}</LLink>
                   </li>
                 ))}
               </ul>
@@ -183,9 +184,9 @@ function ArticlePage() {
               <ul className="mt-5 space-y-2">
                 {inCluster.map((r) => (
                   <li key={r.slug}>
-                    <Link to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
+                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {r.h1}
-                    </Link>
+                    </LLink>
                   </li>
                 ))}
               </ul>
@@ -198,9 +199,9 @@ function ArticlePage() {
               <ul className="mt-5 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>
-                    <Link to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
+                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {r.h1}
-                    </Link>
+                    </LLink>
                   </li>
                 ))}
               </ul>
@@ -213,9 +214,9 @@ function ArticlePage() {
               <ul className="mt-4 space-y-2">
                 {services.map((s) => (
                   <li key={s.slug}>
-                    <Link to="/ydelser/$slug" params={{ slug: s.slug }} className="inline-flex items-center text-sm font-medium text-brand-deep hover:text-foreground">
+                    <LLink to="/ydelser/$slug" params={{ slug: s.slug }} className="inline-flex items-center text-sm font-medium text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {s.title}
-                    </Link>
+                    </LLink>
                   </li>
                 ))}
               </ul>

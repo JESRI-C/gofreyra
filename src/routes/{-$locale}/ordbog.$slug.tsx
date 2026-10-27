@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/{-$locale}/ordbog/$slug")({
       <section className="container-page py-24 max-w-2xl">
         <h1 className="text-3xl md:text-4xl">Begrebet findes ikke</h1>
         <p className="mt-4 text-muted-foreground">Se alle begreber i ordbogen.</p>
-        <Link to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til ordbogen <ArrowRight className="ml-1 w-4 h-4" /></Link>
+        <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til ordbogen <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
   ),
@@ -64,8 +65,8 @@ function TermPage() {
     <PageLayout>
       <article className="container-page py-12 md:py-16 max-w-3xl">
         <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-foreground">Forside</Link> <span aria-hidden>/</span>{" "}
-          <Link to="/ordbog" className="hover:text-foreground">Ordbog</Link> <span aria-hidden>/</span>{" "}
+          <LLink to="/" className="hover:text-foreground">Forside</LLink> <span aria-hidden>/</span>{" "}
+          <LLink to="/ordbog" className="hover:text-foreground">Ordbog</LLink> <span aria-hidden>/</span>{" "}
           <span className="text-foreground/80">{t.term}</span>
         </nav>
         <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{t.term}</h1>
@@ -93,7 +94,7 @@ function TermPage() {
             <ul className="mt-4 flex flex-wrap gap-2">
               {related.map((r) => (
                 <li key={r.slug}>
-                  <Link to="/ordbog/$slug" params={{ slug: r.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{r.term}</Link>
+                  <LLink to="/ordbog/$slug" params={{ slug: r.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{r.term}</LLink>
                 </li>
               ))}
             </ul>
@@ -106,9 +107,9 @@ function TermPage() {
             <ul className="mt-4 space-y-2">
               {articles.map((a) => (
                 <li key={a.slug}>
-                  <Link to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
+                  <LLink to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                     <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {a.h1}
-                  </Link>
+                  </LLink>
                 </li>
               ))}
             </ul>
@@ -117,7 +118,7 @@ function TermPage() {
 
         <p className="mt-14 text-sm text-muted-foreground">
           Har du et konkret projekt, hvor begrebet er relevant?{" "}
-          <Link to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">Skriv til os via kontaktformularen</Link>.
+          <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">Skriv til os via kontaktformularen</LLink>.
         </p>
       </article>
     </PageLayout>

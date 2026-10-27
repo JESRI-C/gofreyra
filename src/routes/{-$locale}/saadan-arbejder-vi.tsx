@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
@@ -98,7 +99,7 @@ function MethodPage() {
           ))}
         </ul>
         <p className="mt-8 text-muted-foreground">
-          Vil du se, hvad metoden ender i? Se <Link to="/ydelser" className="text-brand-deep font-medium hover:underline">vores ydelser</Link> eller <Link to="/luftfoto" className="text-brand-deep font-medium hover:underline">billeder fra vores flyvninger</Link>.
+          Vil du se, hvad metoden ender i? Se <LLink to="/ydelser" className="text-brand-deep font-medium hover:underline">vores ydelser</LLink> eller <LLink to="/luftfoto" className="text-brand-deep font-medium hover:underline">billeder fra vores flyvninger</LLink>.
         </p>
       </section>
 

@@ -1,3 +1,4 @@
+import { LLink } from "@/components/site/LLink";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -26,10 +27,10 @@ export function CTASection({
           </div>
           <div className="flex gap-3 flex-wrap">
             <Button asChild className="rounded-md bg-white text-brand-deep hover:bg-white/90 h-12 px-6">
-              <Link to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></Link>
+              <LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink>
             </Button>
             <Button asChild variant="outline" className="rounded-md h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10">
-              <Link to="/platformen">Se platformen</Link>
+              <LLink to="/platformen">Se platformen</LLink>
             </Button>
           </div>
         </div>

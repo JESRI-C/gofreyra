@@ -9,52 +9,45 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YdelserRouteImport } from './routes/ydelser'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SaadanArbejderViRouteImport } from './routes/saadan-arbejder-vi'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProjekterRouteImport } from './routes/projekter'
 import { Route as ProblemerRouteImport } from './routes/problemer'
-import { Route as PrivatlivspolitikRouteImport } from './routes/privatlivspolitik'
 import { Route as PriserRouteImport } from './routes/priser'
-import { Route as PlatformenRouteImport } from './routes/platformen'
 import { Route as PlatformRouteImport } from './routes/platform'
-import { Route as OmRouteImport } from './routes/om'
-import { Route as LuftfotoRouteImport } from './routes/luftfoto'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as KommunerRouteImport } from './routes/kommuner'
 import { Route as IndsigterRouteImport } from './routes/indsigter'
-import { Route as FondeOgLodsejereRouteImport } from './routes/fonde-og-lodsejere'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as EnRouteImport } from './routes/en'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
 import { Route as DataRouteImport } from './routes/data'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as VidenIndexRouteImport } from './routes/viden.index'
-import { Route as OrdbogIndexRouteImport } from './routes/ordbog.index'
-import { Route as YdelserSlugRouteImport } from './routes/ydelser_.$slug'
-import { Route as VidenSlugRouteImport } from './routes/viden.$slug'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125YdelserRouteImport } from './routes/{-$locale}/ydelser'
+import { Route as Char123LocaleChar125SaadanArbejderViRouteImport } from './routes/{-$locale}/saadan-arbejder-vi'
+import { Route as Char123LocaleChar125PrivatlivspolitikRouteImport } from './routes/{-$locale}/privatlivspolitik'
+import { Route as Char123LocaleChar125PlatformenRouteImport } from './routes/{-$locale}/platformen'
+import { Route as Char123LocaleChar125OmRouteImport } from './routes/{-$locale}/om'
+import { Route as Char123LocaleChar125LuftfotoRouteImport } from './routes/{-$locale}/luftfoto'
+import { Route as Char123LocaleChar125KontaktRouteImport } from './routes/{-$locale}/kontakt'
+import { Route as Char123LocaleChar125KommunerRouteImport } from './routes/{-$locale}/kommuner'
+import { Route as Char123LocaleChar125FondeOgLodsejereRouteImport } from './routes/{-$locale}/fonde-og-lodsejere'
+import { Route as Char123LocaleChar125FaqRouteImport } from './routes/{-$locale}/faq'
 import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
 import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
 import { Route as PlatformSplatRouteImport } from './routes/platform.$'
-import { Route as OrdbogSlugRouteImport } from './routes/ordbog.$slug'
 import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
 import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
 import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
-import { Route as EnSplatRouteImport } from './routes/en.$'
 import { Route as DataSplatRouteImport } from './routes/data.$'
 import { Route as BrancherSplatRouteImport } from './routes/brancher.$'
+import { Route as Char123LocaleChar125VidenIndexRouteImport } from './routes/{-$locale}/viden.index'
+import { Route as Char123LocaleChar125OrdbogIndexRouteImport } from './routes/{-$locale}/ordbog.index'
+import { Route as Char123LocaleChar125YdelserSlugRouteImport } from './routes/{-$locale}/ydelser_.$slug'
+import { Route as Char123LocaleChar125VidenSlugRouteImport } from './routes/{-$locale}/viden.$slug'
+import { Route as Char123LocaleChar125OrdbogSlugRouteImport } from './routes/{-$locale}/ordbog.$slug'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
-const YdelserRoute = YdelserRouteImport.update({
-  id: '/ydelser',
-  path: '/ydelser',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
   path: '/use-cases',
@@ -63,11 +56,6 @@ const UseCasesRoute = UseCasesRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SaadanArbejderViRoute = SaadanArbejderViRouteImport.update({
-  id: '/saadan-arbejder-vi',
-  path: '/saadan-arbejder-vi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -85,19 +73,9 @@ const ProblemerRoute = ProblemerRouteImport.update({
   path: '/problemer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrivatlivspolitikRoute = PrivatlivspolitikRouteImport.update({
-  id: '/privatlivspolitik',
-  path: '/privatlivspolitik',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PriserRoute = PriserRouteImport.update({
   id: '/priser',
   path: '/priser',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlatformenRoute = PlatformenRouteImport.update({
-  id: '/platformen',
-  path: '/platformen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -105,44 +83,9 @@ const PlatformRoute = PlatformRouteImport.update({
   path: '/platform',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OmRoute = OmRouteImport.update({
-  id: '/om',
-  path: '/om',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LuftfotoRoute = LuftfotoRouteImport.update({
-  id: '/luftfoto',
-  path: '/luftfoto',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KommunerRoute = KommunerRouteImport.update({
-  id: '/kommuner',
-  path: '/kommuner',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndsigterRoute = IndsigterRouteImport.update({
   id: '/indsigter',
   path: '/indsigter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FondeOgLodsejereRoute = FondeOgLodsejereRouteImport.update({
-  id: '/fonde-og-lodsejere',
-  path: '/fonde-og-lodsejere',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnRoute = EnRouteImport.update({
-  id: '/en',
-  path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatakilderRoute = DatakilderRouteImport.update({
@@ -170,29 +113,68 @@ const BookDemoRoute = BookDemoRouteImport.update({
   path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const Char123LocaleChar125IndexRoute =
+  Char123LocaleChar125IndexRouteImport.update({
+    id: '/{-$locale}/',
+    path: '/{-$locale}/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125YdelserRoute =
+  Char123LocaleChar125YdelserRouteImport.update({
+    id: '/{-$locale}/ydelser',
+    path: '/{-$locale}/ydelser',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125SaadanArbejderViRoute =
+  Char123LocaleChar125SaadanArbejderViRouteImport.update({
+    id: '/{-$locale}/saadan-arbejder-vi',
+    path: '/{-$locale}/saadan-arbejder-vi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PrivatlivspolitikRoute =
+  Char123LocaleChar125PrivatlivspolitikRouteImport.update({
+    id: '/{-$locale}/privatlivspolitik',
+    path: '/{-$locale}/privatlivspolitik',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125PlatformenRoute =
+  Char123LocaleChar125PlatformenRouteImport.update({
+    id: '/{-$locale}/platformen',
+    path: '/{-$locale}/platformen',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125OmRoute = Char123LocaleChar125OmRouteImport.update({
+  id: '/{-$locale}/om',
+  path: '/{-$locale}/om',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VidenIndexRoute = VidenIndexRouteImport.update({
-  id: '/viden/',
-  path: '/viden/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OrdbogIndexRoute = OrdbogIndexRouteImport.update({
-  id: '/ordbog/',
-  path: '/ordbog/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const YdelserSlugRoute = YdelserSlugRouteImport.update({
-  id: '/ydelser_/$slug',
-  path: '/ydelser/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VidenSlugRoute = VidenSlugRouteImport.update({
-  id: '/viden/$slug',
-  path: '/viden/$slug',
+const Char123LocaleChar125LuftfotoRoute =
+  Char123LocaleChar125LuftfotoRouteImport.update({
+    id: '/{-$locale}/luftfoto',
+    path: '/{-$locale}/luftfoto',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125KontaktRoute =
+  Char123LocaleChar125KontaktRouteImport.update({
+    id: '/{-$locale}/kontakt',
+    path: '/{-$locale}/kontakt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125KommunerRoute =
+  Char123LocaleChar125KommunerRouteImport.update({
+    id: '/{-$locale}/kommuner',
+    path: '/{-$locale}/kommuner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125FondeOgLodsejereRoute =
+  Char123LocaleChar125FondeOgLodsejereRouteImport.update({
+    id: '/{-$locale}/fonde-og-lodsejere',
+    path: '/{-$locale}/fonde-og-lodsejere',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125FaqRoute = Char123LocaleChar125FaqRouteImport.update({
+  id: '/{-$locale}/faq',
+  path: '/{-$locale}/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
@@ -210,11 +192,6 @@ const PlatformSplatRoute = PlatformSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => PlatformRoute,
 } as any)
-const OrdbogSlugRoute = OrdbogSlugRouteImport.update({
-  id: '/ordbog/$slug',
-  path: '/ordbog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
   id: '/loesninger/kommuner',
   path: '/loesninger/kommuner',
@@ -230,11 +207,6 @@ const IndsigterSplatRoute = IndsigterSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => IndsigterRoute,
 } as any)
-const EnSplatRoute = EnSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => EnRoute,
-} as any)
 const DataSplatRoute = DataSplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -245,6 +217,36 @@ const BrancherSplatRoute = BrancherSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => BrancherRoute,
 } as any)
+const Char123LocaleChar125VidenIndexRoute =
+  Char123LocaleChar125VidenIndexRouteImport.update({
+    id: '/{-$locale}/viden/',
+    path: '/{-$locale}/viden/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125OrdbogIndexRoute =
+  Char123LocaleChar125OrdbogIndexRouteImport.update({
+    id: '/{-$locale}/ordbog/',
+    path: '/{-$locale}/ordbog/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125YdelserSlugRoute =
+  Char123LocaleChar125YdelserSlugRouteImport.update({
+    id: '/{-$locale}/ydelser_/$slug',
+    path: '/{-$locale}/ydelser/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125VidenSlugRoute =
+  Char123LocaleChar125VidenSlugRouteImport.update({
+    id: '/{-$locale}/viden/$slug',
+    path: '/{-$locale}/viden/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125OrdbogSlugRoute =
+  Char123LocaleChar125OrdbogSlugRouteImport.update({
+    id: '/{-$locale}/ordbog/$slug',
+    path: '/{-$locale}/ordbog/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
@@ -253,306 +255,286 @@ const LovableEmailQueueProcessRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
-  '/kommuner': typeof KommunerRoute
-  '/kontakt': typeof KontaktRoute
-  '/luftfoto': typeof LuftfotoRoute
-  '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
-  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
-  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
-  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
-  '/en/$': typeof EnSplatRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/viden/$slug': typeof VidenSlugRoute
-  '/ydelser/$slug': typeof YdelserSlugRoute
-  '/ordbog/': typeof OrdbogIndexRoute
-  '/viden/': typeof VidenIndexRoute
+  '/{-$locale}/faq': typeof Char123LocaleChar125FaqRoute
+  '/{-$locale}/fonde-og-lodsejere': typeof Char123LocaleChar125FondeOgLodsejereRoute
+  '/{-$locale}/kommuner': typeof Char123LocaleChar125KommunerRoute
+  '/{-$locale}/kontakt': typeof Char123LocaleChar125KontaktRoute
+  '/{-$locale}/luftfoto': typeof Char123LocaleChar125LuftfotoRoute
+  '/{-$locale}/om': typeof Char123LocaleChar125OmRoute
+  '/{-$locale}/platformen': typeof Char123LocaleChar125PlatformenRoute
+  '/{-$locale}/privatlivspolitik': typeof Char123LocaleChar125PrivatlivspolitikRoute
+  '/{-$locale}/saadan-arbejder-vi': typeof Char123LocaleChar125SaadanArbejderViRoute
+  '/{-$locale}/ydelser': typeof Char123LocaleChar125YdelserRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/ordbog/$slug': typeof Char123LocaleChar125OrdbogSlugRoute
+  '/{-$locale}/viden/$slug': typeof Char123LocaleChar125VidenSlugRoute
+  '/{-$locale}/ydelser/$slug': typeof Char123LocaleChar125YdelserSlugRoute
+  '/{-$locale}/ordbog/': typeof Char123LocaleChar125OrdbogIndexRoute
+  '/{-$locale}/viden/': typeof Char123LocaleChar125VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
-  '/kommuner': typeof KommunerRoute
-  '/kontakt': typeof KontaktRoute
-  '/luftfoto': typeof LuftfotoRoute
-  '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
-  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
-  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
-  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
-  '/en/$': typeof EnSplatRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/viden/$slug': typeof VidenSlugRoute
-  '/ydelser/$slug': typeof YdelserSlugRoute
-  '/ordbog': typeof OrdbogIndexRoute
-  '/viden': typeof VidenIndexRoute
+  '/{-$locale}/faq': typeof Char123LocaleChar125FaqRoute
+  '/{-$locale}/fonde-og-lodsejere': typeof Char123LocaleChar125FondeOgLodsejereRoute
+  '/{-$locale}/kommuner': typeof Char123LocaleChar125KommunerRoute
+  '/{-$locale}/kontakt': typeof Char123LocaleChar125KontaktRoute
+  '/{-$locale}/luftfoto': typeof Char123LocaleChar125LuftfotoRoute
+  '/{-$locale}/om': typeof Char123LocaleChar125OmRoute
+  '/{-$locale}/platformen': typeof Char123LocaleChar125PlatformenRoute
+  '/{-$locale}/privatlivspolitik': typeof Char123LocaleChar125PrivatlivspolitikRoute
+  '/{-$locale}/saadan-arbejder-vi': typeof Char123LocaleChar125SaadanArbejderViRoute
+  '/{-$locale}/ydelser': typeof Char123LocaleChar125YdelserRoute
+  '/{-$locale}': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/ordbog/$slug': typeof Char123LocaleChar125OrdbogSlugRoute
+  '/{-$locale}/viden/$slug': typeof Char123LocaleChar125VidenSlugRoute
+  '/{-$locale}/ydelser/$slug': typeof Char123LocaleChar125YdelserSlugRoute
+  '/{-$locale}/ordbog': typeof Char123LocaleChar125OrdbogIndexRoute
+  '/{-$locale}/viden': typeof Char123LocaleChar125VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
-  '/en': typeof EnRouteWithChildren
-  '/faq': typeof FaqRoute
-  '/fonde-og-lodsejere': typeof FondeOgLodsejereRoute
   '/indsigter': typeof IndsigterRouteWithChildren
-  '/kommuner': typeof KommunerRoute
-  '/kontakt': typeof KontaktRoute
-  '/luftfoto': typeof LuftfotoRoute
-  '/om': typeof OmRoute
   '/platform': typeof PlatformRouteWithChildren
-  '/platformen': typeof PlatformenRoute
   '/priser': typeof PriserRoute
-  '/privatlivspolitik': typeof PrivatlivspolitikRoute
   '/problemer': typeof ProblemerRouteWithChildren
   '/projekter': typeof ProjekterRoute
   '/robots.txt': typeof RobotsDottxtRoute
-  '/saadan-arbejder-vi': typeof SaadanArbejderViRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/use-cases': typeof UseCasesRouteWithChildren
-  '/ydelser': typeof YdelserRoute
   '/brancher/$': typeof BrancherSplatRoute
   '/data/$': typeof DataSplatRoute
-  '/en/$': typeof EnSplatRoute
   '/indsigter/$': typeof IndsigterSplatRoute
   '/loesninger/$': typeof LoesningerSplatRoute
   '/loesninger/kommuner': typeof LoesningerKommunerRoute
-  '/ordbog/$slug': typeof OrdbogSlugRoute
   '/platform/$': typeof PlatformSplatRoute
   '/problemer/$': typeof ProblemerSplatRoute
   '/use-cases/$': typeof UseCasesSplatRoute
-  '/viden/$slug': typeof VidenSlugRoute
-  '/ydelser_/$slug': typeof YdelserSlugRoute
-  '/ordbog/': typeof OrdbogIndexRoute
-  '/viden/': typeof VidenIndexRoute
+  '/{-$locale}/faq': typeof Char123LocaleChar125FaqRoute
+  '/{-$locale}/fonde-og-lodsejere': typeof Char123LocaleChar125FondeOgLodsejereRoute
+  '/{-$locale}/kommuner': typeof Char123LocaleChar125KommunerRoute
+  '/{-$locale}/kontakt': typeof Char123LocaleChar125KontaktRoute
+  '/{-$locale}/luftfoto': typeof Char123LocaleChar125LuftfotoRoute
+  '/{-$locale}/om': typeof Char123LocaleChar125OmRoute
+  '/{-$locale}/platformen': typeof Char123LocaleChar125PlatformenRoute
+  '/{-$locale}/privatlivspolitik': typeof Char123LocaleChar125PrivatlivspolitikRoute
+  '/{-$locale}/saadan-arbejder-vi': typeof Char123LocaleChar125SaadanArbejderViRoute
+  '/{-$locale}/ydelser': typeof Char123LocaleChar125YdelserRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/ordbog/$slug': typeof Char123LocaleChar125OrdbogSlugRoute
+  '/{-$locale}/viden/$slug': typeof Char123LocaleChar125VidenSlugRoute
+  '/{-$locale}/ydelser_/$slug': typeof Char123LocaleChar125YdelserSlugRoute
+  '/{-$locale}/ordbog/': typeof Char123LocaleChar125OrdbogIndexRoute
+  '/{-$locale}/viden/': typeof Char123LocaleChar125VidenIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
     | '/data'
     | '/datakilder'
-    | '/en'
-    | '/faq'
-    | '/fonde-og-lodsejere'
     | '/indsigter'
-    | '/kommuner'
-    | '/kontakt'
-    | '/luftfoto'
-    | '/om'
     | '/platform'
-    | '/platformen'
     | '/priser'
-    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
-    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
-    | '/ydelser'
     | '/brancher/$'
     | '/data/$'
-    | '/en/$'
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
-    | '/viden/$slug'
-    | '/ydelser/$slug'
-    | '/ordbog/'
-    | '/viden/'
+    | '/{-$locale}/faq'
+    | '/{-$locale}/fonde-og-lodsejere'
+    | '/{-$locale}/kommuner'
+    | '/{-$locale}/kontakt'
+    | '/{-$locale}/luftfoto'
+    | '/{-$locale}/om'
+    | '/{-$locale}/platformen'
+    | '/{-$locale}/privatlivspolitik'
+    | '/{-$locale}/saadan-arbejder-vi'
+    | '/{-$locale}/ydelser'
+    | '/{-$locale}/'
+    | '/{-$locale}/ordbog/$slug'
+    | '/{-$locale}/viden/$slug'
+    | '/{-$locale}/ydelser/$slug'
+    | '/{-$locale}/ordbog/'
+    | '/{-$locale}/viden/'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
     | '/data'
     | '/datakilder'
-    | '/en'
-    | '/faq'
-    | '/fonde-og-lodsejere'
     | '/indsigter'
-    | '/kommuner'
-    | '/kontakt'
-    | '/luftfoto'
-    | '/om'
     | '/platform'
-    | '/platformen'
     | '/priser'
-    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
-    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
-    | '/ydelser'
     | '/brancher/$'
     | '/data/$'
-    | '/en/$'
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
-    | '/viden/$slug'
-    | '/ydelser/$slug'
-    | '/ordbog'
-    | '/viden'
+    | '/{-$locale}/faq'
+    | '/{-$locale}/fonde-og-lodsejere'
+    | '/{-$locale}/kommuner'
+    | '/{-$locale}/kontakt'
+    | '/{-$locale}/luftfoto'
+    | '/{-$locale}/om'
+    | '/{-$locale}/platformen'
+    | '/{-$locale}/privatlivspolitik'
+    | '/{-$locale}/saadan-arbejder-vi'
+    | '/{-$locale}/ydelser'
+    | '/{-$locale}'
+    | '/{-$locale}/ordbog/$slug'
+    | '/{-$locale}/viden/$slug'
+    | '/{-$locale}/ydelser/$slug'
+    | '/{-$locale}/ordbog'
+    | '/{-$locale}/viden'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
-    | '/'
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
     | '/data'
     | '/datakilder'
-    | '/en'
-    | '/faq'
-    | '/fonde-og-lodsejere'
     | '/indsigter'
-    | '/kommuner'
-    | '/kontakt'
-    | '/luftfoto'
-    | '/om'
     | '/platform'
-    | '/platformen'
     | '/priser'
-    | '/privatlivspolitik'
     | '/problemer'
     | '/projekter'
     | '/robots.txt'
-    | '/saadan-arbejder-vi'
     | '/sitemap.xml'
     | '/use-cases'
-    | '/ydelser'
     | '/brancher/$'
     | '/data/$'
-    | '/en/$'
     | '/indsigter/$'
     | '/loesninger/$'
     | '/loesninger/kommuner'
-    | '/ordbog/$slug'
     | '/platform/$'
     | '/problemer/$'
     | '/use-cases/$'
-    | '/viden/$slug'
-    | '/ydelser_/$slug'
-    | '/ordbog/'
-    | '/viden/'
+    | '/{-$locale}/faq'
+    | '/{-$locale}/fonde-og-lodsejere'
+    | '/{-$locale}/kommuner'
+    | '/{-$locale}/kontakt'
+    | '/{-$locale}/luftfoto'
+    | '/{-$locale}/om'
+    | '/{-$locale}/platformen'
+    | '/{-$locale}/privatlivspolitik'
+    | '/{-$locale}/saadan-arbejder-vi'
+    | '/{-$locale}/ydelser'
+    | '/{-$locale}/'
+    | '/{-$locale}/ordbog/$slug'
+    | '/{-$locale}/viden/$slug'
+    | '/{-$locale}/ydelser_/$slug'
+    | '/{-$locale}/ordbog/'
+    | '/{-$locale}/viden/'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   BookDemoRoute: typeof BookDemoRoute
   BrancherRoute: typeof BrancherRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
-  EnRoute: typeof EnRouteWithChildren
-  FaqRoute: typeof FaqRoute
-  FondeOgLodsejereRoute: typeof FondeOgLodsejereRoute
   IndsigterRoute: typeof IndsigterRouteWithChildren
-  KommunerRoute: typeof KommunerRoute
-  KontaktRoute: typeof KontaktRoute
-  LuftfotoRoute: typeof LuftfotoRoute
-  OmRoute: typeof OmRoute
   PlatformRoute: typeof PlatformRouteWithChildren
-  PlatformenRoute: typeof PlatformenRoute
   PriserRoute: typeof PriserRoute
-  PrivatlivspolitikRoute: typeof PrivatlivspolitikRoute
   ProblemerRoute: typeof ProblemerRouteWithChildren
   ProjekterRoute: typeof ProjekterRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
-  SaadanArbejderViRoute: typeof SaadanArbejderViRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UseCasesRoute: typeof UseCasesRouteWithChildren
-  YdelserRoute: typeof YdelserRoute
   LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
-  OrdbogSlugRoute: typeof OrdbogSlugRoute
-  VidenSlugRoute: typeof VidenSlugRoute
-  YdelserSlugRoute: typeof YdelserSlugRoute
-  OrdbogIndexRoute: typeof OrdbogIndexRoute
-  VidenIndexRoute: typeof VidenIndexRoute
+  Char123LocaleChar125FaqRoute: typeof Char123LocaleChar125FaqRoute
+  Char123LocaleChar125FondeOgLodsejereRoute: typeof Char123LocaleChar125FondeOgLodsejereRoute
+  Char123LocaleChar125KommunerRoute: typeof Char123LocaleChar125KommunerRoute
+  Char123LocaleChar125KontaktRoute: typeof Char123LocaleChar125KontaktRoute
+  Char123LocaleChar125LuftfotoRoute: typeof Char123LocaleChar125LuftfotoRoute
+  Char123LocaleChar125OmRoute: typeof Char123LocaleChar125OmRoute
+  Char123LocaleChar125PlatformenRoute: typeof Char123LocaleChar125PlatformenRoute
+  Char123LocaleChar125PrivatlivspolitikRoute: typeof Char123LocaleChar125PrivatlivspolitikRoute
+  Char123LocaleChar125SaadanArbejderViRoute: typeof Char123LocaleChar125SaadanArbejderViRoute
+  Char123LocaleChar125YdelserRoute: typeof Char123LocaleChar125YdelserRoute
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125OrdbogSlugRoute: typeof Char123LocaleChar125OrdbogSlugRoute
+  Char123LocaleChar125VidenSlugRoute: typeof Char123LocaleChar125VidenSlugRoute
+  Char123LocaleChar125YdelserSlugRoute: typeof Char123LocaleChar125YdelserSlugRoute
+  Char123LocaleChar125OrdbogIndexRoute: typeof Char123LocaleChar125OrdbogIndexRoute
+  Char123LocaleChar125VidenIndexRoute: typeof Char123LocaleChar125VidenIndexRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/ydelser': {
-      id: '/ydelser'
-      path: '/ydelser'
-      fullPath: '/ydelser'
-      preLoaderRoute: typeof YdelserRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/use-cases': {
       id: '/use-cases'
       path: '/use-cases'
@@ -565,13 +547,6 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/saadan-arbejder-vi': {
-      id: '/saadan-arbejder-vi'
-      path: '/saadan-arbejder-vi'
-      fullPath: '/saadan-arbejder-vi'
-      preLoaderRoute: typeof SaadanArbejderViRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -595,25 +570,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProblemerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/privatlivspolitik': {
-      id: '/privatlivspolitik'
-      path: '/privatlivspolitik'
-      fullPath: '/privatlivspolitik'
-      preLoaderRoute: typeof PrivatlivspolitikRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/priser': {
       id: '/priser'
       path: '/priser'
       fullPath: '/priser'
       preLoaderRoute: typeof PriserRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/platformen': {
-      id: '/platformen'
-      path: '/platformen'
-      fullPath: '/platformen'
-      preLoaderRoute: typeof PlatformenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -623,60 +584,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/om': {
-      id: '/om'
-      path: '/om'
-      fullPath: '/om'
-      preLoaderRoute: typeof OmRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/luftfoto': {
-      id: '/luftfoto'
-      path: '/luftfoto'
-      fullPath: '/luftfoto'
-      preLoaderRoute: typeof LuftfotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kommuner': {
-      id: '/kommuner'
-      path: '/kommuner'
-      fullPath: '/kommuner'
-      preLoaderRoute: typeof KommunerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/indsigter': {
       id: '/indsigter'
       path: '/indsigter'
       fullPath: '/indsigter'
       preLoaderRoute: typeof IndsigterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fonde-og-lodsejere': {
-      id: '/fonde-og-lodsejere'
-      path: '/fonde-og-lodsejere'
-      fullPath: '/fonde-og-lodsejere'
-      preLoaderRoute: typeof FondeOgLodsejereRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en': {
-      id: '/en'
-      path: '/en'
-      fullPath: '/en'
-      preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datakilder': {
@@ -714,39 +626,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/{-$locale}/': {
+      id: '/{-$locale}/'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}/'
+      preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/viden/': {
-      id: '/viden/'
-      path: '/viden'
-      fullPath: '/viden/'
-      preLoaderRoute: typeof VidenIndexRouteImport
+    '/{-$locale}/ydelser': {
+      id: '/{-$locale}/ydelser'
+      path: '/{-$locale}/ydelser'
+      fullPath: '/{-$locale}/ydelser'
+      preLoaderRoute: typeof Char123LocaleChar125YdelserRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ordbog/': {
-      id: '/ordbog/'
-      path: '/ordbog'
-      fullPath: '/ordbog/'
-      preLoaderRoute: typeof OrdbogIndexRouteImport
+    '/{-$locale}/saadan-arbejder-vi': {
+      id: '/{-$locale}/saadan-arbejder-vi'
+      path: '/{-$locale}/saadan-arbejder-vi'
+      fullPath: '/{-$locale}/saadan-arbejder-vi'
+      preLoaderRoute: typeof Char123LocaleChar125SaadanArbejderViRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ydelser_/$slug': {
-      id: '/ydelser_/$slug'
-      path: '/ydelser/$slug'
-      fullPath: '/ydelser/$slug'
-      preLoaderRoute: typeof YdelserSlugRouteImport
+    '/{-$locale}/privatlivspolitik': {
+      id: '/{-$locale}/privatlivspolitik'
+      path: '/{-$locale}/privatlivspolitik'
+      fullPath: '/{-$locale}/privatlivspolitik'
+      preLoaderRoute: typeof Char123LocaleChar125PrivatlivspolitikRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/viden/$slug': {
-      id: '/viden/$slug'
-      path: '/viden/$slug'
-      fullPath: '/viden/$slug'
-      preLoaderRoute: typeof VidenSlugRouteImport
+    '/{-$locale}/platformen': {
+      id: '/{-$locale}/platformen'
+      path: '/{-$locale}/platformen'
+      fullPath: '/{-$locale}/platformen'
+      preLoaderRoute: typeof Char123LocaleChar125PlatformenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/om': {
+      id: '/{-$locale}/om'
+      path: '/{-$locale}/om'
+      fullPath: '/{-$locale}/om'
+      preLoaderRoute: typeof Char123LocaleChar125OmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/luftfoto': {
+      id: '/{-$locale}/luftfoto'
+      path: '/{-$locale}/luftfoto'
+      fullPath: '/{-$locale}/luftfoto'
+      preLoaderRoute: typeof Char123LocaleChar125LuftfotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/kontakt': {
+      id: '/{-$locale}/kontakt'
+      path: '/{-$locale}/kontakt'
+      fullPath: '/{-$locale}/kontakt'
+      preLoaderRoute: typeof Char123LocaleChar125KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/kommuner': {
+      id: '/{-$locale}/kommuner'
+      path: '/{-$locale}/kommuner'
+      fullPath: '/{-$locale}/kommuner'
+      preLoaderRoute: typeof Char123LocaleChar125KommunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/fonde-og-lodsejere': {
+      id: '/{-$locale}/fonde-og-lodsejere'
+      path: '/{-$locale}/fonde-og-lodsejere'
+      fullPath: '/{-$locale}/fonde-og-lodsejere'
+      preLoaderRoute: typeof Char123LocaleChar125FondeOgLodsejereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/faq': {
+      id: '/{-$locale}/faq'
+      path: '/{-$locale}/faq'
+      fullPath: '/{-$locale}/faq'
+      preLoaderRoute: typeof Char123LocaleChar125FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-cases/$': {
@@ -770,13 +724,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformSplatRouteImport
       parentRoute: typeof PlatformRoute
     }
-    '/ordbog/$slug': {
-      id: '/ordbog/$slug'
-      path: '/ordbog/$slug'
-      fullPath: '/ordbog/$slug'
-      preLoaderRoute: typeof OrdbogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/loesninger/kommuner': {
       id: '/loesninger/kommuner'
       path: '/loesninger/kommuner'
@@ -798,13 +745,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndsigterSplatRouteImport
       parentRoute: typeof IndsigterRoute
     }
-    '/en/$': {
-      id: '/en/$'
-      path: '/$'
-      fullPath: '/en/$'
-      preLoaderRoute: typeof EnSplatRouteImport
-      parentRoute: typeof EnRoute
-    }
     '/data/$': {
       id: '/data/$'
       path: '/$'
@@ -818,6 +758,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/brancher/$'
       preLoaderRoute: typeof BrancherSplatRouteImport
       parentRoute: typeof BrancherRoute
+    }
+    '/{-$locale}/viden/': {
+      id: '/{-$locale}/viden/'
+      path: '/{-$locale}/viden'
+      fullPath: '/{-$locale}/viden/'
+      preLoaderRoute: typeof Char123LocaleChar125VidenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/ordbog/': {
+      id: '/{-$locale}/ordbog/'
+      path: '/{-$locale}/ordbog'
+      fullPath: '/{-$locale}/ordbog/'
+      preLoaderRoute: typeof Char123LocaleChar125OrdbogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/ydelser_/$slug': {
+      id: '/{-$locale}/ydelser_/$slug'
+      path: '/{-$locale}/ydelser/$slug'
+      fullPath: '/{-$locale}/ydelser/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125YdelserSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/viden/$slug': {
+      id: '/{-$locale}/viden/$slug'
+      path: '/{-$locale}/viden/$slug'
+      fullPath: '/{-$locale}/viden/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125VidenSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$locale}/ordbog/$slug': {
+      id: '/{-$locale}/ordbog/$slug'
+      path: '/{-$locale}/ordbog/$slug'
+      fullPath: '/{-$locale}/ordbog/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125OrdbogSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
@@ -850,16 +825,6 @@ const DataRouteChildren: DataRouteChildren = {
 }
 
 const DataRouteWithChildren = DataRoute._addFileChildren(DataRouteChildren)
-
-interface EnRouteChildren {
-  EnSplatRoute: typeof EnSplatRoute
-}
-
-const EnRouteChildren: EnRouteChildren = {
-  EnSplatRoute: EnSplatRoute,
-}
-
-const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 interface IndsigterRouteChildren {
   IndsigterSplatRoute: typeof IndsigterSplatRoute
@@ -910,38 +875,40 @@ const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   BookDemoRoute: BookDemoRoute,
   BrancherRoute: BrancherRouteWithChildren,
   DashboardRoute: DashboardRoute,
   DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
-  EnRoute: EnRouteWithChildren,
-  FaqRoute: FaqRoute,
-  FondeOgLodsejereRoute: FondeOgLodsejereRoute,
   IndsigterRoute: IndsigterRouteWithChildren,
-  KommunerRoute: KommunerRoute,
-  KontaktRoute: KontaktRoute,
-  LuftfotoRoute: LuftfotoRoute,
-  OmRoute: OmRoute,
   PlatformRoute: PlatformRouteWithChildren,
-  PlatformenRoute: PlatformenRoute,
   PriserRoute: PriserRoute,
-  PrivatlivspolitikRoute: PrivatlivspolitikRoute,
   ProblemerRoute: ProblemerRouteWithChildren,
   ProjekterRoute: ProjekterRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
-  SaadanArbejderViRoute: SaadanArbejderViRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UseCasesRoute: UseCasesRouteWithChildren,
-  YdelserRoute: YdelserRoute,
   LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
-  OrdbogSlugRoute: OrdbogSlugRoute,
-  VidenSlugRoute: VidenSlugRoute,
-  YdelserSlugRoute: YdelserSlugRoute,
-  OrdbogIndexRoute: OrdbogIndexRoute,
-  VidenIndexRoute: VidenIndexRoute,
+  Char123LocaleChar125FaqRoute: Char123LocaleChar125FaqRoute,
+  Char123LocaleChar125FondeOgLodsejereRoute:
+    Char123LocaleChar125FondeOgLodsejereRoute,
+  Char123LocaleChar125KommunerRoute: Char123LocaleChar125KommunerRoute,
+  Char123LocaleChar125KontaktRoute: Char123LocaleChar125KontaktRoute,
+  Char123LocaleChar125LuftfotoRoute: Char123LocaleChar125LuftfotoRoute,
+  Char123LocaleChar125OmRoute: Char123LocaleChar125OmRoute,
+  Char123LocaleChar125PlatformenRoute: Char123LocaleChar125PlatformenRoute,
+  Char123LocaleChar125PrivatlivspolitikRoute:
+    Char123LocaleChar125PrivatlivspolitikRoute,
+  Char123LocaleChar125SaadanArbejderViRoute:
+    Char123LocaleChar125SaadanArbejderViRoute,
+  Char123LocaleChar125YdelserRoute: Char123LocaleChar125YdelserRoute,
+  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+  Char123LocaleChar125OrdbogSlugRoute: Char123LocaleChar125OrdbogSlugRoute,
+  Char123LocaleChar125VidenSlugRoute: Char123LocaleChar125VidenSlugRoute,
+  Char123LocaleChar125YdelserSlugRoute: Char123LocaleChar125YdelserSlugRoute,
+  Char123LocaleChar125OrdbogIndexRoute: Char123LocaleChar125OrdbogIndexRoute,
+  Char123LocaleChar125VidenIndexRoute: Char123LocaleChar125VidenIndexRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
