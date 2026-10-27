@@ -47,8 +47,25 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+/** Localized 404 metadata (with noindex) whenever any match is not found; later entries override the Danish defaults. */
+function notFoundMeta(matches: { status: string; pathname: string; globalNotFound?: boolean }[]) {
+  if (!matches.some((m) => m.status === "notFound" || m.globalNotFound)) return [];
+  const locale = splitLocale(matches[matches.length - 1]?.pathname ?? "/").locale;
+  const t = CHROME_COPY[locale].notFound;
+  const title = `${t.title} | Freyra`;
+  return [
+    { title },
+    { name: "description", content: t.body },
+    { name: "robots", content: "noindex, nofollow" },
+    { property: "og:title", content: title },
+    { property: "og:description", content: t.body },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: t.body },
+  ];
+}
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  head: ({ matches }) => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -61,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Freyra er en verificerbar evidenskæde for natur- og arealprojekter i Grøn Trepart. Fra dronefoto og offentlige data til en baseline, kommunen kan stå på mål for." },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
+      ...notFoundMeta(matches),
     ],
     scripts: [
       {
