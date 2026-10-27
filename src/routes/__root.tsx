@@ -9,7 +9,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import { useEffect } from "react";
 import appCss from "../styles.css?url";
 import { NotFoundPage } from "@/components/site/NotFoundPage";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
@@ -63,6 +62,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
+    scripts: [
+      {
+        // Remember language: only a fresh visit to the Danish home page "/" restores a previously
+        // chosen en/de version. Runs before hydration; explicit locale URLs are always respected.
+        children: `try{if(location.pathname==="/"){var l=localStorage.getItem("${STORAGE_KEY}");if(l==="en"||l==="de")location.replace("/"+l+location.search+location.hash)}}catch(e){}`,
+      },
+    ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -96,23 +102,6 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
 
-  // Remember language: only on a fresh entry to the Danish home page "/" do we restore a
-  // previously chosen en/de version. Explicit locale URLs are always respected.
-  useEffect(() => {
-    if (window.location.pathname !== "/") return;
-    let saved: string | null = null;
-    try {
-      saved = window.localStorage.getItem(STORAGE_KEY);
-    } catch {
-      return;
-    }
-    if (saved === "en" || saved === "de") {
-      const href = `${localizePath("/", saved)}${window.location.search}${window.location.hash}`;
-      // Full replace avoids racing the router while the Danish home page is hydrating.
-      window.location.replace(href);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
