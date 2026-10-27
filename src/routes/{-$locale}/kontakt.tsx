@@ -122,7 +122,7 @@ function ContactPage() {
                 <div><Label htmlFor="subject">{t.subjectLabel}</Label><Input id="subject" name="subject" className="mt-1.5" /></div>
               </div>
               <div><Label htmlFor="message">{t.messageLabel}</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" placeholder={t.messagePlaceholder} /></div>
-              {error && <p className="text-sm text-destructive">{error}</p>}
+              {errorText && <p className="text-sm text-destructive" role="alert">{errorText}</p>}
               <Button type="submit" disabled={loading} className="w-full rounded-md h-11">{loading ? t.sending : t.sendMessage}</Button>
               <p className="text-xs text-muted-foreground">
                 {t.privacyNotice}
