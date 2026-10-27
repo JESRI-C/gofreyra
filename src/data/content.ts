@@ -30,8 +30,8 @@ const TERMER: Record<Locale, Term[]> = {
 };
 
 export function artiklerFor(locale: Locale): Artikel[] {
-  return ARTIKLER[locale];
+  return ARTIKLER[locale] ?? ARTIKLER.da;
 }
 export function termerFor(locale: Locale): Term[] {
-  return TERMER[locale];
+  return TERMER[locale] ?? TERMER.da;
 }

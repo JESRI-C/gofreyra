@@ -2,6 +2,8 @@ import { LLink } from "@/components/site/LLink";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { COPY } from "@/i18n/pages/cta";
+import { useCopy } from "@/i18n/useLocale";
 
 export function CTASection({
   eyebrow,
@@ -12,9 +14,10 @@ export function CTASection({
   title?: string;
   subtitle?: string;
 }) {
-  const ey = eyebrow ?? "Book en snak";
-  const ti = title ?? "Skal vi se på jeres projektområde?";
-  const su = subtitle ?? "En uforpligtende samtale om jeres område, jeres data og hvad en førregistrering kan give jer.";
+  const t = useCopy(COPY);
+  const ey = eyebrow ?? t.eyebrow;
+  const ti = title ?? t.title;
+  const su = subtitle ?? t.subtitle;
 
   return (
     <section className="container-page my-20">
@@ -27,10 +30,10 @@ export function CTASection({
           </div>
           <div className="flex gap-3 flex-wrap">
             <Button asChild className="rounded-md bg-white text-brand-deep hover:bg-white/90 h-12 px-6">
-              <LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink>
+              <LLink to="/kontakt">{t.bookCall} <ArrowRight className="ml-1.5 w-4 h-4" /></LLink>
             </Button>
             <Button asChild variant="outline" className="rounded-md h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10">
-              <LLink to="/platformen">Se platformen</LLink>
+              <LLink to="/platformen">{t.viewPlatform}</LLink>
             </Button>
           </div>
         </div>

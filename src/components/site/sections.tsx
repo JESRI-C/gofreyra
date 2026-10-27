@@ -4,12 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { COPY } from "@/i18n/pages/sections";
+import { useCopy } from "@/i18n/useLocale";
 
 /* ---------- FAQ ---------- */
 export type FAQItem = { q: string; a: string };
 
-export function FaqSection({ items, eyebrow = "FAQ", title, subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
-  const ti = title ?? "Ofte stillede spørgsmål";
+export function FaqSection({ items, eyebrow: eyebrowProp, title, subtitle }: { items: FAQItem[]; eyebrow?: string; title?: string; subtitle?: string }) {
+  const t = useCopy(COPY);
+  const eyebrow = eyebrowProp === undefined ? t.faqEyebrow : eyebrowProp;
+  const ti = title ?? t.faqTitle;
   return (
     <section className="container-page py-20 md:py-24">
       <div className="max-w-3xl">
@@ -57,7 +61,8 @@ export function FlowSection({ eyebrow, title, subtitle, steps, beige }: { eyebro
 
 /* ---------- Green CTA strip ---------- */
 export function GreenCTA({ title, subtitle, primary, secondary }: { title: string; subtitle?: string; primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
-  const p = primary ?? { to: "/kontakt", label: "Book en snak" };
+  const t = useCopy(COPY);
+  const p = primary ?? { to: "/kontakt", label: t.ctaPrimaryLabel };
   return (
     <section className="container-page my-16">
       <div className="rounded-lg bg-brand-deep text-white p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-6 items-center">

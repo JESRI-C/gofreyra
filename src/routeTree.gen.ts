@@ -9,99 +9,49 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UseCasesRouteImport } from './routes/use-cases'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as ProjekterRouteImport } from './routes/projekter'
-import { Route as ProblemerRouteImport } from './routes/problemer'
-import { Route as PriserRouteImport } from './routes/priser'
-import { Route as PlatformRouteImport } from './routes/platform'
-import { Route as IndsigterRouteImport } from './routes/indsigter'
-import { Route as DatakilderRouteImport } from './routes/datakilder'
-import { Route as DataRouteImport } from './routes/data'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as BrancherRouteImport } from './routes/brancher'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DataRouteImport } from './routes/data'
+import { Route as DatakilderRouteImport } from './routes/datakilder'
+import { Route as IndsigterRouteImport } from './routes/indsigter'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as PriserRouteImport } from './routes/priser'
+import { Route as ProblemerRouteImport } from './routes/problemer'
+import { Route as ProjekterRouteImport } from './routes/projekter'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
-import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
-import { Route as Char123LocaleChar125YdelserRouteImport } from './routes/{-$locale}/ydelser'
-import { Route as Char123LocaleChar125SaadanArbejderViRouteImport } from './routes/{-$locale}/saadan-arbejder-vi'
-import { Route as Char123LocaleChar125PrivatlivspolitikRouteImport } from './routes/{-$locale}/privatlivspolitik'
-import { Route as Char123LocaleChar125PlatformenRouteImport } from './routes/{-$locale}/platformen'
-import { Route as Char123LocaleChar125OmRouteImport } from './routes/{-$locale}/om'
-import { Route as Char123LocaleChar125LuftfotoRouteImport } from './routes/{-$locale}/luftfoto'
-import { Route as Char123LocaleChar125KontaktRouteImport } from './routes/{-$locale}/kontakt'
-import { Route as Char123LocaleChar125KommunerRouteImport } from './routes/{-$locale}/kommuner'
-import { Route as Char123LocaleChar125FondeOgLodsejereRouteImport } from './routes/{-$locale}/fonde-og-lodsejere'
-import { Route as Char123LocaleChar125FaqRouteImport } from './routes/{-$locale}/faq'
-import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
-import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
-import { Route as PlatformSplatRouteImport } from './routes/platform.$'
-import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
-import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
-import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
-import { Route as DataSplatRouteImport } from './routes/data.$'
 import { Route as BrancherSplatRouteImport } from './routes/brancher.$'
-import { Route as Char123LocaleChar125VidenIndexRouteImport } from './routes/{-$locale}/viden.index'
+import { Route as DataSplatRouteImport } from './routes/data.$'
+import { Route as IndsigterSplatRouteImport } from './routes/indsigter.$'
+import { Route as LoesningerSplatRouteImport } from './routes/loesninger.$'
+import { Route as LoesningerKommunerRouteImport } from './routes/loesninger.kommuner'
+import { Route as PlatformSplatRouteImport } from './routes/platform.$'
+import { Route as ProblemerSplatRouteImport } from './routes/problemer.$'
+import { Route as UseCasesSplatRouteImport } from './routes/use-cases.$'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125FaqRouteImport } from './routes/{-$locale}/faq'
+import { Route as Char123LocaleChar125FondeOgLodsejereRouteImport } from './routes/{-$locale}/fonde-og-lodsejere'
+import { Route as Char123LocaleChar125KommunerRouteImport } from './routes/{-$locale}/kommuner'
+import { Route as Char123LocaleChar125KontaktRouteImport } from './routes/{-$locale}/kontakt'
+import { Route as Char123LocaleChar125LuftfotoRouteImport } from './routes/{-$locale}/luftfoto'
+import { Route as Char123LocaleChar125OmRouteImport } from './routes/{-$locale}/om'
+import { Route as Char123LocaleChar125PlatformenRouteImport } from './routes/{-$locale}/platformen'
+import { Route as Char123LocaleChar125PrivatlivspolitikRouteImport } from './routes/{-$locale}/privatlivspolitik'
+import { Route as Char123LocaleChar125SaadanArbejderViRouteImport } from './routes/{-$locale}/saadan-arbejder-vi'
+import { Route as Char123LocaleChar125YdelserRouteImport } from './routes/{-$locale}/ydelser'
 import { Route as Char123LocaleChar125OrdbogIndexRouteImport } from './routes/{-$locale}/ordbog.index'
-import { Route as Char123LocaleChar125YdelserSlugRouteImport } from './routes/{-$locale}/ydelser_.$slug'
-import { Route as Char123LocaleChar125VidenSlugRouteImport } from './routes/{-$locale}/viden.$slug'
 import { Route as Char123LocaleChar125OrdbogSlugRouteImport } from './routes/{-$locale}/ordbog.$slug'
+import { Route as Char123LocaleChar125VidenIndexRouteImport } from './routes/{-$locale}/viden.index'
+import { Route as Char123LocaleChar125VidenSlugRouteImport } from './routes/{-$locale}/viden.$slug'
+import { Route as Char123LocaleChar125YdelserSlugRouteImport } from './routes/{-$locale}/ydelser_.$slug'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
-const UseCasesRoute = UseCasesRouteImport.update({
-  id: '/use-cases',
-  path: '/use-cases',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjekterRoute = ProjekterRouteImport.update({
-  id: '/projekter',
-  path: '/projekter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProblemerRoute = ProblemerRouteImport.update({
-  id: '/problemer',
-  path: '/problemer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PriserRoute = PriserRouteImport.update({
-  id: '/priser',
-  path: '/priser',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlatformRoute = PlatformRouteImport.update({
-  id: '/platform',
-  path: '/platform',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndsigterRoute = IndsigterRouteImport.update({
-  id: '/indsigter',
-  path: '/indsigter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DatakilderRoute = DatakilderRouteImport.update({
-  id: '/datakilder',
-  path: '/datakilder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DataRoute = DataRouteImport.update({
-  id: '/data',
-  path: '/data',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrancherRoute = BrancherRouteImport.update({
@@ -109,9 +59,59 @@ const BrancherRoute = BrancherRouteImport.update({
   path: '/brancher',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BookDemoRoute = BookDemoRouteImport.update({
-  id: '/book-demo',
-  path: '/book-demo',
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataRoute = DataRouteImport.update({
+  id: '/data',
+  path: '/data',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatakilderRoute = DatakilderRouteImport.update({
+  id: '/datakilder',
+  path: '/datakilder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndsigterRoute = IndsigterRouteImport.update({
+  id: '/indsigter',
+  path: '/indsigter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriserRoute = PriserRouteImport.update({
+  id: '/priser',
+  path: '/priser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProblemerRoute = ProblemerRouteImport.update({
+  id: '/problemer',
+  path: '/problemer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjekterRoute = ProjekterRouteImport.update({
+  id: '/projekter',
+  path: '/projekter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseCasesRoute = UseCasesRouteImport.update({
+  id: '/use-cases',
+  path: '/use-cases',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Char123LocaleChar125RouteRoute =
@@ -120,51 +120,61 @@ const Char123LocaleChar125RouteRoute =
     path: '/{-$locale}',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BrancherSplatRoute = BrancherSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => BrancherRoute,
+} as any)
+const DataSplatRoute = DataSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => DataRoute,
+} as any)
+const IndsigterSplatRoute = IndsigterSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => IndsigterRoute,
+} as any)
+const LoesningerSplatRoute = LoesningerSplatRouteImport.update({
+  id: '/loesninger/$',
+  path: '/loesninger/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
+  id: '/loesninger/kommuner',
+  path: '/loesninger/kommuner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformSplatRoute = PlatformSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const ProblemerSplatRoute = ProblemerSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => ProblemerRoute,
+} as any)
+const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => UseCasesRoute,
+} as any)
 const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
     id: '/',
     path: '/',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125YdelserRoute =
-  Char123LocaleChar125YdelserRouteImport.update({
-    id: '/ydelser',
-    path: '/ydelser',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125SaadanArbejderViRoute =
-  Char123LocaleChar125SaadanArbejderViRouteImport.update({
-    id: '/saadan-arbejder-vi',
-    path: '/saadan-arbejder-vi',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125PrivatlivspolitikRoute =
-  Char123LocaleChar125PrivatlivspolitikRouteImport.update({
-    id: '/privatlivspolitik',
-    path: '/privatlivspolitik',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125PlatformenRoute =
-  Char123LocaleChar125PlatformenRouteImport.update({
-    id: '/platformen',
-    path: '/platformen',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125OmRoute = Char123LocaleChar125OmRouteImport.update({
-  id: '/om',
-  path: '/om',
+const Char123LocaleChar125FaqRoute = Char123LocaleChar125FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => Char123LocaleChar125RouteRoute,
 } as any)
-const Char123LocaleChar125LuftfotoRoute =
-  Char123LocaleChar125LuftfotoRouteImport.update({
-    id: '/luftfoto',
-    path: '/luftfoto',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125KontaktRoute =
-  Char123LocaleChar125KontaktRouteImport.update({
-    id: '/kontakt',
-    path: '/kontakt',
+const Char123LocaleChar125FondeOgLodsejereRoute =
+  Char123LocaleChar125FondeOgLodsejereRouteImport.update({
+    id: '/fonde-og-lodsejere',
+    path: '/fonde-og-lodsejere',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125KommunerRoute =
@@ -173,61 +183,45 @@ const Char123LocaleChar125KommunerRoute =
     path: '/kommuner',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125FondeOgLodsejereRoute =
-  Char123LocaleChar125FondeOgLodsejereRouteImport.update({
-    id: '/fonde-og-lodsejere',
-    path: '/fonde-og-lodsejere',
+const Char123LocaleChar125KontaktRoute =
+  Char123LocaleChar125KontaktRouteImport.update({
+    id: '/kontakt',
+    path: '/kontakt',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125FaqRoute = Char123LocaleChar125FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
+const Char123LocaleChar125LuftfotoRoute =
+  Char123LocaleChar125LuftfotoRouteImport.update({
+    id: '/luftfoto',
+    path: '/luftfoto',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125OmRoute = Char123LocaleChar125OmRouteImport.update({
+  id: '/om',
+  path: '/om',
   getParentRoute: () => Char123LocaleChar125RouteRoute,
 } as any)
-const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => UseCasesRoute,
-} as any)
-const ProblemerSplatRoute = ProblemerSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => ProblemerRoute,
-} as any)
-const PlatformSplatRoute = PlatformSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => PlatformRoute,
-} as any)
-const LoesningerKommunerRoute = LoesningerKommunerRouteImport.update({
-  id: '/loesninger/kommuner',
-  path: '/loesninger/kommuner',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoesningerSplatRoute = LoesningerSplatRouteImport.update({
-  id: '/loesninger/$',
-  path: '/loesninger/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndsigterSplatRoute = IndsigterSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => IndsigterRoute,
-} as any)
-const DataSplatRoute = DataSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => DataRoute,
-} as any)
-const BrancherSplatRoute = BrancherSplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => BrancherRoute,
-} as any)
-const Char123LocaleChar125VidenIndexRoute =
-  Char123LocaleChar125VidenIndexRouteImport.update({
-    id: '/viden/',
-    path: '/viden/',
+const Char123LocaleChar125PlatformenRoute =
+  Char123LocaleChar125PlatformenRouteImport.update({
+    id: '/platformen',
+    path: '/platformen',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125PrivatlivspolitikRoute =
+  Char123LocaleChar125PrivatlivspolitikRouteImport.update({
+    id: '/privatlivspolitik',
+    path: '/privatlivspolitik',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125SaadanArbejderViRoute =
+  Char123LocaleChar125SaadanArbejderViRouteImport.update({
+    id: '/saadan-arbejder-vi',
+    path: '/saadan-arbejder-vi',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125YdelserRoute =
+  Char123LocaleChar125YdelserRouteImport.update({
+    id: '/ydelser',
+    path: '/ydelser',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125OrdbogIndexRoute =
@@ -236,10 +230,16 @@ const Char123LocaleChar125OrdbogIndexRoute =
     path: '/ordbog/',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125YdelserSlugRoute =
-  Char123LocaleChar125YdelserSlugRouteImport.update({
-    id: '/ydelser_/$slug',
-    path: '/ydelser/$slug',
+const Char123LocaleChar125OrdbogSlugRoute =
+  Char123LocaleChar125OrdbogSlugRouteImport.update({
+    id: '/ordbog/$slug',
+    path: '/ordbog/$slug',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125VidenIndexRoute =
+  Char123LocaleChar125VidenIndexRouteImport.update({
+    id: '/viden/',
+    path: '/viden/',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125VidenSlugRoute =
@@ -248,10 +248,10 @@ const Char123LocaleChar125VidenSlugRoute =
     path: '/viden/$slug',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125OrdbogSlugRoute =
-  Char123LocaleChar125OrdbogSlugRouteImport.update({
-    id: '/ordbog/$slug',
-    path: '/ordbog/$slug',
+const Char123LocaleChar125YdelserSlugRoute =
+  Char123LocaleChar125YdelserSlugRouteImport.update({
+    id: '/ydelser_/$slug',
+    path: '/ydelser/$slug',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const LovableEmailQueueProcessRoute =
@@ -531,81 +531,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/use-cases': {
-      id: '/use-cases'
-      path: '/use-cases'
-      fullPath: '/use-cases'
-      preLoaderRoute: typeof UseCasesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projekter': {
-      id: '/projekter'
-      path: '/projekter'
-      fullPath: '/projekter'
-      preLoaderRoute: typeof ProjekterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/problemer': {
-      id: '/problemer'
-      path: '/problemer'
-      fullPath: '/problemer'
-      preLoaderRoute: typeof ProblemerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/priser': {
-      id: '/priser'
-      path: '/priser'
-      fullPath: '/priser'
-      preLoaderRoute: typeof PriserRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/platform': {
-      id: '/platform'
-      path: '/platform'
-      fullPath: '/platform'
-      preLoaderRoute: typeof PlatformRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/indsigter': {
-      id: '/indsigter'
-      path: '/indsigter'
-      fullPath: '/indsigter'
-      preLoaderRoute: typeof IndsigterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/datakilder': {
-      id: '/datakilder'
-      path: '/datakilder'
-      fullPath: '/datakilder'
-      preLoaderRoute: typeof DatakilderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/data': {
-      id: '/data'
-      path: '/data'
-      fullPath: '/data'
-      preLoaderRoute: typeof DataRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brancher': {
@@ -615,11 +545,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrancherRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/book-demo': {
-      id: '/book-demo'
-      path: '/book-demo'
-      fullPath: '/book-demo'
-      preLoaderRoute: typeof BookDemoRouteImport
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data': {
+      id: '/data'
+      path: '/data'
+      fullPath: '/data'
+      preLoaderRoute: typeof DataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datakilder': {
+      id: '/datakilder'
+      path: '/datakilder'
+      fullPath: '/datakilder'
+      preLoaderRoute: typeof DatakilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indsigter': {
+      id: '/indsigter'
+      path: '/indsigter'
+      fullPath: '/indsigter'
+      preLoaderRoute: typeof IndsigterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/priser': {
+      id: '/priser'
+      path: '/priser'
+      fullPath: '/priser'
+      preLoaderRoute: typeof PriserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/problemer': {
+      id: '/problemer'
+      path: '/problemer'
+      fullPath: '/problemer'
+      preLoaderRoute: typeof ProblemerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projekter': {
+      id: '/projekter'
+      path: '/projekter'
+      fullPath: '/projekter'
+      preLoaderRoute: typeof ProjekterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-cases': {
+      id: '/use-cases'
+      path: '/use-cases'
+      fullPath: '/use-cases'
+      preLoaderRoute: typeof UseCasesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$locale}': {
@@ -629,74 +629,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125RouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brancher/$': {
+      id: '/brancher/$'
+      path: '/$'
+      fullPath: '/brancher/$'
+      preLoaderRoute: typeof BrancherSplatRouteImport
+      parentRoute: typeof BrancherRoute
+    }
+    '/data/$': {
+      id: '/data/$'
+      path: '/$'
+      fullPath: '/data/$'
+      preLoaderRoute: typeof DataSplatRouteImport
+      parentRoute: typeof DataRoute
+    }
+    '/indsigter/$': {
+      id: '/indsigter/$'
+      path: '/$'
+      fullPath: '/indsigter/$'
+      preLoaderRoute: typeof IndsigterSplatRouteImport
+      parentRoute: typeof IndsigterRoute
+    }
+    '/loesninger/$': {
+      id: '/loesninger/$'
+      path: '/loesninger/$'
+      fullPath: '/loesninger/$'
+      preLoaderRoute: typeof LoesningerSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loesninger/kommuner': {
+      id: '/loesninger/kommuner'
+      path: '/loesninger/kommuner'
+      fullPath: '/loesninger/kommuner'
+      preLoaderRoute: typeof LoesningerKommunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform/$': {
+      id: '/platform/$'
+      path: '/$'
+      fullPath: '/platform/$'
+      preLoaderRoute: typeof PlatformSplatRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/problemer/$': {
+      id: '/problemer/$'
+      path: '/$'
+      fullPath: '/problemer/$'
+      preLoaderRoute: typeof ProblemerSplatRouteImport
+      parentRoute: typeof ProblemerRoute
+    }
+    '/use-cases/$': {
+      id: '/use-cases/$'
+      path: '/$'
+      fullPath: '/use-cases/$'
+      preLoaderRoute: typeof UseCasesSplatRouteImport
+      parentRoute: typeof UseCasesRoute
+    }
     '/{-$locale}/': {
       id: '/{-$locale}/'
       path: '/'
       fullPath: '/{-$locale}/'
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/ydelser': {
-      id: '/{-$locale}/ydelser'
-      path: '/ydelser'
-      fullPath: '/{-$locale}/ydelser'
-      preLoaderRoute: typeof Char123LocaleChar125YdelserRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/saadan-arbejder-vi': {
-      id: '/{-$locale}/saadan-arbejder-vi'
-      path: '/saadan-arbejder-vi'
-      fullPath: '/{-$locale}/saadan-arbejder-vi'
-      preLoaderRoute: typeof Char123LocaleChar125SaadanArbejderViRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/privatlivspolitik': {
-      id: '/{-$locale}/privatlivspolitik'
-      path: '/privatlivspolitik'
-      fullPath: '/{-$locale}/privatlivspolitik'
-      preLoaderRoute: typeof Char123LocaleChar125PrivatlivspolitikRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/platformen': {
-      id: '/{-$locale}/platformen'
-      path: '/platformen'
-      fullPath: '/{-$locale}/platformen'
-      preLoaderRoute: typeof Char123LocaleChar125PlatformenRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/om': {
-      id: '/{-$locale}/om'
-      path: '/om'
-      fullPath: '/{-$locale}/om'
-      preLoaderRoute: typeof Char123LocaleChar125OmRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/luftfoto': {
-      id: '/{-$locale}/luftfoto'
-      path: '/luftfoto'
-      fullPath: '/{-$locale}/luftfoto'
-      preLoaderRoute: typeof Char123LocaleChar125LuftfotoRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/kontakt': {
-      id: '/{-$locale}/kontakt'
-      path: '/kontakt'
-      fullPath: '/{-$locale}/kontakt'
-      preLoaderRoute: typeof Char123LocaleChar125KontaktRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/kommuner': {
-      id: '/{-$locale}/kommuner'
-      path: '/kommuner'
-      fullPath: '/{-$locale}/kommuner'
-      preLoaderRoute: typeof Char123LocaleChar125KommunerRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/fonde-og-lodsejere': {
-      id: '/{-$locale}/fonde-og-lodsejere'
-      path: '/fonde-og-lodsejere'
-      fullPath: '/{-$locale}/fonde-og-lodsejere'
-      preLoaderRoute: typeof Char123LocaleChar125FondeOgLodsejereRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/faq': {
@@ -706,67 +699,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125FaqRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/use-cases/$': {
-      id: '/use-cases/$'
-      path: '/$'
-      fullPath: '/use-cases/$'
-      preLoaderRoute: typeof UseCasesSplatRouteImport
-      parentRoute: typeof UseCasesRoute
+    '/{-$locale}/fonde-og-lodsejere': {
+      id: '/{-$locale}/fonde-og-lodsejere'
+      path: '/fonde-og-lodsejere'
+      fullPath: '/{-$locale}/fonde-og-lodsejere'
+      preLoaderRoute: typeof Char123LocaleChar125FondeOgLodsejereRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/problemer/$': {
-      id: '/problemer/$'
-      path: '/$'
-      fullPath: '/problemer/$'
-      preLoaderRoute: typeof ProblemerSplatRouteImport
-      parentRoute: typeof ProblemerRoute
+    '/{-$locale}/kommuner': {
+      id: '/{-$locale}/kommuner'
+      path: '/kommuner'
+      fullPath: '/{-$locale}/kommuner'
+      preLoaderRoute: typeof Char123LocaleChar125KommunerRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/platform/$': {
-      id: '/platform/$'
-      path: '/$'
-      fullPath: '/platform/$'
-      preLoaderRoute: typeof PlatformSplatRouteImport
-      parentRoute: typeof PlatformRoute
+    '/{-$locale}/kontakt': {
+      id: '/{-$locale}/kontakt'
+      path: '/kontakt'
+      fullPath: '/{-$locale}/kontakt'
+      preLoaderRoute: typeof Char123LocaleChar125KontaktRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/loesninger/kommuner': {
-      id: '/loesninger/kommuner'
-      path: '/loesninger/kommuner'
-      fullPath: '/loesninger/kommuner'
-      preLoaderRoute: typeof LoesningerKommunerRouteImport
-      parentRoute: typeof rootRouteImport
+    '/{-$locale}/luftfoto': {
+      id: '/{-$locale}/luftfoto'
+      path: '/luftfoto'
+      fullPath: '/{-$locale}/luftfoto'
+      preLoaderRoute: typeof Char123LocaleChar125LuftfotoRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/loesninger/$': {
-      id: '/loesninger/$'
-      path: '/loesninger/$'
-      fullPath: '/loesninger/$'
-      preLoaderRoute: typeof LoesningerSplatRouteImport
-      parentRoute: typeof rootRouteImport
+    '/{-$locale}/om': {
+      id: '/{-$locale}/om'
+      path: '/om'
+      fullPath: '/{-$locale}/om'
+      preLoaderRoute: typeof Char123LocaleChar125OmRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/indsigter/$': {
-      id: '/indsigter/$'
-      path: '/$'
-      fullPath: '/indsigter/$'
-      preLoaderRoute: typeof IndsigterSplatRouteImport
-      parentRoute: typeof IndsigterRoute
+    '/{-$locale}/platformen': {
+      id: '/{-$locale}/platformen'
+      path: '/platformen'
+      fullPath: '/{-$locale}/platformen'
+      preLoaderRoute: typeof Char123LocaleChar125PlatformenRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/data/$': {
-      id: '/data/$'
-      path: '/$'
-      fullPath: '/data/$'
-      preLoaderRoute: typeof DataSplatRouteImport
-      parentRoute: typeof DataRoute
+    '/{-$locale}/privatlivspolitik': {
+      id: '/{-$locale}/privatlivspolitik'
+      path: '/privatlivspolitik'
+      fullPath: '/{-$locale}/privatlivspolitik'
+      preLoaderRoute: typeof Char123LocaleChar125PrivatlivspolitikRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/brancher/$': {
-      id: '/brancher/$'
-      path: '/$'
-      fullPath: '/brancher/$'
-      preLoaderRoute: typeof BrancherSplatRouteImport
-      parentRoute: typeof BrancherRoute
+    '/{-$locale}/saadan-arbejder-vi': {
+      id: '/{-$locale}/saadan-arbejder-vi'
+      path: '/saadan-arbejder-vi'
+      fullPath: '/{-$locale}/saadan-arbejder-vi'
+      preLoaderRoute: typeof Char123LocaleChar125SaadanArbejderViRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/viden/': {
-      id: '/{-$locale}/viden/'
-      path: '/viden'
-      fullPath: '/{-$locale}/viden/'
-      preLoaderRoute: typeof Char123LocaleChar125VidenIndexRouteImport
+    '/{-$locale}/ydelser': {
+      id: '/{-$locale}/ydelser'
+      path: '/ydelser'
+      fullPath: '/{-$locale}/ydelser'
+      preLoaderRoute: typeof Char123LocaleChar125YdelserRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/ordbog/': {
@@ -776,11 +769,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125OrdbogIndexRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/ydelser_/$slug': {
-      id: '/{-$locale}/ydelser_/$slug'
-      path: '/ydelser/$slug'
-      fullPath: '/{-$locale}/ydelser/$slug'
-      preLoaderRoute: typeof Char123LocaleChar125YdelserSlugRouteImport
+    '/{-$locale}/ordbog/$slug': {
+      id: '/{-$locale}/ordbog/$slug'
+      path: '/ordbog/$slug'
+      fullPath: '/{-$locale}/ordbog/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125OrdbogSlugRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/viden/': {
+      id: '/{-$locale}/viden/'
+      path: '/viden'
+      fullPath: '/{-$locale}/viden/'
+      preLoaderRoute: typeof Char123LocaleChar125VidenIndexRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/viden/$slug': {
@@ -790,11 +790,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125VidenSlugRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/ordbog/$slug': {
-      id: '/{-$locale}/ordbog/$slug'
-      path: '/ordbog/$slug'
-      fullPath: '/{-$locale}/ordbog/$slug'
-      preLoaderRoute: typeof Char123LocaleChar125OrdbogSlugRouteImport
+    '/{-$locale}/ydelser_/$slug': {
+      id: '/{-$locale}/ydelser_/$slug'
+      path: '/ydelser/$slug'
+      fullPath: '/{-$locale}/ydelser/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125YdelserSlugRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/lovable/email/queue/process': {

@@ -9,26 +9,34 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2, MapPin, Building } from "lucide-react";
-
-const schema = z.object({
-  name: z.string().trim().min(1).max(120),
-  email: z.string().trim().email().max(200),
-  company: z.string().trim().max(160).optional().or(z.literal("")),
-  subject: z.string().trim().max(200).optional().or(z.literal("")),
-  message: z.string().trim().min(1, "Skriv en besked").max(2000),
-});
+import { localizePath, toLocale } from "@/i18n/locale";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/kontakt";
 
 export const Route = createFileRoute("/{-$locale}/kontakt")({
-  head: () => buildHead({
-    title: "Kontakt | Freyra Evidence Workspace",
-    description: "Kontakt Freyra om et pilotforløb, en førregistrering eller et samarbejde om natur- og arealprojekter. Skriv via formularen, så vender vi tilbage.",
-    path: "/kontakt",
-    jsonLd: breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Kontakt", path: "/kontakt" }]),
-  }),
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
+      path: "/kontakt",
+      locale,
+      jsonLd: breadcrumbJsonLd([{ name: t.breadcrumbHome, path: localizePath("/", locale) }, { name: t.contact, path: localizePath("/kontakt", locale) }]),
+    });
+  },
   component: ContactPage,
 });
 
 function ContactPage() {
+  const t = useCopy(COPY);
+  const schema = z.object({
+    name: z.string().trim().min(1).max(120),
+    email: z.string().trim().email().max(200),
+    company: z.string().trim().max(160).optional().or(z.literal("")),
+    subject: z.string().trim().max(200).optional().or(z.literal("")),
+    message: z.string().trim().min(1, t.messageRequired).max(2000),
+  });
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +48,7 @@ function ContactPage() {
     const raw = Object.fromEntries(fd.entries()) as Record<string, string>;
     const parsed = schema.safeParse(raw);
     if (!parsed.success) {
-      setError(parsed.error.issues[0]?.message ?? "Tjek felterne");
+      setError(parsed.error.issues[0]?.message ?? t.checkFields);
       return;
     }
     setLoading(true);
@@ -52,7 +60,7 @@ function ContactPage() {
       message: parsed.data.message,
     });
     setLoading(false);
-    if (dbErr) { setError("Noget gik galt. Prøv igen."); return; }
+    if (dbErr) { setError(t.submissionError); return; }
     setDone(true);
   }
 
@@ -60,10 +68,10 @@ function ContactPage() {
     <PageLayout>
       <section className="gradient-hero">
         <div className="container-page py-16 md:py-20 max-w-3xl">
-          <span className="eyebrow">Kontakt</span>
-          <h1 className="mt-4 text-4xl md:text-5xl ">Book en snak om jeres projekt.</h1>
+          <span className="eyebrow">{t.contact}</span>
+          <h1 className="mt-4 text-4xl md:text-5xl ">{t.heading}</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Fortæl os kort om området eller opgaven, så vender vi tilbage med en konkret vurdering af, hvad der kan dokumenteres.
+            {t.introduction}
           </p>
         </div>
       </section>
@@ -71,29 +79,29 @@ function ContactPage() {
       <section className="container-page py-14 grid lg:grid-cols-[1fr_1.2fr] gap-10">
         <div className="space-y-5">
           <div className="card-soft p-6">
-            <div className="flex items-center gap-2 text-sm font-semibold"><Building className="w-4 h-4 text-primary" /> Selskab</div>
+            <div className="flex items-center gap-2 text-sm font-semibold"><Building className="w-4 h-4 text-primary" /> {t.companyHeading}</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Gofreyra ApS<br />
-              CVR 45384489<br />
-              Ejet af Freyra Group ApS
+              {t.companyName}<br />
+              {t.companyRegistration}<br />
+              {t.companyOwnership}
             </p>
           </div>
           <div className="card-soft p-6">
-            <div className="flex items-center gap-2 text-sm font-semibold"><MapPin className="w-4 h-4 text-primary" /> Adresse</div>
-            <p className="mt-2 text-sm text-muted-foreground">Bøgevej 4, 7160 Tørring</p>
+            <div className="flex items-center gap-2 text-sm font-semibold"><MapPin className="w-4 h-4 text-primary" /> {t.addressHeading}</div>
+            <p className="mt-2 text-sm text-muted-foreground">{t.address}</p>
           </div>
           <div className="card-soft p-6">
-            <div className="text-sm font-semibold">Kontaktperson</div>
+            <div className="text-sm font-semibold">{t.contactPersonHeading}</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Dan Sommer<br />
-              Co-Founder, Director of Business Development<br />
-              Skriv via formularen, så vender Dan tilbage.
+              {t.contactPersonName}<br />
+              {t.contactPersonRole}<br />
+              {t.contactPersonDescription}
             </p>
           </div>
           <div className="card-soft p-6">
-            <div className="text-sm font-semibold">Hvad sker der bagefter?</div>
+            <div className="text-sm font-semibold">{t.nextStepsHeading}</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Beskeden gemmes sikkert hos os, og vi læser den personligt. Typisk starter vi med en kort samtale om området, datagrundlaget og hvad en førregistrering kan give jer.
+              {t.nextStepsDescription}
             </p>
           </div>
         </div>
@@ -104,24 +112,24 @@ function ContactPage() {
               <div className="w-14 h-14 rounded-md bg-primary/10 grid place-items-center mx-auto">
                 <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
-              <h2 className="mt-4 text-2xl ">Tak for beskeden</h2>
-              <p className="mt-2 text-muted-foreground">Den er gemt sikkert hos os, og vi vender tilbage.</p>
+              <h2 className="mt-4 text-2xl ">{t.successHeading}</h2>
+              <p className="mt-2 text-muted-foreground">{t.successDescription}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <div><Label htmlFor="name">Navn *</Label><Input id="name" name="name" required className="mt-1.5" /></div>
-                <div><Label htmlFor="email">Email *</Label><Input id="email" name="email" type="email" required className="mt-1.5" /></div>
+                <div><Label htmlFor="name">{t.nameLabel}</Label><Input id="name" name="name" required className="mt-1.5" /></div>
+                <div><Label htmlFor="email">{t.emailLabel}</Label><Input id="email" name="email" type="email" required className="mt-1.5" /></div>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
-                <div><Label htmlFor="company">Virksomhed eller kommune</Label><Input id="company" name="company" className="mt-1.5" /></div>
-                <div><Label htmlFor="subject">Emne</Label><Input id="subject" name="subject" className="mt-1.5" /></div>
+                <div><Label htmlFor="company">{t.companyLabel}</Label><Input id="company" name="company" className="mt-1.5" /></div>
+                <div><Label htmlFor="subject">{t.subjectLabel}</Label><Input id="subject" name="subject" className="mt-1.5" /></div>
               </div>
-              <div><Label htmlFor="message">Besked *</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" placeholder="Fortæl kort om området eller opgaven" /></div>
+              <div><Label htmlFor="message">{t.messageLabel}</Label><Textarea id="message" name="message" required rows={5} className="mt-1.5" placeholder={t.messagePlaceholder} /></div>
               {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" disabled={loading} className="w-full rounded-md h-11">{loading ? "Sender…" : "Send besked"}</Button>
+              <Button type="submit" disabled={loading} className="w-full rounded-md h-11">{loading ? t.sending : t.sendMessage}</Button>
               <p className="text-xs text-muted-foreground">
-                Vi bruger kun jeres oplysninger til at svare på henvendelsen. Læs mere i vores privatlivspolitik.
+                {t.privacyNotice}
               </p>
             </form>
           )}

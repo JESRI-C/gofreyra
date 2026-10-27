@@ -1,5 +1,5 @@
 import { LLink } from "@/components/site/LLink";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
@@ -12,49 +12,38 @@ import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
 import g3 from "@/assets/drone-vandloeb-03.jpg.asset.json";
 import g4 from "@/assets/drone-vandloeb-04.jpg.asset.json";
 import { photoProps, ogImageFor } from "@/lib/photo-variants";
-
-const FAQ = [
-  { q: "Hvad er Freyra?", a: "Freyra er et evidence workspace for natur- og arealprojekter. Vi samler dronefotos, offentlige data og faglig verifikation i én evidenskæde, så kommunen kan stå på mål for sin dokumentation." },
-  { q: "Hvad er en evidenskæde?", a: "En evidenskæde betyder, at hver påstand i en rapport kan spores tilbage til sin kilde. Et dronefoto, et offentligt datasæt, en beregning og en faglig vurdering hænger sammen og er versioneret." },
-  { q: "Er Freyra en erstatning for MARS, GATE eller Miljøportalen?", a: "Nej. Freyra er et lag oven på de systemer, I allerede bruger. Vi samler og verificerer data, så de kan bruges videre i jeres eksisterende arbejdsgange." },
-  { q: "Hvem bruger Freyra?", a: "Kommuner, lokale treparter, rådgivere, naturfonde og større lodsejere, der arbejder med natur- og arealprojekter i Grøn Trepart." },
-  { q: "Hvad koster det?", a: "Et pilotforløb starter fra 125.000 kr. De øvrige ydelser prissættes efter aftale, afhængigt af område, datagrundlag og omfang." },
-  { q: "Hvor hurtigt kan vi komme i gang?", a: "Det afhænger af området og vejret til droneflyvning. Vi aftaler en plan i første samtale." },
-];
-
-const YDELSER = [
-  { t: "Droneførregistrering og baseline af vandløb og arealer", d: "Droneflyvning, offentlige data og faglig verifikation samlet i en versioneret baseline.", anchor: "dronefoerregistrering" },
-  { t: "Datagrundlag og screening fra offentlige data", d: "Kort, jord, vejr og satellit hentet og samlet på det konkrete areal.", anchor: "datagrundlag" },
-  { t: "Gentagen monitorering og efterflyvning (før/efter)", d: "Gentagelsespunkter og før/efter-dokumentation, så udviklingen kan følges over tid.", anchor: "monitorering" },
-  { t: "Beplantnings- og naturegnethedsanalyse (skitse til faglig validering)", d: "Regelbaseret vurdering af, hvor beplantning er egnet, betinget egnet eller uegnet.", anchor: "beplantningsanalyse" },
-  { t: "Evidenspakke til fonde, ansøgninger og lokal trepart", d: "Et samlet, efterprøveligt grundlag, hvor hver påstand kan spores til sin kilde.", anchor: "evidenspakke" },
-  { t: "Pilotforløb og projekt-/porteføljelicens til Evidence Workspace (fra 125.000 kr.)", d: "Et afgrænset forløb, der viser hele evidenskæden i praksis på jeres eget område.", anchor: "pilot" },
-];
-
-const GALLERY = [
-  { img: g1.url, alt: "Delstrækning med tæt bevoksning langs vandløb, set fra drone", caption: "Delstrækning, set fra drone" },
-  { img: g3.url, alt: "Gentagelsespunkt ved mark og hegn, referencefoto fra drone", caption: "Gentagelsespunkt, referencefoto" },
-  { img: g4.url, alt: "Vandløbskorridor gennem græsarealer, set fra drone", caption: "Vandløbskorridor, oversigt" },
-  { img: g2.url, alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning" },
-];
+import { toLocale } from "@/i18n/locale";
+import { useCopy } from "@/i18n/useLocale";
+import { COPY } from "@/i18n/pages/home";
 
 export const Route = createFileRoute("/{-$locale}/")({
-  head: () =>
-    buildHead({
-      title: "Freyra: dokumentation af natur- og arealprojekter",
-      description: "Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde for natur- og arealprojekter i Grøn Trepart.",
+  head: ({ params }) => {
+    const locale = toLocale(params.locale);
+    const t = COPY[locale];
+    return buildHead({
+      title: t.metaTitle,
+      description: t.metaDescription,
       path: "/",
+      locale,
       ogImage: ogImageFor(heroAsset.url),
       jsonLd: [
         organizationJsonLd(),
-        { "@context": "https://schema.org", "@type": "WebSite", name: "Freyra", url: "https://gofreyra.com", inLanguage: "da-DK" },
-        faqJsonLd(FAQ),
+        { "@context": "https://schema.org", "@type": "WebSite", name: t.websiteName, url: "https://gofreyra.com", inLanguage: t.websiteLanguage },
+        faqJsonLd(t.faq),
       ],
-    }),
+    });
+  },
   component: HomePage,
 });
 
 function HomePage() {
+  const t = useCopy(COPY);
+  const galleryImages = [g1.url, g3.url, g4.url, g2.url];
+  const GALLERY = t.delivery.gallery.map((g, index) => ({
+    img: galleryImages[index],
+    ...g,
+  }));
+
   return (
     <PageLayout>
       {/* HERO med eget dronefoto */}
@@ -63,7 +52,7 @@ function HomePage() {
           <img
             {...photoProps(heroAsset.url, "100vw")}
             fetchPriority="high"
-            alt="Slyngende vandløb gennem eng, set fra drone"
+            alt={t.hero.alt}
             width={2000}
             height={1500}
             className="w-full h-full object-cover"
@@ -72,37 +61,33 @@ function HomePage() {
         </div>
         <div className="relative container-page py-28 md:py-40">
           <div className="max-w-2xl">
-            <span className="eyebrow" style={{ color: "#fff" }}>Freyra Evidence Workspace</span>
+            <span className="eyebrow" style={{ color: "#fff" }}>{t.hero.eyebrow}</span>
             <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08] text-white">
-              Dokumentation af naturprojekter, kommunen kan stå på mål for.
+              {t.hero.title}
             </h1>
             <p className="mt-6 text-lg text-white/85">
-              Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde. Fra første flyvning til en baseline, der kan bruges i Grøn Trepart.
+              {t.hero.body}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><LLink to="/kontakt">Book en snak <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><LLink to="/ydelser">Se ydelserne</LLink></Button>
+              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><LLink to="/kontakt">{t.hero.primary}{" "}<ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
+              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><LLink to="/ydelser">{t.hero.secondary}</LLink></Button>
             </div>
-            <p className="mt-6 text-xs text-white/60">Eget dronefoto, september 2024.</p>
+            <p className="mt-6 text-xs text-white/60">{t.hero.credit}</p>
           </div>
         </div>
       </section>
 
-      <MicroStrip items={["Bygget til Grøn Trepart", "Offentlige datakilder", "Versionerede evidenspakker", "Dansk virksomhed"]} />
+      <MicroStrip items={t.microStrip} />
 
       {/* PROBLEM */}
       <section className="container-page py-20 md:py-24">
         <SectionHeader
-          eyebrow="Problemet"
-          title="Dokumentationen er spredt, og den er svær at efterprøve."
-          body="Natur- og arealprojekter dokumenteres i dag med fotos i mapper, regneark og PDF'er. Når en fond, en trepart eller en borger spørger til grundlaget, skal kommunen kunne svare præcist."
+          eyebrow={t.problem.eyebrow}
+          title={t.problem.title}
+          body={t.problem.body}
         />
         <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {[
-            { t: "Fotos uden kontekst", d: "Feltdokumentation ligger spredt uden GPS, tidspunkt og kobling til det konkrete areal." },
-            { t: "Data fra mange kilder", d: "Kort, jorddata, vejr og satellit skal hentes hvert sit sted og samles manuelt." },
-            { t: "Svag sporbarhed", d: "Det er svært at vise, hvordan en konklusion i en rapport er nået, og hvem der har vurderet hvad." },
-          ].map((p) => (
+          {t.problem.cards.map((p) => (
             <div key={p.t} className="card-soft p-6">
               <div className="font-semibold">{p.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
@@ -114,27 +99,21 @@ function HomePage() {
       {/* FLOW */}
       <FlowSection
         beige
-        eyebrow="Sådan virker det"
-        title="Fra dronefoto til dokumenteret beslutning."
-        subtitle="Fem trin. Hvert trin er versioneret og kan spores tilbage til kilden."
-        steps={[
-          { n: "01", t: "Dronefoto", d: "Flyvning af området med GPS-stemplet billedmateriale." },
-          { n: "02", t: "Offentlige data", d: "Ortofoto, matrikel, jordart, vejr og satellit hentes automatisk." },
-          { n: "03", t: "Verifikation", d: "AI-assisteret gennemgang med faglig vurdering oven på." },
-          { n: "04", t: "Baseline", d: "Versioneret rapport og evidenspakke klar til brug." },
-          { n: "05", t: "Beplantning", d: "Egnethed pr. areal og gentagelsespunkter til opfølgning." },
-        ]}
+        eyebrow={t.flow.eyebrow}
+        title={t.flow.title}
+        subtitle={t.flow.subtitle}
+        steps={t.flow.steps}
       />
 
       {/* YDELSER */}
       <section className="container-page py-20 md:py-24">
-        <SectionHeader eyebrow="Ydelser" title="Seks ydelser. Én evidenskæde." />
+        <SectionHeader eyebrow={t.services.eyebrow} title={t.services.title} />
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {YDELSER.map((y) => (
+          {t.services.items.map((y) => (
             <LLink key={y.anchor} to="/ydelser" hash={y.anchor} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
-              <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">Læs mere <ArrowRight className="ml-1 w-4 h-4" /></span>
+              <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">{t.services.readMore}{" "}<ArrowRight className="ml-1 w-4 h-4" /></span>
             </LLink>
           ))}
         </div>
@@ -145,18 +124,13 @@ function HomePage() {
         <div className="container-page py-20 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <span className="eyebrow">Sådan ser en leverance ud</span>
-              <h2 className="mt-4 text-3xl md:text-4xl">Førregistrering af et vandløb i Sønderjylland.</h2>
+              <span className="eyebrow">{t.delivery.eyebrow}</span>
+              <h2 className="mt-4 text-3xl md:text-4xl">{t.delivery.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Et konkret eksempel på, hvad en førregistrering indeholder. Tallene er fra en faktisk leverance. Området er anonymiseret.
+                {t.delivery.body}
               </p>
               <ul className="mt-6 space-y-3 text-sm">
-                {[
-                  "Droneflyvning gennemført 24.08.2026",
-                  "5 delstrækninger registreret langs vandløbet",
-                  "6 gentagelsespunkter til før/efter-dokumentation",
-                  "21 referencefotos med GPS, klar til genbesøg",
-                ].map((b) => (
+                {t.delivery.bullets.map((b) => (
                   <li key={b} className="flex gap-3 items-start">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
                     <span className="font-medium">{b}</span>
@@ -168,7 +142,7 @@ function HomePage() {
               {GALLERY.map((g) => (
                 <figure key={g.caption} className="card-soft overflow-hidden p-0 bg-card">
                   <img {...photoProps(g.img, "(min-width: 1024px) 50vw, 100vw")} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
-                  <figcaption className="p-3 text-xs text-muted-foreground">{g.caption}. Eget dronefoto, august 2026.</figcaption>
+                  <figcaption className="p-3 text-xs text-muted-foreground">{g.caption}{t.delivery.galleryCredit}</figcaption>
                 </figure>
               ))}
             </div>
@@ -179,9 +153,9 @@ function HomePage() {
       {/* OFFENTLIGE DATA */}
       <section className="container-page py-16 md:py-20">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">Bygget på offentlige data</span>
+          <span className="eyebrow">{t.publicData.eyebrow}</span>
           <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">
-            Dataforsyningen · Danmarks Arealinformation · GEUS · DMI · Copernicus Sentinel-2
+            {t.publicData.sources}
           </p>
         </div>
       </section>
@@ -189,14 +163,9 @@ function HomePage() {
       {/* SÅDAN ARBEJDER VI */}
       <section className="surface-beige">
         <div className="container-page py-20 md:py-24">
-          <SectionHeader eyebrow="Sådan arbejder vi" title="Fire principper. Ingen undtagelser." />
+          <SectionHeader eyebrow={t.principles.eyebrow} title={t.principles.title} />
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { t: "Alt kan spores til kilde", d: "Hver påstand i en leverance har kilde, tidspunkt og metode." },
-              { t: "Ingen tal uden belæg", d: "Vi viser kun tal, der kan dokumenteres. Effekter vises som intervaller fra forskningslitteraturen." },
-              { t: "Fagperson godkender", d: "AI assisterer gennemgangen. En fagperson står bag hver konklusion." },
-              { t: "Versioneret og reproducerbart", d: "Hver ændring gemmes som en ny version. En evidenspakke kan genskabes og efterprøves." },
-            ].map((c) => (
+            {t.principles.cards.map((c) => (
               <div key={c.t} className="card-soft p-6 bg-card">
                 <div className="font-semibold">{c.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
@@ -208,27 +177,20 @@ function HomePage() {
 
       {/* HVEM */}
       <CardGrid
-        eyebrow="Hvem"
-        title="Bygget til dem, der skal kunne bevise det."
+        eyebrow={t.audience.eyebrow}
+        title={t.audience.title}
         cols={3}
-        cards={[
-          { t: "Kommuner", d: "Natur- og arealprojekter i Grøn Trepart med dokumentation, der holder til gennemsyn." },
-          { t: "Lokale treparter", d: "Et fælles, efterprøveligt grundlag for dialog og beslutninger." },
-          { t: "Rådgivere", d: "Struktureret felt- og kortdata som fundament for jeres rådgivning." },
-          { t: "Naturfonde", d: "Evidenspakker, der viser, hvad midlerne er brugt til, og hvad de har flyttet." },
-          { t: "Større lodsejere", d: "Overblik over egne arealer og dokumentation for tiltag." },
-          { t: "Projektejere", d: "Én baseline og ét sted at finde alt materiale over tid." },
-        ]}
+        cards={t.audience.cards}
       />
 
       <GreenCTA
-        title="Skal vi se på jeres område?"
-        subtitle="Fortæl os om projektet, så vender vi tilbage med et konkret forslag til en førregistrering."
-        primary={{ to: "/kontakt", label: "Book en snak" }}
-        secondary={{ to: "/platformen", label: "Se platformen" }}
+        title={t.cta.title}
+        subtitle={t.cta.subtitle}
+        primary={{ to: "/kontakt", label: t.cta.primary }}
+        secondary={{ to: "/platformen", label: t.cta.secondary }}
       />
 
-      <FaqSection items={FAQ} />
+      <FaqSection items={t.faq} />
 
       <CTASection />
     </PageLayout>
