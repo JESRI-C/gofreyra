@@ -107,7 +107,10 @@ function RootComponent() {
       return;
     }
     if (saved === "en" || saved === "de") {
-      router.navigate({ href: `${localizePath("/", saved)}${window.location.search}${window.location.hash}`, replace: true });
+      const href = `${localizePath("/", saved)}${window.location.search}${window.location.hash}`;
+      // Wait until hydration has settled before switching route.
+      const id = window.setTimeout(() => router.navigate({ href, replace: true }), 0);
+      return () => window.clearTimeout(id);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
