@@ -1,50 +1,31 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
+  type ErrorComponentProps,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 
+import { useEffect } from "react";
 import appCss from "../styles.css?url";
+import { NotFoundPage } from "@/components/site/NotFoundPage";
+import { CHROME_COPY } from "@/i18n/pages/chrome";
+import { HTML_LANG, STORAGE_KEY, localizePath, splitLocale } from "@/i18n/locale";
 
-function NotFoundComponent() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Siden blev ikke fundet</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Siden du leder efter findes ikke eller er blevet flyttet.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Gå til forsiden
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
+  const locale = useRouterState({ select: (st) => splitLocale(st.location.pathname).locale });
+  const t = CHROME_COPY[locale].error;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Siden kunne ikke indlæses
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Noget gik galt. Prøv at genindlæse siden eller gå tilbage til forsiden.
-        </p>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">{t.title}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{t.body}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -53,13 +34,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Prøv igen
+            {t.retry}
           </button>
           <a
-            href="/"
+            href={localizePath("/", locale)}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Gå til forsiden
+            {t.home}
           </a>
         </div>
       </div>
@@ -92,13 +73,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   shellComponent: RootShell,
   component: RootComponent,
-  notFoundComponent: NotFoundComponent,
+  notFoundComponent: NotFoundPage,
   errorComponent: ErrorComponent,
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const locale = useRouterState({ select: (s) => splitLocale(s.location.pathname).locale });
   return (
-    <html lang="da">
+    <html lang={HTML_LANG[locale]}>
       <head>
         <HeadContent />
       </head>
@@ -112,6 +94,23 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  // Remember language: only on a fresh entry to the Danish home page "/" do we restore a
+  // previously chosen en/de version. Explicit locale URLs are always respected.
+  useEffect(() => {
+    if (window.location.pathname !== "/") return;
+    let saved: string | null = null;
+    try {
+      saved = window.localStorage.getItem(STORAGE_KEY);
+    } catch {
+      return;
+    }
+    if (saved === "en" || saved === "de") {
+      router.navigate({ href: `${localizePath("/", saved)}${window.location.search}${window.location.hash}`, replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
