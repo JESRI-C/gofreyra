@@ -33,3 +33,7 @@
 - [x] Integrér de præcise batches, ret kun de to godkendte metaDescriptions og kontrollér links/sitemap
 - [x] Brug kun mindre dronevarianter og kontrollér sider og billedstørrelser
 - [x] Kontrollér tests og automatisk build/typecheck; publicér ikke
+
+## Flersproget site (DA/EN/DE)
+- [x] Sprogvælger, /en og /de URL'er, husket sprog på forsiden, oversat indhold, hreflang og sitemap
+- [x] Test af sprogskift, tilbage/frem, genindlæsning, mobil og 404; publicér ikke
