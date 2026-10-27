@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { DEFAULT_OG_IMAGE } from "@/lib/photo-variants";
+import { LOCALES, OG_LOCALE, localizePath, type Locale } from "@/i18n/locale";
 
 export interface SEOProps {
   title: string;
   description: string;
-  /** The path for the page, e.g. "/ydelser". */
+  /** Danish base path for the page, e.g. "/ydelser". The locale prefix is added automatically. */
   path: string;
+  locale?: Locale;
   /** Absolute https URL. Omit unless the page shows a meaningful share image. */
   ogImage?: string;
   ogType?: "website" | "article";
@@ -24,8 +26,9 @@ export function buildHead({
   ogType = "website",
   jsonLd,
   noindex = false,
+  locale = "da",
 }: SEOProps) {
-  const url = `${SITE_URL}${path}`;
+  const url = `${SITE_URL}${localizePath(path, locale)}`;
 
   const meta = [
     { title },
@@ -39,7 +42,8 @@ export function buildHead({
     { property: "og:description", content: description },
     { property: "og:type", content: ogType },
     { property: "og:url", content: url },
-    { property: "og:locale", content: "da_DK" },
+    { property: "og:locale", content: OG_LOCALE[locale] },
+    ...LOCALES.filter((l) => l !== locale).map((l) => ({ property: "og:locale:alternate", content: OG_LOCALE[l] })),
 
     // Twitter
     { name: "twitter:card", content: "summary_large_image" },
@@ -56,7 +60,11 @@ export function buildHead({
     );
   }
 
-  const links = [{ rel: "canonical", href: url }];
+  const links: { rel: string; href: string; hrefLang?: string }[] = [{ rel: "canonical", href: url }];
+  if (!noindex) {
+    for (const l of LOCALES) links.push({ rel: "alternate", hrefLang: l, href: `${SITE_URL}${localizePath(path, l)}` });
+    links.push({ rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${localizePath(path, "da")}` });
+  }
 
   const scripts = jsonLd
     ? [

@@ -22,6 +22,7 @@ import { Route as DataRouteImport } from './routes/data'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as BrancherRouteImport } from './routes/brancher'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125YdelserRouteImport } from './routes/{-$locale}/ydelser'
 import { Route as Char123LocaleChar125SaadanArbejderViRouteImport } from './routes/{-$locale}/saadan-arbejder-vi'
@@ -113,69 +114,75 @@ const BookDemoRoute = BookDemoRouteImport.update({
   path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LocaleChar125RouteRoute =
+  Char123LocaleChar125RouteRouteImport.update({
+    id: '/{-$locale}',
+    path: '/{-$locale}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
-    id: '/{-$locale}/',
-    path: '/{-$locale}/',
-    getParentRoute: () => rootRouteImport,
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125YdelserRoute =
   Char123LocaleChar125YdelserRouteImport.update({
-    id: '/{-$locale}/ydelser',
-    path: '/{-$locale}/ydelser',
-    getParentRoute: () => rootRouteImport,
+    id: '/ydelser',
+    path: '/ydelser',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125SaadanArbejderViRoute =
   Char123LocaleChar125SaadanArbejderViRouteImport.update({
-    id: '/{-$locale}/saadan-arbejder-vi',
-    path: '/{-$locale}/saadan-arbejder-vi',
-    getParentRoute: () => rootRouteImport,
+    id: '/saadan-arbejder-vi',
+    path: '/saadan-arbejder-vi',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125PrivatlivspolitikRoute =
   Char123LocaleChar125PrivatlivspolitikRouteImport.update({
-    id: '/{-$locale}/privatlivspolitik',
-    path: '/{-$locale}/privatlivspolitik',
-    getParentRoute: () => rootRouteImport,
+    id: '/privatlivspolitik',
+    path: '/privatlivspolitik',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125PlatformenRoute =
   Char123LocaleChar125PlatformenRouteImport.update({
-    id: '/{-$locale}/platformen',
-    path: '/{-$locale}/platformen',
-    getParentRoute: () => rootRouteImport,
+    id: '/platformen',
+    path: '/platformen',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125OmRoute = Char123LocaleChar125OmRouteImport.update({
-  id: '/{-$locale}/om',
-  path: '/{-$locale}/om',
-  getParentRoute: () => rootRouteImport,
+  id: '/om',
+  path: '/om',
+  getParentRoute: () => Char123LocaleChar125RouteRoute,
 } as any)
 const Char123LocaleChar125LuftfotoRoute =
   Char123LocaleChar125LuftfotoRouteImport.update({
-    id: '/{-$locale}/luftfoto',
-    path: '/{-$locale}/luftfoto',
-    getParentRoute: () => rootRouteImport,
+    id: '/luftfoto',
+    path: '/luftfoto',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125KontaktRoute =
   Char123LocaleChar125KontaktRouteImport.update({
-    id: '/{-$locale}/kontakt',
-    path: '/{-$locale}/kontakt',
-    getParentRoute: () => rootRouteImport,
+    id: '/kontakt',
+    path: '/kontakt',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125KommunerRoute =
   Char123LocaleChar125KommunerRouteImport.update({
-    id: '/{-$locale}/kommuner',
-    path: '/{-$locale}/kommuner',
-    getParentRoute: () => rootRouteImport,
+    id: '/kommuner',
+    path: '/kommuner',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125FondeOgLodsejereRoute =
   Char123LocaleChar125FondeOgLodsejereRouteImport.update({
-    id: '/{-$locale}/fonde-og-lodsejere',
-    path: '/{-$locale}/fonde-og-lodsejere',
-    getParentRoute: () => rootRouteImport,
+    id: '/fonde-og-lodsejere',
+    path: '/fonde-og-lodsejere',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125FaqRoute = Char123LocaleChar125FaqRouteImport.update({
-  id: '/{-$locale}/faq',
-  path: '/{-$locale}/faq',
-  getParentRoute: () => rootRouteImport,
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => Char123LocaleChar125RouteRoute,
 } as any)
 const UseCasesSplatRoute = UseCasesSplatRouteImport.update({
   id: '/$',
@@ -219,33 +226,33 @@ const BrancherSplatRoute = BrancherSplatRouteImport.update({
 } as any)
 const Char123LocaleChar125VidenIndexRoute =
   Char123LocaleChar125VidenIndexRouteImport.update({
-    id: '/{-$locale}/viden/',
-    path: '/{-$locale}/viden/',
-    getParentRoute: () => rootRouteImport,
+    id: '/viden/',
+    path: '/viden/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125OrdbogIndexRoute =
   Char123LocaleChar125OrdbogIndexRouteImport.update({
-    id: '/{-$locale}/ordbog/',
-    path: '/{-$locale}/ordbog/',
-    getParentRoute: () => rootRouteImport,
+    id: '/ordbog/',
+    path: '/ordbog/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125YdelserSlugRoute =
   Char123LocaleChar125YdelserSlugRouteImport.update({
-    id: '/{-$locale}/ydelser_/$slug',
-    path: '/{-$locale}/ydelser/$slug',
-    getParentRoute: () => rootRouteImport,
+    id: '/ydelser_/$slug',
+    path: '/ydelser/$slug',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125VidenSlugRoute =
   Char123LocaleChar125VidenSlugRouteImport.update({
-    id: '/{-$locale}/viden/$slug',
-    path: '/{-$locale}/viden/$slug',
-    getParentRoute: () => rootRouteImport,
+    id: '/viden/$slug',
+    path: '/viden/$slug',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125OrdbogSlugRoute =
   Char123LocaleChar125OrdbogSlugRouteImport.update({
-    id: '/{-$locale}/ordbog/$slug',
-    path: '/{-$locale}/ordbog/$slug',
-    getParentRoute: () => rootRouteImport,
+    id: '/ordbog/$slug',
+    path: '/ordbog/$slug',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
@@ -255,6 +262,7 @@ const LovableEmailQueueProcessRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
@@ -336,6 +344,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
   '/dashboard': typeof DashboardRoute
@@ -378,6 +387,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/{-$locale}'
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
@@ -458,6 +468,7 @@ export interface FileRouteTypes {
     | '/lovable/email/queue/process'
   id:
     | '__root__'
+    | '/{-$locale}'
     | '/book-demo'
     | '/brancher'
     | '/dashboard'
@@ -499,6 +510,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
   BookDemoRoute: typeof BookDemoRoute
   BrancherRoute: typeof BrancherRouteWithChildren
   DashboardRoute: typeof DashboardRoute
@@ -514,22 +526,6 @@ export interface RootRouteChildren {
   UseCasesRoute: typeof UseCasesRouteWithChildren
   LoesningerSplatRoute: typeof LoesningerSplatRoute
   LoesningerKommunerRoute: typeof LoesningerKommunerRoute
-  Char123LocaleChar125FaqRoute: typeof Char123LocaleChar125FaqRoute
-  Char123LocaleChar125FondeOgLodsejereRoute: typeof Char123LocaleChar125FondeOgLodsejereRoute
-  Char123LocaleChar125KommunerRoute: typeof Char123LocaleChar125KommunerRoute
-  Char123LocaleChar125KontaktRoute: typeof Char123LocaleChar125KontaktRoute
-  Char123LocaleChar125LuftfotoRoute: typeof Char123LocaleChar125LuftfotoRoute
-  Char123LocaleChar125OmRoute: typeof Char123LocaleChar125OmRoute
-  Char123LocaleChar125PlatformenRoute: typeof Char123LocaleChar125PlatformenRoute
-  Char123LocaleChar125PrivatlivspolitikRoute: typeof Char123LocaleChar125PrivatlivspolitikRoute
-  Char123LocaleChar125SaadanArbejderViRoute: typeof Char123LocaleChar125SaadanArbejderViRoute
-  Char123LocaleChar125YdelserRoute: typeof Char123LocaleChar125YdelserRoute
-  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
-  Char123LocaleChar125OrdbogSlugRoute: typeof Char123LocaleChar125OrdbogSlugRoute
-  Char123LocaleChar125VidenSlugRoute: typeof Char123LocaleChar125VidenSlugRoute
-  Char123LocaleChar125YdelserSlugRoute: typeof Char123LocaleChar125YdelserSlugRoute
-  Char123LocaleChar125OrdbogIndexRoute: typeof Char123LocaleChar125OrdbogIndexRoute
-  Char123LocaleChar125VidenIndexRoute: typeof Char123LocaleChar125VidenIndexRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
@@ -626,82 +622,89 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}': {
+      id: '/{-$locale}'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}'
+      preLoaderRoute: typeof Char123LocaleChar125RouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/': {
       id: '/{-$locale}/'
-      path: '/{-$locale}'
+      path: '/'
       fullPath: '/{-$locale}/'
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/ydelser': {
       id: '/{-$locale}/ydelser'
-      path: '/{-$locale}/ydelser'
+      path: '/ydelser'
       fullPath: '/{-$locale}/ydelser'
       preLoaderRoute: typeof Char123LocaleChar125YdelserRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/saadan-arbejder-vi': {
       id: '/{-$locale}/saadan-arbejder-vi'
-      path: '/{-$locale}/saadan-arbejder-vi'
+      path: '/saadan-arbejder-vi'
       fullPath: '/{-$locale}/saadan-arbejder-vi'
       preLoaderRoute: typeof Char123LocaleChar125SaadanArbejderViRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/privatlivspolitik': {
       id: '/{-$locale}/privatlivspolitik'
-      path: '/{-$locale}/privatlivspolitik'
+      path: '/privatlivspolitik'
       fullPath: '/{-$locale}/privatlivspolitik'
       preLoaderRoute: typeof Char123LocaleChar125PrivatlivspolitikRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/platformen': {
       id: '/{-$locale}/platformen'
-      path: '/{-$locale}/platformen'
+      path: '/platformen'
       fullPath: '/{-$locale}/platformen'
       preLoaderRoute: typeof Char123LocaleChar125PlatformenRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/om': {
       id: '/{-$locale}/om'
-      path: '/{-$locale}/om'
+      path: '/om'
       fullPath: '/{-$locale}/om'
       preLoaderRoute: typeof Char123LocaleChar125OmRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/luftfoto': {
       id: '/{-$locale}/luftfoto'
-      path: '/{-$locale}/luftfoto'
+      path: '/luftfoto'
       fullPath: '/{-$locale}/luftfoto'
       preLoaderRoute: typeof Char123LocaleChar125LuftfotoRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/kontakt': {
       id: '/{-$locale}/kontakt'
-      path: '/{-$locale}/kontakt'
+      path: '/kontakt'
       fullPath: '/{-$locale}/kontakt'
       preLoaderRoute: typeof Char123LocaleChar125KontaktRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/kommuner': {
       id: '/{-$locale}/kommuner'
-      path: '/{-$locale}/kommuner'
+      path: '/kommuner'
       fullPath: '/{-$locale}/kommuner'
       preLoaderRoute: typeof Char123LocaleChar125KommunerRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/fonde-og-lodsejere': {
       id: '/{-$locale}/fonde-og-lodsejere'
-      path: '/{-$locale}/fonde-og-lodsejere'
+      path: '/fonde-og-lodsejere'
       fullPath: '/{-$locale}/fonde-og-lodsejere'
       preLoaderRoute: typeof Char123LocaleChar125FondeOgLodsejereRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/faq': {
       id: '/{-$locale}/faq'
-      path: '/{-$locale}/faq'
+      path: '/faq'
       fullPath: '/{-$locale}/faq'
       preLoaderRoute: typeof Char123LocaleChar125FaqRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/use-cases/$': {
       id: '/use-cases/$'
@@ -761,38 +764,38 @@ declare module '@tanstack/react-router' {
     }
     '/{-$locale}/viden/': {
       id: '/{-$locale}/viden/'
-      path: '/{-$locale}/viden'
+      path: '/viden'
       fullPath: '/{-$locale}/viden/'
       preLoaderRoute: typeof Char123LocaleChar125VidenIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/ordbog/': {
       id: '/{-$locale}/ordbog/'
-      path: '/{-$locale}/ordbog'
+      path: '/ordbog'
       fullPath: '/{-$locale}/ordbog/'
       preLoaderRoute: typeof Char123LocaleChar125OrdbogIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/ydelser_/$slug': {
       id: '/{-$locale}/ydelser_/$slug'
-      path: '/{-$locale}/ydelser/$slug'
+      path: '/ydelser/$slug'
       fullPath: '/{-$locale}/ydelser/$slug'
       preLoaderRoute: typeof Char123LocaleChar125YdelserSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/viden/$slug': {
       id: '/{-$locale}/viden/$slug'
-      path: '/{-$locale}/viden/$slug'
+      path: '/viden/$slug'
       fullPath: '/{-$locale}/viden/$slug'
       preLoaderRoute: typeof Char123LocaleChar125VidenSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/ordbog/$slug': {
       id: '/{-$locale}/ordbog/$slug'
-      path: '/{-$locale}/ordbog/$slug'
+      path: '/ordbog/$slug'
       fullPath: '/{-$locale}/ordbog/$slug'
       preLoaderRoute: typeof Char123LocaleChar125OrdbogSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
@@ -803,6 +806,53 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface Char123LocaleChar125RouteRouteChildren {
+  Char123LocaleChar125FaqRoute: typeof Char123LocaleChar125FaqRoute
+  Char123LocaleChar125FondeOgLodsejereRoute: typeof Char123LocaleChar125FondeOgLodsejereRoute
+  Char123LocaleChar125KommunerRoute: typeof Char123LocaleChar125KommunerRoute
+  Char123LocaleChar125KontaktRoute: typeof Char123LocaleChar125KontaktRoute
+  Char123LocaleChar125LuftfotoRoute: typeof Char123LocaleChar125LuftfotoRoute
+  Char123LocaleChar125OmRoute: typeof Char123LocaleChar125OmRoute
+  Char123LocaleChar125PlatformenRoute: typeof Char123LocaleChar125PlatformenRoute
+  Char123LocaleChar125PrivatlivspolitikRoute: typeof Char123LocaleChar125PrivatlivspolitikRoute
+  Char123LocaleChar125SaadanArbejderViRoute: typeof Char123LocaleChar125SaadanArbejderViRoute
+  Char123LocaleChar125YdelserRoute: typeof Char123LocaleChar125YdelserRoute
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125OrdbogSlugRoute: typeof Char123LocaleChar125OrdbogSlugRoute
+  Char123LocaleChar125VidenSlugRoute: typeof Char123LocaleChar125VidenSlugRoute
+  Char123LocaleChar125YdelserSlugRoute: typeof Char123LocaleChar125YdelserSlugRoute
+  Char123LocaleChar125OrdbogIndexRoute: typeof Char123LocaleChar125OrdbogIndexRoute
+  Char123LocaleChar125VidenIndexRoute: typeof Char123LocaleChar125VidenIndexRoute
+}
+
+const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
+  {
+    Char123LocaleChar125FaqRoute: Char123LocaleChar125FaqRoute,
+    Char123LocaleChar125FondeOgLodsejereRoute:
+      Char123LocaleChar125FondeOgLodsejereRoute,
+    Char123LocaleChar125KommunerRoute: Char123LocaleChar125KommunerRoute,
+    Char123LocaleChar125KontaktRoute: Char123LocaleChar125KontaktRoute,
+    Char123LocaleChar125LuftfotoRoute: Char123LocaleChar125LuftfotoRoute,
+    Char123LocaleChar125OmRoute: Char123LocaleChar125OmRoute,
+    Char123LocaleChar125PlatformenRoute: Char123LocaleChar125PlatformenRoute,
+    Char123LocaleChar125PrivatlivspolitikRoute:
+      Char123LocaleChar125PrivatlivspolitikRoute,
+    Char123LocaleChar125SaadanArbejderViRoute:
+      Char123LocaleChar125SaadanArbejderViRoute,
+    Char123LocaleChar125YdelserRoute: Char123LocaleChar125YdelserRoute,
+    Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+    Char123LocaleChar125OrdbogSlugRoute: Char123LocaleChar125OrdbogSlugRoute,
+    Char123LocaleChar125VidenSlugRoute: Char123LocaleChar125VidenSlugRoute,
+    Char123LocaleChar125YdelserSlugRoute: Char123LocaleChar125YdelserSlugRoute,
+    Char123LocaleChar125OrdbogIndexRoute: Char123LocaleChar125OrdbogIndexRoute,
+    Char123LocaleChar125VidenIndexRoute: Char123LocaleChar125VidenIndexRoute,
+  }
+
+const Char123LocaleChar125RouteRouteWithChildren =
+  Char123LocaleChar125RouteRoute._addFileChildren(
+    Char123LocaleChar125RouteRouteChildren,
+  )
 
 interface BrancherRouteChildren {
   BrancherSplatRoute: typeof BrancherSplatRoute
@@ -875,6 +925,7 @@ const UseCasesRouteWithChildren = UseCasesRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
+  Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
   BookDemoRoute: BookDemoRoute,
   BrancherRoute: BrancherRouteWithChildren,
   DashboardRoute: DashboardRoute,
@@ -890,25 +941,6 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesRoute: UseCasesRouteWithChildren,
   LoesningerSplatRoute: LoesningerSplatRoute,
   LoesningerKommunerRoute: LoesningerKommunerRoute,
-  Char123LocaleChar125FaqRoute: Char123LocaleChar125FaqRoute,
-  Char123LocaleChar125FondeOgLodsejereRoute:
-    Char123LocaleChar125FondeOgLodsejereRoute,
-  Char123LocaleChar125KommunerRoute: Char123LocaleChar125KommunerRoute,
-  Char123LocaleChar125KontaktRoute: Char123LocaleChar125KontaktRoute,
-  Char123LocaleChar125LuftfotoRoute: Char123LocaleChar125LuftfotoRoute,
-  Char123LocaleChar125OmRoute: Char123LocaleChar125OmRoute,
-  Char123LocaleChar125PlatformenRoute: Char123LocaleChar125PlatformenRoute,
-  Char123LocaleChar125PrivatlivspolitikRoute:
-    Char123LocaleChar125PrivatlivspolitikRoute,
-  Char123LocaleChar125SaadanArbejderViRoute:
-    Char123LocaleChar125SaadanArbejderViRoute,
-  Char123LocaleChar125YdelserRoute: Char123LocaleChar125YdelserRoute,
-  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
-  Char123LocaleChar125OrdbogSlugRoute: Char123LocaleChar125OrdbogSlugRoute,
-  Char123LocaleChar125VidenSlugRoute: Char123LocaleChar125VidenSlugRoute,
-  Char123LocaleChar125YdelserSlugRoute: Char123LocaleChar125YdelserSlugRoute,
-  Char123LocaleChar125OrdbogIndexRoute: Char123LocaleChar125OrdbogIndexRoute,
-  Char123LocaleChar125VidenIndexRoute: Char123LocaleChar125VidenIndexRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
