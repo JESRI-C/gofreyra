@@ -1,5 +1,8 @@
+import { toLocale, localizePath, SCHEMA_LANG } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useLocale";
+import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
@@ -7,22 +10,26 @@ import { brandTitle, getArtikel, getTerm, heroFor } from "@/lib/viden-helpers";
 
 export const Route = createFileRoute("/{-$locale}/ordbog/$slug")({
   beforeLoad: ({ params }) => {
-    if (!getTerm(params.slug)) throw notFound();
+    if (!getTerm(params.slug, toLocale(params.locale))) throw notFound();
   },
   head: ({ params }) => {
-    const t = getTerm(params.slug);
+    const locale = toLocale(params.locale);
+    const k = KNOWLEDGE_COPY[locale];
+    const t = getTerm(params.slug, locale);
     if (!t)
       return buildHead({
-        title: "Begreb ikke fundet | Freyra",
-        description: "Begrebet findes ikke i ordbogen. Se alle begreber om Grøn Trepart, lavbund, offentlige data og dokumentation af naturprojekter.",
+        title: k.term.notFoundTitle,
+        description: k.term.notFoundDescription,
         path: `/ordbog/${params.slug}`,
+        locale,
         noindex: true,
       });
-    const url = `${SITE_URL}/ordbog/${t.slug}`;
+    const url = `${SITE_URL}${localizePath(`/ordbog/${t.slug}`, locale)}`;
     return buildHead({
       title: brandTitle(t.metaTitle),
       description: t.metaDescription,
       path: `/ordbog/${t.slug}`,
+      locale,
       ogImage: heroFor(t.slug).ogAbs,
       jsonLd: [
         {
@@ -30,43 +37,50 @@ export const Route = createFileRoute("/{-$locale}/ordbog/$slug")({
           "@type": "DefinedTerm",
           name: t.term,
           description: t.short,
-          inDefinedTermSet: `${SITE_URL}/ordbog`,
+          inDefinedTermSet: `${SITE_URL}${localizePath("/ordbog", locale)}`,
           url,
-          inLanguage: "da-DK",
+          inLanguage: SCHEMA_LANG[locale],
         },
         breadcrumbJsonLd([
-          { name: "Forside", path: "/" },
-          { name: "Ordbog", path: "/ordbog" },
-          { name: t.term, path: `/ordbog/${t.slug}` },
+          { name: k.home, path: localizePath("/", locale) },
+          { name: k.ordbog, path: localizePath("/ordbog", locale) },
+          { name: t.term, path: localizePath(`/ordbog/${t.slug}`, locale) },
         ]),
       ],
     });
   },
   component: TermPage,
-  notFoundComponent: () => (
+  notFoundComponent: TermNotFound,
+});
+
+function TermNotFound() {
+  const k = KNOWLEDGE_COPY[useLocale()];
+  return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">Begrebet findes ikke</h1>
-        <p className="mt-4 text-muted-foreground">Se alle begreber i ordbogen.</p>
-        <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til ordbogen <ArrowRight className="ml-1 w-4 h-4" /></LLink>
+        <h1 className="text-3xl md:text-4xl">{k.term.notFoundH1}</h1>
+        <p className="mt-4 text-muted-foreground">{k.term.notFoundBody}</p>
+        <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.term.toGlossary} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
-  ),
-});
+  );
+}
 
 function TermPage() {
   const { slug } = Route.useParams();
-  const t = getTerm(slug);
+  const locale = useLocale();
+  const k = KNOWLEDGE_COPY[locale];
+  const t = getTerm(slug, locale);
   if (!t) return null;
-  const related = t.related.map(getTerm).filter((x) => !!x);
-  const articles = t.articles.map(getArtikel).filter((x) => !!x);
+  const related = t.related.map((x) => getTerm(x, locale)).filter((x) => !!x);
+  const articles = t.articles.map((x) => getArtikel(x, locale)).filter((x) => !!x);
 
   return (
     <PageLayout>
       <article className="container-page py-12 md:py-16 max-w-3xl">
-        <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground">
-          <LLink to="/" className="hover:text-foreground">Forside</LLink> <span aria-hidden>/</span>{" "}
-          <LLink to="/ordbog" className="hover:text-foreground">Ordbog</LLink> <span aria-hidden>/</span>{" "}
+        <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
+          <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
+          <LLink to="/ordbog" className="hover:text-foreground">{k.ordbog}</LLink> <span aria-hidden>/</span>{" "}
           <span className="text-foreground/80">{t.term}</span>
         </nav>
         <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{t.term}</h1>
@@ -77,7 +91,7 @@ function TermPage() {
 
         {t.sources.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl md:text-3xl">Kilder</h2>
+            <h2 className="text-2xl md:text-3xl">{k.term.sources}</h2>
             <ol className="mt-4 list-decimal pl-5 space-y-2 text-sm">
               {t.sources.map((s) => (
                 <li key={s.url}>
@@ -90,7 +104,7 @@ function TermPage() {
 
         {related.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl md:text-3xl">Relaterede begreber</h2>
+            <h2 className="text-2xl md:text-3xl">{k.term.related}</h2>
             <ul className="mt-4 flex flex-wrap gap-2">
               {related.map((r) => (
                 <li key={r.slug}>
@@ -103,7 +117,7 @@ function TermPage() {
 
         {articles.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl md:text-3xl">Læs mere</h2>
+            <h2 className="text-2xl md:text-3xl">{k.term.readMore}</h2>
             <ul className="mt-4 space-y-2">
               {articles.map((a) => (
                 <li key={a.slug}>
@@ -117,8 +131,8 @@ function TermPage() {
         )}
 
         <p className="mt-14 text-sm text-muted-foreground">
-          Har du et konkret projekt, hvor begrebet er relevant?{" "}
-          <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">Skriv til os via kontaktformularen</LLink>.
+          {k.term.ctaLead}{" "}
+          <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">{k.term.ctaLink}</LLink>.
         </p>
       </article>
     </PageLayout>

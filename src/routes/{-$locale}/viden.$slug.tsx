@@ -1,10 +1,13 @@
+import { toLocale, localizePath, SCHEMA_LANG } from "@/i18n/locale";
+import { useLocale } from "@/i18n/useLocale";
+import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/components/site/SEO";
-import { alleArtikler } from "@/data/content";
+import { artiklerFor } from "@/data/content";
 import { photoProps } from "@/lib/photo-variants";
 import {
   brandTitle,
@@ -17,19 +20,22 @@ import {
 
 export const Route = createFileRoute("/{-$locale}/viden/$slug")({
   beforeLoad: ({ params }) => {
-    if (!getArtikel(params.slug)) throw notFound();
+    if (!getArtikel(params.slug, toLocale(params.locale))) throw notFound();
   },
   head: ({ params }) => {
-    const a = getArtikel(params.slug);
+    const locale = toLocale(params.locale);
+    const k = KNOWLEDGE_COPY[locale];
+    const a = getArtikel(params.slug, locale);
     if (!a)
       return buildHead({
-        title: "Artikel ikke fundet | Freyra",
-        description: "Artiklen findes ikke. Se alle artikler om Grøn Trepart, lavbund og dokumentation af naturprojekter på Freyras vidensside.",
+        title: k.article.notFoundTitle,
+        description: k.article.notFoundDescription,
         path: `/viden/${params.slug}`,
+        locale,
         noindex: true,
       });
-    const url = `${SITE_URL}/viden/${a.slug}`;
-    const hero = heroFor(a.slug);
+    const url = `${SITE_URL}${localizePath(`/viden/${a.slug}`, locale)}`;
+    const hero = heroFor(a.slug, locale);
     const jsonLd: object[] = [
       {
         "@context": "https://schema.org",
@@ -38,16 +44,16 @@ export const Route = createFileRoute("/{-$locale}/viden/$slug")({
         description: a.metaDescription,
         datePublished: a.updated,
         dateModified: a.updated,
-        inLanguage: "da-DK",
+        inLanguage: SCHEMA_LANG[locale],
         author: { "@type": "Organization", name: "Gofreyra ApS", url: SITE_URL },
         publisher: { "@type": "Organization", name: "Gofreyra ApS", url: SITE_URL },
         mainEntityOfPage: url,
         image: hero.srcAbs,
       },
       breadcrumbJsonLd([
-        { name: "Forside", path: "/" },
-        { name: "Viden", path: "/viden" },
-        { name: a.h1, path: `/viden/${a.slug}` },
+        { name: k.home, path: localizePath("/", locale) },
+        { name: k.viden, path: localizePath("/viden", locale) },
+        { name: a.h1, path: localizePath(`/viden/${a.slug}`, locale) },
       ]),
     ];
     if (a.faq.length) jsonLd.push(faqJsonLd(a.faq));
@@ -55,22 +61,28 @@ export const Route = createFileRoute("/{-$locale}/viden/$slug")({
       title: brandTitle(a.metaTitle),
       description: a.metaDescription,
       path: `/viden/${a.slug}`,
+      locale,
       ogType: "article",
       ogImage: hero.ogAbs,
       jsonLd,
     });
   },
   component: ArticlePage,
-  notFoundComponent: () => (
+  notFoundComponent: ArticleNotFound,
+});
+
+function ArticleNotFound() {
+  const k = KNOWLEDGE_COPY[useLocale()];
+  return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">Artiklen findes ikke</h1>
-        <p className="mt-4 text-muted-foreground">Se alle artikler på vidensiden.</p>
-        <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">Til Viden <ArrowRight className="ml-1 w-4 h-4" /></LLink>
+        <h1 className="text-3xl md:text-4xl">{k.article.notFoundH1}</h1>
+        <p className="mt-4 text-muted-foreground">{k.article.notFoundBody}</p>
+        <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.article.toViden} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
-  ),
-});
+  );
+}
 
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
@@ -83,26 +95,28 @@ function Bullet({ children }: { children: React.ReactNode }) {
 
 function ArticlePage() {
   const { slug } = Route.useParams();
-  const a = getArtikel(slug);
+  const locale = useLocale();
+  const k = KNOWLEDGE_COPY[locale];
+  const a = getArtikel(slug, locale);
   if (!a) return null;
-  const hero = heroFor(a.slug);
-  const terms = a.terms.map(getTerm).filter((t) => !!t);
-  const related = a.related.map(getArtikel).filter((r) => !!r);
-  const services = a.services.map(getService).filter((s) => !!s);
-  const inCluster = a.kind === "pillar" ? alleArtikler.filter((x) => x.cluster === a.cluster && x.slug !== a.slug) : [];
+  const hero = heroFor(a.slug, locale);
+  const terms = a.terms.map((x) => getTerm(x, locale)).filter((t) => !!t);
+  const related = a.related.map((x) => getArtikel(x, locale)).filter((r) => !!r);
+  const services = a.services.map((x) => getService(x, locale)).filter((s) => !!s);
+  const inCluster = a.kind === "pillar" ? artiklerFor(locale).filter((x) => x.cluster === a.cluster && x.slug !== a.slug) : [];
 
   return (
     <PageLayout>
       <article>
         <header className="container-page pt-12 md:pt-16 max-w-3xl">
-          <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground">
-            <LLink to="/" className="hover:text-foreground">Forside</LLink> <span aria-hidden>/</span>{" "}
-            <LLink to="/viden" className="hover:text-foreground">Viden</LLink> <span aria-hidden>/</span>{" "}
+          <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
+            <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
+            <LLink to="/viden" className="hover:text-foreground">{k.viden}</LLink> <span aria-hidden>/</span>{" "}
             <span className="text-foreground/80">{a.h1}</span>
           </nav>
           <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{a.h1}</h1>
           <p className="mt-4 text-sm text-muted-foreground">
-            Opdateret <time dateTime={a.updated}>{formatDate(a.updated)}</time>
+            {k.article.updated} <time dateTime={a.updated}>{formatDate(a.updated, locale)}</time>
           </p>
           <p className="mt-6 text-lg md:text-xl text-foreground/85">{a.intro}</p>
         </header>
@@ -116,7 +130,7 @@ function ArticlePage() {
               decoding="async"
               className="w-full aspect-[21/9] object-cover"
             />
-            <figcaption className="p-3 text-xs text-muted-foreground">Eget dronefoto.</figcaption>
+            <figcaption className="p-3 text-xs text-muted-foreground">{k.article.caption}</figcaption>
           </div>
         </figure>
 
@@ -137,7 +151,7 @@ function ArticlePage() {
 
           {a.faq.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-2xl md:text-3xl">Ofte stillede spørgsmål</h2>
+              <h2 className="text-2xl md:text-3xl">{k.article.faq}</h2>
               <div className="mt-6 space-y-3">
                 {a.faq.map((f) => (
                   <details key={f.q} className="card-soft px-5 py-4 bg-card group">
@@ -154,7 +168,7 @@ function ArticlePage() {
 
           {a.sources.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-2xl md:text-3xl">Kilder</h2>
+              <h2 className="text-2xl md:text-3xl">{k.article.sources}</h2>
               <ol className="mt-5 list-decimal pl-5 space-y-2 text-sm">
                 {a.sources.map((s) => (
                   <li key={s.url}>
@@ -167,7 +181,7 @@ function ArticlePage() {
 
           {terms.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-2xl md:text-3xl">Begreber i artiklen</h2>
+              <h2 className="text-2xl md:text-3xl">{k.article.terms}</h2>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {terms.map((t) => (
                   <li key={t.slug}>
@@ -180,7 +194,7 @@ function ArticlePage() {
 
           {inCluster.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-2xl md:text-3xl">Artikler i emnet</h2>
+              <h2 className="text-2xl md:text-3xl">{k.article.inCluster}</h2>
               <ul className="mt-5 space-y-2">
                 {inCluster.map((r) => (
                   <li key={r.slug}>
@@ -195,7 +209,7 @@ function ArticlePage() {
 
           {related.length > 0 && (
             <section className="mt-14">
-              <h2 className="text-2xl md:text-3xl">Læs også</h2>
+              <h2 className="text-2xl md:text-3xl">{k.article.related}</h2>
               <ul className="mt-5 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>
@@ -210,7 +224,7 @@ function ArticlePage() {
 
           {services.length > 0 && (
             <aside className="mt-14 card-soft p-6 surface-beige">
-              <h2 className="text-xl font-semibold">Relevante ydelser</h2>
+              <h2 className="text-xl font-semibold">{k.article.services}</h2>
               <ul className="mt-4 space-y-2">
                 {services.map((s) => (
                   <li key={s.slug}>
