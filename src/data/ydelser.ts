@@ -182,6 +182,15 @@ export const YDELSER: Ydelse[] = [
   },
 ];
 
-export function getYdelse(slug: string): Ydelse | undefined {
-  return YDELSER.find((y) => y.slug === slug);
+export function getYdelse(slug: string, locale: Locale = "da"): Ydelse | undefined {
+  return ydelserFor(locale).find((y) => y.slug === slug);
+}
+
+import { YDELSER_EN } from "./i18n/ydelser.en";
+import { YDELSER_DE } from "./i18n/ydelser.de";
+import type { Locale } from "@/i18n/locale";
+
+/** Services in the given language (Danish original or local translation). */
+export function ydelserFor(locale: Locale): Ydelse[] {
+  return locale === "en" ? YDELSER_EN : locale === "de" ? YDELSER_DE : YDELSER;
 }
