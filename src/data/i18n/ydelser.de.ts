@@ -230,7 +230,7 @@ export const YDELSER_DE: Ydelse[] = [
   "slug": "pilot",
   "title": "Pilotprojekt und Projekt-/Portfoliolizenz für Evidence Workspace (ab 125.000 DKK)",
   "short": "Ein klar abgegrenztes Projekt, das die gesamte Nachweiskette auf Ihrer eigenen Fläche in der Praxis zeigt.",
-  "intro": "Ein Pilotprojekt ist eine klar abgegrenzte Leistung auf Ihrer eigenen Fläche, bei der Sie die gesamte Nachweiskette vom Drohnenfoto bis zur versionierten Baseline erhalten. Anschliessend haben Sie eine konkrete Bewertungsgrundlage, bevor Sie sich zu weiteren Schritten verpflichten.",
+  "intro": "Ein Pilotprojekt ist eine klar abgegrenzte Leistung auf Ihrer eigenen Fläche, bei der Sie die gesamte Nachweiskette vom Drohnenfoto bis zur versionierten Baseline erhalten. Anschließend haben Sie eine konkrete Bewertungsgrundlage, bevor Sie sich zu weiteren Schritten verpflichten.",
   "gets": [
    "Ein klar abgegrenztes Projekt auf Ihrer eigenen Fläche",
    "Die gesamte Nachweiskette vom Drohnenfoto bis zur versionierten Baseline",

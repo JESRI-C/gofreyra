@@ -41,7 +41,8 @@ export function buildHead({
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: ogType },
-    { property: "og:url", content: url },
+    // Error/hidden pages must not claim a canonical content URL.
+    ...(noindex ? [] : [{ property: "og:url", content: url }]),
     { property: "og:locale", content: OG_LOCALE[locale] },
     ...LOCALES.filter((l) => l !== locale).map((l) => ({ property: "og:locale:alternate", content: OG_LOCALE[l] })),
 
@@ -60,7 +61,7 @@ export function buildHead({
     );
   }
 
-  const links: { rel: string; href: string; hrefLang?: string }[] = [{ rel: "canonical", href: url }];
+  const links: { rel: string; href: string; hrefLang?: string }[] = noindex ? [] : [{ rel: "canonical", href: url }];
   if (!noindex) {
     for (const l of LOCALES) links.push({ rel: "alternate", hrefLang: l, href: `${SITE_URL}${localizePath(path, l)}` });
     links.push({ rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${localizePath(path, "da")}` });

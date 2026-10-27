@@ -106,7 +106,7 @@ const de: Copy = {
     { n: "01", t: "Klärung von Gebiet und Zweck", d: "Wir vereinbaren die Abgrenzung des Gebiets, den Zweck des Projekts und wofür die Dokumentation genutzt werden soll. Erst wenn das geklärt ist, planen wir den Flug." },
     { n: "02", t: "Drohnenflug", d: "Wir befliegen das Gebiet, nehmen Fotos mit GPS-Koordinaten auf und erfassen Teilstrecken sowie Wiederholungsaufnahmepunkte, damit derselbe Ort später erneut fotografiert werden kann." },
     { n: "03", t: "Automatischer Abruf öffentlicher Daten", d: "Orthofotos, Katasterdaten und Höhenmodell von Dataforsyningen (Dänemarks öffentlichem Datenbereitstellungsdienst). Nach § 3 geschützte Naturflächen und Schutzgebiete von Danmarks Arealinformation (Dänemarks Flächeninformationsportal). Bodenarten und Niederungsflächen von GEUS (Geologischer Dienst für Dänemark und Grönland). Wetterdaten von DMI (Dänisches Meteorologisches Institut). Satellitenbilder von Copernicus Sentinel-2." },
-    { n: "04", t: "Verifizierung", d: "KI unterstützt den Vergleich öffentlicher Daten mit Drohnenfotos. Anschliessend nimmt eine Fachperson die Bewertung vor, die protokolliert wird." },
+    { n: "04", t: "Verifizierung", d: "KI unterstützt den Vergleich öffentlicher Daten mit Drohnenfotos. Anschließend nimmt eine Fachperson die Bewertung vor, die protokolliert wird." },
     { n: "05", t: "Baseline", d: "Das Ergebnis wird in einem versionierten Bericht als PDF und ZIP mit SHA-256-Prüfsummen zusammengefasst, sodass seine Unverändertheit nachgewiesen werden kann." },
     { n: "06", t: "Nachverfolgung", d: "Bei Folgeflügen fotografieren wir von denselben Wiederholungsaufnahmepunkten aus, sodass sich Vorher und Nachher direkt vergleichen lassen." },
   ],

@@ -86,9 +86,9 @@ export const ordbogBatch2De: Term[] = [
   "term": "Teileinzugsgebiet (Delvandopland)",
   "metaTitle": "Teileinzugsgebiet: Was bedeutet das?",
   "metaDescription": "Ein Teileinzugsgebiet ist Teil eines Wassereinzugsgebiets, dem ein Bedarf zur Stickstoffreduktion zugewiesen wird. Mit Quellen und verwandten Begriffen.",
-  "short": "Ein Teileinzugsgebiet ist ein Teil eines Wassereinzugsgebiets, dem ein Bedarf an Massnahmen zur Stickstoffreduktion zugewiesen wird.",
+  "short": "Ein Teileinzugsgebiet ist ein Teil eines Wassereinzugsgebiets, dem ein Bedarf an Maßnahmen zur Stickstoffreduktion zugewiesen wird.",
   "body": [
-   "Laut SGAV (dänische Behörde für grüne Flächenumgestaltung und Wasserumwelt) ist der Massnahmenbedarf aus dem Vandplan 3-II (Wasserbewirtschaftungsplan 3-II) auf 108 Teileinzugsgebiete verteilt, die in 37 hydrologischen Küstengewässergruppen zusammengefasst sind. Ein Feuchtgebiet zur Stickstoffreduktion muss in einem Teileinzugsgebiet mit Massnahmenbedarf liegen."
+   "Laut SGAV (dänische Behörde für grüne Flächenumgestaltung und Wasserumwelt) ist der Maßnahmenbedarf aus dem Vandplan 3-II (Wasserbewirtschaftungsplan 3-II) auf 108 Teileinzugsgebiete verteilt, die in 37 hydrologischen Küstengewässergruppen zusammengefasst sind. Ein Feuchtgebiet zur Stickstoffreduktion muss in einem Teileinzugsgebiet mit Maßnahmenbedarf liegen."
   ],
   "sources": [
    {
@@ -429,7 +429,7 @@ export const ordbogBatch2De: Term[] = [
   "metaDescription": "F2-selvbetjening: Antragssystem, das über MARS für Voruntersuchungen und Förderweg 2 in VLP erreichbar ist. Mit Quellen und verwandten Begriffen.",
   "short": "F2-selvbetjening (F2-Selbstbedienungsportal) ist das Antragssystem, zu dem Sie von MARS aus für Voruntersuchungen und Förderweg 2 in VLP gelangen.",
   "body": [
-   "Änderungen am Projektgebiet werden in MARS eingezeichnet und anschliessend in F2-Tilskud übertragen."
+   "Änderungen am Projektgebiet werden in MARS eingezeichnet und anschließend in F2-Tilskud übertragen."
   ],
   "sources": [
    {
@@ -568,7 +568,7 @@ export const ordbogBatch2De: Term[] = [
   "slug": "gsd",
   "term": "GSD (Ground Sample Distance)",
   "metaTitle": "GSD (Ground Sample Distance): Was bedeutet das?",
-  "metaDescription": "GSD gibt an, wie gross die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt. Kurz erklärt mit Quellen und verwandten Begriffen.",
+  "metaDescription": "GSD gibt an, wie groß die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt. Kurz erklärt mit Quellen und verwandten Begriffen.",
   "short": "GSD gibt an, wie groß die Bodenfläche ist, die ein Pixel in einem Luftbild abdeckt.",
   "body": [
    "GeoDanmark-Orthofotos werden standardmäßig mit 15 cm GSD aufgenommen und auf 12,5 cm große Pixel resampelt. 10 cm GSD bedeutet, dass jedes Pixel 10 x 10 cm abdeckt."

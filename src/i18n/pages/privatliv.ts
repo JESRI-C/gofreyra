@@ -60,7 +60,7 @@ const en: Copy = {
   controller: {
     title: "1. Data controller",
     description: "Gofreyra ApS, CVR 45384489 (Danish business registration number), Bøgevej 4, 7160 Tørring, is the data controller for the processing of personal data on gofreyra.com and in Freyra Evidence Workspace. Gofreyra ApS is owned by Freyra Group ApS.",
-    contact: "Enquiries about personal data should be sent via the contact form at gofreyra.com/kontakt.",
+    contact: "Enquiries about personal data should be sent via the contact form at gofreyra.com/en/kontakt.",
   },
   collection: {
     title: "2. What information do we collect?",
@@ -106,7 +106,7 @@ const de: Copy = {
   controller: {
     title: "1. Verantwortlicher",
     description: "Gofreyra ApS, CVR 45384489 (dänische Unternehmensregisternummer), Bøgevej 4, 7160 Tørring, ist für die Verarbeitung personenbezogener Daten auf gofreyra.com und im Freyra Evidence Workspace verantwortlich. Gofreyra ApS gehört Freyra Group ApS.",
-    contact: "Anfragen zu personenbezogenen Daten richten Sie bitte über das Kontaktformular auf gofreyra.com/kontakt an uns.",
+    contact: "Anfragen zu personenbezogenen Daten richten Sie bitte über das Kontaktformular auf gofreyra.com/de/kontakt an uns.",
   },
   collection: {
     title: "2. Welche Daten erheben wir?",
@@ -119,7 +119,7 @@ const de: Copy = {
   },
   retention: {
     title: "4. Aufbewahrung",
-    description: "Anfragen über das Kontaktformular werden so lange aufbewahrt, wie es für die Bearbeitung der Anfrage und eine etwaige Nachbearbeitung erforderlich ist. Kundendaten werden für die Dauer der Zusammenarbeit und anschliessend für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.",
+    description: "Anfragen über das Kontaktformular werden so lange aufbewahrt, wie es für die Bearbeitung der Anfrage und eine etwaige Nachbearbeitung erforderlich ist. Kundendaten werden für die Dauer der Zusammenarbeit und anschließend für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.",
   },
   disclosure: {
     title: "5. Weitergabe",
@@ -127,7 +127,7 @@ const de: Copy = {
   },
   cookies: {
     title: "6. Cookies",
-    description: "Die Website verwendet ausschliesslich technisch notwendige Cookies. Wir verwenden keine Cookies für Marketing oder websiteübergreifendes Tracking.",
+    description: "Die Website verwendet ausschließlich technisch notwendige Cookies. Wir verwenden keine Cookies für Marketing oder websiteübergreifendes Tracking.",
   },
   rights: {
     title: "7. Ihre Rechte",

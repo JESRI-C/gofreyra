@@ -1233,7 +1233,7 @@ export const artiklerDe: Artikel[] = [
     "bullets": [
      "Wenn Bilder verkleinert oder aus bestimmten Programmen exportiert werden.",
      "Wenn Bilder über Nachrichtendienste versendet werden, die Metadaten entfernen.",
-     "Wenn Bilder in Dokumente eingefügt und anschliessend wieder daraus extrahiert werden."
+     "Wenn Bilder in Dokumente eingefügt und anschließend wieder daraus extrahiert werden."
     ]
    },
    {
@@ -1534,7 +1534,7 @@ export const artiklerDe: Artikel[] = [
     "bullets": []
    },
    {
-    "h2": "Schritt 2: Flächen ausschliessen, die nicht bepflanzt werden sollen",
+    "h2": "Schritt 2: Flächen ausschließen, die nicht bepflanzt werden sollen",
     "paragraphs": [],
     "bullets": [
      "Nach § 3 (des dänischen Naturschutzgesetzes) geschützte Naturflächen, auf denen eine Bepflanzung grundsätzlich nicht zulässig ist.",
@@ -1552,7 +1552,7 @@ export const artiklerDe: Artikel[] = [
    {
     "h2": "Schritt 4: Klassifizieren",
     "paragraphs": [
-     "Teilen Sie die verbleibenden Flächen in geeignet, bedingt geeignet und ungeeignet ein und ermitteln Sie die Flächengrösse je Teilabschnitt. Das erleichtert die Priorisierung im Dialog mit den Grundeigentümern."
+     "Teilen Sie die verbleibenden Flächen in geeignet, bedingt geeignet und ungeeignet ein und ermitteln Sie die Flächengröße je Teilabschnitt. Das erleichtert die Priorisierung im Dialog mit den Grundeigentümern."
     ],
     "bullets": []
    },
