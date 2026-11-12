@@ -119,9 +119,9 @@ export function SplitBlock({ eyebrow, title, body, items, beige, tone }: { eyebr
 }
 
 /* ---------- Card grid (now an editorial, numbered rule grid) ---------- */
-export function CardGrid({ eyebrow, title, subtitle, cards, cols = 3, beige, tone, icon: I, glyph }: { eyebrow?: string; title: string; subtitle?: string; cards: { t: string; d: string }[]; cols?: 2 | 3 | 4; beige?: boolean; tone?: Tone; icon?: ReactNode; glyph?: boolean }) {
+export function CardGrid({ eyebrow, title, subtitle, cards, cols = 3, beige, tone, icon: I }: { eyebrow?: string; title: string; subtitle?: string; cards: { t: string; d: string }[]; cols?: 2 | 3 | 4; beige?: boolean; tone?: Tone; icon?: ReactNode }) {
   return (
-    <Band tone={tone ?? (beige ? "ivory" : "paper")} glyph={glyph ? "group" : undefined}>
+    <Band tone={tone ?? (beige ? "ivory" : "paper")}>
       <div className="container-page py-20 md:py-28">
         <div className="max-w-3xl">
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
