@@ -46,6 +46,12 @@ const da = {
     rights: "Alle rettigheder forbeholdes.",
     privacy: "Privatlivspolitik",
   },
+  family: {
+    label: "Del af Freyra Group",
+    navLabel: "Freyra Group, virksomheder",
+    current: "du er her",
+    external: "eksternt websted",
+  },
   notFound: {
     title: "Siden blev ikke fundet",
     body: "Siden du leder efter findes ikke eller er blevet flyttet.",
@@ -110,6 +116,12 @@ export const CHROME_COPY: Record<Locale, ChromeCopy> = {
       rights: "All rights reserved.",
       privacy: "Privacy policy",
     },
+    family: {
+      label: "Part of Freyra Group",
+      navLabel: "Freyra Group companies",
+      current: "you are here",
+      external: "external website",
+    },
     notFound: {
       title: "Page not found",
       body: "The page you are looking for does not exist or has been moved.",
@@ -168,6 +180,12 @@ export const CHROME_COPY: Record<Locale, ChromeCopy> = {
       owned: "Im Besitz der Freyra Group ApS",
       rights: "Alle Rechte vorbehalten.",
       privacy: "Datenschutzerklärung",
+    },
+    family: {
+      label: "Teil der Freyra Group",
+      navLabel: "Unternehmen der Freyra Group",
+      current: "Sie sind hier",
+      external: "externe Website",
     },
     notFound: {
       title: "Seite nicht gefunden",
