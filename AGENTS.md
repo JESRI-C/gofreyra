@@ -3,3 +3,4 @@
 - Sitemap content entries use their own updated field; static pages omit lastmod without an authoritative page-specific timestamp.
 - Public pages live under `src/routes/{-$locale}/` (Danish unprefixed, /en and /de); internal links use `LLink` so the chosen language is kept, and page copy lives per locale in `src/i18n/pages/` so translations stay static and reviewable.
 - EN/DE article, term and service data live in `src/data/i18n/` with the same slugs, sources and links as the Danish originals; every new Danish batch needs matching en/de files wired through `artiklerFor`/`termerFor` in src/data/content.ts.
+- Freyra Group sister brands are listed only in `src/data/brand-family.ts` and rendered by `BrandFamily` in Header and Footer, so a new brand is added in one place and only once it has a live URL.
