@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Helvetica Neue", system-ui, -apple-system, sans-serif;
-  --font-display: "Source Serif 4", Georgia, serif;
+  --font-sans: "Instrument Sans", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -40,6 +40,15 @@
   --color-brand-beige: var(--brand-beige);
   --color-brand-ink: var(--brand-ink);
   --color-brand-isen: var(--brand-isen);
+  --color-forest: var(--forest);
+  --color-ivory: var(--ivory);
+  --color-sage: var(--sage);
+  --color-sky: var(--sky);
+  --color-clay: var(--clay);
+  --color-clay-deep: var(--clay-deep);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-eyebrow: var(--eyebrow);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -47,52 +56,63 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --shadow-soft: 0 1px 2px rgb(42 46 53 / 0.03), 0 2px 8px rgb(42 46 53 / 0.04);
-  --shadow-card: 0 1px 2px rgb(42 46 53 / 0.04), 0 6px 20px rgb(42 46 53 / 0.05);
+  --shadow-soft: none;
+  --shadow-card: 0 18px 40px -24px rgb(19 38 31 / 0.35);
 }
 
 :root {
-  --radius: 0.375rem;
+  --radius: 0.25rem;
 
-  /* Brand */
-  --brand-deep: oklch(0.42 0.08 154);     /* #27543D mørk skovgrøn */
-  --brand-mid: oklch(0.66 0.09 150);      /* #66A182 medium */
-  --brand-beige: oklch(0.965 0.008 90);   /* rolig off-white */
-  --brand-ink: oklch(0.27 0.01 260);      /* #2A2E35 mørkegrå */
-  --brand-isen: #0860A4;                  /* Isen-blå, kun som accent på Isen-linket */
+  /* Brand palette (see /brandstudio for pairings and contrast) */
+  --forest: #173F35;      /* skovgrøn: primær flade og tekst */
+  --ivory: #F3EBDD;       /* varm elfenben */
+  --paper: #FAF6EE;       /* lys papir, standardbaggrund */
+  --sage: #B8C8A3;        /* salvie */
+  --sky: #BFD8DF;         /* lys himmelblå */
+  --clay: #B9684B;        /* ler: kun dekoration og stor tekst */
+  --clay-deep: #8F4A31;   /* ler til tekst på lyse flader (5.5:1 på elfenben) */
+  --ink: #13261F;         /* brødtekst */
+  --brand-isen: #0860A4;  /* Isen-blå, kun som accent på Isen */
 
-  /* Semantic */
-  --background: oklch(0.985 0.003 90);    /* off-white */
-  --foreground: oklch(0.32 0.01 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.32 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.32 0.01 260);
+  /* Legacy brand aliases used across components */
+  --brand-deep: var(--forest);
+  --brand-mid: #4F7F66;
+  --brand-beige: var(--ivory);
+  --brand-ink: var(--ink);
+  --eyebrow: var(--clay-deep);
 
-  --primary: oklch(0.42 0.08 154);        /* mørk skovgrøn */
-  --primary-foreground: oklch(0.98 0.005 90);
+  /* Semantic (paper tone is the page default) */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: #FFFDF8;
+  --card-foreground: var(--ink);
+  --popover: #FFFDF8;
+  --popover-foreground: var(--ink);
 
-  --secondary: oklch(0.955 0.006 90);
-  --secondary-foreground: oklch(0.32 0.01 260);
+  --primary: var(--forest);
+  --primary-foreground: var(--ivory);
 
-  --muted: oklch(0.96 0.004 250);
-  --muted-foreground: oklch(0.52 0.01 260);
+  --secondary: var(--ivory);
+  --secondary-foreground: var(--ink);
 
-  --accent: oklch(0.94 0.02 150);
-  --accent-foreground: oklch(0.42 0.08 154);
+  --muted: var(--ivory);
+  --muted-foreground: #4E5B54;
 
-  --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
+  --accent: #E4EAD8;
+  --accent-foreground: var(--forest);
 
-  --border: oklch(0.91 0.005 250);
-  --input: oklch(0.91 0.005 250);
-  --ring: oklch(0.42 0.08 154);
+  --destructive: #B3261E;
+  --destructive-foreground: #FFFDF8;
 
-  --chart-1: oklch(0.42 0.08 154);
-  --chart-2: oklch(0.66 0.09 150);
-  --chart-3: oklch(0.55 0.13 250);
-  --chart-4: oklch(0.78 0.13 90);
-  --chart-5: oklch(0.5 0.01 260);
+  --border: #DDD3C2;
+  --input: #CFC4B1;
+  --ring: var(--forest);
+
+  --chart-1: var(--forest);
+  --chart-2: var(--sage);
+  --chart-3: var(--sky);
+  --chart-4: var(--clay);
+  --chart-5: #4E5B54;
 }
 
 @layer base {
@@ -110,10 +130,13 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 450;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
     color: var(--brand-ink);
+    text-wrap: balance;
   }
+  h1 { font-weight: 400; letter-spacing: -0.03em; }
   p {
     max-width: 65ch;
   }
@@ -135,30 +158,132 @@
     align-items: center;
     gap: 0.625rem;
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--brand-deep);
+    color: var(--eyebrow);
   }
   .eyebrow::before {
     content: "";
-    width: 1.5rem;
-    height: 1px;
-    background: var(--brand-deep);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    border: 1.5px solid currentColor;
   }
 
-  .surface-beige {
-    background: var(--brand-beige);
+  /* Tones: full-bleed colour fields. Each tone re-maps the semantic tokens so
+     nested cards, buttons, muted text and headings stay legible (AA). */
+  .tone-paper, .tone-ivory, .tone-sage, .tone-sky, .tone-forest {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  .tone-paper { --background: var(--paper); --card: #FFFDF8; }
+  .tone-ivory {
+    --background: var(--ivory);
+    --card: var(--paper);
+    --border: #D6C8B2;
+    --muted: #EAE0CE;
+  }
+  .tone-sage {
+    --background: var(--sage);
+    --foreground: var(--ink);
+    --card: #CCD8BB;
+    --card-foreground: var(--ink);
+    --muted: #A9BC92;
+    --muted-foreground: #2B3B33;
+    --border: rgb(23 63 53 / 0.24);
+    --input: rgb(23 63 53 / 0.35);
+    --accent: #A9BC92;
+    --secondary: #CCD8BB;
+    --eyebrow: var(--forest);
+  }
+  .tone-sky {
+    --background: var(--sky);
+    --foreground: var(--ink);
+    --card: #D6E7EB;
+    --card-foreground: var(--ink);
+    --muted: #ABCAD2;
+    --muted-foreground: #26413F;
+    --border: rgb(23 63 53 / 0.22);
+    --input: rgb(23 63 53 / 0.32);
+    --accent: #ABCAD2;
+    --secondary: #D6E7EB;
+    --eyebrow: var(--forest);
+  }
+  .tone-forest {
+    --background: var(--forest);
+    --foreground: var(--ivory);
+    --card: #1E4A3F;
+    --card-foreground: var(--ivory);
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+    --muted: #1E4A3F;
+    --muted-foreground: #CBD3C5;
+    --border: rgb(243 235 221 / 0.2);
+    --input: rgb(243 235 221 / 0.35);
+    --primary: var(--ivory);
+    --primary-foreground: var(--forest);
+    --secondary: #1E4A3F;
+    --secondary-foreground: var(--ivory);
+    --accent: #24564A;
+    --accent-foreground: var(--sky);
+    --ring: var(--sky);
+    --brand-deep: var(--sage);
+    --brand-ink: var(--ivory);
+    --eyebrow: var(--sage);
   }
 
-  .gradient-hero {
-    background: var(--background);
-  }
+  /* Legacy alias */
+  .surface-beige { background: var(--ivory); }
+  .gradient-hero { background: var(--background); }
 
+  /* Flat editorial panel; no drop shadow, crisp corners. */
   .card-soft {
     background: var(--card);
+    color: var(--card-foreground);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
+    border-radius: var(--radius-sm);
   }
+
+  /* Editorial item: hairline top rule instead of a box. */
+  .rule-item {
+    border-top: 1px solid color-mix(in oklab, var(--foreground) 28%, transparent);
+    padding-top: 1.25rem;
+  }
+  .display-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 2.75rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--eyebrow);
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Bookmark ribbon: right gutter only (outside container content), xl and up. */
+  .brand-ribbon {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    pointer-events: none;
+    width: 40px;
+    right: max(14px, calc((100% - 1200px) / 2 - 46px));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 22px), 0 100%);
+  }
+  @media (min-width: 1280px) { .brand-ribbon { display: block; } }
+  @media (min-width: 1440px) {
+    .brand-ribbon { width: 52px; right: calc((100% - 1200px) / 2 - 64px); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 28px), 0 100%); }
+  }
+  .brand-ribbon-mark {
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 44px;
+    aspect-ratio: 1;
+  }
+  .ribbon-clay { background: var(--clay); color: var(--ivory); }
+  .ribbon-sky { background: var(--sky); color: var(--forest); }
+  .ribbon-sage { background: var(--sage); color: var(--forest); }
+  .ribbon-forest { background: var(--forest); color: var(--sage); }
 }
