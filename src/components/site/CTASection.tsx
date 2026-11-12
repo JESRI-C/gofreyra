@@ -1,10 +1,11 @@
 import { LLink } from "@/components/site/LLink";
-import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { COPY } from "@/i18n/pages/cta";
 import { useCopy } from "@/i18n/useLocale";
+import { BrandGlyph } from "@/components/brand/marks";
 
+/** Closing call to action: full-bleed sage field that hands over to the forest footer. */
 export function CTASection({
   eyebrow,
   title,
@@ -20,22 +21,25 @@ export function CTASection({
   const su = subtitle ?? t.subtitle;
 
   return (
-    <section className="container-page my-20">
-      <div className="rounded-lg bg-brand-deep text-white p-10 md:p-16">
-        <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
-          <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 text-xs font-medium tracking-wider uppercase text-white/70">{ey}</div>
-            <h2 className="mt-3 text-3xl md:text-4xl text-white max-w-2xl">{ti}</h2>
-            <p className="mt-3 text-white/80 max-w-xl">{su}</p>
-          </div>
-          <div className="flex gap-3 flex-wrap">
-            <Button asChild className="rounded-md bg-white text-brand-deep hover:bg-white/90 h-12 px-6">
-              <LLink to="/kontakt">{t.bookCall} <ArrowRight className="ml-1.5 w-4 h-4" /></LLink>
-            </Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10">
-              <LLink to="/platformen">{t.viewPlatform}</LLink>
-            </Button>
-          </div>
+    <section className="tone-sage relative overflow-hidden">
+      <BrandGlyph
+        id="gofreyra"
+        strokeWidth={0.9}
+        className="pointer-events-none absolute -bottom-48 -right-40 h-[520px] w-[520px] text-forest/20 md:-right-16"
+      />
+      <div className="relative container-page py-20 md:py-28 grid md:grid-cols-[1fr_auto] gap-10 items-end">
+        <div className="min-w-0">
+          <span className="eyebrow">{ey}</span>
+          <h2 className="mt-4 text-4xl md:text-6xl max-w-3xl leading-[1.05]">{ti}</h2>
+          <p className="mt-5 text-lg text-foreground/85 max-w-xl">{su}</p>
+        </div>
+        <div className="flex gap-3 flex-wrap">
+          <Button asChild className="rounded-sm h-12 px-6 text-base">
+            <LLink to="/kontakt">{t.bookCall} <ArrowRight className="ml-1.5 w-4 h-4" /></LLink>
+          </Button>
+          <Button asChild variant="outline" className="rounded-sm h-12 px-6 text-base bg-transparent border-forest/40 hover:bg-forest/10 hover:text-foreground">
+            <LLink to="/platformen">{t.viewPlatform}</LLink>
+          </Button>
         </div>
       </div>
     </section>
