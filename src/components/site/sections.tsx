@@ -5,7 +5,8 @@ import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { COPY } from "@/i18n/pages/sections";
 import { useCopy } from "@/i18n/useLocale";
-import { Band, CroppedGlyph, RuleGrid, type Tone } from "@/components/site/blocks";
+import { Band, RuleGrid, type Tone } from "@/components/site/blocks";
+import { BrandGlyph } from "@/components/brand/marks";
 
 /* ---------- FAQ ---------- */
 export type FAQItem = { q: string; a: string };
@@ -69,7 +70,7 @@ export function GreenCTA({ title, subtitle, primary, secondary }: { title: strin
   return (
     <section className="container-page py-16 md:py-20">
       <div className="tone-forest relative overflow-hidden rounded-sm p-8 md:p-14">
-        <CroppedGlyph id="gofreyra" tone="forest" />
+        <BrandGlyph id="gofreyra" strokeWidth={1} className="pointer-events-none absolute -right-20 -top-24 hidden h-60 w-60 text-sage/30 md:block" />
         <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-end">
           <div>
             <div className="font-display text-3xl md:text-4xl leading-tight text-sky text-balance">{title}</div>

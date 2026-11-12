@@ -34,13 +34,17 @@ export function Band({
   );
 }
 
-/** Oversized outline mark, cropped by the section edge. Decorative only. */
+/**
+ * Oversized outline mark, cropped by the section edge. Decorative only and
+ * shown from xl, positioned in the empty right zone beside max-w-3xl content,
+ * so it never sits behind readable text.
+ */
 export function CroppedGlyph({ id, position = "right", tone = "paper" }: { id: BrandMarkId; position?: "right" | "left"; tone?: Tone }) {
-  const color = tone === "forest" ? "text-sage/25" : tone === "paper" || tone === "ivory" ? "text-forest/[0.09]" : "text-forest/15";
-  const pos = position === "right" ? "-right-40 md:-right-24" : "-left-40 md:-left-24";
+  const color = tone === "forest" ? "text-sage/30" : tone === "paper" || tone === "ivory" ? "text-forest/[0.12]" : "text-forest/20";
+  const pos = position === "right" ? "-right-40" : "-left-40";
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <BrandGlyph id={id} className={`absolute top-1/2 -translate-y-1/2 ${pos} h-[440px] w-[440px] md:h-[620px] md:w-[620px] ${color}`} strokeWidth={0.9} />
+    <div aria-hidden className="pointer-events-none absolute inset-0 hidden overflow-hidden xl:block">
+      <BrandGlyph id={id} className={`absolute top-1/2 -translate-y-1/2 ${pos} h-[520px] w-[520px] ${color}`} strokeWidth={0.9} />
     </div>
   );
 }

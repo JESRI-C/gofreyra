@@ -17,7 +17,7 @@ export function Footer() {
         <BrandGlyph
           id="group"
           strokeWidth={0.8}
-          className="pointer-events-none absolute -right-32 -top-24 h-[560px] w-[560px] text-sage/15 md:-right-10"
+          className="pointer-events-none absolute -bottom-44 -left-32 hidden h-[440px] w-[440px] text-sage/20 lg:block"
         />
         <div className="relative container-page py-16 md:py-20 grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>

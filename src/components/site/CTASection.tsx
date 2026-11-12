@@ -25,7 +25,7 @@ export function CTASection({
       <BrandGlyph
         id="gofreyra"
         strokeWidth={0.9}
-        className="pointer-events-none absolute -bottom-48 -right-40 h-[520px] w-[520px] text-forest/20 md:-right-16"
+        className="pointer-events-none absolute -right-40 -top-64 hidden h-[480px] w-[480px] text-forest/20 lg:block"
       />
       <div className="relative container-page py-20 md:py-28 grid md:grid-cols-[1fr_auto] gap-10 items-end">
         <div className="min-w-0">

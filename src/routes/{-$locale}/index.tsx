@@ -147,7 +147,7 @@ function HomePage() {
       </Band>
 
       {/* SÅDAN ARBEJDER VI */}
-      <Band tone="sage" glyph="group">
+      <Band tone="sage">
         <div className="container-page py-20 md:py-28">
           <SectionHeader eyebrow={t.principles.eyebrow} title={t.principles.title} />
           <RuleGrid items={t.principles.cards} cols={4} className="mt-14" />
