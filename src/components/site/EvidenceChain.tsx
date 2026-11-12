@@ -17,18 +17,18 @@ export function EvidenceChain({ compact = false }: { compact?: boolean }) {
   ];
 
   return (
-    <div className={`card-soft bg-card ${compact ? "p-5" : "p-6 md:p-8"}`}>
-      <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.heading}</div>
-      <div className="mt-5 grid gap-3">
+    <div className={`border-y border-border ${compact ? "py-5" : "py-8 md:py-10"}`}>
+      <div className="eyebrow">{t.heading}</div>
+      <div className="mt-8 grid gap-5">
         {steps.map((s, i) => (
-          <div key={s.t} className="flex items-start gap-3">
+          <div key={s.t} className="flex items-stretch gap-5">
             <div className="flex flex-col items-center">
-              <div className="w-10 h-10 rounded-md bg-accent text-brand-deep grid place-items-center shrink-0">{s.icon}</div>
-              {i < steps.length - 1 && <div className="w-px flex-1 min-h-4 bg-border my-1" />}
+              <div className="w-10 h-10 rounded-full border-2 border-eyebrow text-eyebrow grid place-items-center shrink-0">{s.icon}</div>
+              {i < steps.length - 1 && <div className="w-px flex-1 min-h-6 bg-border mt-2" />}
             </div>
             <div className="pt-1.5">
-              <div className="font-semibold text-sm">{s.t}</div>
-              {!compact && <div className="text-xs text-muted-foreground mt-0.5">{s.d}</div>}
+              <div className="font-display text-lg">{s.t}</div>
+              {!compact && <div className="text-sm text-muted-foreground mt-1">{s.d}</div>}
             </div>
           </div>
         ))}

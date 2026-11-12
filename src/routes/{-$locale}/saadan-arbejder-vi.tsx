@@ -1,5 +1,6 @@
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute } from "@tanstack/react-router";
+import { Band, PageHero, RuleGrid } from "@/components/site/blocks";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
@@ -30,65 +31,52 @@ function MethodPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">{t.methodEyebrow}</span>
-        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">{t.heading}</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-          {t.introduction}
-        </p>
-      </section>
+      <PageHero tone="sage" eyebrow={t.methodEyebrow} title={t.heading} body={t.introduction} />
 
-      <section className="container-page pb-4">
-        <figure className="card-soft overflow-hidden p-0 bg-card">
+      <Band tone="paper"><div className="container-page py-20 md:py-28">
+        <figure className="m-0">
           <img {...photoProps(sectionPhoto.url, "100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
-          <figcaption className="p-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
+          <figcaption className="mt-2.5 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
         </figure>
-      </section>
+      </div></Band>
 
-      <section className="container-page py-16 md:py-20">
+      <Band tone="ivory"><div className="container-page py-20 md:py-28">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.phases.map((f) => (
-            <div key={f.n} className="card-soft p-6 bg-card">
-              <div className="text-sm font-mono text-brand-deep">{f.n}</div>
-              <div className="mt-2 font-semibold">{f.t}</div>
+            <div key={f.n} className="rule-item">
+              <div className="display-num mb-4">{f.n}</div>
+              <div className="mt-2 font-display text-2xl">{f.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{f.d}</p>
             </div>
           ))}
         </div>
-      </section>
+      </div></Band>
 
-      <section className="surface-beige">
-        <div className="container-page py-20 md:py-24">
+      <Band tone="forest">
+        <div className="container-page py-20 md:py-28">
           <div className="max-w-3xl">
             <span className="eyebrow">{t.qualityEyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.qualityHeading}</h2>
+            <h2 className="mt-4 text-3xl md:text-5xl">{t.qualityHeading}</h2>
           </div>
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {t.quality.map((k) => (
-              <div key={k.t} className="card-soft p-6 bg-card">
-                <div className="font-semibold">{k.t}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{k.d}</p>
-              </div>
-            ))}
-          </div>
+          <RuleGrid items={t.quality} cols={3} className="mt-14" />
         </div>
-      </section>
+      </Band>
 
-      <section className="container-page py-20 md:py-24 max-w-3xl">
+      <Band tone="sky"><div className="container-page py-20 md:py-28 max-w-3xl">
         <span className="eyebrow">{t.limitationsEyebrow}</span>
-        <h2 className="mt-4 text-3xl md:text-4xl">{t.limitationsHeading}</h2>
+        <h2 className="mt-4 text-3xl md:text-5xl">{t.limitationsHeading}</h2>
         <ul className="mt-6 space-y-3">
           {t.limitations.map((b) => (
-            <li key={b} className="flex gap-3 items-start">
-              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
+            <li key={b} className="flex gap-3 items-start border-t border-border py-4">
+              <span className="mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-eyebrow shrink-0" />
               <span>{b}</span>
             </li>
           ))}
         </ul>
         <p className="mt-8 text-muted-foreground">
-          {t.resultsBefore}<LLink to="/ydelser" className="text-brand-deep font-medium hover:underline">{t.servicesLink}</LLink>{t.resultsBetween}<LLink to="/luftfoto" className="text-brand-deep font-medium hover:underline">{t.photosLink}</LLink>{t.resultsAfter}
+          {t.resultsBefore}<LLink to="/ydelser" className="text-foreground font-medium hover:underline">{t.servicesLink}</LLink>{t.resultsBetween}<LLink to="/luftfoto" className="text-foreground font-medium hover:underline">{t.photosLink}</LLink>{t.resultsAfter}
         </p>
-      </section>
+      </div></Band>
 
       <GreenCTA
         title={t.ctaTitle}
