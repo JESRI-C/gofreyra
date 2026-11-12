@@ -6,7 +6,7 @@ import { useId, type CSSProperties } from "react";
  * horizon bands. Each brand keeps its own silhouette:
  *   Freyra Group (owner)  arch with bookmark notch, an F built from nodes
  *   GoFreyra              disk, circuit tree over land and water
- *   Isen (proposal)       hexagon, energy mast over a water band
+ *   Isen (proposal)       hexagon, A-frame energy mast over a water band
  * The raw geometry also feeds scripts/build-brand-svgs.tsx (public/brand/*.svg).
  */
 
@@ -62,11 +62,11 @@ export const MARK_GEOMETRY: Record<BrandMarkId, Geometry> = {
   isen: {
     silhouette: "M32 2L58 17V47L32 62L6 47V17Z",
     bands: [{ d: "M-2 47C14 43 22 43 32 46C42 49 52 48 66 44V66H-2Z", tone: "water" }],
-    lines: ["M32 45V21", "M25 28H39", "M21 36H43"],
+    lines: ["M20.5 47L32 21.8L43.5 47", "M16 34H48"],
     nodes: [
-      { cx: 32, cy: 16.8, r: 4.2 },
-      { cx: 17.8, cy: 36, r: 3.2 },
-      { cx: 46.2, cy: 36, r: 3.2 },
+      { cx: 32, cy: 17.6, r: 4.2 },
+      { cx: 12.8, cy: 34, r: 3.2 },
+      { cx: 51.2, cy: 34, r: 3.2 },
     ],
     base: BRAND_HEX.isen,
   },
