@@ -235,10 +235,8 @@ function BrandStudio() {
             {(["clay", "forest", "sage", "sky"] as const).map((r) => (
               <div key={r} className="relative overflow-hidden">
                 <div className={`${r === "forest" ? "tone-sage" : "tone-forest"} relative h-40`}>
-                  <div className="absolute right-6 top-0 h-[calc(100%+5rem)] w-10" style={{ zIndex: 2 }}>
-                    <div className="relative h-full w-full [&_.brand-ribbon]:!block [&_.brand-ribbon]:!right-0 [&_.brand-ribbon]:!w-10">
-                      <BrandRibbon tone={r} extend="5rem" />
-                    </div>
+                  <div className="absolute right-6 top-0 z-10 h-full w-10 [&_.brand-ribbon]:!block [&_.brand-ribbon]:!right-0 [&_.brand-ribbon]:!w-10">
+                    <BrandRibbon tone={r} extend="5rem" />
                   </div>
                 </div>
                 <div className="tone-paper h-32" />
