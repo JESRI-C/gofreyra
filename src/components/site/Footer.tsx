@@ -1,6 +1,7 @@
 import freyraIcon from "@/assets/freyra-icon.png";
 import { ydelserFor } from "@/data/ydelser";
 import { LLink } from "@/components/site/LLink";
+import { BrandFamily } from "@/components/site/BrandFamily";
 import { useLocale } from "@/i18n/useLocale";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
 
@@ -61,8 +62,9 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border">
-        <div className="container-page py-6 flex flex-wrap justify-between gap-2 text-xs text-muted-foreground">
+        <div className="container-page py-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} Gofreyra ApS. {t.rights}</div>
+          <BrandFamily />
           <LLink to="/privatlivspolitik" className="hover:text-foreground">{t.privacy}</LLink>
         </div>
       </div>

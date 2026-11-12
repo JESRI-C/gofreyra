@@ -39,6 +39,7 @@
   --color-brand-mid: var(--brand-mid);
   --color-brand-beige: var(--brand-beige);
   --color-brand-ink: var(--brand-ink);
+  --color-brand-isen: var(--brand-isen);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -58,6 +59,7 @@
   --brand-mid: oklch(0.66 0.09 150);      /* #66A182 medium */
   --brand-beige: oklch(0.965 0.008 90);   /* rolig off-white */
   --brand-ink: oklch(0.27 0.01 260);      /* #2A2E35 mørkegrå */
+  --brand-isen: #0860A4;                  /* Isen-blå, kun som accent på Isen-linket */
 
   /* Semantic */
   --background: oklch(0.985 0.003 90);    /* off-white */

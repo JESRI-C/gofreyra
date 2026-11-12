@@ -5,6 +5,7 @@ import freyraIcon from "@/assets/freyra-icon.png";
 import { ydelserFor } from "@/data/ydelser";
 import { LLink } from "@/components/site/LLink";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
+import { BrandFamily } from "@/components/site/BrandFamily";
 import { useLocale } from "@/i18n/useLocale";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
 
@@ -18,6 +19,12 @@ export function Header() {
   const ydelser = ydelserFor(locale);
 
   return (
+    <>
+    <div className="border-b border-border/60 bg-secondary/60">
+      <div className="container-page min-[1440px]:max-w-[1400px] flex h-9 items-center justify-end">
+        <BrandFamily />
+      </div>
+    </div>
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container-page min-[1440px]:max-w-[1400px] flex h-16 items-center justify-between gap-3">
         <LLink to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight shrink-0" aria-label={t.home}>
@@ -111,5 +118,6 @@ export function Header() {
         </div>
       )}
     </header>
+    </>
   );
 }
