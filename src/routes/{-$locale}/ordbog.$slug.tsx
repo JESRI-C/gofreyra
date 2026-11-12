@@ -4,7 +4,6 @@ import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { Band, PageHero } from "@/components/site/blocks";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
 import { brandTitle, getArtikel, getTerm, heroFor } from "@/lib/viden-helpers";
@@ -61,7 +60,7 @@ function TermNotFound() {
       <section className="container-page py-24 max-w-2xl">
         <h1 className="text-3xl md:text-4xl">{k.term.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.term.notFoundBody}</p>
-        <LLink to="/ordbog" className="mt-6 inline-flex items-center text-forest font-medium">{k.term.toGlossary} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
+        <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.term.toGlossary} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
   );
@@ -78,31 +77,25 @@ function TermPage() {
 
   return (
     <PageLayout>
-      <article>
-        <PageHero tone="sage" title={t.term} body={t.short} breadcrumb={(
+      <article className="container-page py-12 md:py-16 max-w-3xl">
         <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
           <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
           <LLink to="/ordbog" className="hover:text-foreground">{k.ordbog}</LLink> <span aria-hidden>/</span>{" "}
           <span className="text-foreground/80">{t.term}</span>
         </nav>
-        )} />
-        <Band tone="paper">
-        <div className="container-page py-20 md:py-28 max-w-3xl">
+        <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{t.term}</h1>
+        <p className="mt-6 card-soft p-5 surface-beige text-lg text-foreground/90 border-l-4 border-l-primary">{t.short}</p>
         {t.body.map((p, i) => (
           <p key={i} className="mt-5 text-foreground/85 leading-relaxed">{p}</p>
         ))}
 
-        </div>
-        </Band>
-        <Band tone="ivory">
-        <div className="container-page py-20 md:py-28 max-w-3xl">
         {t.sources.length > 0 && (
           <section className="mt-12">
             <h2 className="text-2xl md:text-3xl">{k.term.sources}</h2>
             <ol className="mt-4 list-decimal pl-5 space-y-2 text-sm">
               {t.sources.map((s) => (
                 <li key={s.url}>
-                  <a href={s.url} target="_blank" rel="noopener" className="text-forest underline underline-offset-2 hover:text-foreground break-words">{s.title}</a>
+                  <a href={s.url} target="_blank" rel="noopener" className="text-brand-deep underline underline-offset-2 hover:text-foreground break-words">{s.title}</a>
                 </li>
               ))}
             </ol>
@@ -115,7 +108,7 @@ function TermPage() {
             <ul className="mt-4 flex flex-wrap gap-2">
               {related.map((r) => (
                 <li key={r.slug}>
-                  <LLink to="/ordbog/$slug" params={{ slug: r.slug }} className="inline-block border-b border-border py-2 text-base hover:text-foreground transition">{r.term}</LLink>
+                  <LLink to="/ordbog/$slug" params={{ slug: r.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{r.term}</LLink>
                 </li>
               ))}
             </ul>
@@ -128,7 +121,7 @@ function TermPage() {
             <ul className="mt-4 space-y-2">
               {articles.map((a) => (
                 <li key={a.slug}>
-                  <LLink to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-forest hover:text-foreground">
+                  <LLink to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                     <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {a.h1}
                   </LLink>
                 </li>
@@ -139,10 +132,8 @@ function TermPage() {
 
         <p className="mt-14 text-sm text-muted-foreground">
           {k.term.ctaLead}{" "}
-          <LLink to="/kontakt" className="text-forest font-medium hover:text-foreground">{k.term.ctaLink}</LLink>.
+          <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">{k.term.ctaLink}</LLink>.
         </p>
-        </div>
-        </Band>
       </article>
     </PageLayout>
   );

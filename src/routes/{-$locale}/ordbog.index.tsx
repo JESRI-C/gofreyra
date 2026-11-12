@@ -3,7 +3,6 @@ import { useLocale } from "@/i18n/useLocale";
 import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute } from "@tanstack/react-router";
-import { Band, PageHero } from "@/components/site/blocks";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
@@ -71,33 +70,28 @@ function OrdbogPage() {
   const { groups } = grouped(locale);
   return (
     <PageLayout>
-      <PageHero
-        tone="sage"
-        title={k.glossary.h1}
-        body={k.glossary.intro}
-        breadcrumb={(
+      <section className="container-page py-12 md:py-16 max-w-3xl">
         <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
           <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span> <span>{k.ordbog}</span>
         </nav>
-        )}
-      >
+        <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{k.glossary.h1}</h1>
+        <p className="mt-6 text-lg text-muted-foreground">{k.glossary.intro}</p>
         <nav aria-label={k.glossary.letters} className="mt-8 flex flex-wrap gap-2">
           {groups.map((g) => (
-            <a key={g.letter} href={`#${k.glossary.anchor}-${g.letter}`} className="w-9 h-9 inline-flex items-center justify-center rounded-sm border border-border bg-transparent text-sm font-medium hover:border-primary/40 hover:text-foreground">{g.letter}</a>
+            <a key={g.letter} href={`#${k.glossary.anchor}-${g.letter}`} className="w-9 h-9 inline-flex items-center justify-center rounded-md border border-border bg-card text-sm font-medium hover:border-primary/40 hover:text-brand-deep">{g.letter}</a>
           ))}
         </nav>
-      </PageHero>
+      </section>
 
-      <Band tone="paper">
-      <div className="container-page py-20 md:py-28">
+      <section className="container-page pb-12 max-w-3xl">
         {groups.map((g) => (
-          <div key={g.letter} id={`${k.glossary.anchor}-${g.letter}`} className="mt-16 first:mt-0 scroll-mt-24 grid gap-6 md:grid-cols-[8rem_1fr]">
-            <h2 className="font-display text-6xl md:text-8xl text-eyebrow">{g.letter}</h2>
-            <dl className="divide-y divide-border border-y border-border min-w-0">
+          <div key={g.letter} id={`${k.glossary.anchor}-${g.letter}`} className="mt-10 first:mt-0 scroll-mt-24">
+            <h2 className="text-2xl md:text-3xl text-brand-deep">{g.letter}</h2>
+            <dl className="mt-4 divide-y divide-border border-y border-border">
               {g.items.map((t) => (
-                <div key={t.slug} className="py-6">
-                  <dt className="font-display text-2xl">
-                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="hover:text-forest transition">{t.term}</LLink>
+                <div key={t.slug} className="py-4">
+                  <dt className="font-semibold">
+                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="hover:text-brand-deep transition">{t.term}</LLink>
                   </dt>
                   <dd className="mt-1 text-sm text-muted-foreground">{t.short}</dd>
                 </div>
@@ -106,10 +100,9 @@ function OrdbogPage() {
           </div>
         ))}
         <p className="mt-10 text-sm">
-          <LLink to="/viden" className="text-forest font-medium hover:text-foreground">{k.glossary.readArticles}</LLink>
+          <LLink to="/viden" className="text-brand-deep font-medium hover:text-foreground">{k.glossary.readArticles}</LLink>
         </p>
-      </div>
-      </Band>
+      </section>
 
       <CTASection />
     </PageLayout>

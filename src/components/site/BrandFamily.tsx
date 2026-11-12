@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { BrandMark } from "@/components/brand/marks";
+import freyraIcon from "@/assets/freyra-icon.png";
 import { BRAND_FAMILY, CURRENT_BRAND, type BrandId } from "@/data/brand-family";
 import { LLink } from "@/components/site/LLink";
 import { useLocale } from "@/i18n/useLocale";
@@ -18,10 +18,7 @@ export function BrandFamily({ className = "" }: { className?: string }) {
 
   return (
     <nav aria-label={t.navLabel} className={`flex items-center gap-x-3 text-xs ${className}`}>
-      <span className="inline-flex items-center gap-1.5 text-muted-foreground">
-        <BrandMark id="group" variant="mono" size={13} className="text-forest" />
-        {t.label}
-      </span>
+      <span className="text-muted-foreground">{t.label}</span>
       <ul className="flex items-center gap-x-1">
         {BRAND_FAMILY.map((b) => {
           const current = b.id === CURRENT_BRAND;
@@ -33,7 +30,7 @@ export function BrandFamily({ className = "" }: { className?: string }) {
                   aria-current="true"
                   className="inline-flex items-center gap-1.5 rounded-sm px-1.5 py-1 font-semibold text-brand-deep underline decoration-primary decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <BrandMark id="gofreyra" size={14} />
+                  <img src={freyraIcon} alt="" width={14} height={14} className="h-3.5 w-3.5 object-contain" />
                   {b.name}
                   <span className="sr-only"> ({t.current})</span>
                 </LLink>

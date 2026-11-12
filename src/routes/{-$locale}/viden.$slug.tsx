@@ -4,7 +4,6 @@ import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { Band, PageHero } from "@/components/site/blocks";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/components/site/SEO";
@@ -79,7 +78,7 @@ function ArticleNotFound() {
       <section className="container-page py-24 max-w-2xl">
         <h1 className="text-3xl md:text-4xl">{k.article.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.article.notFoundBody}</p>
-        <LLink to="/viden" className="mt-6 inline-flex items-center text-forest font-medium">{k.article.toViden} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
+        <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.article.toViden} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
     </PageLayout>
   );
@@ -88,7 +87,7 @@ function ArticleNotFound() {
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex gap-2 items-start">
-      <span className="mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-eyebrow shrink-0" />
+      <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
       <span>{children}</span>
     </li>
   );
@@ -109,34 +108,35 @@ function ArticlePage() {
   return (
     <PageLayout>
       <article>
-        <PageHero tone="forest" title={a.h1} body={a.intro}
-          breadcrumb={(
+        <header className="container-page pt-12 md:pt-16 max-w-3xl">
           <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
             <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
             <LLink to="/viden" className="hover:text-foreground">{k.viden}</LLink> <span aria-hidden>/</span>{" "}
             <span className="text-foreground/80">{a.h1}</span>
           </nav>
-          )}
-          meta={<>{k.article.updated} <time dateTime={a.updated}>{formatDate(a.updated, locale)}</time></>}
-        />
-        <Band tone="paper">
+          <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{a.h1}</h1>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {k.article.updated} <time dateTime={a.updated}>{formatDate(a.updated, locale)}</time>
+          </p>
+          <p className="mt-6 text-lg md:text-xl text-foreground/85">{a.intro}</p>
+        </header>
 
-        <figure className="container-page pt-12 md:pt-16">
-          <div>
+        <figure className="container-page mt-10">
+          <div className="card-soft overflow-hidden p-0 bg-card">
             <img
               {...photoProps(hero.src, "100vw")}
               loading="lazy"
               alt={hero.alt}
               decoding="async"
-              className="w-full aspect-[16/9] md:aspect-[21/9] object-cover"
+              className="w-full aspect-[21/9] object-cover"
             />
-            <figcaption className="mt-2.5 text-xs text-muted-foreground">{k.article.caption}</figcaption>
+            <figcaption className="p-3 text-xs text-muted-foreground">{k.article.caption}</figcaption>
           </div>
         </figure>
 
-        <div className="container-page py-20 md:py-28 max-w-3xl">
+        <div className="container-page py-12 max-w-3xl">
           {a.sections.map((s) => (
-            <section key={s.h2} className="mt-16 first:mt-0">
+            <section key={s.h2} className="mt-10 first:mt-0">
               <h2 className="text-2xl md:text-3xl">{s.h2}</h2>
               {s.paragraphs.map((p, i) => (
                 <p key={i} className="mt-4 text-foreground/85 leading-relaxed">{p}</p>
@@ -154,10 +154,10 @@ function ArticlePage() {
               <h2 className="text-2xl md:text-3xl">{k.article.faq}</h2>
               <div className="mt-6 space-y-3">
                 {a.faq.map((f) => (
-                  <details key={f.q} className="border-t border-border py-6 group">
+                  <details key={f.q} className="card-soft px-5 py-4 bg-card group">
                     <summary className="cursor-pointer font-medium list-none flex justify-between gap-4">
                       <h3 className="text-base font-medium">{f.q}</h3>
-                      <span aria-hidden className="text-forest group-open:rotate-45 transition">+</span>
+                      <span aria-hidden className="text-brand-deep group-open:rotate-45 transition">+</span>
                     </summary>
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                   </details>
@@ -166,17 +166,13 @@ function ArticlePage() {
             </section>
           )}
 
-        </div>
-        </Band>
-        <Band tone="ivory">
-        <div className="container-page py-20 md:py-28 max-w-3xl">
           {a.sources.length > 0 && (
             <section className="mt-14">
               <h2 className="text-2xl md:text-3xl">{k.article.sources}</h2>
               <ol className="mt-5 list-decimal pl-5 space-y-2 text-sm">
                 {a.sources.map((s) => (
                   <li key={s.url}>
-                    <a href={s.url} target="_blank" rel="noopener" className="text-forest underline underline-offset-2 hover:text-foreground break-words">{s.title}</a>
+                    <a href={s.url} target="_blank" rel="noopener" className="text-brand-deep underline underline-offset-2 hover:text-foreground break-words">{s.title}</a>
                   </li>
                 ))}
               </ol>
@@ -189,7 +185,7 @@ function ArticlePage() {
               <ul className="mt-5 flex flex-wrap gap-2">
                 {terms.map((t) => (
                   <li key={t.slug}>
-                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="inline-block border-b border-border py-2 text-base hover:text-foreground transition">{t.term}</LLink>
+                    <LLink to="/ordbog/$slug" params={{ slug: t.slug }} className="inline-block rounded-md border border-border bg-card px-3 py-1.5 text-sm hover:border-primary/40 hover:text-brand-deep transition">{t.term}</LLink>
                   </li>
                 ))}
               </ul>
@@ -202,7 +198,7 @@ function ArticlePage() {
               <ul className="mt-5 space-y-2">
                 {inCluster.map((r) => (
                   <li key={r.slug}>
-                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-forest hover:text-foreground">
+                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {r.h1}
                     </LLink>
                   </li>
@@ -217,7 +213,7 @@ function ArticlePage() {
               <ul className="mt-5 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>
-                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-forest hover:text-foreground">
+                    <LLink to="/viden/$slug" params={{ slug: r.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {r.h1}
                     </LLink>
                   </li>
@@ -227,12 +223,12 @@ function ArticlePage() {
           )}
 
           {services.length > 0 && (
-            <aside className="mt-14 border-t border-border pt-8">
+            <aside className="mt-14 card-soft p-6 surface-beige">
               <h2 className="text-xl font-semibold">{k.article.services}</h2>
               <ul className="mt-4 space-y-2">
                 {services.map((s) => (
                   <li key={s.slug}>
-                    <LLink to="/ydelser/$slug" params={{ slug: s.slug }} className="inline-flex items-center text-sm font-medium text-forest hover:text-foreground">
+                    <LLink to="/ydelser/$slug" params={{ slug: s.slug }} className="inline-flex items-center text-sm font-medium text-brand-deep hover:text-foreground">
                       <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {s.title}
                     </LLink>
                   </li>
@@ -241,7 +237,6 @@ function ArticlePage() {
             </aside>
           )}
         </div>
-        </Band>
       </article>
 
       <CTASection />

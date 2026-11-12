@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as BrancherRouteImport } from './routes/brancher'
-import { Route as BrandstudioRouteImport } from './routes/brandstudio'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DataRouteImport } from './routes/data'
 import { Route as DatakilderRouteImport } from './routes/datakilder'
@@ -58,11 +57,6 @@ const BookDemoRoute = BookDemoRouteImport.update({
 const BrancherRoute = BrancherRouteImport.update({
   id: '/brancher',
   path: '/brancher',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrandstudioRoute = BrandstudioRouteImport.update({
-  id: '/brandstudio',
-  path: '/brandstudio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -271,7 +265,6 @@ export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
-  '/brandstudio': typeof BrandstudioRoute
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
@@ -312,7 +305,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
-  '/brandstudio': typeof BrandstudioRoute
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
@@ -355,7 +347,6 @@ export interface FileRoutesById {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/brancher': typeof BrancherRouteWithChildren
-  '/brandstudio': typeof BrandstudioRoute
   '/dashboard': typeof DashboardRoute
   '/data': typeof DataRouteWithChildren
   '/datakilder': typeof DatakilderRoute
@@ -399,7 +390,6 @@ export interface FileRouteTypes {
     | '/{-$locale}'
     | '/book-demo'
     | '/brancher'
-    | '/brandstudio'
     | '/dashboard'
     | '/data'
     | '/datakilder'
@@ -440,7 +430,6 @@ export interface FileRouteTypes {
   to:
     | '/book-demo'
     | '/brancher'
-    | '/brandstudio'
     | '/dashboard'
     | '/data'
     | '/datakilder'
@@ -482,7 +471,6 @@ export interface FileRouteTypes {
     | '/{-$locale}'
     | '/book-demo'
     | '/brancher'
-    | '/brandstudio'
     | '/dashboard'
     | '/data'
     | '/datakilder'
@@ -525,7 +513,6 @@ export interface RootRouteChildren {
   Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
   BookDemoRoute: typeof BookDemoRoute
   BrancherRoute: typeof BrancherRouteWithChildren
-  BrandstudioRoute: typeof BrandstudioRoute
   DashboardRoute: typeof DashboardRoute
   DataRoute: typeof DataRouteWithChildren
   DatakilderRoute: typeof DatakilderRoute
@@ -556,13 +543,6 @@ declare module '@tanstack/react-router' {
       path: '/brancher'
       fullPath: '/brancher'
       preLoaderRoute: typeof BrancherRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brandstudio': {
-      id: '/brandstudio'
-      path: '/brandstudio'
-      fullPath: '/brandstudio'
-      preLoaderRoute: typeof BrandstudioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -948,7 +928,6 @@ const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
   BookDemoRoute: BookDemoRoute,
   BrancherRoute: BrancherRouteWithChildren,
-  BrandstudioRoute: BrandstudioRoute,
   DashboardRoute: DashboardRoute,
   DataRoute: DataRouteWithChildren,
   DatakilderRoute: DatakilderRoute,
