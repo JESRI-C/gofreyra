@@ -1,12 +1,13 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Helvetica Neue", system-ui, -apple-system, sans-serif;
-  --font-display: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter Variable", "Inter", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter Variable", "Inter", "Helvetica Neue", system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
