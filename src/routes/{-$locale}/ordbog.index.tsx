@@ -4,6 +4,7 @@ import { KNOWLEDGE_COPY } from "@/i18n/pages/knowledge";
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
+import { PageHero } from "@/components/site/sections";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd, SITE_URL } from "@/components/site/SEO";
 import { termerFor } from "@/data/content";
@@ -70,18 +71,22 @@ function OrdbogPage() {
   const { groups } = grouped(locale);
   return (
     <PageLayout>
-      <section className="container-page py-12 md:py-16 max-w-3xl">
-        <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
-          <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span> <span>{k.ordbog}</span>
-        </nav>
-        <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{k.glossary.h1}</h1>
-        <p className="mt-6 text-lg text-muted-foreground">{k.glossary.intro}</p>
-        <nav aria-label={k.glossary.letters} className="mt-8 flex flex-wrap gap-2">
+      <PageHero
+        motif={false}
+        top={
+          <nav aria-label={k.breadcrumb} className="eyebrow gap-2">
+            <LLink to="/" className="hover:underline">{k.home}</LLink> <span aria-hidden>/</span> <span>{k.ordbog}</span>
+          </nav>
+        }
+        title={k.glossary.h1}
+        body={<p>{k.glossary.intro}</p>}
+      >
+        <nav aria-label={k.glossary.letters} className="mt-8 flex flex-wrap gap-2 max-w-[820px]">
           {groups.map((g) => (
-            <a key={g.letter} href={`#${k.glossary.anchor}-${g.letter}`} className="w-9 h-9 inline-flex items-center justify-center rounded-md border border-border bg-card text-sm font-medium hover:border-primary/40 hover:text-brand-deep">{g.letter}</a>
+            <a key={g.letter} href={`#${k.glossary.anchor}-${g.letter}`} className="w-10 h-10 inline-flex items-center justify-center rounded-sm border border-brand-rule bg-card text-sm font-semibold text-brand-ink hover:border-primary hover:text-brand-deep">{g.letter}</a>
           ))}
         </nav>
-      </section>
+      </PageHero>
 
       <section className="container-page pb-12 max-w-3xl">
         {groups.map((g) => (

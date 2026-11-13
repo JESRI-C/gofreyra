@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { contactSchema, type ContactErrorKey } from "@/i18n/contact-schema";
 import { PageLayout } from "@/components/site/PageLayout";
+import { PageHero } from "@/components/site/sections";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -62,15 +63,7 @@ function ContactPage() {
 
   return (
     <PageLayout>
-      <section className="gradient-hero">
-        <div className="container-page py-16 md:py-20 max-w-3xl">
-          <span className="eyebrow">{t.contact}</span>
-          <h1 className="mt-4 text-4xl md:text-5xl ">{t.heading}</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            {t.introduction}
-          </p>
-        </div>
-      </section>
+      <PageHero eyebrow={t.contact} title={t.heading} body={<p>{t.introduction}</p>} />
 
       <section className="container-page py-14 grid lg:grid-cols-[1fr_1.2fr] gap-10">
         <div className="space-y-5">
