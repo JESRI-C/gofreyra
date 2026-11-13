@@ -76,7 +76,7 @@ function ArticleNotFound() {
   return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">{k.article.notFoundH1}</h1>
+        <h1 className="display-2">{k.article.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.article.notFoundBody}</p>
         <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.article.toViden} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>

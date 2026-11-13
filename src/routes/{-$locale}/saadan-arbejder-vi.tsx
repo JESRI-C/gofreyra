@@ -55,7 +55,7 @@ function MethodPage() {
         <div className="container-page py-20 md:py-24">
           <div className="max-w-3xl">
             <span className="eyebrow">{t.qualityEyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.qualityHeading}</h2>
+            <h2 className="mt-5 display-2">{t.qualityHeading}</h2>
           </div>
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {t.quality.map((k) => (
@@ -70,7 +70,7 @@ function MethodPage() {
 
       <section className="container-page py-20 md:py-24 max-w-3xl">
         <span className="eyebrow">{t.limitationsEyebrow}</span>
-        <h2 className="mt-4 text-3xl md:text-4xl">{t.limitationsHeading}</h2>
+        <h2 className="mt-5 display-2">{t.limitationsHeading}</h2>
         <ul className="mt-6 space-y-3">
           {t.limitations.map((b) => (
             <li key={b} className="flex gap-3 items-start">

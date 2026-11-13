@@ -40,7 +40,7 @@ function FaqPage() {
         <div className="container-page py-20 md:py-24">
           <div className="max-w-3xl">
             <span className="eyebrow">{t.glossaryEyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.glossaryTitle}</h2>
+            <h2 className="mt-5 display-2">{t.glossaryTitle}</h2>
           </div>
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             {t.glossary.map((o) => (

@@ -52,7 +52,7 @@ function FondePage() {
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12">
         <div>
           <span className="eyebrow">{t.baselineEyebrow}</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">{t.baselineHeading}</h2>
+          <h2 className="mt-5 display-2">{t.baselineHeading}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {t.baselineText}
           </p>
@@ -74,14 +74,14 @@ function FondePage() {
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12">
           <div>
             <span className="eyebrow">{t.applicationsEyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.applicationsHeading}</h2>
+            <h2 className="mt-5 display-2">{t.applicationsHeading}</h2>
             <p className="mt-4 text-muted-foreground">
               {t.applicationsText}
             </p>
           </div>
           <div>
             <span className="eyebrow">{t.tripartiteEyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.tripartiteHeading}</h2>
+            <h2 className="mt-5 display-2">{t.tripartiteHeading}</h2>
             <p className="mt-4 text-muted-foreground">
               {t.tripartiteText}
             </p>
@@ -92,7 +92,7 @@ function FondePage() {
       <section className="container-page py-20 md:py-24">
         <div className="max-w-3xl">
           <span className="eyebrow">{t.servicesEyebrow}</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">{t.servicesHeading}</h2>
+          <h2 className="mt-5 display-2">{t.servicesHeading}</h2>
         </div>
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {t.services.map((y) => (

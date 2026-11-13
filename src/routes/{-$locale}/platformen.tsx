@@ -111,7 +111,7 @@ function PlatformPage() {
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span className="eyebrow">{t.verification.eyebrow}</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">{t.verification.title}</h2>
+          <h2 className="mt-5 display-2">{t.verification.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {t.verification.body}
           </p>
@@ -140,7 +140,7 @@ function PlatformPage() {
         <div className="container-page py-20 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
           <div>
             <span className="eyebrow">{t.planting.eyebrow}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">{t.planting.title}</h2>
+            <h2 className="mt-5 display-2">{t.planting.title}</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               {t.planting.body}
             </p>
@@ -163,7 +163,7 @@ function PlatformPage() {
       <section className="container-page py-20 md:py-24 grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
         <div>
           <span className="eyebrow">{t.access.eyebrow}</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">{t.access.title}</h2>
+          <h2 className="mt-5 display-2">{t.access.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {t.access.body}
           </p>

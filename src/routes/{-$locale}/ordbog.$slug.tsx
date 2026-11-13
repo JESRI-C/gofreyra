@@ -58,7 +58,7 @@ function TermNotFound() {
   return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">{k.term.notFoundH1}</h1>
+        <h1 className="display-2">{k.term.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.term.notFoundBody}</p>
         <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.term.toGlossary} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
