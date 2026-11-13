@@ -54,7 +54,7 @@ function PlatformPage() {
       />
 
       {/* EVIDENSKÆDE */}
-      <section className="surface-beige">
+      <section className="surface-sand">
         <div className="container-page py-20 md:py-24">
           <SectionHeader
             eyebrow={t.evidence.eyebrow}
