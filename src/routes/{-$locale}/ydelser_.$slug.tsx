@@ -81,11 +81,9 @@ function ServiceDetailPage() {
     <PageLayout>
       <PageHero
         top={
-          <nav aria-label={t.services} className="eyebrow gap-2">
-            <LLink to="/ydelser" className="hover:underline">{t.services}</LLink>
-            <span aria-hidden>/</span>
-            <span className="sr-only">{s.title}</span>
-          </nav>
+          <p className="eyebrow">
+            <LLink to="/ydelser" className="hover:underline">{t.allServices}</LLink>
+          </p>
         }
         title={s.title}
         body={<p>{s.intro}</p>}
@@ -159,11 +157,11 @@ function ServiceDetailPage() {
 
       {reading.length > 0 && (
         <section className="container-page pb-16">
-          <h2 className="text-2xl md:text-3xl">{t.readMore}</h2>
-          <ul className="mt-5 space-y-2">
+          <h2 className="text-2xl md:text-[32px]">{t.readMore}</h2>
+          <ul className="mt-6 border-t border-brand-rule max-w-3xl">
             {reading.map((a) => (
-              <li key={a.slug}>
-                <LLink to="/viden/$slug" params={{ slug: a.slug }} className="inline-flex items-center text-brand-deep hover:text-foreground">
+              <li key={a.slug} className="border-b border-border">
+                <LLink to="/viden/$slug" params={{ slug: a.slug }} className="flex items-center py-3 text-brand-deep hover:underline">
                   <ArrowRight className="mr-2 w-4 h-4 shrink-0" /> {a.h1}
                 </LLink>
               </li>
