@@ -64,7 +64,7 @@ export function Header() {
         <div className="flex items-center gap-2 shrink-0">
           {/* Shown as soon as the longer EN/DE menus leave room; always in the mobile menu. */}
           <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} ${locale === "de" ? "px-4" : "px-5"} h-12 text-[15px]`}>
-            <LLink to="/kontakt">{t.cta} <ArrowRight className="w-4 h-4" aria-hidden /></LLink>
+            <LLink to="/kontakt">{t.cta} {locale !== "de" && <ArrowRight className="w-4 h-4" aria-hidden />}</LLink>
           </Button>
           <LanguageSwitcher />
           <button
