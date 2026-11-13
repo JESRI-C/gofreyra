@@ -9,12 +9,12 @@
   --font-sans: "Inter Variable", "Inter", "Helvetica Neue", system-ui, -apple-system, sans-serif;
   --font-display: "Inter Variable", "Inter", "Helvetica Neue", system-ui, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 2px);
-  --radius-2xl: calc(var(--radius) + 4px);
-  --radius-3xl: calc(var(--radius) + 8px);
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 6px;
+  --radius-3xl: 8px;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -41,6 +41,10 @@
   --color-brand-beige: var(--brand-beige);
   --color-brand-ink: var(--brand-ink);
   --color-brand-isen: var(--brand-isen);
+  --color-brand-pale: var(--brand-pale);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-sand: var(--brand-sand);
+  --color-brand-rule: var(--brand-rule);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -48,52 +52,57 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --shadow-soft: 0 1px 2px rgb(42 46 53 / 0.03), 0 2px 8px rgb(42 46 53 / 0.04);
-  --shadow-card: 0 1px 2px rgb(42 46 53 / 0.04), 0 6px 20px rgb(42 46 53 / 0.05);
+  --shadow-soft: none;
+  --shadow-card: 0 1px 2px rgb(36 39 43 / 0.04), 0 8px 24px rgb(36 39 43 / 0.06);
 }
 
 :root {
-  --radius: 0.375rem;
+  /* Freyra family brand system, approved November 2026 (see .lovable/brand-reference.md). */
+  --radius: 4px;
 
-  /* Brand */
-  --brand-deep: oklch(0.42 0.08 154);     /* #27543D mørk skovgrøn */
-  --brand-mid: oklch(0.66 0.09 150);      /* #66A182 medium */
-  --brand-beige: oklch(0.965 0.008 90);   /* rolig off-white */
-  --brand-ink: oklch(0.27 0.01 260);      /* #2A2E35 mørkegrå */
-  --brand-isen: #0860A4;                  /* Isen-blå, kun som accent på Isen-linket */
+  /* GoFreyra brand */
+  --brand-deep: #245A38;   /* GoFreyra primary green */
+  --brand-mid: #69A275;    /* mid green */
+  --brand-pale: #E2EFE4;   /* pale green sections */
+  --brand-dark: #173D28;   /* dark green sections */
+  --brand-rule: #9BB5A4;   /* thin green rules */
+  --brand-beige: #F5F3ED;  /* family sand */
+  --brand-sand: #F5F3ED;
+  --brand-ink: #24272B;    /* family ink, headings */
+  --brand-isen: #0860A4;   /* Isen blue, only on the Isen family link */
 
   /* Semantic */
-  --background: oklch(0.985 0.003 90);    /* off-white */
-  --foreground: oklch(0.32 0.01 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.32 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.32 0.01 260);
+  --background: #FBFAF8;   /* family paper */
+  --foreground: #303338;   /* family body text */
+  --card: #FFFFFF;
+  --card-foreground: #303338;
+  --popover: #FFFFFF;
+  --popover-foreground: #303338;
 
-  --primary: oklch(0.42 0.08 154);        /* mørk skovgrøn */
-  --primary-foreground: oklch(0.98 0.005 90);
+  --primary: #245A38;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.955 0.006 90);
-  --secondary-foreground: oklch(0.32 0.01 260);
+  --secondary: #F5F3ED;
+  --secondary-foreground: #24272B;
 
-  --muted: oklch(0.96 0.004 250);
-  --muted-foreground: oklch(0.52 0.01 260);
+  --muted: #F5F3ED;
+  --muted-foreground: #5A6066;
 
-  --accent: oklch(0.94 0.02 150);
-  --accent-foreground: oklch(0.42 0.08 154);
+  --accent: #E2EFE4;
+  --accent-foreground: #245A38;
 
-  --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: #FFFFFF;
 
-  --border: oklch(0.91 0.005 250);
-  --input: oklch(0.91 0.005 250);
-  --ring: oklch(0.42 0.08 154);
+  --border: #DFE1E4;
+  --input: #C9CDD1;
+  --ring: #245A38;
 
-  --chart-1: oklch(0.42 0.08 154);
-  --chart-2: oklch(0.66 0.09 150);
-  --chart-3: oklch(0.55 0.13 250);
+  --chart-1: #245A38;
+  --chart-2: #69A275;
+  --chart-3: #0860A4;
   --chart-4: oklch(0.78 0.13 90);
-  --chart-5: oklch(0.5 0.01 260);
+  --chart-5: #5A6066;
 }
 
 @layer base {
@@ -108,27 +117,64 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.6;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 550;
     color: var(--brand-ink);
+    text-wrap: balance;
+  }
+  h1, h2 {
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+  }
+  h3, h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.25;
   }
   p {
     max-width: 65ch;
   }
+  a {
+    text-underline-offset: 5px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
+  /* 1200 px content region with 8 px-based gutters. */
   .container-page {
     width: 100%;
-    max-width: 1200px;
+    max-width: calc(1200px + 2 * 1.5rem);
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1.5rem;
   }
   @media (min-width: 768px) {
-    .container-page { padding-inline: 2rem; }
+    .container-page { max-width: calc(1200px + 2 * 2.5rem); padding-inline: 2.5rem; }
+  }
+
+  /* Display type: ~40 px mobile, ~64 px desktop. */
+  .display-1 {
+    font-size: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.045em;
+  }
+  .display-2 {
+    font-size: clamp(2rem, 1.45rem + 1.4vw, 2.6875rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
   }
 
   .eyebrow {
@@ -136,30 +182,53 @@
     align-items: center;
     gap: 0.625rem;
     font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--brand-deep);
   }
-  .eyebrow::before {
-    content: "";
-    width: 1.5rem;
-    height: 1px;
-    background: var(--brand-deep);
-  }
 
+  /* Alternating section surface (pale green, as in the approved prototypes). */
   .surface-beige {
-    background: var(--brand-beige);
+    background: var(--brand-pale);
+  }
+  .surface-sand {
+    background: var(--brand-sand);
   }
 
   .gradient-hero {
-    background: var(--background);
+    background: var(--brand-pale);
   }
 
+  /* Flat panel: white, thin border, restrained radius. */
   .card-soft {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
   }
+
+  /* Editorial list item separated by a thin green rule instead of a card. */
+  .rule-card {
+    display: block;
+    border-top: 1px solid var(--brand-rule);
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .rule-step {
+    display: block;
+    border-top: 2px solid var(--brand-deep);
+    padding-top: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .photo-figure {
+    overflow: hidden;
+    border-radius: 0;
+  }
+}
+
+/* Photo captions sit flush under the image, like the approved prototypes. */
+.photo-figure > figcaption {
+  padding-inline: 0;
+  padding-bottom: 0;
 }
