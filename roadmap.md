@@ -37,3 +37,7 @@
 ## Flersproget site (DA/EN/DE)
 - [x] Sprogvælger, /en og /de URL'er, husket sprog på forsiden, oversat indhold, hreflang og sitemap
 - [x] Test af sprogskift, tilbage/frem, genindlæsning, mobil og 404; publicér ikke
+
+## Freyra family brandguide (nov 2026)
+- [x] GoFreyra-logo i header/footer, farver, typografi, PageHero, regler i lister, mørk CTA, Landskab/Forgrening
+- [x] Browsertjek 390/1440 px på alle tre sprog; publicér ikke
