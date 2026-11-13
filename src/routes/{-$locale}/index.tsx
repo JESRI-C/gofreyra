@@ -1,11 +1,11 @@
 import { LLink } from "@/components/site/LLink";
 import { createFileRoute } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, organizationJsonLd } from "@/components/site/SEO";
-import { FaqSection, FlowSection, GreenCTA, MicroStrip, SectionHeader, CardGrid } from "@/components/site/sections";
+import { FaqSection, FlowSection, GreenCTA, MicroStrip, SectionHeader, CardGrid, HeroActions } from "@/components/site/sections";
+import { LandskabMotif } from "@/components/site/brand";
 import heroAsset from "@/assets/freyra-luftfoto-01.jpg.asset.json";
 import g2 from "@/assets/drone-vandloeb-02.jpg.asset.json";
 import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
@@ -46,51 +46,49 @@ function HomePage() {
 
   return (
     <PageLayout>
-      {/* HERO med eget dronefoto */}
-      <section className="relative">
-        <div className="absolute inset-0">
-          <img
-            {...photoProps(heroAsset.url, "100vw")}
-            fetchPriority="high"
-            alt={t.hero.alt}
-            width={2000}
-            height={1500}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,30,25,0.55) 0%, rgba(20,30,25,0.35) 50%, rgba(20,30,25,0.65) 100%)" }} />
-        </div>
-        <div className="relative container-page py-28 md:py-40">
-          <div className="max-w-2xl">
-            <span className="eyebrow" style={{ color: "#fff" }}>{t.hero.eyebrow}</span>
-            <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08] text-white">
-              {t.hero.title}
-            </h1>
-            <p className="mt-6 text-lg text-white/85">
-              {t.hero.body}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild className="rounded-md h-12 px-6 text-base bg-white text-brand-deep hover:bg-white/90"><LLink to="/kontakt">{t.hero.primary}{" "}<ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-              <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base bg-transparent border-white/50 text-white hover:bg-white/10"><LLink to="/ydelser">{t.hero.secondary}</LLink></Button>
+      {/* HERO: editorial two columns over own drone photo with the Landskab motif */}
+      <section className="bg-brand-pale">
+        <div className="container-page pt-10 md:pt-16">
+          <p className="eyebrow">{t.hero.eyebrow}</p>
+          <div className="mt-6 grid lg:grid-cols-[1.25fr_0.75fr] gap-6 lg:gap-16 items-start">
+            <h1 className="display-1 max-w-[850px]">{t.hero.title}</h1>
+            <div className="lg:pt-2">
+              <p className="text-[17px] md:text-[19px] leading-relaxed text-foreground max-w-[450px]">{t.hero.body}</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <HeroActions primary={{ to: "/kontakt", label: t.hero.primary }} secondary={{ to: "/ydelser", label: t.hero.secondary }} />
+              </div>
             </div>
-            <p className="mt-6 text-xs text-white/60">{t.hero.credit}</p>
           </div>
+          <figure className="relative mt-8 md:mt-11 h-[260px] md:h-[405px] overflow-hidden">
+            <img
+              {...photoProps(heroAsset.url, "(min-width: 1280px) 1200px, 100vw")}
+              fetchPriority="high"
+              alt={t.hero.alt}
+              width={2000}
+              height={1500}
+              className="w-full h-full object-cover"
+            />
+            <LandskabMotif className="absolute -right-1 -bottom-px w-[240px] md:w-[500px]" />
+            <figcaption className="absolute left-2.5 bottom-2.5 md:left-5 md:bottom-4 bg-background/95 px-2.5 py-1 text-[10px] md:text-xs text-brand-ink">{t.hero.credit}</figcaption>
+          </figure>
         </div>
       </section>
 
       <MicroStrip items={t.microStrip} />
 
       {/* PROBLEM */}
-      <section className="container-page py-20 md:py-24">
+      <section className="container-page py-16 md:py-20">
         <SectionHeader
           eyebrow={t.problem.eyebrow}
           title={t.problem.title}
           body={t.problem.body}
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {t.problem.cards.map((p) => (
-            <div key={p.t} className="card-soft p-6">
-              <div className="font-semibold">{p.t}</div>
-              <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+        <div className="mt-10 grid md:grid-cols-3 gap-x-8 gap-y-6">
+          {t.problem.cards.map((p, i) => (
+            <div key={p.t} className="rule-card">
+              <span className="block text-[13px] text-brand-deep">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-5 text-xl md:text-2xl">{p.t}</h3>
+              <p className="mt-3 text-[15px] md:text-base text-foreground/85">{p.d}</p>
             </div>
           ))}
         </div>
@@ -106,14 +104,15 @@ function HomePage() {
       />
 
       {/* YDELSER */}
-      <section className="container-page py-20 md:py-24">
-        <SectionHeader eyebrow={t.services.eyebrow} title={t.services.title} />
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {t.services.items.map((y) => (
-            <LLink key={y.anchor} to="/ydelser" hash={y.anchor} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
-              <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
-              <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
-              <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-deep">{t.services.readMore}{" "}<ArrowRight className="ml-1 w-4 h-4" /></span>
+      <section className="container-page py-16 md:py-20">
+        <SectionHeader mark eyebrow={t.services.eyebrow} title={t.services.title} />
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+          {t.services.items.map((y, i) => (
+            <LLink key={y.anchor} to="/ydelser" hash={y.anchor} className="rule-card group hover:border-primary transition-colors">
+              <span className="block text-[13px] text-brand-deep">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-5 text-xl group-hover:text-brand-deep transition-colors">{y.t}</h3>
+              <p className="mt-3 text-[15px] text-foreground/85">{y.d}</p>
+              <span className="mt-4 inline-flex items-center text-[15px] font-semibold text-brand-deep underline underline-offset-4 decoration-1">{t.services.readMore}{" "}<ArrowRight className="ml-1 w-4 h-4" aria-hidden /></span>
             </LLink>
           ))}
         </div>
@@ -121,28 +120,27 @@ function HomePage() {
 
       {/* LEVERANCE med billedgalleri */}
       <section className="surface-beige">
-        <div className="container-page py-20 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="container-page py-16 md:py-20">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <span className="eyebrow">{t.delivery.eyebrow}</span>
-              <h2 className="mt-4 text-3xl md:text-4xl">{t.delivery.title}</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="eyebrow">{t.delivery.eyebrow}</p>
+              <h2 className="mt-5 display-2">{t.delivery.title}</h2>
+              <p className="mt-5 text-lg text-foreground/85">
                 {t.delivery.body}
               </p>
-              <ul className="mt-6 space-y-3 text-sm">
+              <ul className="mt-8 border-t border-brand-rule">
                 {t.delivery.bullets.map((b) => (
-                  <li key={b} className="flex gap-3 items-start">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
-                    <span className="font-medium">{b}</span>
+                  <li key={b} className="py-3 border-b border-brand-rule/60 font-medium text-brand-ink">
+                    {b}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {GALLERY.map((g) => (
-                <figure key={g.caption} className="card-soft overflow-hidden p-0 bg-card">
-                  <img {...photoProps(g.img, "(min-width: 1024px) 50vw, 100vw")} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
-                  <figcaption className="p-3 text-xs text-muted-foreground">{g.caption}{t.delivery.galleryCredit}</figcaption>
+                <figure key={g.caption} className="photo-figure">
+                  <img {...photoProps(g.img, "(min-width: 1024px) 25vw, 50vw")} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+                  <figcaption className="pt-2 text-xs text-muted-foreground">{g.caption}{t.delivery.galleryCredit}</figcaption>
                 </figure>
               ))}
             </div>
@@ -151,32 +149,31 @@ function HomePage() {
       </section>
 
       {/* OFFENTLIGE DATA */}
-      <section className="container-page py-16 md:py-20">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="eyebrow">{t.publicData.eyebrow}</span>
-          <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">
+      <section className="border-b border-border">
+        <div className="container-page py-12 md:py-14 grid md:grid-cols-[auto_1fr] gap-3 md:gap-10 md:items-baseline">
+          <p className="eyebrow">{t.publicData.eyebrow}</p>
+          <p className="text-base md:text-lg text-brand-ink leading-relaxed">
             {t.publicData.sources}
           </p>
         </div>
       </section>
 
       {/* SÅDAN ARBEJDER VI */}
-      <section className="surface-beige">
-        <div className="container-page py-20 md:py-24">
-          <SectionHeader eyebrow={t.principles.eyebrow} title={t.principles.title} />
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {t.principles.cards.map((c) => (
-              <div key={c.t} className="card-soft p-6 bg-card">
-                <div className="font-semibold">{c.t}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
-              </div>
-            ))}
-          </div>
+      <section className="container-page py-16 md:py-20">
+        <SectionHeader eyebrow={t.principles.eyebrow} title={t.principles.title} />
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
+          {t.principles.cards.map((c) => (
+            <div key={c.t} className="rule-step">
+              <h3 className="text-xl">{c.t}</h3>
+              <p className="mt-3 text-[15px] text-foreground/85">{c.d}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* HVEM */}
       <CardGrid
+        beige
         eyebrow={t.audience.eyebrow}
         title={t.audience.title}
         cols={3}

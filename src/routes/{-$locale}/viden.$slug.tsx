@@ -76,7 +76,7 @@ function ArticleNotFound() {
   return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">{k.article.notFoundH1}</h1>
+        <h1 className="display-2">{k.article.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.article.notFoundBody}</p>
         <LLink to="/viden" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.article.toViden} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
@@ -108,29 +108,31 @@ function ArticlePage() {
   return (
     <PageLayout>
       <article>
-        <header className="container-page pt-12 md:pt-16 max-w-3xl">
-          <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
+        <header className="bg-brand-pale">
+          <div className="container-page pt-10 pb-12 md:pt-14 md:pb-16 max-w-3xl">
+          <nav aria-label={k.breadcrumb} className="text-sm text-foreground/75">
             <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
             <LLink to="/viden" className="hover:text-foreground">{k.viden}</LLink> <span aria-hidden>/</span>{" "}
             <span className="text-foreground/80">{a.h1}</span>
           </nav>
-          <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{a.h1}</h1>
+          <h1 className="mt-6 text-[34px] md:text-[52px] leading-[1.08] tracking-[-0.04em]">{a.h1}</h1>
           <p className="mt-4 text-sm text-muted-foreground">
             {k.article.updated} <time dateTime={a.updated}>{formatDate(a.updated, locale)}</time>
           </p>
-          <p className="mt-6 text-lg md:text-xl text-foreground/85">{a.intro}</p>
+          <p className="mt-6 text-lg md:text-xl text-foreground">{a.intro}</p>
+          </div>
         </header>
 
         <figure className="container-page mt-10">
-          <div className="card-soft overflow-hidden p-0 bg-card">
+          <div className="photo-figure">
             <img
-              {...photoProps(hero.src, "100vw")}
+              {...photoProps(hero.src, "(min-width: 1280px) 1200px, 100vw")}
               loading="lazy"
               alt={hero.alt}
               decoding="async"
               className="w-full aspect-[21/9] object-cover"
             />
-            <figcaption className="p-3 text-xs text-muted-foreground">{k.article.caption}</figcaption>
+            <figcaption className="pt-3 text-xs text-muted-foreground">{k.article.caption}</figcaption>
           </div>
         </figure>
 

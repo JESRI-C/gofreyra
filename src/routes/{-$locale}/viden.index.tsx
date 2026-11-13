@@ -5,6 +5,7 @@ import { LLink } from "@/components/site/LLink";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
+import { PageHero } from "@/components/site/sections";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { clusters, shorten } from "@/lib/viden-helpers";
@@ -34,13 +35,15 @@ function VidenHub() {
   const k = KNOWLEDGE_COPY[locale];
   return (
     <PageLayout>
-      <section className="container-page py-12 md:py-16 max-w-3xl">
-        <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
-          <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span> <span>{k.viden}</span>
-        </nav>
-        <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{k.hub.h1}</h1>
-        <p className="mt-6 text-lg text-muted-foreground">{k.hub.intro}</p>
-      </section>
+      <PageHero
+        top={
+          <nav aria-label={k.breadcrumb} className="eyebrow gap-2">
+            <LLink to="/" className="hover:underline">{k.home}</LLink> <span aria-hidden>/</span> <span>{k.viden}</span>
+          </nav>
+        }
+        title={k.hub.h1}
+        body={<p>{k.hub.intro}</p>}
+      />
 
       {clusters(locale).map((c, ci) => (
         <section key={c.name} className={ci % 2 === 1 ? "surface-beige" : ""}>

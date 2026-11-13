@@ -58,7 +58,7 @@ function TermNotFound() {
   return (
     <PageLayout>
       <section className="container-page py-24 max-w-2xl">
-        <h1 className="text-3xl md:text-4xl">{k.term.notFoundH1}</h1>
+        <h1 className="display-2">{k.term.notFoundH1}</h1>
         <p className="mt-4 text-muted-foreground">{k.term.notFoundBody}</p>
         <LLink to="/ordbog" className="mt-6 inline-flex items-center text-brand-deep font-medium">{k.term.toGlossary} <ArrowRight className="ml-1 w-4 h-4" /></LLink>
       </section>
@@ -77,14 +77,19 @@ function TermPage() {
 
   return (
     <PageLayout>
-      <article className="container-page py-12 md:py-16 max-w-3xl">
-        <nav aria-label={k.breadcrumb} className="text-sm text-muted-foreground">
+      <article>
+        <header className="bg-brand-pale">
+        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-16 max-w-3xl">
+        <nav aria-label={k.breadcrumb} className="text-sm text-foreground/75">
           <LLink to="/" className="hover:text-foreground">{k.home}</LLink> <span aria-hidden>/</span>{" "}
           <LLink to="/ordbog" className="hover:text-foreground">{k.ordbog}</LLink> <span aria-hidden>/</span>{" "}
           <span className="text-foreground/80">{t.term}</span>
         </nav>
-        <h1 className="mt-5 text-3xl md:text-5xl leading-[1.12]">{t.term}</h1>
-        <p className="mt-6 card-soft p-5 surface-beige text-lg text-foreground/90 border-l-4 border-l-primary">{t.short}</p>
+        <h1 className="mt-6 display-1">{t.term}</h1>
+        </div>
+        </header>
+        <div className="container-page py-12 md:py-16 max-w-3xl">
+        <p className="text-lg md:text-xl text-brand-ink border-l-[3px] border-l-primary bg-card px-6 py-5">{t.short}</p>
         {t.body.map((p, i) => (
           <p key={i} className="mt-5 text-foreground/85 leading-relaxed">{p}</p>
         ))}
@@ -134,6 +139,7 @@ function TermPage() {
           {k.term.ctaLead}{" "}
           <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">{k.term.ctaLink}</LLink>.
         </p>
+        </div>
       </article>
     </PageLayout>
   );

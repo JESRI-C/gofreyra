@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import freyraIcon from "@/assets/freyra-icon.png";
 import { ydelserFor } from "@/data/ydelser";
 import { LLink } from "@/components/site/LLink";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
 import { BrandFamily } from "@/components/site/BrandFamily";
+import { GoFreyraLogo } from "@/components/site/brand";
 import { useLocale } from "@/i18n/useLocale";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
 
-const linkCls = "px-2.5 py-2 text-sm font-medium text-foreground/80 hover:text-foreground whitespace-nowrap";
+const linkBase = "py-2 text-brand-ink hover:underline whitespace-nowrap rounded-sm";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -17,34 +17,35 @@ export function Header() {
   const locale = useLocale();
   const t = CHROME_COPY[locale].nav;
   const ydelser = ydelserFor(locale);
+  // The English and German menu labels are longer, so they sit a little tighter.
+  const linkCls = `${linkBase} ${locale === "da" ? "px-2 text-[15px]" : locale === "en" ? "px-1.5 text-[14px]" : "px-1 text-[14px]"}`;
 
   return (
     <>
-    <div className="border-b border-border/60 bg-secondary/60">
-      <div className="container-page min-[1440px]:max-w-[1400px] flex h-9 items-center justify-end">
-        <BrandFamily />
+    <div className="border-b border-border bg-background">
+      <div className="container-page flex h-9 items-center">
+        <BrandFamily variant="bar" />
       </div>
     </div>
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="container-page min-[1440px]:max-w-[1400px] flex h-16 items-center justify-between gap-3">
-        <LLink to="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight shrink-0" aria-label={t.home}>
-          <img src={freyraIcon} alt="" className="w-9 h-9 object-contain" />
-          <span className="text-brand-deep">Freyra</span>
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
+      <div className={`container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3 ${locale === "da" ? "xl:gap-6" : "xl:gap-4"}`}>
+        <LLink to="/" className="flex items-center shrink-0 rounded-sm" aria-label={t.home}>
+          <GoFreyraLogo alt="" className="h-11 sm:h-12 xl:h-[54px]" />
         </LLink>
 
         <nav className="hidden xl:flex items-center gap-0.5 min-w-0" aria-label={t.mainNav}>
           <div className="relative group">
             <LLink to="/ydelser" className={`${linkCls} inline-flex items-center gap-1`}>
-              {t.services} <ChevronDown className="w-3.5 h-3.5" />
+              {t.services} <ChevronDown className="w-3.5 h-3.5" aria-hidden />
             </LLink>
-            <div className="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block">
-              <div className="w-80 rounded-md border border-border bg-background shadow-lg p-2">
+            <div className="absolute left-0 top-full pt-2 hidden group-hover:block group-focus-within:block">
+              <div className="w-80 rounded-md border border-border bg-card shadow-[var(--shadow-card)] p-2">
                 {ydelser.map((y) => (
                   <LLink
                     key={y.slug}
                     to="/ydelser/$slug"
                     params={{ slug: y.slug }}
-                    className="block rounded-md px-3 py-2 text-sm text-foreground/80 hover:bg-secondary hover:text-foreground"
+                    className="block rounded-sm px-3 py-2 text-sm text-foreground hover:bg-accent hover:text-brand-deep"
                   >
                     {y.title}
                   </LLink>
@@ -53,42 +54,44 @@ export function Header() {
             </div>
           </div>
           {t.items.map((item) => (
-            <LLink key={item.to} to={item.to} className={linkCls}>
+            // The contact item gives way to the "Book en snak" button once that button is shown.
+            <LLink key={item.to} to={item.to} className={`${linkCls} ${item.to === "/kontakt" ? (locale === "da" ? "hidden" : "min-[1440px]:hidden") : ""}`}>
               {item.label}
             </LLink>
           ))}
         </nav>
 
-        <div className="flex items-center gap-1.5 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           {/* Shown as soon as the longer EN/DE menus leave room; always in the mobile menu. */}
-          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} bg-primary hover:bg-primary/90 text-primary-foreground rounded-md`}>
-            <LLink to="/kontakt">{t.cta}</LLink>
+          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} ${locale === "de" ? "px-4" : "px-5"} h-12 text-[15px]`}>
+            <LLink to="/kontakt">{t.cta} {locale !== "de" && <ArrowRight className="w-4 h-4" aria-hidden />}</LLink>
           </Button>
           <LanguageSwitcher />
           <button
-            className="xl:hidden p-2"
+            className="xl:hidden inline-flex h-10 items-center rounded-sm border border-input px-4 text-sm font-medium text-brand-ink hover:bg-secondary"
             onClick={() => setOpen(!open)}
             aria-label={t.menu}
             aria-expanded={open}
+            aria-controls="mobile-menu"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {t.menu}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="xl:hidden border-t border-border bg-background">
-          <nav className="container-page py-4 space-y-1" aria-label={t.mainNav}>
+        <div id="mobile-menu" className="xl:hidden border-t border-border bg-background max-h-[calc(100dvh-76px)] overflow-y-auto">
+          <nav className="container-page py-4" aria-label={t.mainNav}>
             <button
-              className="flex w-full items-center justify-between py-2 text-sm font-medium"
+              className="flex w-full items-center justify-between py-3 text-base font-medium text-brand-ink border-b border-border"
               onClick={() => setServicesOpen(!servicesOpen)}
               aria-expanded={servicesOpen}
             >
-              {t.services} <ChevronDown className={`w-4 h-4 transition ${servicesOpen ? "rotate-180" : ""}`} />
+              {t.services} <ChevronDown className={`w-4 h-4 transition ${servicesOpen ? "rotate-180" : ""}`} aria-hidden />
             </button>
             {servicesOpen && (
-              <div className="pl-3 space-y-1 border-l border-border">
-                <LLink to="/ydelser" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">
+              <div className="pl-3 py-1 border-l-2 border-primary my-2">
+                <LLink to="/ydelser" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
                   {t.allServices}
                 </LLink>
                 {ydelser.map((y) => (
@@ -97,7 +100,7 @@ export function Header() {
                     to="/ydelser/$slug"
                     params={{ slug: y.slug }}
                     onClick={() => setOpen(false)}
-                    className="block py-2 text-sm text-muted-foreground"
+                    className="block py-2 text-sm text-muted-foreground hover:text-foreground"
                   >
                     {y.title}
                   </LLink>
@@ -105,13 +108,13 @@ export function Header() {
               </div>
             )}
             {t.items.map((item) => (
-              <LLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">
+              <LLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-brand-ink border-b border-border">
                 {item.label}
               </LLink>
             ))}
-            <div className="pt-2">
-              <Button asChild className="w-full rounded-md">
-                <LLink to="/kontakt" onClick={() => setOpen(false)}>{t.cta}</LLink>
+            <div className="pt-5 pb-2">
+              <Button asChild className="w-full h-12">
+                <LLink to="/kontakt" onClick={() => setOpen(false)}>{t.cta} <ArrowRight className="w-4 h-4" aria-hidden /></LLink>
               </Button>
             </div>
           </nav>

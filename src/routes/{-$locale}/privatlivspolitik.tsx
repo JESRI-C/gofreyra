@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
+import { PageHero } from "@/components/site/sections";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
 import { localizePath, toLocale } from "@/i18n/locale";
 import { useCopy } from "@/i18n/useLocale";
@@ -37,14 +38,16 @@ function PrivacyPage() {
 
   return (
     <PageLayout>
-      <section className="gradient-hero">
-        <div className="container-page py-16 md:py-20 max-w-3xl">
-          <span className="eyebrow">{t.eyebrow}</span>
-          <h1 className="mt-4 text-4xl md:text-5xl ">{t.heading}</h1>
-          <p className="mt-4 text-lg text-muted-foreground">{t.updated}</p>
-          {t.translationNotice ? <p>{t.translationNotice}</p> : null}
-        </div>
-      </section>
+      <PageHero
+        eyebrow={t.eyebrow}
+        title={t.heading}
+        body={
+          <>
+            <p>{t.updated}</p>
+            {t.translationNotice ? <p className="mt-3 text-base text-foreground/85">{t.translationNotice}</p> : null}
+          </>
+        }
+      />
 
       <div className="container-page py-14 max-w-3xl">
         <Section title={t.controller.title}>
