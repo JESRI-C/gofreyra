@@ -108,7 +108,7 @@ function GalleryPage() {
       <section className="container-page pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {FOTOS.map((f, i) => (
-            <figure key={f.url} className="card-soft overflow-hidden p-0 bg-card">
+            <figure key={f.url} className="photo-figure">
               <button
                 type="button"
                 onClick={() => setOpen(i)}
@@ -117,7 +117,7 @@ function GalleryPage() {
               >
                 <img {...photoProps(f.url, "(min-width: 1024px) 50vw, 100vw")} alt={f.alt} width={2000} height={f.h ?? 1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
               </button>
-              <figcaption className="p-3 text-xs text-muted-foreground">
+              <figcaption className="pt-3 text-xs text-muted-foreground">
                 {f.caption}{t.photoCredit}{formatMonth(f.month)}.
               </figcaption>
             </figure>

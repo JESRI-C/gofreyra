@@ -60,7 +60,7 @@ function AboutPage() {
           <h2 className="text-2xl md:text-3xl">{t.teamHeading}</h2>
           <div className="mt-5 space-y-4">
             {t.team.map((c) => (
-              <div key={c.t} className="card-soft p-5 bg-card">
+              <div key={c.t} className="rule-card">
                 <div className="font-semibold">{c.t}</div>
                 <div className="text-xs font-medium text-brand-deep mt-0.5">{c.r}</div>
                 <p className="mt-1.5 text-sm text-muted-foreground">{c.d}</p>

@@ -42,7 +42,7 @@ function MethodPage() {
       <section className="container-page py-16 md:py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.phases.map((f) => (
-            <div key={f.n} className="card-soft p-6 bg-card">
+            <div key={f.n} className="rule-card">
               <div className="text-sm font-mono text-brand-deep">{f.n}</div>
               <div className="mt-2 font-semibold">{f.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{f.d}</p>
@@ -59,7 +59,7 @@ function MethodPage() {
           </div>
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {t.quality.map((k) => (
-              <div key={k.t} className="card-soft p-6 bg-card">
+              <div key={k.t} className="rule-card">
                 <div className="font-semibold">{k.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{k.d}</p>
               </div>

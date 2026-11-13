@@ -44,7 +44,7 @@ function FaqPage() {
           </div>
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             {t.glossary.map((o) => (
-              <div key={o.t} className="card-soft p-6 bg-card">
+              <div key={o.t} className="rule-card">
                 <div className="font-semibold">{o.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{o.d}</p>
               </div>

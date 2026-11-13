@@ -96,7 +96,7 @@ function FondePage() {
         </div>
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {t.services.map((y) => (
-            <LLink key={y.slug} to="/ydelser/$slug" params={{ slug: y.slug }} className="card-soft p-6 bg-card group hover:border-primary/40 transition">
+            <LLink key={y.slug} to="/ydelser/$slug" params={{ slug: y.slug }} className="rule-card group hover:border-primary transition-colors">
               <div className="font-semibold group-hover:text-brand-deep transition">{y.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{y.d}</p>
             </LLink>

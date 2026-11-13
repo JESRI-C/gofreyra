@@ -139,6 +139,7 @@ function TermPage() {
           {k.term.ctaLead}{" "}
           <LLink to="/kontakt" className="text-brand-deep font-medium hover:text-foreground">{k.term.ctaLink}</LLink>.
         </p>
+        </div>
       </article>
     </PageLayout>
   );

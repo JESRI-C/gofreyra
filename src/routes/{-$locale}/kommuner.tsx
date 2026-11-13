@@ -78,7 +78,7 @@ function MunicipalitiesPage() {
         />
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {t.why.cards.map((p) => (
-            <div key={p.t} className="card-soft p-6">
+            <div key={p.t} className="rule-card">
               <div className="font-semibold">{p.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
             </div>
@@ -92,7 +92,7 @@ function MunicipalitiesPage() {
           <SectionHeader eyebrow={t.deliverables.eyebrow} title={t.deliverables.title} />
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             {t.deliverables.cards.map((c) => (
-              <div key={c.t} className="card-soft p-6 bg-card">
+              <div key={c.t} className="rule-card">
                 <div className="font-semibold">{c.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
               </div>

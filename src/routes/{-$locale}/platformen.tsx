@@ -63,7 +63,7 @@ function PlatformPage() {
           />
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {t.evidence.cards.map((c) => (
-              <div key={c.t} className="card-soft p-6 bg-card">
+              <div key={c.t} className="rule-card">
                 <div className="font-semibold">{c.t}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
               </div>
@@ -80,7 +80,7 @@ function PlatformPage() {
         />
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {SCREENS.map((s) => (
-            <figure key={s.src} className="card-soft overflow-hidden p-0 bg-card">
+            <figure key={s.src} className="photo-figure">
               <img {...photoProps(s.src, "100vw")} alt={s.alt} width={1600} height={1000} loading="lazy" className="w-full aspect-[8/5] object-cover" />
               <figcaption className="p-4 text-sm text-muted-foreground">{s.caption}</figcaption>
             </figure>
@@ -98,7 +98,7 @@ function PlatformPage() {
           />
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {KILDER.map((k) => (
-              <div key={k.t} className="card-soft p-5 bg-card">
+              <div key={k.t} className="rule-card">
                 <div className="font-semibold text-sm">{k.t}</div>
                 <p className="mt-1.5 text-xs text-muted-foreground">{k.d}</p>
               </div>
@@ -150,7 +150,7 @@ function PlatformPage() {
           </div>
           <div className="space-y-3">
             {t.planting.cards.map((c) => (
-              <div key={c.t} className="card-soft p-5 bg-card">
+              <div key={c.t} className="rule-card">
                 <div className="font-semibold text-sm">{c.t}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
               </div>
