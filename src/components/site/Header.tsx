@@ -9,7 +9,7 @@ import { GoFreyraLogo } from "@/components/site/brand";
 import { useLocale } from "@/i18n/useLocale";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
 
-const linkCls = "px-2 py-2 text-[15px] text-brand-ink hover:underline whitespace-nowrap rounded-sm";
+const linkBase = "py-2 text-brand-ink hover:underline whitespace-nowrap rounded-sm";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -17,6 +17,8 @@ export function Header() {
   const locale = useLocale();
   const t = CHROME_COPY[locale].nav;
   const ydelser = ydelserFor(locale);
+  // The English and German menu labels are longer, so they sit a little tighter.
+  const linkCls = `${linkBase} ${locale === "da" ? "px-2 text-[15px]" : "px-1.5 text-[14px]"}`;
 
   return (
     <>
@@ -28,7 +30,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
       <div className="container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3 xl:gap-6">
         <LLink to="/" className="flex items-center shrink-0 rounded-sm" aria-label={t.home}>
-          <GoFreyraLogo alt="" className="h-11 sm:h-12 xl:h-[58px]" />
+          <GoFreyraLogo alt="" className="h-11 sm:h-12 xl:h-[54px]" />
         </LLink>
 
         <nav className="hidden xl:flex items-center gap-0.5 min-w-0" aria-label={t.mainNav}>
