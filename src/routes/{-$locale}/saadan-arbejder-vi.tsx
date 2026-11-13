@@ -43,7 +43,7 @@ function MethodPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.phases.map((f) => (
             <div key={f.n} className="rule-card">
-              <div className="text-sm font-mono text-brand-deep">{f.n}</div>
+              <div className="text-[13px] text-brand-deep">{f.n}</div>
               <div className="mt-2 font-semibold">{f.t}</div>
               <p className="mt-2 text-sm text-muted-foreground">{f.d}</p>
             </div>
