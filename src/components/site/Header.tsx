@@ -18,7 +18,7 @@ export function Header() {
   const t = CHROME_COPY[locale].nav;
   const ydelser = ydelserFor(locale);
   // The English and German menu labels are longer, so they sit a little tighter.
-  const linkCls = `${linkBase} ${locale === "da" ? "px-2 text-[15px]" : "px-1.5 text-[14px]"}`;
+  const linkCls = `${linkBase} ${locale === "da" ? "px-2 text-[15px]" : locale === "en" ? "px-1.5 text-[14px]" : "px-1 text-[14px]"}`;
 
   return (
     <>
@@ -28,7 +28,7 @@ export function Header() {
       </div>
     </div>
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
-      <div className="container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3 xl:gap-6">
+      <div className={`container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3 ${locale === "da" ? "xl:gap-6" : "xl:gap-4"}`}>
         <LLink to="/" className="flex items-center shrink-0 rounded-sm" aria-label={t.home}>
           <GoFreyraLogo alt="" className="h-11 sm:h-12 xl:h-[54px]" />
         </LLink>
@@ -63,7 +63,7 @@ export function Header() {
 
         <div className="flex items-center gap-2 shrink-0">
           {/* Shown as soon as the longer EN/DE menus leave room; always in the mobile menu. */}
-          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} h-12 px-5 text-[15px]`}>
+          <Button asChild className={`hidden ${locale === "da" ? "xl:inline-flex" : "min-[1440px]:inline-flex"} ${locale === "de" ? "px-4" : "px-5"} h-12 text-[15px]`}>
             <LLink to="/kontakt">{t.cta} <ArrowRight className="w-4 h-4" aria-hidden /></LLink>
           </Button>
           <LanguageSwitcher />
