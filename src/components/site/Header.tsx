@@ -26,7 +26,7 @@ export function Header() {
       </div>
     </div>
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
-      <div className="container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3">
+      <div className="container-page flex h-[76px] xl:h-[92px] items-center justify-between gap-3 xl:gap-6">
         <LLink to="/" className="flex items-center shrink-0 rounded-sm" aria-label={t.home}>
           <GoFreyraLogo alt="" className="h-11 sm:h-12 xl:h-[58px]" />
         </LLink>
@@ -52,7 +52,8 @@ export function Header() {
             </div>
           </div>
           {t.items.map((item) => (
-            <LLink key={item.to} to={item.to} className={linkCls}>
+            // The contact item gives way to the "Book en snak" button once that button is shown.
+            <LLink key={item.to} to={item.to} className={`${linkCls} ${item.to === "/kontakt" ? (locale === "da" ? "hidden" : "min-[1440px]:hidden") : ""}`}>
               {item.label}
             </LLink>
           ))}

@@ -123,7 +123,7 @@
     font-family: var(--font-display);
     font-weight: 550;
     color: var(--brand-ink);
-    text-wrap: balance;
+    text-wrap: pretty;
   }
   h1, h2 {
     letter-spacing: -0.035em;
