@@ -6,7 +6,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { EvidenceChain } from "@/components/site/EvidenceChain";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
-import { FaqSection, GreenCTA, SectionHeader } from "@/components/site/sections";
+import { FaqSection, GreenCTA, SectionHeader, PageHero, HeroActions } from "@/components/site/sections";
 import s1 from "@/assets/drone-vandloeb-08.jpg.asset.json";
 import s2 from "@/assets/drone-vandloeb-09.jpg.asset.json";
 import s3 from "@/assets/drone-vandloeb-10.jpg.asset.json";
@@ -45,22 +45,13 @@ function PlatformPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-        <div>
-          <span className="eyebrow">{t.platform}</span>
-          <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">
-            {t.heroTitle}
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-            {t.heroBody}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">{t.book} <ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">{t.services}</LLink></Button>
-          </div>
-        </div>
-        <EvidenceChain />
-      </section>
+      <PageHero
+        eyebrow={t.platform}
+        title={t.heroTitle}
+        body={<p>{t.heroBody}</p>}
+        actions={<HeroActions primary={{ to: "/kontakt", label: t.book }} secondary={{ to: "/ydelser", label: t.services }} />}
+        aside={<EvidenceChain />}
+      />
 
       {/* EVIDENSKÆDE */}
       <section className="surface-beige">

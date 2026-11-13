@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
-import { FaqSection, GreenCTA } from "@/components/site/sections";
+import { FaqSection, GreenCTA, PageHero } from "@/components/site/sections";
 import { localizePath, toLocale } from "@/i18n/locale";
 import { useCopy } from "@/i18n/useLocale";
 import { COPY } from "@/i18n/pages/faq";
@@ -30,13 +30,7 @@ function FaqPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">{t.eyebrow}</span>
-        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">{t.title}</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-          {t.introduction}
-        </p>
-      </section>
+      <PageHero eyebrow={t.eyebrow} title={t.title} body={<p>{t.introduction}</p>} />
 
       {t.groups.map((g) => (
         <FaqSection key={g.title} items={g.items} eyebrow={g.title} title={g.title} />

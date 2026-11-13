@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
-import { GreenCTA } from "@/components/site/sections";
+import { GreenCTA, PageHero } from "@/components/site/sections";
 import sectionPhoto from "@/assets/freyra-luftfoto-06.jpg.asset.json";
 import { photoProps, ogImageFor } from "@/lib/photo-variants";
 import { getArtikel } from "@/lib/viden-helpers";
@@ -40,18 +40,12 @@ function FondePage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">{t.audience}</span>
-        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">{t.heading}</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-          {t.intro}
-        </p>
-      </section>
+      <PageHero eyebrow={t.audience} title={t.heading} body={<p>{t.intro}</p>} />
 
-      <section className="container-page pb-4">
-        <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img {...photoProps(sectionPhoto.url, "100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
-          <figcaption className="p-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
+      <section className="container-page pt-16 md:pt-20">
+        <figure className="photo-figure">
+          <img {...photoProps(sectionPhoto.url, "(min-width: 1280px) 1200px, 100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[16/9] md:aspect-[21/9] object-cover" />
+          <figcaption className="pt-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
         </figure>
       </section>
 

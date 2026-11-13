@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
-import { FaqSection, GreenCTA, MicroStrip, SectionHeader } from "@/components/site/sections";
+import { FaqSection, GreenCTA, MicroStrip, SectionHeader, PageHero, HeroActions } from "@/components/site/sections";
 import heroPhoto from "@/assets/drone-vandloeb-06.jpg.asset.json";
 import { photoProps, ogImageFor } from "@/lib/photo-variants";
 import { getArtikel } from "@/lib/viden-helpers";
@@ -47,31 +47,25 @@ function MunicipalitiesPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-        <div>
-          <span className="eyebrow">{t.hero.eyebrow}</span>
-          <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">
-            {t.hero.title}
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-            {t.hero.body}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-md h-12 px-6 text-base"><LLink to="/kontakt">{t.hero.primary}{" "}<ArrowRight className="ml-1.5 w-4 h-4" /></LLink></Button>
-            <Button asChild variant="outline" className="rounded-md h-12 px-6 text-base"><LLink to="/ydelser">{t.hero.secondary}</LLink></Button>
-          </div>
-        </div>
-        <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img
-            {...photoProps(heroPhoto.url, "100vw")}
-            alt={t.hero.imageAlt}
-            width={2000}
-            height={1333}
-            className="w-full aspect-[4/3] object-cover"
-          />
-          <figcaption className="p-3 text-xs text-muted-foreground">{t.hero.caption}</figcaption>
-        </figure>
-      </section>
+      <PageHero
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        body={<p>{t.hero.body}</p>}
+        actions={<HeroActions primary={{ to: "/kontakt", label: t.hero.primary }} secondary={{ to: "/ydelser", label: t.hero.secondary }} />}
+        aside={
+          <figure className="photo-figure">
+            <img
+              {...photoProps(heroPhoto.url, "(min-width: 1024px) 45vw, 100vw")}
+              alt={t.hero.imageAlt}
+              width={2000}
+              height={1333}
+              fetchPriority="high"
+              className="w-full aspect-[4/3] object-cover"
+            />
+            <figcaption className="pt-3 text-xs text-muted-foreground">{t.hero.caption}</figcaption>
+          </figure>
+        }
+      />
 
       <MicroStrip items={t.microStrip} />
 

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTASection } from "@/components/site/CTASection";
 import { buildHead, organizationJsonLd, breadcrumbJsonLd } from "@/components/site/SEO";
-import { GreenCTA, MicroStrip, CardGrid } from "@/components/site/sections";
+import { GreenCTA, MicroStrip, CardGrid, PageHero } from "@/components/site/sections";
 import moodPhoto from "@/assets/freyra-luftfoto-05.jpg.asset.json";
 import { photoProps } from "@/lib/photo-variants";
 import { localizePath, toLocale } from "@/i18n/locale";
@@ -32,18 +32,12 @@ function AboutPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">{t.eyebrow}</span>
-        <h1 className="mt-4 text-4xl md:text-5xl leading-[1.1]">{t.heading}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          {t.introduction}
-        </p>
-      </section>
+      <PageHero eyebrow={t.eyebrow} title={t.heading} body={<p>{t.introduction}</p>} />
 
-      <section className="container-page pb-12">
-        <figure className="card-soft overflow-hidden p-0 bg-card">
-          <img {...photoProps(moodPhoto.url, "100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[21/9] object-cover" />
-          <figcaption className="p-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
+      <section className="container-page pt-16 md:pt-20 pb-4">
+        <figure className="photo-figure">
+          <img {...photoProps(moodPhoto.url, "(min-width: 1280px) 1200px, 100vw")} alt={t.photoAlt} width={2000} height={1500} loading="lazy" className="w-full aspect-[16/9] md:aspect-[21/9] object-cover" />
+          <figcaption className="pt-3 text-xs text-muted-foreground">{t.photoCaption}</figcaption>
         </figure>
       </section>
 

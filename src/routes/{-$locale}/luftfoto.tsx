@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { buildHead, breadcrumbJsonLd } from "@/components/site/SEO";
-import { GreenCTA } from "@/components/site/sections";
+import { GreenCTA, PageHero } from "@/components/site/sections";
 import { localizePath, toLocale } from "@/i18n/locale";
 import { useCopy, useLocale } from "@/i18n/useLocale";
 import { COPY } from "@/i18n/pages/luftfoto";
@@ -103,13 +103,7 @@ function GalleryPage() {
 
   return (
     <PageLayout>
-      <section className="container-page py-16 md:py-24 max-w-3xl">
-        <span className="eyebrow">{t.pageName}</span>
-        <h1 className="mt-5 text-4xl md:text-6xl leading-[1.08]">{t.heading}</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-          {t.introduction}
-        </p>
-      </section>
+      <PageHero eyebrow={t.pageName} title={t.heading} body={<p>{t.introduction}</p>} />
 
       <section className="container-page pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
