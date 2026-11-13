@@ -1,5 +1,4 @@
 import { ArrowUpRight } from "lucide-react";
-import freyraIcon from "@/assets/freyra-icon.png";
 import { BRAND_FAMILY, CURRENT_BRAND, type BrandId } from "@/data/brand-family";
 import { LLink } from "@/components/site/LLink";
 import { useLocale } from "@/i18n/useLocale";
@@ -11,15 +10,19 @@ const ACCENT: Record<BrandId, string> = {
   isen: "text-brand-isen decoration-brand-isen",
 };
 
-/** Link group to the other Freyra Group brands. Used in the header bar and footer. */
-export function BrandFamily({ className = "" }: { className?: string }) {
+/**
+ * Link group to the Freyra Group brands. `bar` spreads label and links across the
+ * family bar above the header (as in the approved prototype); `inline` is used in the footer.
+ */
+export function BrandFamily({ className = "", variant = "inline" }: { className?: string; variant?: "bar" | "inline" }) {
   const locale = useLocale();
   const t = CHROME_COPY[locale].family;
+  const bar = variant === "bar";
 
   return (
-    <nav aria-label={t.navLabel} className={`flex items-center gap-x-3 text-xs ${className}`}>
+    <nav aria-label={t.navLabel} className={`flex items-center gap-x-3 text-xs tracking-[0.03em] ${bar ? "w-full justify-between" : ""} ${className}`}>
       <span className="text-muted-foreground">{t.label}</span>
-      <ul className="flex items-center gap-x-1">
+      <ul className={`flex items-center ${bar ? "gap-x-3 md:gap-x-5" : "gap-x-2"}`}>
         {BRAND_FAMILY.map((b) => {
           const current = b.id === CURRENT_BRAND;
           return (
@@ -28,9 +31,8 @@ export function BrandFamily({ className = "" }: { className?: string }) {
                 <LLink
                   to="/"
                   aria-current="true"
-                  className="inline-flex items-center gap-1.5 rounded-sm px-1.5 py-1 font-semibold text-brand-deep underline decoration-primary decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex items-center rounded-sm py-1 font-semibold text-brand-deep underline decoration-primary decoration-1 underline-offset-4"
                 >
-                  <img src={freyraIcon} alt="" width={14} height={14} className="h-3.5 w-3.5 object-contain" />
                   {b.name}
                   <span className="sr-only"> ({t.current})</span>
                 </LLink>
@@ -38,7 +40,7 @@ export function BrandFamily({ className = "" }: { className?: string }) {
                 <a
                   href={b.href}
                   rel="noopener"
-                  className={`inline-flex items-center gap-0.5 rounded-sm px-1.5 py-1 font-medium ${ACCENT[b.id]} underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}
+                  className={`inline-flex items-center gap-0.5 rounded-sm py-1 font-medium ${ACCENT[b.id]} underline-offset-4 hover:underline`}
                 >
                   {b.name}
                   <ArrowUpRight className="h-3 w-3" aria-hidden />
