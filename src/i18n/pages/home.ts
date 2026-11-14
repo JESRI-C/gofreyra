@@ -6,13 +6,12 @@ const da = {
   websiteName: "Freyra",
   websiteLanguage: "da-DK",
   hero: {
-    alt: "Slyngende vandløb gennem eng, set fra drone",
+    alt: "Sø omgivet af skov og en mark, set fra drone",
     eyebrow: "Freyra Evidence Workspace",
     title: "Dokumentation af naturprojekter, kommunen kan stå på mål for.",
     body: "Freyra samler dronefotos, offentlige data og faglig verifikation i én evidenskæde. Fra første flyvning til en baseline, der kan bruges i Grøn Trepart.",
     primary: "Book en snak",
     secondary: "Se ydelserne",
-    credit: "Eget dronefoto, september 2024.",
   },
   microStrip: ["Bygget til Grøn Trepart", "Offentlige datakilder", "Versionerede evidenspakker", "Dansk virksomhed"],
   problem: {
@@ -66,7 +65,6 @@ const da = {
       { alt: "Vandløbskorridor gennem græsarealer, set fra drone", caption: "Vandløbskorridor, oversigt" },
       { alt: "Vandløb med hegn og bevoksning mellem marker, fotograferet fra drone", caption: "Vandløb med hegn og bevoksning" },
     ],
-    galleryCredit: ". Eget dronefoto, august 2026.",
   },
   publicData: {
     eyebrow: "Bygget på offentlige data",
@@ -118,13 +116,12 @@ const en: Copy = {
   websiteName: "Freyra",
   websiteLanguage: "en-GB",
   hero: {
-    alt: "Winding watercourse through a meadow, viewed from a drone",
+    alt: "Lake surrounded by woodland and a field, viewed from a drone",
     eyebrow: "Freyra Evidence Workspace",
     title: "Nature project documentation your municipality can stand behind.",
     body: "Freyra brings drone images, public data and expert verification together in a single evidence chain. From the first flight to a baseline for use in the Green Tripartite (Grøn Trepart).",
     primary: "Book a conversation",
     secondary: "View services",
-    credit: "Our own drone image, September 2024.",
   },
   microStrip: ["Built for the Green Tripartite", "Public data sources", "Versioned evidence packages", "Danish company"],
   problem: {
@@ -178,7 +175,6 @@ const en: Copy = {
       { alt: "Watercourse corridor through grassland, viewed from a drone", caption: "Watercourse corridor, overview" },
       { alt: "Watercourse with hedgerows and vegetation between fields, photographed from a drone", caption: "Watercourse with hedgerows and vegetation" },
     ],
-    galleryCredit: ". Our own drone image, August 2026.",
   },
   publicData: {
     eyebrow: "Built on public data",
@@ -228,13 +224,12 @@ const de: Copy = {
   websiteName: "Freyra",
   websiteLanguage: "de-DE",
   hero: {
-    alt: "Gewundener Wasserlauf durch eine Wiese, aus der Drohne gesehen",
+    alt: "See, umgeben von Wald und einem Feld, aus der Drohne gesehen",
     eyebrow: "Freyra Evidence Workspace",
     title: "Dokumentation von Naturprojekten, für die Ihre Kommune einstehen kann.",
     body: "Freyra vereint Drohnenfotos, öffentliche Daten und fachliche Verifikation in einer einzigen Nachweiskette. Vom ersten Flug bis zu einer Baseline für die Grüne Dreiparteienvereinbarung (Grøn Trepart).",
     primary: "Gespräch vereinbaren",
     secondary: "Leistungen ansehen",
-    credit: "Eigene Drohnenaufnahme, September 2024.",
   },
   microStrip: ["Für die Grüne Dreiparteienvereinbarung entwickelt", "Öffentliche Datenquellen", "Versionierte Nachweispakete", "Dänisches Unternehmen"],
   problem: {
@@ -288,7 +283,6 @@ const de: Copy = {
       { alt: "Gewässerkorridor durch Grünland, aus der Drohne gesehen", caption: "Gewässerkorridor, Übersicht" },
       { alt: "Wasserlauf mit Hecken und Bewuchs zwischen Feldern, aus der Drohne fotografiert", caption: "Wasserlauf mit Hecken und Bewuchs" },
     ],
-    galleryCredit: ". Eigene Drohnenaufnahme, August 2026.",
   },
   publicData: {
     eyebrow: "Auf öffentlichen Daten aufgebaut",

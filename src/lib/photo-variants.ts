@@ -1,5 +1,11 @@
 // Generated: responsive WebP variants (800/1400 px) and 1200x630 share images for own drone photos.
-export type PhotoVariant = { src: string; w800: string; w1400: string; og: string; width: number; height: number };
+export type PhotoVariant = {
+  src: string; w800: string; w1400: string; og: string; width: number; height: number;
+  /** Optional 2000 px WebP, only for full-bleed heroes. */
+  w2000?: string;
+  /** Optional portrait crop (3:5) for full-bleed heroes on phones. */
+  mobile?: { w750: string; w1200: string; width: number; height: number };
+};
 export const PHOTO_VARIANTS: Record<string, PhotoVariant> = {
   "drone-vandloeb-01": { src: "/__l5e/assets-v1/12346676-b654-47df-8042-bac4c162c271/drone-vandloeb-01.jpg", w800: "/__l5e/assets-v1/70b418cc-384f-4b6a-8ea1-82f77666a96c/drone-vandloeb-01-800.webp", w1400: "/__l5e/assets-v1/a582aa31-8bd2-413c-802d-636d2b619805/drone-vandloeb-01-1400-compact.webp", og: "/__l5e/assets-v1/bd6f1159-82bd-4146-9b72-1b9af0482595/drone-vandloeb-01-og.jpg", width: 2000, height: 1333 },
   "drone-vandloeb-02": { src: "/__l5e/assets-v1/6a1698cc-980c-4389-bcf6-79bc78d59ac0/drone-vandloeb-02.jpg", w800: "/__l5e/assets-v1/105df174-d9b0-4835-8440-88812175b138/drone-vandloeb-02-800.webp", w1400: "/__l5e/assets-v1/00c80dbc-70cf-4727-8793-6589d78a555f/drone-vandloeb-02-1400-compact.webp", og: "/__l5e/assets-v1/e212013c-83f0-40fe-a35f-d25ed4a28ee3/drone-vandloeb-02-og.jpg", width: 2000, height: 1333 },
@@ -19,6 +25,7 @@ export const PHOTO_VARIANTS: Record<string, PhotoVariant> = {
   "freyra-luftfoto-05": { src: "/__l5e/assets-v1/4ade19da-693c-4aa2-8dde-9f74fc243a72/freyra-luftfoto-05.jpg", w800: "/__l5e/assets-v1/f434ee27-c7d9-4344-921b-e06963778bb0/freyra-luftfoto-05-800.webp", w1400: "/__l5e/assets-v1/69889359-e87d-4a1d-9064-ebc11e6f58eb/freyra-luftfoto-05-1400.webp", og: "/__l5e/assets-v1/4e494d15-ff65-40c3-84e2-c7ad08919e9d/freyra-luftfoto-05-og.jpg", width: 2000, height: 1500 },
   "freyra-luftfoto-06": { src: "/__l5e/assets-v1/7633e24d-322d-41e3-88c1-cbc3af20c4be/freyra-luftfoto-06.jpg", w800: "/__l5e/assets-v1/516d4bda-a1c7-4fde-8446-29105779fe08/freyra-luftfoto-06-800.webp", w1400: "/__l5e/assets-v1/77da6d82-20f6-492e-b84c-f45d34a56f5a/freyra-luftfoto-06-1400.webp", og: "/__l5e/assets-v1/ab0871f1-b506-4c08-94f3-39290b13c665/freyra-luftfoto-06-og.jpg", width: 2000, height: 1500 },
   "freyra-luftfoto-07": { src: "/__l5e/assets-v1/fed4968d-f9a1-4719-9f30-f951f3fde468/freyra-luftfoto-07.jpg", w800: "/__l5e/assets-v1/fa1f459c-11a5-40f0-bc72-b63bf6f58a27/freyra-luftfoto-07-800.webp", w1400: "/__l5e/assets-v1/8a5da049-1e91-457e-88c6-e0e743a678ce/freyra-luftfoto-07-1400.webp", og: "/__l5e/assets-v1/28c92f18-0c14-44dd-8a8c-ec455a10bf80/freyra-luftfoto-07-og.jpg", width: 2000, height: 1500 },
+  "dji-0241-soe": { src: "/__l5e/assets-v1/ef16251a-7ec7-4a6e-8a88-37434a6c9885/dji-0241-soe.jpg", w800: "/__l5e/assets-v1/62864107-c7fb-49a2-b2ab-d7a7cc91876a/dji-0241-soe-800.webp", w1400: "/__l5e/assets-v1/587f6a7e-5cc6-4c62-9c01-11431ecd00fa/dji-0241-soe-1400.webp", og: "/__l5e/assets-v1/8498c3c8-5777-4f51-9d6e-0c067a60f985/dji-0241-soe-og.jpg", width: 2000, height: 1500, w2000: "/__l5e/assets-v1/93a730b6-8c6f-4e42-9907-669b0a50f4e5/dji-0241-soe-2000.webp", mobile: { w750: "/__l5e/assets-v1/5ba62569-d6e3-4d3a-a257-6ec28c1757de/dji-0241-soe-mobil-750.webp", w1200: "/__l5e/assets-v1/6b3f91af-2553-4562-ac50-b3346517569f/dji-0241-soe-mobil-1200.webp", width: 1200, height: 2000 } },
   "freyra-luftfoto-08": { src: "/__l5e/assets-v1/027b0efe-fb44-4970-b689-2503e2006f4a/freyra-luftfoto-08.jpg", w800: "/__l5e/assets-v1/8065bd4f-ed4e-4329-a2ad-a8fddf185899/freyra-luftfoto-08-800.webp", w1400: "/__l5e/assets-v1/2a3448f5-615f-4c36-bb7c-e5eac91c86de/freyra-luftfoto-08-1400-compact.webp", og: "/__l5e/assets-v1/7e2a6fca-0432-4b93-88b2-007ae9eb0f6c/freyra-luftfoto-08-og.jpg", width: 2000, height: 1500 },
 };
 
@@ -41,6 +48,24 @@ export function photoProps(src: string, sizes = "100vw") {
     width: 1400,
     height: Math.round(v.height * 1400 / v.width),
     decoding: "async" as const,
+  };
+}
+
+/**
+ * Sources for a full-bleed hero: landscape srcset up to 2000 px for wider screens
+ * and a separate portrait crop for phones. Null when the photo has no hero variants.
+ */
+export function heroPhotoSources(src: string) {
+  const v = BY_SRC[src];
+  if (!v?.w2000 || !v.mobile) return null;
+  return {
+    mobile: { srcSet: `${v.mobile.w750} 750w, ${v.mobile.w1200} 1200w`, width: v.mobile.width, height: v.mobile.height },
+    desktop: {
+      src: v.w1400,
+      srcSet: `${v.w800} 800w, ${v.w1400} 1400w, ${v.w2000} 2000w`,
+      width: 2000,
+      height: Math.round(v.height * 2000 / v.width),
+    },
   };
 }
 
