@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794661827615,
+      "tag": "0000_pin_email_queue_function_search_path",
+      "breakpoints": true
+    }
+  ]
+}
