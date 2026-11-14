@@ -196,6 +196,13 @@
     background: var(--brand-sand);
   }
 
+  /* Discreet readability overlay on the full-bleed homepage photo. */
+  .hero-photo-overlay {
+    background:
+      linear-gradient(to top, color-mix(in srgb, var(--brand-dark) 80%, transparent) 0%, color-mix(in srgb, var(--brand-dark) 40%, transparent) 50%, color-mix(in srgb, var(--brand-dark) 12%, transparent) 100%),
+      linear-gradient(to right, color-mix(in srgb, var(--brand-dark) 35%, transparent) 0%, transparent 65%);
+  }
+
   .gradient-hero {
     background: var(--brand-pale);
   }

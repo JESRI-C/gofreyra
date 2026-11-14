@@ -6,12 +6,12 @@ import { CTASection } from "@/components/site/CTASection";
 import { buildHead, faqJsonLd, organizationJsonLd } from "@/components/site/SEO";
 import { FaqSection, FlowSection, GreenCTA, MicroStrip, SectionHeader, CardGrid, HeroActions } from "@/components/site/sections";
 import { LandskabMotif } from "@/components/site/brand";
-import heroAsset from "@/assets/freyra-luftfoto-01.jpg.asset.json";
+import heroAsset from "@/assets/dji-0241-soe.jpg.asset.json";
 import g2 from "@/assets/drone-vandloeb-02.jpg.asset.json";
 import g1 from "@/assets/drone-vandloeb-01.jpg.asset.json";
 import g3 from "@/assets/drone-vandloeb-03.jpg.asset.json";
 import g4 from "@/assets/drone-vandloeb-04.jpg.asset.json";
-import { photoProps, ogImageFor } from "@/lib/photo-variants";
+import { photoProps, ogImageFor, heroPhotoSources } from "@/lib/photo-variants";
 import { toLocale } from "@/i18n/locale";
 import { useCopy } from "@/i18n/useLocale";
 import { COPY } from "@/i18n/pages/home";
@@ -38,6 +38,7 @@ export const Route = createFileRoute("/{-$locale}/")({
 
 function HomePage() {
   const t = useCopy(COPY);
+  const hero = heroPhotoSources(heroAsset.url);
   const galleryImages = [g1.url, g3.url, g4.url, g2.url];
   const GALLERY = t.delivery.gallery.map((g, index) => ({
     img: galleryImages[index],
@@ -46,31 +47,31 @@ function HomePage() {
 
   return (
     <PageLayout>
-      {/* HERO: editorial two columns over own drone photo with the Landskab motif */}
-      <section className="bg-brand-pale">
-        <div className="container-page pt-10 md:pt-16">
-          <p className="eyebrow">{t.hero.eyebrow}</p>
-          <div className="mt-6 grid lg:grid-cols-[1.25fr_0.75fr] gap-6 lg:gap-16 items-start">
-            <h1 className="display-1 max-w-[850px]">{t.hero.title}</h1>
-            <div className="lg:pt-2">
-              <p className="text-[17px] md:text-[19px] leading-relaxed text-foreground max-w-[450px]">{t.hero.body}</p>
+      {/* HERO: full-bleed own drone photo (DJI_0241) with a discreet overlay and the Landskab motif */}
+      <section className="relative isolate flex min-h-[85svh] md:min-h-[85vh] overflow-hidden bg-brand-dark">
+        <picture className="absolute inset-0 -z-10">
+          {hero && <source media="(max-width: 767px)" srcSet={hero.mobile.srcSet} sizes="100vw" width={hero.mobile.width} height={hero.mobile.height} />}
+          <img
+            {...(hero ? { ...hero.desktop, sizes: "100vw" } : { src: heroAsset.url })}
+            fetchPriority="high"
+            decoding="async"
+            alt={t.hero.alt}
+            className="h-full w-full object-cover object-[60%_55%] md:object-[50%_58%]"
+          />
+        </picture>
+        <div aria-hidden className="hero-photo-overlay absolute inset-0 -z-10" />
+        <LandskabMotif className="absolute -right-1 -bottom-px w-[180px] md:w-[380px]" />
+        <div className="container-page relative flex w-full flex-col justify-end pt-14 pb-28 md:pt-20 md:pb-44">
+          <p className="eyebrow text-primary-foreground">{t.hero.eyebrow}</p>
+          <div className="mt-6 grid lg:grid-cols-[1.25fr_0.75fr] gap-6 lg:gap-16 items-end">
+            <h1 className="display-1 max-w-[850px] text-primary-foreground">{t.hero.title}</h1>
+            <div>
+              <p className="text-[17px] md:text-[19px] leading-relaxed text-primary-foreground/90 max-w-[450px]">{t.hero.body}</p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <HeroActions primary={{ to: "/kontakt", label: t.hero.primary }} secondary={{ to: "/ydelser", label: t.hero.secondary }} />
+                <HeroActions onPhoto primary={{ to: "/kontakt", label: t.hero.primary }} secondary={{ to: "/ydelser", label: t.hero.secondary }} />
               </div>
             </div>
           </div>
-          <figure className="relative mt-8 md:mt-11 h-[260px] md:h-[405px] overflow-hidden">
-            <img
-              {...photoProps(heroAsset.url, "(min-width: 1280px) 1200px, 100vw")}
-              fetchPriority="high"
-              alt={t.hero.alt}
-              width={2000}
-              height={1500}
-              className="w-full h-full object-cover"
-            />
-            <LandskabMotif className="absolute -right-1 -bottom-px w-[240px] md:w-[500px]" />
-            <figcaption className="absolute left-2.5 bottom-2.5 md:left-5 md:bottom-4 bg-background/95 px-2.5 py-1 text-[10px] md:text-xs text-brand-ink">{t.hero.credit}</figcaption>
-          </figure>
         </div>
       </section>
 
@@ -140,7 +141,7 @@ function HomePage() {
               {GALLERY.map((g) => (
                 <figure key={g.caption} className="photo-figure">
                   <img {...photoProps(g.img, "(min-width: 1024px) 25vw, 50vw")} alt={g.alt} width={2000} height={1333} loading="lazy" className="w-full aspect-[3/2] object-cover" />
-                  <figcaption className="pt-2 text-xs text-muted-foreground">{g.caption}{t.delivery.galleryCredit}</figcaption>
+                  <figcaption className="pt-2 text-xs text-muted-foreground">{g.caption}</figcaption>
                 </figure>
               ))}
             </div>
