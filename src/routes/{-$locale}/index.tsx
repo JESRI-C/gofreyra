@@ -60,7 +60,7 @@ function HomePage() {
           />
         </picture>
         <div aria-hidden className="hero-photo-overlay absolute inset-0 -z-10" />
-        <LandskabMotif className="absolute -right-1 -bottom-px w-[180px] md:w-[420px]" />
+        <LandskabMotif className="absolute -right-1 -bottom-px w-[180px] md:w-[380px]" />
         <div className="container-page relative flex w-full flex-col justify-end pt-14 pb-28 md:pt-20 md:pb-44">
           <p className="eyebrow text-primary-foreground">{t.hero.eyebrow}</p>
           <div className="mt-6 grid lg:grid-cols-[1.25fr_0.75fr] gap-6 lg:gap-16 items-end">
