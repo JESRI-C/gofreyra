@@ -55,14 +55,14 @@ export function PageHero({
 }
 
 /** Standard primary / secondary hero actions. */
-export function HeroActions({ primary, secondary }: { primary?: { to: string; label: string }; secondary?: { to: string; label: string } }) {
+export function HeroActions({ primary, secondary, onPhoto = false }: { primary?: { to: string; label: string }; secondary?: { to: string; label: string }; onPhoto?: boolean }) {
   return (
     <>
       {primary && (
         <Button asChild className="h-12 px-6 text-[15px]"><LLink to={primary.to}>{primary.label} <ArrowRight className="w-4 h-4" aria-hidden /></LLink></Button>
       )}
       {secondary && (
-        <Button asChild variant="outline" className="h-12 px-6 text-[15px]"><LLink to={secondary.to}>{secondary.label}</LLink></Button>
+        <Button asChild variant="outline" className={`h-12 px-6 text-[15px] ${onPhoto ? "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-brand-deep" : ""}`}><LLink to={secondary.to}>{secondary.label}</LLink></Button>
       )}
     </>
   );
