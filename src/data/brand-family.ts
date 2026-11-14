@@ -13,8 +13,9 @@ export interface FamilyBrand {
 }
 
 export const CURRENT_BRAND: BrandId = "gofreyra";
+export const FREYRA_GROUP_URL = "https://freyra.dk/";
 
 export const BRAND_FAMILY: FamilyBrand[] = [
   { id: "gofreyra", name: "GoFreyra", href: null },
-  { id: "isen", name: "Isen", href: "https://isenenergy.com" },
+  { id: "isen", name: "Isen", href: "https://www.isenenergy.com/da" },
 ];
