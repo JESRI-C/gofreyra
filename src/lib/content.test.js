@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { alleArtikler, alleTermer } from "../data/content";
 import { getArtikel, getTerm, getService, clusters, articlesForService } from "./viden-helpers";
-import { PHOTO_VARIANTS, photoProps } from "./photo-variants";
+import { PHOTO_VARIANTS, photoProps, heroPhotoSources } from "./photo-variants";
 import { sitemapEntries } from "./sitemap";
 
 describe("Runde 2 content integration", () => {
@@ -45,5 +45,13 @@ describe("Runde 2 content integration", () => {
       expect(props.srcSet).toBe(`${v.w800} 800w, ${v.w1400} 1400w`);
       expect(props.srcSet).not.toContain(v.src);
     }
+  });
+  test("homepage hero uses DJI_0241 with a phone crop and never the original file", () => {
+    const v = PHOTO_VARIANTS["dji-0241-soe"];
+    const hero = heroPhotoSources(v.src);
+    expect(hero?.desktop.srcSet).toBe(`${v.w800} 800w, ${v.w1400} 1400w, ${v.w2000} 2000w`);
+    expect(hero?.mobile.srcSet).toContain("dji-0241-soe-mobil-750.webp 750w");
+    expect(hero?.desktop.srcSet).not.toContain(v.src);
+    expect(heroPhotoSources(PHOTO_VARIANTS["freyra-luftfoto-01"].src)).toBeNull();
   });
 });
