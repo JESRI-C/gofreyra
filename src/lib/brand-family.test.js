@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { BRAND_FAMILY, CURRENT_BRAND } from "../data/brand-family";
+import { BRAND_FAMILY, CURRENT_BRAND, FREYRA_GROUP_URL } from "../data/brand-family";
 import { CHROME_COPY } from "../i18n/pages/chrome";
 
 describe("Freyra Group brand family", () => {
@@ -7,8 +7,11 @@ describe("Freyra Group brand family", () => {
     expect(BRAND_FAMILY.map((b) => b.id)).toEqual(["gofreyra", "isen"]);
     expect(CURRENT_BRAND).toBe("gofreyra");
   });
-  test("Isen links to https://isenenergy.com", () => {
-    expect(BRAND_FAMILY.find((b) => b.id === "isen")?.href).toBe("https://isenenergy.com");
+  test("Freyra Group links to https://freyra.dk/", () => {
+    expect(FREYRA_GROUP_URL).toBe("https://freyra.dk/");
+  });
+  test("Isen links to https://www.isenenergy.com/da", () => {
+    expect(BRAND_FAMILY.find((b) => b.id === "isen")?.href).toBe("https://www.isenenergy.com/da");
   });
   test("every other brand has a live https URL, never a placeholder", () => {
     for (const b of BRAND_FAMILY.filter((x) => x.id !== CURRENT_BRAND)) {

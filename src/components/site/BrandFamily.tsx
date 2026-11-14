@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { BRAND_FAMILY, CURRENT_BRAND, type BrandId } from "@/data/brand-family";
+import { BRAND_FAMILY, CURRENT_BRAND, FREYRA_GROUP_URL, type BrandId } from "@/data/brand-family";
 import { LLink } from "@/components/site/LLink";
 import { useLocale } from "@/i18n/useLocale";
 import { CHROME_COPY } from "@/i18n/pages/chrome";
@@ -21,7 +21,7 @@ export function BrandFamily({ className = "", variant = "inline" }: { className?
 
   return (
     <nav aria-label={t.navLabel} className={`flex items-center gap-x-3 text-xs tracking-[0.03em] ${bar ? "w-full justify-between" : ""} ${className}`}>
-      <span className="text-muted-foreground">{t.label}</span>
+      <a href={FREYRA_GROUP_URL} className="rounded-sm text-muted-foreground underline-offset-4 hover:underline">{t.label}</a>
       <ul className={`flex items-center ${bar ? "gap-x-3 md:gap-x-5" : "gap-x-2"}`}>
         {BRAND_FAMILY.map((b) => {
           const current = b.id === CURRENT_BRAND;
